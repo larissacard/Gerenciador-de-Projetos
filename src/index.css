@@ -1,0 +1,553 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --roxo: #280948;
+    --roxo1: #764BA2;
+    --azul: #96B3FD;
+    --azul1: #667EEA;
+    --cinza: #F5F5F7;
+    --cinza1: grey;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(135deg, var(--azul), var(--roxo));
+}
+
+.container_maior {
+    display: flex;
+    width: 88.54vw;
+    height: 83.62vh;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+}
+
+.header {
+    margin-left: 24px;
+    margin-top: 20px;
+    width: 15%;
+    height: 95%;
+    background-color: var(--roxo); 
+    border-radius: 32px;
+}
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÕES DO MENU -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+/* Tamanho dos botões */
+.btn1, .btn2 {
+    width: 30%;
+    height: 4%;
+    margin-top: 3.5vh;
+    transition: .2s;
+    
+    
+}
+/* Cor do botão 1 */
+.btn1 {
+    color: #fff;
+}
+
+/* Cor do botão 2 */
+.btn2 {
+    color:#fff;
+    opacity: 60%;
+}
+
+/* Icone e texto dos botões */
+.btn1_p1, .btn2_p1 {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 1vw;
+    gap:15%;
+    
+}
+
+.btn1:hover, .btn2:hover {
+    color: white;
+    opacity: 100%;
+    transition: .2s;
+    transform: scale(1.05);
+}
+
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=- CHARTS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.charts{
+    margin-top: 40px;
+    margin-left: 30px;
+    width: 636px;
+}
+
+.opcoes{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 636px;
+}
+
+.op, .bttnsem{
+    gap: 30px;
+    margin-right: 10px; 
+}
+
+.charts h5{
+    color: var(--roxo);
+    font-size: 32px;
+    line-height: 48px;
+    margin-top: -1px;
+    margin-bottom: 13px;
+}
+.grey{
+    color: black;
+    opacity: 0.3;
+}
+ 
+.grafico{
+    width:609px;
+    height:344px;
+}
+
+ /* -=-=-=-=-=-=-=-=-=-=-=-=-=- TODOS OS PROJETOS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+ .proj{
+    margin-top: 30px;
+    display: flex;
+    width: 637px;
+    height: 36px;
+    gap: 30px;    
+ }
+
+ .proj h4{
+    color: var(--roxo);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    width: 179px;
+ }
+
+ .bt{
+    width: 388px;
+    height: 36px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    
+ }
+
+ .lupa img{
+    position: relative;
+    margin-left: -40px;
+    margin-top: 2px;
+    width: 20px;
+    height: 30px;
+ }
+ 
+ .search {
+    width: 250px;
+    height: 36px;
+    border-radius: 30px;
+    border: 1px solid var(--roxo);
+    background-color: white;
+}
+
+.opbttn{
+    border-radius: 11px;
+    width: 100px;
+    height: 35px;
+    border: none;
+    color: var(--roxo);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+
+ }
+
+ .opbttn img{
+    margin-left: 5px;
+    align-items: center;
+ }
+
+
+
+.cont_table{
+    background: linear-gradient(90.24deg, #764BA2 9.3%, #667EEA 99.93%);
+    width: 606px;
+    border-radius: 10px;
+    height: 40px;
+    margin-top: 14px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.text{
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.cont_table button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 20px;
+    margin-top: 5px;
+} 
+
+ /* -=-=-=-=-=-=-=-=-=-=-=-=-=- Calendario -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.calendario{
+    display: flex;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Rubik', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+:root {
+    --primary: #FFB74A;
+    --secondary: #7196F3;
+    --light: #F2CA9A;
+    --cinza1: #717171;
+    --cinza2: #595959;
+    --cinza3: #393939;
+    --cinza4: #34373F;
+   
+
+
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(135deg, var(--azul), var(--roxo));
+}
+
+.container_maior {
+    display: flex;
+    width: 88.54vw;
+    height: 83.62vh;
+    background-image: linear-gradient(113.43deg, var(--primary) -71.14%, #505050 16.53%, #595959 89.77%, var(--secondary) 141.93%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.header {
+    margin-left: 24px;
+    margin-top: 20px;
+    width: 17.65%;
+}
+
+.header1 {
+    background-color: var(--cinza2); 
+    height: 20.24%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;            
+}
+  
+body::-webkit-scrollbar-track {
+background: var(--primary);   
+}
+
+body::-webkit-scrollbar-thumb {
+background-color: red;    
+border-radius: 20px;      
+border: 3px solid var(--primary) !important;  
+}
+  
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÕES DO MENU -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+/* Tamanho dos botões */
+/* .btn1, .btn2 {
+    width: 100%;
+    height: 5.57%;
+    margin-top: 1.5vh;
+    border-radius: 1.5vh;
+    transition: .2s;
+}
+
+.btn1:hover, .btn2:hover {
+    background-color: var(--cinza3);
+    transition: .2s;
+    transform: scale(1.05);
+}
+
+/* Cor do botão 1 */
+/* .btn1 {
+    box-shadow: 0px 0px 3px var(--primary);
+    background-color: var(--cinza2);
+} */
+
+/* Cor do botão 2 */
+/* .btn2 {
+    background-color: var(--cinza2);
+} */
+
+/* Icone e texto dos botões */
+/*.btn1_p1, .btn2_p1 {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 1vw;
+}
+
+.btn1_p1 > img,  .btn2_p1 > img{
+   height: 50%;
+   width: 50%;
+}
+
+.btn1_p1 > img {
+    box-shadow: 0px 0px 1px var(--primary);
+}
+
+.btn1_p1 > h2, .btn2_p1 > h2 {
+    margin-left: 0.5vw;
+    margin-top: 10px;
+    font-size: 1.79vh;
+}
+
+.btn1_p1 > h2 {
+   color: var(--primary) !important;
+}
+
+.btn2_p1 > h2 {
+    color: var(--light);
+ } */
+
+ /* Div colorida que fica na direita do botão */
+ /* .btn1_p2, .btn2_p2 {
+     float: right; 
+     height: 100%;
+     width: 11px;
+     border-radius: 0px 1.5vh 1.5vh 0px;
+ }
+
+.btn1_p2 {
+    background-color: var(--primary);
+}
+ 
+ .btn2_p2 {
+     background-color: #9D8B76;
+ } */
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÂO PRIMARY -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+/* .btn_primary {
+    background-color: var(--primary);
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 0px 0px 5px var(--primary);
+    padding-right: 10px;
+    padding-left: 10px;
+
+    height: 36px;
+    font-size: 20px;
+    color: white;
+
+    display: flex;
+    text-decoration: none; 
+    align-items: center;
+}
+
+.btn_primary p {
+    margin-bottom: 0px;
+}
+
+.btn_primary:hover p {
+    color: var(--cinza3);
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=- Menu1 -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+/* .menu1 {
+    background-color: var(--cinza2);
+    margin-left: 21px;  
+    margin-top: 20px;
+    padding: 15px;
+    
+    border-radius: 20px;
+    width: 36.01%;
+    height: 96.04%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchbar {
+    width: 90.74%;
+    height: 53px;
+    border-radius: 30px;
+    background-color: var(--cinza1);
+}
+
+.searchbar > input {
+    width: calc(90.74% - 50px);
+    height: 53px;
+    margin-left: 30px;
+    margin-right: 20px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    background-color: var(--cinza1);
+}
+
+.searchbar > button {
+    border: none;
+    background-color: transparent;
+    transition: .5s;
+}
+
+.searchbar > button:hover {
+    transform: scale(1.2)rotate(-10deg);
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: .5s;
+}
+
+.mostrarProjetos {
+    margin-top: 67px;
+    height: calc(100% - 120px);
+    width: 100%;
+}
+
+.mostrarProjetos > h1 {
+    color: var(--primary);
+    font-size: 48;
+}
+
+.cont_table {
+    background-color: var(--cinza1);
+    width: 100%;
+    padding: 5px;
+    border-radius: 15px;
+    height: calc(100% - 54px);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate !important;
+}
+
+thead, tbody {
+    border: var(--cinza1) !important;
+}
+
+th {
+    color: var(--primary);
+}
+
+.id_table {
+    color: var(--light);
+}
+
+tr > td {
+    color: white;
+    font-size: 15px;
+    padding-bottom: 4px !important;
+    padding-top: 4px !important;
+}
+
+tr:hover td {
+    background-color: var(--cinza2);
+}
+
+td button {
+    border: none;
+    background-color: var(--primary) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 89px;
+    height: 16px;
+    border-radius: 15px;
+    color: var(--cinza3);
+    box-shadow: 0px 0px 5px var(--primary);
+}
+
+td a{
+    text-decoration: none;
+    font-size: 14px;
+}
+
+td a:hover button {
+    transition: .5s;
+} */ 
+
+
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=- Exibir Projetos pelo ID -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+/*.cont_tituloprojeto {
+    width: 551px;
+    height: auto;
+    background-color: var(--cinza2);
+    border-radius: 20px;
+    padding: 15px;  
+}
+
+.cont_tarefasdoprojeto {
+    border-radius: 20px;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--cinza2);
+    width: 551px;
+    height: auto;
+    max-height: 485px;
+}
+
+.title_projeto_id {
+    margin-top: 20px;
+}
+
+h1 {
+    color: var(--primary);
+    margin-bottom: 0px;
+    font-size: 48px;
+}
+
+h2 {
+    color: var(--light);
+}
+
+h3 {
+    color: var(--primary);
+}
+
+.Title_exibirTarefasProjeto {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+} */
