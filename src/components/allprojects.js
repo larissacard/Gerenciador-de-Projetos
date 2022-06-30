@@ -11,7 +11,7 @@ function AllProjects(){
                     <button  className='opbttn'>Filtros
                         <img src="assets/seta.svg"></img>
                     </button>
-                    <input type="search" placeholder="Pesquise aqui..." className='search'></input>
+                    <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search'></input>
                     <a className='lupa'><img src="assets/search.svg"></img></a>
                </div>
             </div>
