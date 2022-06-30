@@ -23,8 +23,8 @@
 
 .container_maior {
     display: flex;
-    width: 88.54vw;
-    height: 83.62vh;
+    width: 78vw;
+    height: 92vh;
     background-color: #fff;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 2rem;
@@ -83,7 +83,7 @@
 
 .charts{
     margin-top: 40px;
-    margin-left: 30px;
+    margin-left: 40px;
     width: 636px;
 }
 
@@ -211,8 +211,10 @@
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- CARDS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 
 .coluna-tres{
-    margin-top: 50px;
-    margin-left: 60px;
+    margin-top: 6.25rem;
+    margin-left: 3.12rem;
+    width: 28.8rem;
+
  }
  .create_card {
     display: flex;
@@ -221,12 +223,7 @@
     background-image: url("../public/assets/create_background.svg");
     align-items: center;
     border-radius: 20px;
-    margin-bottom: 10px;
- }
-
- .create {
-    margin-left: -9%;
-    border: 1px solid black;
+    margin-bottom: 20px;
  }
 
  .create_card h5{
@@ -249,6 +246,17 @@
     background-color: white;
     border-radius: 10px;
     border: none;
+ }
+
+ .btn-create img{
+    width: 24px;
+    height: 24px;
+    align-self: center;
+ }
+
+ .btn-create button:hover{
+    width: 58px;
+    height: 58px;
  }
 
 

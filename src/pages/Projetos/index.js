@@ -94,8 +94,8 @@ function Projetos() {
                             <h5>Criar Projeto</h5>
                             <p>Criar um novo projeto</p>
                         </div>
-                        <div className="d-flex flex-row">
-                            <button><img/></button>
+                        <div className=" btn-create d-flex flex-row">
+                            <button><img src="assets/btn_create.svg"></img></button>
                         </div>
                     </div>  
                     <div className="calendario">
