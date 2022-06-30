@@ -257,13 +257,13 @@
     border: none;
  }
 
- .btn-create img{
+ .btn_criar img{
     width: 24px;
     height: 24px;
     align-self: center;
  }
 
- .btn-create button:hover{
+ .btn_criar button:hover{
     width: 58px;
     height: 58px;
  }
