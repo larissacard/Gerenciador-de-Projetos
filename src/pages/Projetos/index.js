@@ -89,8 +89,8 @@ function Projetos() {
                     </div>      
                 </div> 
                 <div className="coluna-tres">
-                    <div className="card d-flex flex-row justify-content-around">
-                        <div className="">
+                    <div className="create_card d-flex flex-row justify-content-around">
+                        <div className="create">
                             <h5>Criar Projeto</h5>
                             <p>Criar um novo projeto</p>
                         </div>
