@@ -41,13 +41,20 @@
     border-radius: 32px;
 }
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÕES DO MENU -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+.btmenu{
+    margin-top: 80px;
+    height: 605px;
+}
 
+.btn1_p1, .btn2_p h5{
+    margin-top: 5px;
+}
 /* Tamanho dos botões */
 .btn1, .btn2 {
-    width: 30%;
-    height: 4%;
+    height: 6%;
     margin-top: 3.5vh;
     transition: .2s;
+    border: solid 1px;
     
     
 }
@@ -69,7 +76,8 @@
     align-items: center;
     height: 100%;
     margin-left: 1vw;
-    gap:15%;
+    gap:30%;
+    width: 40px;
     
 }
 
@@ -99,10 +107,12 @@
 .op, .bttnsem{
     gap: 30px;
     margin-right: 10px; 
+    font-weight: 500;
 }
 
 .charts h5{
     color: var(--roxo);
+    font-weight: 600;
     font-size: 32px;
     line-height: 48px;
     margin-top: -1px;
@@ -129,7 +139,7 @@
 
  .proj h4{
     color: var(--roxo);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 20px;
     line-height: 30px;
     width: 179px;
@@ -161,37 +171,37 @@
 }
 
 .opbttn{
-    border-radius: 11px;
-    width: 100px;
-    height: 35px;
+    border-radius: 0.68rem;
+    width: 6.25rem;
+    height: 2.1rem;
     border: none;
     color: var(--roxo);
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.18rem;
 
  }
 
  .opbttn img{
-    margin-left: 5px;
+    margin-left: 0.3rem;
     align-items: center;
  }
 
 .cont_table{
     background: linear-gradient(90.24deg, #764BA2 9.3%, #667EEA 99.93%);
-    width: 606px;
-    border-radius: 10px;
-    height: 40px;
-    margin-top: 14px;
+    width: 37.8rem;
+    border-radius: 0.6rem;
+    height: 2.5rem;
+    margin-top: 0.9rem;
     color: white;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 1.12;
+    line-height: 1.7rem;
 }
 
 .text{
-    margin-top: 5px;
-    margin-left: 15px;
+    margin-top: 0.3rem;
+    margin-left: 0.9rem;
 }
 
 .cont_table button{
@@ -199,15 +209,16 @@
     border: none;
     color: white;
     font-weight: 600;
-    font-size: 18px;
-    margin-right: 20px;
-    margin-top: 5px;
+    font-size: 1.1rem;
+    margin-right: 1.25rem;
+    margin-top: 0.3rem;
 } 
 
  /* -=-=-=-=-=-=-=-=-=-=-=-=-=- Calendario -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 
 .calendario{
     display: flex;
+    margin-left: 5rem;
 }
  
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- CARDS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
@@ -225,7 +236,7 @@
     background-image: url("../public/assets/create_background.svg");
     align-items: center;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
  }
 
  .create {
@@ -261,14 +272,14 @@
  }
 
  .btn_criar img{
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     align-self: center;
  }
 
  .btn_criar button:hover{
-    width: 58px;
-    height: 58px;
+    width: 3.5rem;
+    height: 3.5rem;
  }
 
  .agenda {
