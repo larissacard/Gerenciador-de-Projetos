@@ -101,18 +101,44 @@ function Projetos() {
                     <div className="calendario">
                         <Date/>
                     </div>
-                    <div className="card d-flex flex-row justify-content-around">
-                        <h5>GP Inovação</h5>
-                        <div>
-                            <button></button>
+                    <div className="agenda d-flex flex-row justify-content-around">
+                        <div className="info_agenda">
+                            <h5>GP Inovação</h5>
+                            <div className="people">
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                            </div>
+                        </div>
+                        <div className="info_agenda2">
+                            <h6>9:00 AM</h6>
+                            <button><img src="assets/btn_completed_white.svg"/></button> 
                         </div>
                     </div> 
-                    <div className="card d-flex flex-row justify-content-around">
-                        <h5>Gerenciamento de Pousadas</h5>
-                        <div>
-                            <button></button>
+                    <div className="agenda d-flex flex-row justify-content-around">
+                        <div className="info_agenda">
+                            <div className="d-flex justify-content-evenly">
+                                <h5>Gerenciamento de Pousadas</h5>
+                                <h6>11:00 AM</h6>
+                            </div>
+                            <div className="people">
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                            </div>
+                        </div>
+                        <div className="info_agenda2">
+                            <div className="d-flex">
+                                <button><img src="assets/btn_completed_white.svg"/></button>
+                                <button><img src="assets/btn_x.svg"/></button>
+                            </div>
                         </div>
                     </div> 
+                    
+                    
+                    
                 </div>
                      
             </div>

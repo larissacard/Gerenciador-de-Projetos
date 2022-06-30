@@ -234,8 +234,8 @@
  }
 
  .create_card h5{
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 20px;
     line-height: 27px;
     color: var(--white)
  }
@@ -243,7 +243,7 @@
     color: var(--cinza);
     opacity: 0.3;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
  }
 
  .create_card button{
@@ -253,7 +253,6 @@
     justify-content: center;
     background-color: white;
     border-radius: 10px;
-    
     border: none;
  }
 
@@ -272,6 +271,80 @@
     height: 58px;
  }
 
+ .agenda {
+    display: flex;
+    width: 25rem;
+    height: 11rem;
+    background-image: url("../public/assets/create_background2.svg");
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 2rem; 
+    margin-top: 1rem; 
+ }
+
+ .info_agenda {
+    margin-left: -3%;
+    margin-top: -1%;
+ }
+
+ .info_agenda h5 {
+    width: 10vw;
+    border: 1px solid black;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--white)
+ }
+
+ .people {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 37%;
+    margin-top: 35%;
+ }
+ 
+.people img {
+    border: 1px solid black;
+    margin-left: -1rem;
+    margin-bottom: -10%;
+}
+
+.agenda h6 {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.agenda button {
+    display: flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--azul);
+    border-radius: 10px;
+    border: none;
+    margin-left: 1.7rem;
+    margin-top: 4rem;
+}
+
+.info_agenda2 {
+    margin-top: 0.2rem;
+    margin-right: -3%;
+    
+    border: 1px solid black;
+}
+
+.info_agenda2 img {
+    width: 1.25rem;  
+    height: 0.85rem; 
+}
+
+
+.btn_completed button {
+  
+
+}
 
 /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
