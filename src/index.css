@@ -152,12 +152,13 @@
     gap: 10px;
     justify-content: flex-end;
 }
-    .bt input {
-        padding-left: 0.7rem;
-    }   
+    
+.bt input {
+    padding-left: 0.7rem;
+}   
 
 
- .lupa img{
+.lupa img{
     position: relative;
     margin-left: -40px;
     margin-top: 2px;
@@ -182,15 +183,12 @@
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.18rem;
-
  }
 
  .opbttn img{
     margin-left: 0.3rem;
     align-items: center;
  }
-
-
 
 .cont_table{
     background: linear-gradient(90.24deg, #764BA2 9.3%, #667EEA 99.93%);
@@ -232,6 +230,7 @@
     margin-top: 6.25rem;
     margin-left: 3.12rem;
     width: 28.8rem;
+    border: 1px solid black;
  }
  .create_card {
     display: flex;
@@ -287,13 +286,14 @@
 
  .agenda {
     display: flex;
+    align-items: center;
     width: 25rem;
     height: 11rem;
     background-image: url("../public/assets/create_background2.svg");
-    align-items: center;
     border-radius: 20px;
     margin-bottom: 2rem; 
     margin-top: 1rem; 
+    margin-left: 2.5rem;
  }
 
 .info_agenda {
