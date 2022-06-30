@@ -257,6 +257,10 @@
     border: none;
  }
 
+ .btn_criar{
+    margin-right: -13%;
+ }
+
  .btn_criar img{
     width: 24px;
     height: 24px;
