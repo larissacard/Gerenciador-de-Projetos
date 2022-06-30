@@ -218,21 +218,36 @@
  }
  .card{
     display: flex;
-    width: 439.78px;
-    height: 106.05px;
+    width: 439px;
+    height: 106px;
     border: solid 1px;
-    background: linear-gradient(90.24deg, var(--roxo1) 9.3%, #667EEA 99.93%);
+    background: linear-gradient(90.24deg, var(--azul1) 9.3%, #667EEA 99.93%);
+    align-items: center;
     border-radius: 20px;
+    margin-bottom: 10px;
+ }
+ .card h5{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: white;
+ }
+ .card p{
+    color: var(--cinza);
+    opacity: 0.3;
  }
 
  .card button{
     display: flex;
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     justify-content: center;
     background-color: white;
-
+    border-radius: 10px;
+    border: none;
  }
+
+
 /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 * {

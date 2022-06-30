@@ -88,9 +88,33 @@ function Projetos() {
                         <AllProjects/>
                     </div>      
                 </div> 
-                <div className="calendario">
+                <div className="coluna-tres">
+                    <div className="card d-flex flex-row justify-content-around">
+                        <div className="">
+                            <h5>Criar Projeto</h5>
+                            <p>Criar um novo projeto</p>
+                        </div>
+                        <div className="d-flex flex-row">
+                            <button><img/></button>
+                        </div>
+                    </div>  
+                    <div className="calendario">
                         <Date/>
-                    </div>        
+                    </div>
+                    <div className="card d-flex flex-row justify-content-around">
+                        <h5>GP Inovação</h5>
+                        <div>
+                            <button></button>
+                        </div>
+                    </div> 
+                    <div className="card d-flex flex-row justify-content-around">
+                        <h5>Gerenciamento de Pousadas</h5>
+                        <div>
+                            <button></button>
+                        </div>
+                    </div> 
+                </div>
+                     
             </div>
         </div>
     );
