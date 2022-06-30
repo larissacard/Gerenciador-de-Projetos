@@ -102,7 +102,7 @@ function Projetos() {
                     </div>
                     <div className="agenda d-flex flex-row justify-content-around">
                         <div className="info_agenda">
-                            <h5>GP Inovação</h5>
+                            <h5 style={{textAlign:"left"}}>GP Inovação</h5>
                             <div className="people">
                                 <img src="assets/people.svg"/>
                                 <img src="assets/people.svg"/>
@@ -111,16 +111,15 @@ function Projetos() {
                             </div>
                         </div>
                         <div className="info_agenda2">
-                            <h6>9:00 AM</h6>
-                            <button><img src="assets/btn_completed_white.svg"/></button> 
+                            <h6 style={{textAlign:"right"}}>9:00 AM</h6>
+                            <div id="lado1" style={{display:"flex", justifyContent: "end"}}>
+                                <button><img src="assets/btn_completed_white.svg"/></button>
+                            </div>
                         </div>
-                    </div> 
+                    </div>
                     <div className="agenda d-flex flex-row justify-content-around">
                         <div className="info_agenda">
-                            <div className="d-flex justify-content-evenly">
-                                <h5>Gerenciamento de Pousadas</h5>
-                                <h6>11:00 AM</h6>
-                            </div>
+                            <h5 style={{textAlign:"left"}}>Gerenciamento de Pousadas</h5>
                             <div className="people">
                                 <img src="assets/people.svg"/>
                                 <img src="assets/people.svg"/>
@@ -129,17 +128,14 @@ function Projetos() {
                             </div>
                         </div>
                         <div className="info_agenda2">
-                            <div className="d-flex">
-                                <button><img src="assets/btn_completed_white.svg"/></button>
+                            <h6 style={{textAlign:"right"}}>11:00 AM</h6>
+                            <div id="lado2" style={{display:"flex", justifyContent: "end"}}>
                                 <button><img src="assets/btn_x.svg"/></button>
+                                <button><img src="assets/btn_completed.svg"/></button>
                             </div>
                         </div>
-                    </div> 
-                    
-                    
-                    
-                </div>
-                     
+                    </div>    
+                </div>    
             </div>
         </div>
     );
