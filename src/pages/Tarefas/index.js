@@ -106,6 +106,12 @@ function Tarefas(){
                         </div>
                     </div>
                 </div>
+                <div className="scrollbar">
+                    <img src="assets/scroll.png"></img>
+                </div>
+                <div class="decor">
+                    <img src="assets/decor.svg" ></img>
+                </div>
                 <div className="coluna-tres">
                     <div className="create_card d-flex flex-row justify-content-around">
                         <div className="create">
