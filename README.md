@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### INSTALAÇÕES NECESSARIAS:
 
-npm install --save react-google-charts
-npm install sassy-datepicker
+- npm install --save react-google-charts
+- npm install sassy-datepicker
 
 
