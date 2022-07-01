@@ -222,15 +222,15 @@
 .calendario{
     display: flex;
     margin-left: 5rem;
+    margin-top: 1rem;
 }
  
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- CARDS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 
 .coluna-tres{
-    margin-top: 6.25rem;
+    margin-top: 2.56rem;
     margin-left: 3.12rem;
     width: 28.8rem;
-    border: 1px solid black;
  }
  .create_card {
     display: flex;
@@ -239,7 +239,6 @@
     background-image: url("../public/assets/create_background.svg");
     align-items: center;
     border-radius: 20px;
-    margin-bottom: 0.625rem;
  }
  .create {
     margin-left: -12%;
@@ -291,7 +290,7 @@
     height: 11rem;
     background-image: url("../public/assets/create_background2.svg");
     border-radius: 20px;
-    margin-bottom: 2rem; 
+    margin-bottom: 1rem; 
     margin-top: 1rem; 
     margin-left: 2.5rem;
  }
