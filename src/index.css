@@ -476,6 +476,49 @@ body{
     margin-bottom: 14px;
 }
 
+ /* -=-=-=-=-=-=-=-=-=-=-=-=-=- PESSOA -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+ .cardp{
+    background: rgba(40, 9, 72, 0.5);
+    width: 38.75rem;
+    height: 10rem;
+    border-radius: 14px;
+    justify-content: space-around;
+    align-items: center;
+ }
+
+.infopessoas h2{
+    color: var(--roxo);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+}
+.infopessoas p{
+    color: var(--white);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.progresso-p{
+    margin-top: 1.79rem;
+    width: 38.75rem;
+    height: 7.68rem;
+}
+.nome-icon{
+    width: 38.75rem;
+    justify-content: space-between;
+    margin-bottom: 1.06rem;
+}
+
+.pessoas-equipe{
+   flex-direction:row-reverse ;
+}
+.pessoas-equipe img{
+    margin-left: -1rem;
+}
+.opcoes-pessoas{
+    margin-top: 2.37rem;
+}
 
 /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
