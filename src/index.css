@@ -518,8 +518,11 @@ body{
 }
 .opcoes-pessoas{
     margin-top: 2.37rem;
+    margin-bottom: 20px;
 }
-
+.grafico-pessoas{
+    margin-top:30px
+}
 /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 * {

@@ -2,6 +2,7 @@ import React from "react";
 import Data from "./data"
 import Header from "../../components/header";
 import Menu1 from "./menu1";
+import { GraficoP } from "../../components/grafico-p";
 
 function Pessoas(){
     return (
@@ -88,8 +89,7 @@ function Pessoas(){
                 </div>
                 <div className="opcoes-pessoas d-flex justify-content-between">
                     <div className="d-flex op">
-                        <h6>Concluido</h6>
-                        <h6 className="grey">Em desenvolvimento</h6>
+                        <h6>Desempenhos</h6> 
                     </div>
                 
                     <div className="bttnsem">
@@ -97,7 +97,11 @@ function Pessoas(){
                             <img src="assets/seta.svg"/>
                         </button>
                     </div> 
-                </div>     
+                    
+                </div>    
+                <div className="grafico-pessoas">
+                    <GraficoP />
+                </div>   
             </div>
                 
             </div>
