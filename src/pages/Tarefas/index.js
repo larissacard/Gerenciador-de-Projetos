@@ -161,7 +161,7 @@ function Tarefas(){
                                 <button><img src="assets/btn_completed.svg"/></button>
                             </div>
                         </div>
-                    </div>    
+                    </div>   
                 </div>
             </div>
         </div>

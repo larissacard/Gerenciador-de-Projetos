@@ -520,6 +520,10 @@ body{
 }
 .opcoes-pessoas{
     margin-top: 2.37rem;
+    margin-bottom: 20px;
+}
+.grafico-pessoas{
+    margin-top:30px
 }
 
 .coluna_pessoas {
