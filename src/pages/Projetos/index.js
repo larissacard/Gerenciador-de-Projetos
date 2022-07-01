@@ -96,9 +96,11 @@ function Projetos() {
                         <div className="btn_criar d-flex flex-row">
                             <button><img src="assets/btn_create.svg"/></button>
                         </div>
-                    </div>  
+                    </div>
+                      
+                    {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
                     <div className="calendario">
-                        <Date/>
+                        <img src="assets/calendario.svg"/>
                     </div>
                     <div className="agenda d-flex flex-row justify-content-around">
                         <div className="info_agenda">
