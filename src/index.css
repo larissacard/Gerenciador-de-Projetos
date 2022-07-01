@@ -221,17 +221,17 @@
 
 .calendario{
     display: flex;
-    margin-left: 5rem;
+    margin-top: 16px;
+    margin-bottom: 45px;
 }
  
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- CARDS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 
 .coluna-tres{
-    margin-top: 6.25rem;
+    margin-top: 6.8rem;
     margin-left: 3.12rem;
     width: 28.8rem;
-    border: 1px solid black;
- }
+}
  .create_card {
     display: flex;
     width: 27.4rem;
@@ -369,6 +369,8 @@
     height: 0.85rem; 
 }
 
+ /* -=-=-=-=-=-=-=-=-=-=-=-=-=- TODOS AS TAREFAS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
 .coluna-dois{
     width: 39.75rem;
     margin-left: 2.5rem;
@@ -387,12 +389,22 @@
     border-radius: 20px;
     border: solid 1px var(--roxo1);
 }
+
+.pross{
+    margin-top: 30px;
+    width: 31.3rem;
+}
+
+.pross p {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+}
+
 .barra{
     width: 40%;
 }
-.pross{
-    margin-top: 30px;
-}
+
 .taskscard{
     margin-top: 3.313rem;
     width: 35rem;
