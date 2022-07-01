@@ -227,8 +227,23 @@
     margin-bottom: 45px;
 }
  
-/* -=-=-=-=-=-=-=-=-=-=-=-=-=- CARDS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=- COLUNA-TRES-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+.scrollbar{
+    width: 10px;
+    height: 637px;
+    margin-top: 13.1rem;
+    margin-left: 57rem;
+    position: absolute;
+}
 
+.decor{
+    position: absolute;
+    margin-top: 28.9rem;
+    margin-left: 59.5rem;
+    width: 24px;
+    height: 464px;
+    
+}
 .coluna-tres{
     margin-top: 6.8rem;
     margin-left: 3.12rem;
