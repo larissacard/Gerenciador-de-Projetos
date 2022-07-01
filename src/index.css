@@ -44,7 +44,7 @@
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÕES DO MENU -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 .btmenu{
     margin-top: 80px;
-    height: 605px;
+    height: 37.8rem;
 }
 
 .btn1_p1, .btn2_p h5{
@@ -94,18 +94,18 @@
 .charts{
     margin-top: 40px;
     margin-left: 40px;
-    width: 636px;
+    width: 39.75rem;
 }
 
 .opcoes{
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    width: 636px;
+    width: 39.75rem;
 }
 
 .op, .bttnsem{
-    gap: 30px;
+    gap: 1.87rem;
     margin-right: 10px; 
     font-weight: 500;
 }
@@ -124,17 +124,17 @@
 }
  
 .grafico{
-    width:609px;
-    height:344px;
+    width: 38rem;
+    height: 21.5rem;
 }
 
  /* -=-=-=-=-=-=-=-=-=-=-=-=-=- TODOS OS PROJETOS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
  .proj{
     margin-top: 30px;
     display: flex;
-    width: 637px;
-    height: 36px;
-    gap: 30px;    
+    width: 39.8rem;
+    height: 2.25rem;
+    gap: 1.87rem;    
  }
 
  .proj h4{
@@ -142,14 +142,14 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
-    width: 179px;
+    width: 11.18rem;
  }
 
  .bt{
-    width: 388px;
-    height: 36px;
+    width: 24.25rem;
+    height: 2.25rem;
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     justify-content: flex-end;
 }
     
@@ -162,13 +162,13 @@
     position: relative;
     margin-left: -40px;
     margin-top: 2px;
-    width: 20px;
-    height: 30px;
+    width: 1.25rem;
+    height: 1.875rem;
  }
  
  .search {
-    width: 250px;
-    height: 36px;
+    width: 15.62rem;
+    height: 2.25rem;
     border-radius: 30px;
     border: 1px solid var(--roxo);
     background-color: white;
