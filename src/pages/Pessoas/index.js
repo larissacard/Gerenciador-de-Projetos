@@ -84,9 +84,12 @@ function Pessoas(){
                                 <img src="assets/people.svg"/>
                             </div>
                         </div>
-                        <p>Progresso</p>
+                        <div className="d-flex justify-content-between">
+                            <p style={{color: "var(--roxo)", fontWeight: "500"}}>Progresso</p>
+                            <p style={{color: "var(--roxo1)"}}>40%</p>
+                        </div>
                         <div class="progress" style={{height: "8px", borderRadius: "50px"}}>
-                            <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px"}}></div>
+                            <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}}></div>
                         </div>
                     </div>
                     <div className="opcoes-pessoas d-flex justify-content-between">
