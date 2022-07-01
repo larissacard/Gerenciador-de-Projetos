@@ -221,8 +221,8 @@
 
 .calendario{
     display: flex;
-    margin-left: 5rem;
-    margin-top: 1rem;
+    margin-top: 16px;
+    margin-bottom: 45px;
 }
  
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- COLUNA-TRES-=-=-=-=-=-=-=-=-=-=-=-=-=- */
@@ -243,10 +243,10 @@
     
 }
 .coluna-tres{
-    margin-top: 2.56rem;
+    margin-top: 6.8rem;
     margin-left: 3.12rem;
     width: 28.8rem;
- }
+}
  .create_card {
     display: flex;
     width: 27.4rem;
@@ -254,6 +254,7 @@
     background-image: url("../public/assets/create_background.svg");
     align-items: center;
     border-radius: 20px;
+    margin-bottom: 0.625rem;
  }
  .create {
     margin-left: -12%;
@@ -305,7 +306,7 @@
     height: 11rem;
     background-image: url("../public/assets/create_background2.svg");
     border-radius: 20px;
-    margin-bottom: 1rem; 
+    margin-bottom: 2rem; 
     margin-top: 1rem; 
     margin-left: 2.5rem;
  }
@@ -383,6 +384,8 @@
     height: 0.85rem; 
 }
 
+ /* -=-=-=-=-=-=-=-=-=-=-=-=-=- TODOS AS TAREFAS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
 .coluna-dois{
     width: 39.75rem;
     margin-left: 2.5rem;
@@ -401,12 +404,22 @@
     border-radius: 20px;
     border: solid 1px var(--roxo1);
 }
+
+.pross{
+    margin-top: 30px;
+    width: 31.3rem;
+}
+
+.pross p {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+}
+
 .barra{
     width: 40%;
 }
-.pross{
-    margin-top: 30px;
-}
+
 .taskscard{
     margin-top: 3.313rem;
     width: 35rem;
