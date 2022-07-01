@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ExibirProjetos from "./data";
 
-
 function AllProjects(){
     return(
         <div>

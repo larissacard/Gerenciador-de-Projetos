@@ -12,7 +12,7 @@ function Projetos() {
 
             <div className="container_maior">
                 <Header>
-                    <div>
+                    <div className="mt-4">
                         <img src="assets/logo.svg"></img>
                     </div>
                     
@@ -101,7 +101,7 @@ function Projetos() {
                             <button><img src="assets/btn_create.svg"/></button>
                         </div>
                     </div>
-                      
+
                     {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
                     <div className="calendario">
                         <img src="assets/calendario.svg"/>
