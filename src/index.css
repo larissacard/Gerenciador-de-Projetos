@@ -41,13 +41,23 @@
     background-color: var(--roxo); 
     border-radius: 32px;
 }
+
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÕES DO MENU -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 .btmenu{
-    margin-top: 80px;
-    height: 605px;
+    margin-top: 40px;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 0.5rem;
 }
 
-.btmenu h5 
+.btmenu h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+}
 
 .btn1_p1, .btn2_p h5{
     margin-top: 5px;

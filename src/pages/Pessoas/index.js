@@ -9,18 +9,18 @@ function Pessoas(){
 
             <div className="container_maior">
             <Header>
-                    <div>
+                    <div className="mt-4">
                         <img src="assets/logo.svg"></img>
                     </div>
                     
                     <div className="btmenu">
                         <a href="/projetos">
-                            <div className="btn1">
-                                <div className="btn1_p1">
-                                    <img width="30px" height="30px" src="assets/projetos_active.svg"></img>
+                            <div className="btn2">
+                                <div className="btn2_p1">
+                                    <img width="30px" height="30px" src="assets/projetos.svg"></img>
                                     <h5>Projetos</h5>
                                 </div>
-                                <div className="btn1_p2"></div>
+                                <div className="btn2_p2"></div>
                             </div>
                         </a>
                         <a href="/equipes">
@@ -33,12 +33,12 @@ function Pessoas(){
                             </div>
                         </a>
                         <a href="/pessoas">
-                            <div className="btn2">
-                                <div className="btn2_p1">
-                                    <img width="30px" height="30px" src="assets/pessoas.svg"></img>
+                            <div className="btn1">
+                                <div className="btn1_p1">
+                                    <img width="30px" height="30px" src="assets/pessoas_active.svg"></img>
                                     <h5>Pessoas</h5>
                                 </div>
-                                <div className="btn2_p2"></div>
+                                <div className="btn1_p2"></div>
                             </div>
                         </a>
                         <a href="/tarefas">
