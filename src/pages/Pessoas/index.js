@@ -91,8 +91,7 @@ function Pessoas(){
                     </div>
                     <div className="opcoes-pessoas d-flex justify-content-between">
                         <div className="d-flex op">
-                            <h6>Concluido</h6>
-                            <h6 className="grey">Em desenvolvimento</h6>
+                            <h6>Desempenhos</h6>
                         </div>
                     
                         <div className="bttnsem">
@@ -100,9 +99,12 @@ function Pessoas(){
                                 <img src="assets/seta.svg"/>
                             </button>
                         </div> 
-                    </div>     
+                    </div>  
+                    <div className="grafico-pessoas">
+                        <GraficoP />
+                    </div>    
                 </div>
-
+                
                 <div className="coluna_pessoas">
                     <div className='bt'>
                         <button  className='opbttn'>Filtros
@@ -161,25 +163,8 @@ function Pessoas(){
                             <img src="assets/scroll.png"/>
                         </div>
                     </div>
-                </div>
-                <div className="opcoes-pessoas d-flex justify-content-between">
-                    <div className="d-flex op">
-                        <h6>Desempenhos</h6> 
-                    </div>
-                
-                    <div className="bttnsem">
-                        <button className="opbttn">Semanal
-                            <img src="assets/seta.svg"/>
-                        </button>
-                    </div> 
-                    
-                </div>    
-                <div className="grafico-pessoas">
-                    <GraficoP />
-                </div>   
-            </div>
-                
-            </div>
+                </div>        
+            </div>    
         </div>
     );
 }

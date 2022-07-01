@@ -182,6 +182,7 @@ body{
  .search {
     width: 250px;
     height: 36px;
+
     border-radius: 30px;
     border: 1px solid var(--roxo);
     background-color: white;
@@ -420,6 +421,7 @@ body{
 .search2{
     height: 4rem;
     width: 38.75rem;
+    padding-left: 1rem;
     border-radius: 20px;
     border: solid 1px var(--roxo1);
 }
