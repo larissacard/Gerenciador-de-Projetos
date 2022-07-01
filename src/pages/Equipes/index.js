@@ -24,7 +24,7 @@ function Equipes(){
                         </a>
                         <a href="/equipes">
                             <div className="btn1">
-                                <div className="btn=1_p1">
+                                <div className="btn1_p1">
                                     <img width="30px" height="30px" src="assets/equipes_active.svg"></img>
                                     <h5>Equipes</h5>
                                 </div>
