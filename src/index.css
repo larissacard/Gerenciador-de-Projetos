@@ -6,7 +6,9 @@
     padding: 0;   
     font-family: 'Poppins', sans-serif;
 }
-
+body{
+    overflow-y:hidden;
+}
 :root {
     --roxo: #280948;
     --roxo1: #764BA2;
@@ -124,10 +126,8 @@
     color: black;
     opacity: 0.3;
 }
- 
 .grafico{
-    width:609px;
-    height:344px;
+    margin-left: -6%;
 }
 
  /* -=-=-=-=-=-=-=-=-=-=-=-=-=- TODOS OS PROJETOS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
@@ -236,7 +236,11 @@
 
     position: absolute;
 }
-
+.smallscroll{
+    position: absolute;
+    margin-top: 33rem;
+    margin-left: 58rem;
+}
 .decor{
     position: absolute;
     margin-top: 28.8rem;

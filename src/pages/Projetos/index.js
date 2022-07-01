@@ -80,13 +80,17 @@ function Projetos() {
                         </div> 
                         </div>   
         
-                    <div className="grafico">
-                        <Grafico/> 
-                    </div>
+                       <div className="grafico"><Grafico/></div> 
                     <div>
                         <AllProjects/>
                     </div>      
                 </div> 
+                <div className="smallscroll">
+                    <img src="assets/smallscroll.svg"></img>
+                </div>
+                <div class="decor">
+                    <img src="assets/decor.svg" ></img>
+                </div>
                 <div className="coluna-tres">
                     <div className="create_card d-flex flex-row justify-content-around">
                         <div className="create">
