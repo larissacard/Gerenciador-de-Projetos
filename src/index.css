@@ -34,7 +34,7 @@
 }
 
 .header {
-    margin-left: 24px;
+    margin-left: 2.5rem;
     margin-top: 20px;
     width: 15%;
     height: 95%;
@@ -95,7 +95,7 @@
 
 .charts{
     margin-top: 40px;
-    margin-left: 40px;
+    margin-left: 2.5rem;
     width: 636px;
 }
 
@@ -231,15 +231,16 @@
 .scrollbar{
     width: 10px;
     height: 637px;
-    margin-top: 13.1rem;
-    margin-left: 57rem;
+    margin-top: 12.1rem;
+    margin-left: 56.5rem;
+
     position: absolute;
 }
 
 .decor{
     position: absolute;
     margin-top: 28.8rem;
-    margin-left: 60.5rem;
+    margin-left: 60rem;
     width: 24px;
     height: 464px;
     
@@ -247,6 +248,7 @@
 .coluna-tres{
     margin-top: 4.8rem;
     margin-left: 3.12rem;
+    margin-right: 2.5rem;
     width: 28.8rem;
 }
  .create_card {
