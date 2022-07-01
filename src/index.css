@@ -236,14 +236,14 @@
 
 .decor{
     position: absolute;
-    margin-top: 28.9rem;
-    margin-left: 59.5rem;
+    margin-top: 28.8rem;
+    margin-left: 60.5rem;
     width: 24px;
     height: 464px;
     
 }
 .coluna-tres{
-    margin-top: 6.8rem;
+    margin-top: 4.8rem;
     margin-left: 3.12rem;
     width: 28.8rem;
 }
@@ -400,7 +400,7 @@
 
 .search2{
     height: 4rem;
-    width: 37.5rem;
+    width: 38.75rem;
     border-radius: 20px;
     border: solid 1px var(--roxo1);
 }
