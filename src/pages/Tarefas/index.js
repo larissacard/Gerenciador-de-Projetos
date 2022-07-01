@@ -73,7 +73,7 @@ function Tarefas(){
                         <div class="inforcard">
                             <h6>Front-End da API</h6>
                             <p>Projeto - API de Gerencimanto</p>
-                            <div class="people">
+                            <div class="people_tarefas">
                                 <img src="assets/people.svg"/>
                                 <img src="assets/people.svg"/>
                                 <img src="assets/people.svg"/>
