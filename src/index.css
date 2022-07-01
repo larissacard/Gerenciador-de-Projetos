@@ -163,6 +163,7 @@ body{
     display: flex;
     gap: 10px;
     justify-content: flex-end;
+    align-items: center;
 }
     
 .bt input {
@@ -405,7 +406,7 @@ body{
 
 .coluna-dois {
     width: 39.75rem;
-    margin-left: 2.5rem;
+    margin-left: 42px;
     margin-top: 3.313rem;
 }
 
@@ -513,11 +514,70 @@ body{
 .pessoas-equipe{
    flex-direction:row-reverse ;
 }
+
 .pessoas-equipe img{
     margin-left: -1rem;
 }
 .opcoes-pessoas{
     margin-top: 2.37rem;
+}
+
+.coluna_pessoas {
+    height: 80vh;
+    margin-top: 55px;
+    margin-left: 75px;
+}
+
+.all_cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    margin-top: 33px;
+}
+
+.card_pessoas_active {
+    background: rgba(40, 9, 72, 0.5);
+    width: 23.5rem;
+    height: 6.2rem;
+    border-radius: 14px;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.info_pessoas h2 {
+    color: var(--roxo);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.info_pessoas p {
+    color: var(--roxo1);
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 24px;
+}
+
+.profile {
+    width: 70px;
+    height: 70px;
+}
+
+.card_pessoas {
+    background: var(--cinza);
+    width: 23.5rem;
+    height: 6.2rem;
+    border-radius: 14px;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#scroll {
+    position: absolute;
+    margin-left: 25rem;
 }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
