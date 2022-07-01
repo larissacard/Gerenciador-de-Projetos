@@ -355,7 +355,6 @@ body{
  
 .people img {
     margin-left: -1rem;
-
 }
 
 .agenda h6 {
@@ -404,7 +403,7 @@ body{
 
  /* -=-=-=-=-=-=-=-=-=-=-=-=-=- TODOS AS TAREFAS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 
-.coluna-dois{
+.coluna-dois {
     width: 39.75rem;
     margin-left: 2.5rem;
     margin-top: 3.313rem;
@@ -424,8 +423,19 @@ body{
     border: solid 1px var(--roxo1);
 }
 
+.people_tarefas {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 26.4rem;
+    align-items: flex-end;
+}
+
+.people_tarefas img {
+    margin-left: -1rem;    
+}
+
 .pross{
-    margin-top: 30px;
+    margin-top: 50px;
     width: 31.3rem;
 }
 

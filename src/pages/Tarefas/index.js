@@ -81,8 +81,8 @@ function Tarefas(){
                             </div>
                             <div class="pross">
                                 <p>Progresso</p>
-                                <div class="progress">
-                                    <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" ></div>
+                                <div class="progress" style={{height: "8px", borderRadius: "50px"}}> 
+                                    <div class="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px"}} ></div>
                                 </div>
                             </div> 
                         </div>
@@ -91,7 +91,7 @@ function Tarefas(){
                         <div class="inforcard">
                             <h6>Banco de Dados da API</h6>
                             <p>Projeto -  API de Gerenciamento</p>
-                            <div class="people">
+                            <div class="people_tarefas">
                                 <img src="assets/people.svg"/>
                                 <img src="assets/people.svg"/>
                                 <img src="assets/people.svg"/>
@@ -99,8 +99,8 @@ function Tarefas(){
                             </div>
                             <div class="pross">
                                 <p>Progresso</p>
-                                <div class="progress">
-                                    <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" ></div>
+                                <div class="progress" style={{height: "8px", borderRadius: "50px"}}>
+                                    <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px"}}></div>
                                 </div>
                             </div> 
                         </div>
