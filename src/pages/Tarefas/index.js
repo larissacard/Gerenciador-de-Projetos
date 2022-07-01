@@ -80,7 +80,10 @@ function Tarefas(){
                                 <img src="assets/people.svg"/>
                             </div>
                             <div class="pross">
-                                <p>Progresso</p>
+                                <div className="d-flex align-items-center justify-content-between">
+                                    <p>Progresso</p>
+                                    <p style={{color: "var(--roxo1)"}}>40%</p>
+                                </div>
                                 <div class="progress" style={{height: "8px", borderRadius: "50px"}}> 
                                     <div class="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px"}} ></div>
                                 </div>
@@ -98,7 +101,10 @@ function Tarefas(){
                                 <img src="assets/people.svg"/>
                             </div>
                             <div class="pross">
-                                <p>Progresso</p>
+                                <div className="d-flex align-items-center justify-content-between">
+                                    <p>Progresso</p>
+                                    <p style={{color: "var(--roxo1)"}}>40%</p>
+                                </div>
                                 <div class="progress" style={{height: "8px", borderRadius: "50px"}}>
                                     <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px"}}></div>
                                 </div>
