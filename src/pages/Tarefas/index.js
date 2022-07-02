@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../components/header";
 import Menu1 from "./menu1";
 import Data from "./data"
-import Date from "../../components/date"
+import Scrollbar from "../../components/scrollbar";
 
 function Tarefas(){
     return (
@@ -69,52 +69,11 @@ function Tarefas(){
                         <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search2'></input>
                         <a className='lupa'><img src="assets/search.svg"></img></a>
                     </div>
-                    <div className="taskscard">
-                        <div class="inforcard">
-                            <h6>Front-End da API</h6>
-                            <p>Projeto - API de Gerencimanto</p>
-                            <div class="people_tarefas">
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                            </div>
-                            <div class="pross">
-                                <div className="d-flex align-items-center justify-content-between">
-                                    <p>Progresso</p>
-                                    <p style={{color: "var(--roxo1)"}}>40%</p>
-                                </div>
-                                <div class="progress" style={{height: "8px", borderRadius: "50px"}}> 
-                                    <div class="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}} ></div>
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-                    <div className="taskscard">
-                        <div class="inforcard">
-                            <h6>Banco de Dados da API</h6>
-                            <p>Projeto -  API de Gerenciamento</p>
-                            <div class="people_tarefas">
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                            </div>
-                            <div class="pross">
-                                <div className="d-flex align-items-center justify-content-between">
-                                    <p>Progresso</p>
-                                    <p style={{color: "var(--roxo1)"}}>40%</p>
-                                </div>
-                                <div class="progress" style={{height: "8px", borderRadius: "50px"}}>
-                                    <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}}></div>
-                                </div>
-                            </div> 
-                        </div>
+                    <div>
+                        <Scrollbar/>
                     </div>
                 </div>
-                <div className="scrollbar">
-                    <img src="assets/scroll.png"></img>
-                </div>
+                
                 <div class="decor">
                     <img src="assets/decor.svg" ></img>
                 </div>

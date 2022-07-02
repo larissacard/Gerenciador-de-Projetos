@@ -4,7 +4,6 @@ import Header from "../../components/header"
 import Menu1 from "./menu1";
 import Grafico from "../../components/grafico"
 import AllProjects from "../../components/allprojects";
-import Date from "../../components/date"
 
 function Projetos() {
     return (
