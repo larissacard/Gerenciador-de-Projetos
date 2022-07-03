@@ -1,50 +1,36 @@
-import React, { Component } from 'react';
-import api from '../../api'
+import React, { Component } from "react";
+import api from "../../api";
 
-class ExibirPessoas extends Component{
-    state = {
-      pessoas: [],
-    }
-  
-    async componentDidMount(){
-      const response = await api.get('/pessoas');
-  
-      this.setState({ pessoas: response.data })
-    }
-  
-    render() {
-  
-      const {pessoas} = this.state;
-  
-      return(
-        <div className="cont_table overflow-scroll">
-          <div>
-            <table className="table">
-              <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Profissão</th>
-                    <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {pessoas.map(p => (
-                  <tr key={p.id}>
-                    <td className='id_table col-1'>{p.id}</td>
-                    <td className='col-7'>{p.nome}</td>
-                    <td className='col-7'>{p.profissao}</td>
-                    <td>
-                    <a className='col-2' href={"pessoas/"+p.id}><button>Detalhar</button></a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            </div>
-        </div>
-      )
-    }
+class ExibirPessoas extends Component {
+  state = {
+    pessoas: [],
+  };
+
+  async componentDidMount() {
+    const response = await api.get("/pessoas");
+
+    this.setState({ pessoas: response.data });
   }
 
-  export default ExibirPessoas;
+  render() {
+    const { pessoas } = this.state;
+
+    return (
+      <div className="all_cards" style={{overflowY: "scroll"}}>
+        {pessoas.map((p) => (
+          <div key={p.pe_id} className="card_pessoas d-flex">
+            <div className="info_pessoas">
+              <h2>{p.pe_nome}</h2>
+              <p>{p.ca_cargo}</p>
+            </div>
+            <div>
+              <img className="profile" src="assets/profile.svg"></img>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+export default ExibirPessoas;

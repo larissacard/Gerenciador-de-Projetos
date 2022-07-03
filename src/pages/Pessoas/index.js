@@ -3,6 +3,7 @@ import Data from "./data"
 import Header from "../../components/header";
 import Menu1 from "./menu1";
 import { GraficoP } from "../../components/grafico-p";
+import ExibirPessoas from "./data";
 
 function Pessoas(){
     return (
@@ -116,56 +117,8 @@ function Pessoas(){
                         <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search'></input>
                         <a className='lupa'><img src="assets/search.svg"></img></a>
                     </div>
-                    <div className="all_cards">
-                        <div className="card_pessoas_active d-flex">
-                            <div className="info_pessoas">
-                                <h2>Bianca Stormi</h2>
-                                <p>Engenheira de Software</p>
-                            </div>
-                            <div>
-                                <img className="profile" src="assets/profile.svg"></img>
-                            </div>
-                        </div>
-                        <div className="card_pessoas d-flex">
-                            <div className="info_pessoas">
-                                <h2>Bianca Stormi</h2>
-                                <p>Engenheira de Software</p>
-                            </div>
-                            <div>
-                                <img className="profile" src="assets/profile.svg"></img>
-                            </div>
-                        </div>
-                        <div className="card_pessoas d-flex">
-                            <div className="info_pessoas">
-                                <h2>Bianca Stormi</h2>
-                                <p>Engenheira de Software</p>
-                            </div>
-                            <div>
-                                <img className="profile" src="assets/profile.svg"></img>
-                            </div>
-                        </div>
-                        <div className="card_pessoas d-flex">
-                            <div className="info_pessoas">
-                                <h2>Bianca Stormi</h2>
-                                <p>Engenheira de Software</p>
-                            </div>
-                            <div>
-                                <img className="profile" src="assets/profile.svg"></img>
-                            </div>
-                        </div>
-                        <div className="card_pessoas d-flex">
-                            <div className="info_pessoas">
-                                <h2>Bianca Stormi</h2>
-                                <p>Engenheira de Software</p>
-                            </div>
-                            <div>
-                                <img className="profile" src="assets/profile.svg"></img>
-                            </div>
-                        </div>
-                        <div id="scroll">
-                            <img src="assets/scroll.png"/>
-                        </div>
-                    </div>
+
+                    <ExibirPessoas/>
                 </div>        
             </div>    
         </div>
