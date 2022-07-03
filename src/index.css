@@ -424,7 +424,9 @@ body{
     color: var(--cinza1);
     margin-bottom: 14px;
 }
+
  /* -=-=-=-=-=-=-=-=-=-=-=-=-=- PESSOA -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+ 
  .cardp{
     background: rgba(40, 9, 72, 0.5);
     width: 38.75rem;
@@ -433,12 +435,14 @@ body{
     justify-content: space-around;
     align-items: center;
  }
+
 .infopessoas h2{
     color: var(--roxo);
     font-weight: 500;
     font-size: 32px;
     line-height: 48px;
 }
+
 .infopessoas p{
     color: var(--white);
     font-weight: 400;
@@ -451,11 +455,13 @@ body{
     width: 38.75rem;
     height: 7.68rem;
 }
+
 .nome-icon{
     width: 38.75rem;
     justify-content: space-between;
     margin-bottom: 1.06rem;
 }
+
 .pessoas-equipe{
    flex-direction:row-reverse ;
 }
@@ -463,6 +469,7 @@ body{
 .pessoas-equipe img{
     margin-left: -1rem;
 }
+
 .opcoes-pessoas{
     margin-top: 2.37rem;
 }
@@ -479,6 +486,7 @@ body{
     justify-content: space-between;
     height: 90%;
     margin-top: 33px;
+    width: 105%;
 }
 
 .card_pessoas_active {
@@ -518,6 +526,11 @@ body{
     justify-content: space-around;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card_pessoas:hover {
+    transition: .2s;
+    transform: scale(1.05);
 }
 
 #scroll {
