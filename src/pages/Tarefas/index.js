@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../components/header";
 import Menu1 from "./menu1";
 import Data from "./data"
-import Scrollbar from "../../components/scrollbar";
+import Date from "../../components/date"
 
 function Tarefas(){
     return (
@@ -10,18 +10,18 @@ function Tarefas(){
 
             <div className="container_maior">
                 <Header>
-                    <div className="mt-4"> 
+                    <div>
                         <img src="assets/logo.svg"></img>
                     </div>
                     
                     <div className="btmenu">
                         <a href="/projetos">
-                            <div className="btn2">
-                                <div className="btn2_p1">
-                                    <img width="30px" height="30px" src="assets/projetos.svg"></img>
+                            <div className="btn1">
+                                <div className="btn1_p1">
+                                    <img width="30px" height="30px" src="assets/projetos_active.svg"></img>
                                     <h5>Projetos</h5>
                                 </div>
-                                <div className="btn2_p2"></div>
+                                <div className="btn1_p2"></div>
                             </div>
                         </a>
                         <a href="/equipes">
@@ -43,12 +43,12 @@ function Tarefas(){
                             </div>
                         </a>
                         <a href="/tarefas">
-                            <div className="btn1">
-                                <div className="btn1_p1">
-                                    <img width="30px" height="30px" src="assets/tarefas_active.svg"></img>
+                            <div className="btn2">
+                                <div className="btn2_p1">
+                                    <img width="30px" height="30px" src="assets/tarefas.svg"></img>
                                     <h5>Tarefas</h5>
                                 </div>
-                                <div className="btn1_p2"></div>
+                                <div className="btn2_p2"></div>
                             </div>
                         </a>
                         <a href="/configuracoes">
@@ -69,28 +69,55 @@ function Tarefas(){
                         <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search2'></input>
                         <a className='lupa'><img src="assets/search.svg"></img></a>
                     </div>
-                    <div>
-                        <Scrollbar/>
+                    <div className="taskscard">
+                        <div class="inforcard">
+                            <h6>Front-End da API</h6>
+                            <p>Projeto - API de Gerencimanto</p>
+                            <div class="people">
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                            </div>
+                            <div class="pross">
+                                <p>Progresso</p>
+                                <div class="progress">
+                                    <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" ></div>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
-                </div>
-                
-                <div class="decor">
-                    <img src="assets/decor.svg" ></img>
+                    <div className="taskscard">
+                        <div class="inforcard">
+                            <h6>Banco de Dados da API</h6>
+                            <p>Projeto -  API de Gerenciamento</p>
+                            <div class="people">
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                                <img src="assets/people.svg"/>
+                            </div>
+                            <div class="pross">
+                                <p>Progresso</p>
+                                <div class="progress">
+                                    <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" ></div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
                 </div>
                 <div className="coluna-tres">
                     <div className="create_card d-flex flex-row justify-content-around">
                         <div className="create">
                             <h5>Criar Tarefa</h5>
-                            <p>Criar uma Nova Tarefa</p>
+                            <p>Criar um novo projeto</p>
                         </div>
                         <div className="btn_criar d-flex flex-row">
                             <button><img src="assets/btn_create.svg"/></button>
                         </div>
-                    </div> 
-
-                    {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
+                    </div>  
                     <div className="calendario">
-                        <img src="assets/calendario.svg"/>
+                        <Date/>
                     </div>
                     <div className="agenda d-flex flex-row justify-content-around">
                         <div className="info_agenda">
@@ -126,7 +153,7 @@ function Tarefas(){
                                 <button><img src="assets/btn_completed.svg"/></button>
                             </div>
                         </div>
-                    </div>   
+                    </div>    
                 </div>
             </div>
         </div>

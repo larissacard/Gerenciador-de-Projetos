@@ -1,0 +1,4 @@
+NECESSARIO:
+
+npm install --save react-google-charts
+npm install sassy-datepicker
