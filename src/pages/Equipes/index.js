@@ -8,27 +8,27 @@ function Equipes(){
 
             <div className="container_maior">
             <Header>
-                    <div>
+                    <div className="mt-4">
                         <img src="assets/logo.svg"></img>
                     </div>
                     
                     <div className="btmenu">
                         <a href="/projetos">
-                            <div className="btn1">
-                                <div className="btn1_p1">
-                                    <img width="30px" height="30px" src="assets/projetos_active.svg"></img>
+                            <div className="btn2">
+                                <div className="btn2_p1">
+                                    <img width="30px" height="30px" src="assets/projetos.svg"></img>
                                     <h5>Projetos</h5>
                                 </div>
-                                <div className="btn1_p2"></div>
+                                <div className="btn2_p2"></div>
                             </div>
                         </a>
                         <a href="/equipes">
-                            <div className="btn2">
-                                <div className="btn2_p1">
-                                    <img width="30px" height="30px" src="assets/equipes.svg"></img>
+                            <div className="btn1">
+                                <div className="btn1_p1">
+                                    <img width="30px" height="30px" src="assets/equipes_active.svg"></img>
                                     <h5>Equipes</h5>
                                 </div>
-                                <div className="btn2_p2"></div>
+                                <div className="btn1_p2"></div>
                             </div>
                         </a>
                         <a href="/pessoas">
@@ -59,8 +59,7 @@ function Equipes(){
                             </div>
                         </a>
                     </div>
-                </Header>  
-
+                </Header>
             </div>
         </div>
     );

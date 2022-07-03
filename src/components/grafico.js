@@ -24,8 +24,7 @@ export const options = {
   curveType: "function",
   legend: { position: "top" },
   colors: ["#280948", "#667EEA"],
-  width: "609px",
-  height:"344px",
+  
 
 };
 
@@ -33,8 +32,8 @@ export function Grafico() {
   return (
     <Chart
       chartType="LineChart"
-      width="609"
-      height="344px"
+      width="600px"
+      height="300px"
       data={data}
       options={options}
     />
