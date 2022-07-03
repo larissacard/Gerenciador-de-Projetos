@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../api'
 
-class ExibirTarefas extends Component{
+class ExibirTarefa extends Component{
     state = {
       tarefas: [],
     }
@@ -17,9 +17,9 @@ class ExibirTarefas extends Component{
       const {tarefas} = this.state;
   
       return(
-        <div>
+        <div className='alltasks' style={{overflowY:"scroll"}}>
             {tarefas.map(p => (
-              <div key={p.pr_id} className="task_table">
+              <div key={p.pr_id} className="task_table"  >
                   <div class="inforcard">
                     <h6>{p.tr_nome}</h6>
                     <p>{p.tr_descricao}</p>
@@ -46,4 +46,4 @@ class ExibirTarefas extends Component{
     }
   }
 
-  export default ExibirTarefas;
+  export default ExibirTarefa;

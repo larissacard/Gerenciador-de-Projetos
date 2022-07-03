@@ -84,9 +84,6 @@ function Projetos() {
                         <AllProjects/>
                     </div>      
                 </div> 
-                <div className="smallscroll">
-                    <img src="assets/smallscroll.svg"></img>
-                </div>
                 <div class="decor">
                     <img src="assets/decor.svg" ></img>
                 </div>

@@ -2,7 +2,8 @@ import React from "react";
 import Header from "../../components/header";
 import Menu1 from "./menu1";
 import Data from "./data"
-import Scrollbar from "../../components/scrollbar";
+import ExibirTarefa from "../../components/datatask"
+
 
 function Tarefas(){
     return (
@@ -69,9 +70,7 @@ function Tarefas(){
                         <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search2'></input>
                         <a className='lupa'><img src="assets/search.svg"></img></a>
                     </div>
-                    <div>
-                        <Scrollbar/>
-                    </div>
+                    <ExibirTarefa/>
                 </div>
                 
                 <div class="decor">

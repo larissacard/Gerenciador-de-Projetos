@@ -3,7 +3,7 @@ import ExibirProjetos from "./data";
 
 function AllProjects(){
     return(
-        <div>
+        <div class="allpro" style={{overflowY:"scroll", overflowX:"hidden"}}>
             <div className='proj'>
                 <h4>Todos os projetos</h4>
                <div className='bt'>
