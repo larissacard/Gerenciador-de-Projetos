@@ -4,7 +4,6 @@ import Header from "../../components/header"
 import Menu1 from "./menu1";
 import Grafico from "../../components/grafico"
 import AllProjects from "../../components/allprojects";
-import Date from "../../components/date"
 
 function Projetos() {
     return (
@@ -12,7 +11,7 @@ function Projetos() {
 
             <div className="container_maior">
                 <Header>
-                    <div>
+                    <div className="mt-4">
                         <img src="assets/logo.svg"></img>
                     </div>
                     
@@ -80,13 +79,17 @@ function Projetos() {
                         </div> 
                         </div>   
         
-                    <div className="grafico">
-                        <Grafico/> 
-                    </div>
+                       <div className="grafico"><Grafico/></div> 
                     <div>
                         <AllProjects/>
                     </div>      
                 </div> 
+                <div className="smallscroll">
+                    <img src="assets/smallscroll.svg"></img>
+                </div>
+                <div class="decor">
+                    <img src="assets/decor.svg" ></img>
+                </div>
                 <div className="coluna-tres">
                     <div className="create_card d-flex flex-row justify-content-around">
                         <div className="create">
@@ -96,9 +99,11 @@ function Projetos() {
                         <div className="btn_criar d-flex flex-row">
                             <button><img src="assets/btn_create.svg"/></button>
                         </div>
-                    </div>  
+                    </div>
+
+                    {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
                     <div className="calendario">
-                        <Date/>
+                        <img src="assets/calendario.svg"/>
                     </div>
                     <div className="agenda d-flex flex-row justify-content-around">
                         <div className="info_agenda">
