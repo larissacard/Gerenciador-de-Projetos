@@ -117,7 +117,6 @@ function Pessoas(){
                         <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search'></input>
                         <a className='lupa'><img src="assets/search.svg"></img></a>
                     </div>
-
                     <ExibirPessoas/>
                 </div>        
             </div>    
