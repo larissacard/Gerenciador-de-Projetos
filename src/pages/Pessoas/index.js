@@ -111,9 +111,16 @@ function Pessoas(){
                 
                 <div className="coluna_pessoas">
                     <div className='bt'>
-                        <button  className='opbttn'>Filtros
-                            <img src="assets/seta.svg"></img>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filtros
                         </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Ordem Alfabetica</a></li>
+                            <li><a class="dropdown-item" href="#">Filtro 2</a></li>
+                            <li><a class="dropdown-item" href="#">Filtro 3</a></li>
+                        </ul>
+                    </div>
                         <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search'></input>
                         <a className='lupa'><img src="assets/search.svg"></img></a>
                     </div>

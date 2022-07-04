@@ -540,19 +540,15 @@ body{
     position: absolute;
     margin-left: 25rem;
 }
-.simplebar-scrollbar{
-    background-color: var(--roxo1);
-    border-radius: 10px;
-}
 .all_cards::-webkit-scrollbar-thumb{
-    background: var(--roxo);
+    background: var(--roxo1);
     border-radius: 10px;
-    width: 10px;
+    width: 5px;
     height: 30px;
 }
 .all_cards::-webkit-scrollbar{
-    background: var(--cinza1);
-    width: 10px;
+    background: var(--cinza);
+    width: 5px;
     opacity: 0.3;
     border-radius: 10px;
 }
@@ -560,33 +556,32 @@ body{
     max-height: 500px;
 }
 .alltasks::-webkit-scrollbar-thumb{
-    background: var(--roxo);
+    background: var(--roxo1);
     border-radius: 10px;
-    width: 10px;
+    width: 5px;
     height: 30px;
 }
 .alltasks::-webkit-scrollbar{
-    background: var(--cinza1);
-    width: 10px;
+    background: var(--cinza);
+    width: 5px;
     opacity: 0.3;
     border-radius: 10px;
 }
 .allpro::-webkit-scrollbar-thumb{
-    background: var(--roxo);
+    background: var(--roxo1);
     border-radius: 10px;
-    width: 10px;
+    width: 5px;
     height: 30px;
 }
 .allpro::-webkit-scrollbar{
-    background: var(--cinza1);
-    width: 10px;
+    background: var(--cinza);
+    width: 5px;
     opacity: 0.3;
     border-radius: 10px;
 }
 .allpro{
     height: 300px;
 }
-
 
 /* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
