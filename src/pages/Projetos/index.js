@@ -80,7 +80,9 @@ function Projetos() {
                         </div> 
                         </div>   
         
-                       <div className="grafico"><Grafico/></div> 
+                       <div className="grafico">
+                        <Grafico/>
+                        </div> 
                     <div>
                         <AllProjects/>
                     </div>      

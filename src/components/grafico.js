@@ -1,5 +1,6 @@
 import React from "react";
 import { Chart } from "react-google-charts";
+import { nodeName } from "rsuite/esm/DOMHelper";
 
 // dados
 export const data = [
@@ -24,6 +25,8 @@ export const options = {
   curveType: "function",
   legend: { position: "top" },
   colors: ["#280948", "#667EEA"],
+  backgroundColor: "none",
+  
   
 
 };
@@ -32,10 +35,11 @@ export function Grafico() {
   return (
     <Chart
       chartType="LineChart"
-      width="600px"
-      height="300px"
+      width="100%"
+      height="400px"
       data={data}
       options={options}
+      
     />
   );
 }
