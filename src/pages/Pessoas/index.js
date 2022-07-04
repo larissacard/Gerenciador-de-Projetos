@@ -116,9 +116,9 @@ function Pessoas(){
                             Filtros
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Ordem Alfabetica</a></li>
-                            <li><a class="dropdown-item" href="#">Filtro 2</a></li>
-                            <li><a class="dropdown-item" href="#">Filtro 3</a></li>
+                            <li><a class="dropdown-item" href="#">Ordem Alfabetica A-Z</a></li>
+                            <li><a class="dropdown-item" href="#">Mais Recentes</a></li>
+                            <li><a class="dropdown-item" href="#">Mais Antigos</a></li>
                         </ul>
                     </div>
                         <input className='search_pessoas' id="placeholder" type="search" placeholder="Pesquise aqui..."></input>

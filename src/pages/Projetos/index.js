@@ -65,7 +65,7 @@ function Projetos() {
                     </div>
                 </Header>  
 
-                <div className="charts">
+                <div className="coluna-dois">
                     <h5>Projetos</h5>
                     <div className="opcoes justify-content-between">
                         <div className="d-flex op">
@@ -74,9 +74,13 @@ function Projetos() {
                         </div>
                     
                         <div className="bttnsem">
-                            <button className="opbttn">Semanal
-                                <img src="assets/seta.svg"/>
-                            </button>
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Semanal
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Mensal</a></li>
+                            <li><a class="dropdown-item" href="#">Anual</a></li>
+                        </ul>
                         </div> 
                         </div>   
         

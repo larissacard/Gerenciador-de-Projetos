@@ -11,7 +11,6 @@ export const data = [
 
 export const options = {
   colors: ["#280948", "#667EEA", "#764BA2"],
-  legend: { position: "bottom"},
 };
 
 export function GraficoP() {
@@ -19,7 +18,7 @@ export function GraficoP() {
     <Chart
       chartType="Bar"
       width="100%"
-      height="300px"
+      height="400px"
       data={data}
       options={options}
     />

@@ -91,10 +91,10 @@ body{
     transform: scale(1.05);
 }
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- CHARTS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
-.charts{
+.coluna-dois{
     margin-top: 40px;
     margin-left: 2.5rem;
-    width: 100%;
+    width: 660px;
 }
 .opcoes{
     display: flex;
@@ -107,7 +107,7 @@ body{
     margin-right: 10px; 
     font-weight: 500;
 }
-.charts h5{
+.coluna-dois h5{
     color: var(--roxo);
     font-weight: 600;
     font-size: 32px;
@@ -122,9 +122,10 @@ body{
 .grafico{
     margin-left: -0.9rem;
     background-color: var(--cinza);
-    width: 100%;
+    width: 650px;
     height: 399px;
     border-radius: 20px;
+    margin-bottom: 10px;
 }
  /* -=-=-=-=-=-=-=-=-=-=-=-=-=- TODOS OS PROJETOS -=-=-=-=-=-=-=-=-=-=-=-=-=- */
  .proj{
@@ -411,8 +412,9 @@ body{
     margin-top: 3.313rem;
     width: 35rem;
     height: auto;
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 30px;
+    margin-left: 30px;
 }
 .inforcard{
     margin-left: 1.875rem;
@@ -600,6 +602,14 @@ body{
     border: none;
     margin-right: 2.5rem;
  }
+ .grafico-pessoas{
+    margin-left: -0.9rem;
+    background-color: var(--cinza);
+    width: 650px;
+    height: 399px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+ }
 
 #scroll {
     position: absolute;
@@ -618,7 +628,9 @@ body{
     border-radius: 10px;
 }
 .alltasks{
-    max-height: 500px;
+    margin-top: 30px;
+    height: 650px;
+
 }
 .alltasks::-webkit-scrollbar-thumb{
     background: var(--roxo1);
