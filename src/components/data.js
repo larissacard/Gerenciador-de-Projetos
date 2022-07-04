@@ -19,10 +19,10 @@ class ExibirProjetos extends Component{
       return(
         <div className="cont_table">
             {projetos.map(p => (
-              <div key={p.pr_id} className="cont_table d-flex justify-content-between">
+              <div key={p.pr_id} className="cont_table d-flex justify-content-between align-items-center">
                 <p className='text'>{p.pr_nome}</p>
                 <p>
-                <a href={"projetos/"+p.pr_id}><button className='bttn'>Detalhes</button></a>
+                <a href={"projetos/"+p.pr_id}><button className='mb-2'>Detalhes</button></a>
                 </p>
               </div>
             ))}

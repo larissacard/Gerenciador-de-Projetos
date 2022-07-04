@@ -67,8 +67,10 @@ function Tarefas(){
                 <div className="coluna-dois">
                     <div className="info_search">
                         <h5>Tarefas</h5>
-                        <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search2'></input>
-                        <a className='lupa'><img src="assets/search.svg"></img></a>
+                        <div className="d-flex align-items-center" style={{width: "38.1rem"}}>
+                            <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search2 px-3'></input>
+                            <a><img style={{marginLeft: "-2.5rem", width: "25px", height: "35px"}} src="assets/search.svg"></img></a>
+                        </div>
                     </div>
                     <ExibirTarefa/>
                 </div>

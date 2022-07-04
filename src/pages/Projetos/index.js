@@ -4,6 +4,7 @@ import Header from "../../components/header"
 import Menu1 from "./menu1";
 import Grafico from "../../components/grafico"
 import AllProjects from "../../components/allprojects";
+import Cadastro from "./modal";
 
 function Projetos() {
     return (
@@ -88,13 +89,13 @@ function Projetos() {
                     <img src="assets/decor.svg" ></img>
                 </div>
                 <div className="coluna-tres">
-                    <div className="create_card d-flex flex-row justify-content-around">
+                    <div className="create_card d-flex justify-content-around align-items-center">
                         <div className="create">
                             <h5>Criar Projeto</h5>
                             <p>Criar um novo projeto</p>
                         </div>
                         <div className="btn_criar d-flex flex-row">
-                            <button><img src="assets/btn_create.svg"/></button>
+                            <button><Cadastro /></button>
                         </div>
                     </div>
 

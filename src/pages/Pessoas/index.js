@@ -111,7 +111,7 @@ function Pessoas(){
                 
                 <div className="coluna_pessoas">
                     <div className='bt'>
-                    <div class="dropdown">
+                    <div class="dropdown me-5">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Filtros
                         </button>
@@ -121,9 +121,18 @@ function Pessoas(){
                             <li><a class="dropdown-item" href="#">Filtro 3</a></li>
                         </ul>
                     </div>
-                        <input id="placeholder" type="search" placeholder="Pesquise aqui..." className='search'></input>
-                        <a className='lupa'><img src="assets/search.svg"></img></a>
+                        <input className='search_pessoas' id="placeholder" type="search" placeholder="Pesquise aqui..."></input>
+                        <a className='lupa_pessoas'><img src="assets/search.svg"></img></a>
                     </div>
+                    <div className="create_card_pessoas d-flex flex-row justify-content-around">
+                        <div className="create_pessoas">
+                            <h5>Adicionar Pessoa</h5>
+                            <p>Adicionar uma nova pessoa</p>
+                        </div>
+                        <div className="btn_criar d-flex flex-row">
+                            <button><img src="assets/btn_create.svg"/></button>
+                        </div>
+                    </div> 
                     <ExibirPessoas/>
                 </div>        
             </div>    
