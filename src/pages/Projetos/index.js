@@ -5,6 +5,7 @@ import Menu1 from "./menu1";
 import Grafico from "../../components/grafico"
 import AllProjects from "../../components/allprojects";
 import Cadastro from "./modal";
+import MyApp from "./date";
 
 function Projetos() {
     return (
