@@ -98,11 +98,15 @@ function Pessoas(){
                             <h6>Desempenhos</h6>
                         </div>
                     
-                        <div className="bttnsem">
-                            <button className="opbttn">Semanal
-                                <img src="assets/seta.svg"/>
-                            </button>
-                        </div> 
+                        <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Semanal
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Anual</a></li>
+                            <li><a class="dropdown-item" href="#">Mensal</a></li>
+                        </ul>
+                    </div>
                     </div>  
                     <div className="grafico-pessoas">
                         <GraficoP />
@@ -116,9 +120,9 @@ function Pessoas(){
                             Filtros
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Ordem Alfabetica</a></li>
-                            <li><a class="dropdown-item" href="#">Filtro 2</a></li>
-                            <li><a class="dropdown-item" href="#">Filtro 3</a></li>
+                            <li><a class="dropdown-item" href="#">Ordem Alfabetica A-Z</a></li>
+                            <li><a class="dropdown-item" href="#">Mais Antigos</a></li>
+                            <li><a class="dropdown-item" href="#">Mais Recentes</a></li>
                         </ul>
                     </div>
                         <input className='search_pessoas' id="placeholder" type="search" placeholder="Pesquise aqui..."></input>

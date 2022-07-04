@@ -32,8 +32,8 @@ export function Grafico() {
   return (
     <Chart
       chartType="LineChart"
-      width="600px"
-      height="300px"
+      width="100%"
+      height="400px"
       data={data}
       options={options}
     />

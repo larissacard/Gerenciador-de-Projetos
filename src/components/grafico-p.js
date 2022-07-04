@@ -10,8 +10,9 @@ export const data = [
 ];
 
 export const options = {
+  chartArea: { width: "90%", height:"70%" },
   colors: ["#280948", "#667EEA", "#764BA2"],
-  legend: { position: "bottom"},
+  legend: { position: "top" },
 };
 
 export function GraficoP() {

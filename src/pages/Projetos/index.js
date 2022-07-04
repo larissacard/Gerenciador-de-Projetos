@@ -74,9 +74,16 @@ function Projetos() {
                         </div>
                     
                         <div className="bttnsem">
-                            <button className="opbttn">Semanal
-                                <img src="assets/seta.svg"/>
-                            </button>
+                        <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filtros
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Ordem Alfabetica A-Z</a></li>
+                            <li><a class="dropdown-item" href="#">Mais Recentes</a></li>
+                            <li><a class="dropdown-item" href="#">Mais Antigos</a></li>
+                        </ul>
+                    </div>
                         </div> 
                         </div>   
         
@@ -101,7 +108,8 @@ function Projetos() {
 
                     {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
                     <div className="calendario">
-                        <img src="assets/calendario.svg"/>
+                        {/* <img src="assets/calendario.svg"/> */}
+                        <MyApp/>
                     </div>
                     <div className="agenda d-flex flex-row justify-content-around">
                         <div className="info_agenda">
