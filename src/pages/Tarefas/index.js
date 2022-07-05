@@ -3,6 +3,7 @@ import Header from "../../components/header";
 import Menu1 from "./menu1";
 import Data from "./data"
 import ExibirTarefa from "../../components/datatask"
+import "./style.css"
 
 
 function Tarefas(){

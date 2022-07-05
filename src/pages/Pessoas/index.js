@@ -4,6 +4,7 @@ import Header from "../../components/header";
 import Menu1 from "./menu1";
 import { GraficoP } from "../../components/grafico-p";
 import ExibirPessoas from "./data";
+import "./style.css"
 
 function Pessoas(){
     return (
@@ -64,7 +65,7 @@ function Pessoas(){
                     </div>
                 </Header>  
 
-                <div className="coluna-dois">
+                <div className="coluna-um">
                     <div className="cardp d-flex ">
                         <div className="infopessoas">
                             <h2>Bianca Stormi</h2>

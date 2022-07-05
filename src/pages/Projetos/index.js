@@ -6,6 +6,7 @@ import Grafico from "../../components/grafico"
 import AllProjects from "../../components/allprojects";
 import Cadastro from "./modal";
 import MyApp from "./date";
+import "./style.css"
 
 function Projetos() {
     return (
@@ -66,7 +67,7 @@ function Projetos() {
                     </div>
                 </Header>  
 
-                <div className="coluna-dois">
+                <div className="coluna-um">
                     <h5>Projetos</h5>
                     <div className="opcoes justify-content-between">
                         <div className="d-flex op">
