@@ -1,5 +1,7 @@
 import React from "react";
 import { Chart } from "react-google-charts";
+import { nodeName } from "rsuite/esm/DOMHelper";
+import { scrollTopAnimation } from "rsuite/esm/utils";
 
 // dados
 export const data = [
@@ -24,6 +26,7 @@ export const options = {
   curveType: "function",
   legend: { position: "top" },
   colors: ["#280948", "#667EEA"],
+  backgroundColor: "none",
   
 
 };
@@ -31,6 +34,7 @@ export const options = {
 export function Grafico() {
   return (
     <Chart
+      style={{transform: "scale(1.1"}}
       chartType="LineChart"
       width="100%"
       height="400px"

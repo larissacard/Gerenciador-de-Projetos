@@ -66,7 +66,7 @@ function Projetos() {
                     </div>
                 </Header>  
 
-                <div className="charts">
+                <div className="coluna-dois">
                     <h5>Projetos</h5>
                     <div className="opcoes justify-content-between">
                         <div className="d-flex op">
@@ -88,7 +88,9 @@ function Projetos() {
                         </div> 
                         </div>   
         
-                       <div className="grafico"><Grafico/></div> 
+                       <div className="grafico">
+                        <Grafico/>
+                        </div> 
                     <div>
                         <AllProjects/>
                     </div>      
