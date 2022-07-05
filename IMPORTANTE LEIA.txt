@@ -1,2 +1,3 @@
 links
 https://developers.google.com/chart/interactive/docs/queries
+https://www.mundojs.com.br/2018/07/12/graficos-dinamicos-com-eventos-chart-js/
