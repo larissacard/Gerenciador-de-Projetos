@@ -180,10 +180,12 @@ body{
     font-size: 1rem;
     line-height: 1.18rem;
  }
- .opbttn img{
+
+.opbttn img{
     margin-left: 0.3rem;
     align-items: center;
- }
+}
+
 .cont_table{
     background: linear-gradient(90.24deg, #764BA2 9.3%, #667EEA 99.93%);
     width: 37.8rem;
