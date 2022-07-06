@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ExibirProjetos from "../../components/data";
 import { Button, Drawer, IconButton } from 'rsuite';
-import ProjetosFormulario from "./formulario"
+
+import PostForm from './PostForm';
 
 import "rsuite/dist/rsuite.min.css";
 
@@ -33,7 +34,7 @@ function Cadastro () {
                     </Drawer.Actions>
                 </Drawer.Header>
                 <Drawer.Body>
-                    <ProjetosFormulario />
+                    <PostForm />
                 </Drawer.Body>
             </Drawer>
             <div>
