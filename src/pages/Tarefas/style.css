@@ -1,13 +1,13 @@
 .alltasks{
-    margin-top: 30px;
-    height: 650px;
+    margin-top: 1.8rem;
+    height: 40.6rem;
 
 }
 .alltasks::-webkit-scrollbar-thumb{
     background: var(--roxo1);
     border-radius: 10px;
-    width: 5px;
-    height: 30px;
+    width: 0.3rem;
+    height: 1.8rem;
 }
 .alltasks::-webkit-scrollbar{
     background: var(--cinza);
