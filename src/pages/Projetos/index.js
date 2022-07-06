@@ -4,9 +4,10 @@ import Header from "../../components/header"
 import Menu1 from "./menu1";
 import Grafico from "../../components/grafico"
 import AllProjects from "../../components/allprojects";
-import Cadastro from "./modal";
+// import Cadastro from "./modal";
 import MyApp from "./date";
 import "./style.css"
+import PostForm from "./PostForm";
 
 function Projetos() {
     return (
@@ -106,7 +107,7 @@ function Projetos() {
                             <p>Criar um novo projeto</p>
                         </div>
                         <div className="btn_criar d-flex flex-row">
-                            <Cadastro />
+                            <PostForm />
                         </div>
                     </div>
 

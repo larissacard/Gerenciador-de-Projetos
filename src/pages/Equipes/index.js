@@ -61,7 +61,7 @@ function Equipes(){
                         </a>
                     </div>
                 </Header>
-                <Show/>
+                {/* <Show/> */}
             </div>
         </div>
     );

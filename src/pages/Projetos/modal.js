@@ -15,6 +15,7 @@ function Cadastro () {
     const handleClose = () => {
         setOpen(false);
     }
+    
 
     return(
         <div>
@@ -34,7 +35,7 @@ function Cadastro () {
                     </Drawer.Actions>
                 </Drawer.Header>
                 <Drawer.Body>
-                    <PostForm />
+                    
                 </Drawer.Body>
             </Drawer>
             <div>
