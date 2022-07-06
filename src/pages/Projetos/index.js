@@ -76,27 +76,27 @@ function Projetos() {
                         </div>
                     
                         <div className="bttnsem">
-                        <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filtros
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Ordem Alfabetica A-Z</a></li>
-                            <li><a class="dropdown-item" href="#">Mais Recentes</a></li>
-                            <li><a class="dropdown-item" href="#">Mais Antigos</a></li>
-                        </ul>
-                    </div>
+                            <div className="dropdown">
+                                <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Filtros
+                                </button>
+                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a className="dropdown-item" href="#">Ordem Alfabetica A-Z</a></li>
+                                    <li><a className="dropdown-item" href="#">Mais Recentes</a></li>
+                                    <li><a className="dropdown-item" href="#">Mais Antigos</a></li>
+                                </ul>
+                            </div>
                         </div> 
-                        </div>   
+                    </div>   
         
-                       <div className="grafico">
+                    <div className="grafico">
                         <Grafico/>
-                        </div> 
+                    </div> 
                     <div>
                         <AllProjects/>
                     </div>      
                 </div> 
-                <div class="decor">
+                <div className="decor">
                     <img src="assets/decor.svg" ></img>
                 </div>
                 <div className="coluna-tres">
@@ -106,7 +106,7 @@ function Projetos() {
                             <p>Criar um novo projeto</p>
                         </div>
                         <div className="btn_criar d-flex flex-row">
-                            <button><Cadastro /></button>
+                            <Cadastro />
                         </div>
                     </div>
 

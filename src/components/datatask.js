@@ -20,23 +20,23 @@ class ExibirTarefa extends Component{
         <div className='alltasks' style={{overflowY:"scroll"}}>
             {tarefas.map(p => (
               <div key={p.pr_id} className="task_table" style={{border:"1px solid transparent"}}  >
-                  <div class="inforcard">
+                  <div className="inforcard">
                     <h6>{p.tr_nome}</h6>
                     <p style={{width:"96.5%"}}>{p.tr_descricao}</p>
                   </div>
-                  <div class="people_tarefas">
+                  <div className="people_tarefas">
                     <img src="assets/people.svg"/>
                     <img src="assets/people.svg"/>
                     <img src="assets/people.svg"/>
                     <img src="assets/people.svg"/>
                   </div>
-                  <div class="pross mb-4">
+                  <div className="pross mb-4">
                       <div className="d-flex align-items-center justify-content-between">
                           <p>Progresso</p>
                           <p style={{color: "var(--roxo1)"}}>40%</p>
                       </div>
-                      <div class="progress" style={{height: "8px", borderRadius: "50px"}}> 
-                        <div class="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}} ></div>
+                      <div className="progress" style={{height: "8px", borderRadius: "50px"}}> 
+                        <div className="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}} ></div>
                       </div>
                   </div> 
             </div>

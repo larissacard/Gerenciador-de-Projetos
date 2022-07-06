@@ -90,8 +90,8 @@ function Pessoas(){
                             <p style={{color: "var(--roxo)", fontWeight: "500"}}>Progresso</p>
                             <p style={{color: "var(--roxo1)"}}>40%</p>
                         </div>
-                        <div class="progress" style={{height: "8px", borderRadius: "50px"}}>
-                            <div class="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}}></div>
+                        <div className="progress" style={{height: "8px", borderRadius: "50px"}}>
+                            <div className="progress-bar barra"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}}></div>
                         </div>
                     </div>
                     <div className="opcoes-pessoas d-flex justify-content-between">
@@ -99,13 +99,13 @@ function Pessoas(){
                             <h6>Desempenhos</h6>
                         </div>
                     
-                        <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div className="dropdown">
+                        <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Semanal
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Anual</a></li>
-                            <li><a class="dropdown-item" href="#">Mensal</a></li>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a className="dropdown-item" href="#">Anual</a></li>
+                            <li><a className="dropdown-item" href="#">Mensal</a></li>
                         </ul>
                     </div>
                     </div>  
@@ -116,14 +116,14 @@ function Pessoas(){
                 
                 <div className="coluna_pessoas">
                     <div className='bt'>
-                    <div class="dropdown me-5">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div className="dropdown me-5">
+                        <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Filtros
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Ordem Alfabetica A-Z</a></li>
-                            <li><a class="dropdown-item" href="#">Mais Antigos</a></li>
-                            <li><a class="dropdown-item" href="#">Mais Recentes</a></li>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a className="dropdown-item" href="#">Ordem Alfabetica A-Z</a></li>
+                            <li><a className="dropdown-item" href="#">Mais Antigos</a></li>
+                            <li><a className="dropdown-item" href="#">Mais Recentes</a></li>
                         </ul>
                     </div>
                         <input className='search_pessoas' id="placeholder" type="search" placeholder="Pesquise aqui..."></input>

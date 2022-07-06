@@ -76,7 +76,7 @@ function Tarefas(){
                     <ExibirTarefa/>
                 </div>
                 
-                <div class="decor">
+                <div className="decor">
                     <img src="assets/decor.svg" ></img>
                 </div>
                 <div className="coluna-tres">
