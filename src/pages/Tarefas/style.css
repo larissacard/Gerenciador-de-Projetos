@@ -6,7 +6,7 @@
 .alltasks::-webkit-scrollbar-thumb{
     background: var(--roxo1);
     border-radius: 10px;
-    width: 0.3rem;
+    width: 5px;
     height: 1.8rem;
 }
 .alltasks::-webkit-scrollbar{
