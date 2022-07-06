@@ -1,6 +1,53 @@
  import React, { useEffect, useState } from "react";
+import { Input } from "reactstrap";
 
 
+ function Projec(){
+    const [initialProjeto, setInitialProjeto] = useState([])
+    const [projeto, setProjeto] = useState([])
+
+    useEffect (() =>{
+        const fetchProjeto = async  () => {
+            try {
+                const response = await fetch('https://api-brisa-nodejs-postgresql.herokuapp.com/projetos');
+                const data = await response.json();
+                setInitialProjeto(data);
+                setProjeto(data);
+               
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchProjeto();
+        console.log(projeto)
+    }, []);
+
+    const handleChange = ({ target }) => {
+        if(!target.value){
+            setProjeto(initialProjeto)
+            return;
+        }
+
+        const filterProjetos = projeto.filter((nome) => nome.includes(target.values))
+
+        setProjeto(filterProjetos);
+    };
+    return(
+    <div>
+        <div className="container-input">
+            <input type="text" onChange={handleChange}/>
+        </div>
+        <div className="container-list">
+            <ul>
+                {projeto.map((projetos) => {
+                    <li key={projetos.pr_id}>{projetos.pr_nome}</li>
+                })}
+            </ul>
+        </div>
+    </div>)
+ }
+
+ export default Projec;
 
 // function Registers({list = []}){
 //     const [order, setOrder] = useState(1)

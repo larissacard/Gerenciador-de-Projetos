@@ -1,7 +1,9 @@
 import React from "react";
 import Header from "../../components/header";
 import Menu1 from "./menu1";
+import Projec from "./search";
 import Show from "./search";
+import Proje from "./search";
 
 function Equipes(){
     return (
@@ -62,6 +64,7 @@ function Equipes(){
                     </div>
                 </Header>
                 {/* <Show/> */}
+                <Projec/>
             </div>
         </div>
     );
