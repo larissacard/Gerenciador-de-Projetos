@@ -32,7 +32,7 @@ body{
 }
 .header {
     margin-left: 2.5rem;
-    margin-top: 20px;
+    margin-top: 1.5rem;
     width: 15%;
     height: 95%;
     background-color: var(--roxo); 
@@ -40,7 +40,7 @@ body{
 }
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÕES DO MENU -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 .btmenu{
-    margin-top: 40px;
+    margin-top: 2.5rem;
     height: 25rem;
     display: flex;
     flex-direction: column;

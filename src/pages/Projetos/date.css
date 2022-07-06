@@ -33,7 +33,7 @@
   .react-calendar { 
     width: 26.5rem;
     margin-left: 10px;
-    max-height: 290px;
+    max-height: 18.12rem;
     max-width: 100%;
     background-color: transparent;
     color: #280948;
@@ -53,7 +53,7 @@
    }
   
   .react-calendar--doubleView {
-    width: 700px;
+    width: 50%;
   }
   .react-calendar--doubleView .react-calendar__viewContainer {
     display: flex;

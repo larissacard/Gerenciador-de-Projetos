@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../components/header";
 import Menu1 from "./menu1";
+import Show from "./search";
 
 function Equipes(){
     return (
@@ -60,6 +61,7 @@ function Equipes(){
                         </a>
                     </div>
                 </Header>
+                <Show/>
             </div>
         </div>
     );

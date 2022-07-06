@@ -1,13 +1,13 @@
 .coluna-um{
     margin-top: 40px;
     margin-left: 2.5rem;
-    width: 660px;
+    width: 41.25rem;
 }
 .opcoes{
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    width: 636px;
+    width: 39.75rem;
 }
 .op, .bttnsem{
     gap: 30px;
@@ -29,8 +29,8 @@
 .grafico{
     margin-left: -0.9rem;
     background-color: var(--cinza);
-    width: 650px;
-    height: 399px;
+    width: 40.62rem;
+    height: 24.93rem;
     border-radius: 20px;
     margin-bottom: 10px;
 }
@@ -38,20 +38,20 @@
 .proj{
     margin-top: 30px;
     display: flex;
-    width: 637px;
-    height: 36px;
-    gap: 30px;    
+    width: 39.81rem;
+    height: 2.25rem;
+    gap: 1.87rem;    
  }
  .proj h4{
     color: var(--roxo);
     font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    width: 179px;
+    font-size: 1.25rem;
+    line-height: 1.87rem;
+    width: 11.18rem;
  }
  .bt{
-    width: 388px;
-    height: 36px;
+    width: 24.25rem;
+    height: 2.25rem;
     display: flex;
     gap: 10px;
     justify-content: flex-end;
@@ -63,7 +63,7 @@
 }   
 .lupa img{
     position: relative;
-    margin-left: -40px;
+    margin-left: -2.5rem;
     margin-top: 2px;
     width: 20px;
     height: 30px;
@@ -71,8 +71,8 @@
  
  .search {
     border: 1px solid black;
-    width: 250px;
-    height: 36px;
+    width: 15.62rem;
+    height: 2.25rem;
     border-radius: 30px;
     border: 1px solid var(--roxo);
     background-color: white;
@@ -127,7 +127,7 @@
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- COLUNA-TRES-=-=-=-=-=-=-=-=-=-=-=-=-=- */
 .scrollbar{
     width: 10px;
-    height: 637px;
+    height: 39.81rem;
     margin-top: 12.1rem;
     margin-left: 56.5rem;
     position: absolute;
@@ -142,7 +142,7 @@
     margin-top: 28.8rem;
     margin-left: 60rem;
     width: 24px;
-    height: 464px;
+    height: 29rem;
     
 }
 .coluna-tres{
@@ -288,5 +288,5 @@
     border-radius: 10px;
 }
 .allpro{
-    height: 300px;
+    height: 18.75rem;
 }
