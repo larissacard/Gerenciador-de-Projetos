@@ -7,7 +7,7 @@ import "rsuite/dist/rsuite.min.css";
 
 function PostForm() {
     const [open, setOpen] = useState(false);
-  
+    
     const handleOpen = () => {
         setOpen(true);
     };
@@ -30,7 +30,7 @@ function PostForm() {
             .then(res=>{
                 console.log(res.data)
                 if (res.data == 'Esse projeto já foi inserido!') {
-                    alert('Esse Projeto já foi inserido')
+                    alert('Esse Projeto já foi inserido!')
                 }
                 else {
                     alert('Projeto inserido com sucesso!')
@@ -54,12 +54,6 @@ function PostForm() {
 
                 <Drawer.Header>
                     <Drawer.Title>Cadastro de um novo Projeto</Drawer.Title>
-                    <Drawer.Actions>
-                    <Button onClick={() => setOpen(false)}>Cancelar</Button>
-                    <Button onClick={() => setOpen(false)} appearance="primary">
-                        Cadastrar
-                    </Button>
-                    </Drawer.Actions>
                 </Drawer.Header>
                 <Drawer.Body>
                     <Form onSubmit={(e)=> cadastrar(e)}>
@@ -72,9 +66,13 @@ function PostForm() {
                             <Form.Label>Descrição</Form.Label>
                             <Form.Control onChange={(e)=>handle(e)} id="pr_descricao" value={data.pr_descricao} type="text" placeholder="Digite a descrição do projeto"/>
                         </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Cadastrar
-                        </Button>
+                        
+                        <Drawer.Actions>
+                            <Button onClick={() => setOpen(false)} variant="primary" type="submit">
+                                Cadastrar
+                            </Button>
+                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                        </Drawer.Actions>
                     </Form>
                 </Drawer.Body>
             </Drawer>
