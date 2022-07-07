@@ -1,0 +1,61 @@
+.container-input{
+    align-items: center;
+}
+.container-input h4{
+    color:#280948;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.87rem;
+    width: 11.18rem;
+}
+.container-input input{
+    border-radius: 20px;
+    width: 17.62rem;
+    height: 1.87rem;
+    border: 2px solid #280948;
+}
+
+.container-list{
+    width: 42rem;
+    height: 15rem;
+    margin-left: -2rem;  
+    margin-top: 20px;  
+}
+
+.container-list::-webkit-scrollbar-thumb{
+    background: #764BA2;
+    border-radius: 10px;
+    width: 5px;
+    height: 1.8rem;
+
+}
+.container-list::-webkit-scrollbar{
+    background-color: #F5F5F7;
+    width: 5px;
+    height: 1.8rem;
+    border-radius: 10px;
+
+}
+
+.table_projetos{
+    background: linear-gradient(90.24deg, #764BA2 9.3%, #667EEA 99.93%);
+    height: 2.5rem;
+    width: 585px;
+    border-radius: 15px;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1.12;
+    line-height: 1.7rem;
+}
+
+.container-list button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.12;
+    line-height: 1.7rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+}
