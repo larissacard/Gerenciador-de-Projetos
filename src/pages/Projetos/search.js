@@ -1,12 +1,11 @@
- import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./searchstyle.css";
 
-
- function Projec(){
+function Projec(){
     const [initialProjetos, setInitialProjetos] = useState([])
     const [projetos, setProjetos] = useState([])
 
-    useEffect (() =>{
+    useEffect (() => {
         const fetchProjetos = async  () => {
             try {
                 const response = await fetch('https://api-brisa-nodejs-postgresql.herokuapp.com/projetos');
@@ -35,7 +34,7 @@ import "./searchstyle.css";
     <div className="mt-4">
         <div className="container-input d-flex justify-content-between">
             <h4>Todos os Projetos</h4>
-            <input type="search" placeholder="Pesquise..." onChange={handleChange}>
+            <input style={{outline: "none"}} type="search" placeholder="Pesquise..." onChange={handleChange}>
             </input>
         </div>
         <div className="container-list d-flex " style={{overflowY:"scroll", overflowX:"hidden"}}>

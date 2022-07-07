@@ -8,7 +8,7 @@ import AllProjects from "../../components/allprojects";
 import MyApp from "./date";
 import "./style.css"
 import PostForm from "./PostForm";
-import Projec from "../Equipes/search";
+import Projec from "./search";
 
 function Projetos() {
     return (
@@ -73,11 +73,11 @@ function Projetos() {
                     <h5>Projetos</h5>
                     <div className="opcoes justify-content-between">
                         <div className="d-flex op">
-                            <h6>Concluido</h6>
+                            <h6>Concluído</h6>
                             <h6 className="grey">Em desenvolvimento</h6>
                         </div>
                     
-                        <div className="bttnsem">
+                        <div className="bttnsem ">
                             <div className="dropdown">
                                 <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     Filtros
@@ -117,41 +117,77 @@ function Projetos() {
                         {/* <img src="assets/calendario.svg"/> */}
                         <MyApp/>
                     </div>
-                    <div className="agenda d-flex flex-row justify-content-around">
-                        <div className="info_agenda">
-                            <h5 style={{textAlign:"left"}}>GP Inovação</h5>
-                            <div className="people">
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
+                    <div className="scroll_agenda" style={{overflowY: "scroll", height: "43vh"}}>
+                        <div className="agenda d-flex flex-row justify-content-around">
+                            <div className="info_agenda">
+                                <h5 style={{textAlign:"left"}}>GP Inovação</h5>
+                                <div className="people">
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                </div>
+                            </div>
+                            <div className="info_agenda2">
+                                <h6 style={{textAlign:"right"}}>9:00 AM</h6>
+                                <div id="lado1" style={{display:"flex", justifyContent: "end"}}>
+                                    <button><img src="assets/btn_completed_white.svg"/></button>
+                                </div>
                             </div>
                         </div>
-                        <div className="info_agenda2">
-                            <h6 style={{textAlign:"right"}}>9:00 AM</h6>
-                            <div id="lado1" style={{display:"flex", justifyContent: "end"}}>
-                                <button><img src="assets/btn_completed_white.svg"/></button>
+                        <div className="agenda d-flex flex-row justify-content-around">
+                            <div className="info_agenda">
+                                <h5 style={{textAlign:"left"}}>Gerenciamento de Pousadas</h5>
+                                <div className="people">
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                </div>
+                            </div>
+                            <div className="info_agenda2">
+                                <h6 style={{textAlign:"right"}}>11:00 AM</h6>
+                                <div id="lado2" style={{display:"flex", justifyContent: "end"}}>
+                                    <button><img src="assets/btn_x.svg"/></button>
+                                    <button><img src="assets/btn_completed.svg"/></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="agenda d-flex flex-row justify-content-around">
-                        <div className="info_agenda">
-                            <h5 style={{textAlign:"left"}}>Gerenciamento de Pousadas</h5>
-                            <div className="people">
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
-                                <img src="assets/people.svg"/>
+                        <div className="agenda d-flex flex-row justify-content-around">
+                            <div className="info_agenda">
+                                <h5 style={{textAlign:"left"}}>GP Inovação</h5>
+                                <div className="people">
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                </div>
+                            </div>
+                            <div className="info_agenda2">
+                                <h6 style={{textAlign:"right"}}>9:00 AM</h6>
+                                <div id="lado1" style={{display:"flex", justifyContent: "end"}}>
+                                    <button><img src="assets/btn_completed_white.svg"/></button>
+                                </div>
                             </div>
                         </div>
-                        <div className="info_agenda2">
-                            <h6 style={{textAlign:"right"}}>11:00 AM</h6>
-                            <div id="lado2" style={{display:"flex", justifyContent: "end"}}>
-                                <button><img src="assets/btn_x.svg"/></button>
-                                <button><img src="assets/btn_completed.svg"/></button>
+                        <div className="agenda d-flex flex-row justify-content-around">
+                            <div className="info_agenda">
+                                <h5 style={{textAlign:"left"}}>GP Inovação</h5>
+                                <div className="people">
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                    <img src="assets/people.svg"/>
+                                </div>
+                            </div>
+                            <div className="info_agenda2">
+                                <h6 style={{textAlign:"right"}}>9:00 AM</h6>
+                                <div id="lado1" style={{display:"flex", justifyContent: "end"}}>
+                                    <button><img src="assets/btn_completed_white.svg"/></button>
+                                </div>
                             </div>
                         </div>
-                    </div>    
+                    </div>   
                 </div>    
             </div>
         </div>

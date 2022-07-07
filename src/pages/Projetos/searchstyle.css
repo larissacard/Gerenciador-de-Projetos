@@ -1,5 +1,7 @@
 .container-input{
     align-items: center;
+    width: 35.1vw;
+    margin-left: -13px;
 }
 .container-input h4{
     color:#280948;
@@ -12,13 +14,14 @@
     border-radius: 20px;
     width: 17.62rem;
     height: 1.87rem;
+    padding-left: 10px;
     border: 2px solid #280948;
 }
 
 .container-list{
-    width: 42rem;
-    height: 15rem;
-    margin-left: -2rem;  
+    width: 42.5rem;
+    height: 17.8rem;
+    margin-left: -45px;  
     margin-top: 20px;  
 }
 
@@ -34,14 +37,15 @@
     width: 5px;
     height: 1.8rem;
     border-radius: 10px;
-
 }
 
 .table_projetos{
     background: linear-gradient(90.24deg, #764BA2 9.3%, #667EEA 99.93%);
     height: 2.5rem;
-    width: 585px;
-    border-radius: 15px;
+    width: 625px;
+    padding-left: 16px;
+    padding-right: 5px;
+    border-radius: 16px;
     margin-bottom: 0.5rem;
     color: white;
     font-weight: 600;

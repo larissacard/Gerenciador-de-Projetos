@@ -7,19 +7,26 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    width: 39.75rem;
+    width: 40;
+    margin-left: -13px;
 }
 .op, .bttnsem{
-    gap: 30px;
-    margin-right: 10px; 
+    gap: 30px; 
     font-weight: 500;
 }
+
+.bttnsem {
+    background-color: #F5F5F7;
+    border-radius: 12px;
+}
+
 .coluna-um h5{
     color: var(--roxo);
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
-    margin-top: -39px;
+    margin-top: -38.5px;
+    margin-left: -14px;
     margin-bottom: 13px;
 }
 .grey{
@@ -146,7 +153,7 @@
     
 }
 .coluna-tres{
-    margin-top: 1.51rem;
+    margin-top: 25px;
     margin-left: 3.12rem;
     margin-right: 2.5rem;
     width: 28.8rem;
@@ -199,6 +206,21 @@
     width: 3.5rem;
     height: 3.5rem;
  }
+
+ .scroll_agenda::-webkit-scrollbar-thumb{
+    background: #764BA2;
+    border-radius: 10px;
+    width: 5px;
+    height: 1.8rem;
+ }
+
+ .scroll_agenda::-webkit-scrollbar{
+    background-color: #F5F5F7;
+    width: 5px;
+    height: 0.8rem;
+    border-radius: 10px;
+}
+
  .agenda {
     display: flex;
     align-items: center;
