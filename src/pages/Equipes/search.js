@@ -1,5 +1,5 @@
  import React, { useEffect, useState } from "react";
-
+import "./searchstyle.css";
 
 
  function Projec(){
@@ -32,14 +32,24 @@
 
     console.log(projetos)
     return(
-    <div>
-        <div className="container-input">
-            <input type="text" onChange={handleChange}/>
+    <div className="mt-4">
+        <div className="container-input d-flex justify-content-between">
+            <h4>Todos os Projetos</h4>
+            <input type="search" placeholder="Pesquise..." onChange={handleChange}>
+            </input>
         </div>
-        <div className="container-list">
-            <ul>
+        <div className="container-list d-flex " style={{overflowY:"scroll", overflowX:"hidden"}}>
+            <ul style={{paddinLeft:"-2rem", listStyleType: "none"}}>
                 {projetos.map((projetos, index) =>
-                <li key={projetos.pr_id}>{projetos.pr_nome}</li>
+                <div className="table_projetos d-flex justify-content-between align-items-center">
+                    <p classNam="text" key={projetos.pr_id}>{projetos.pr_nome}
+                    </p>
+                    <p>
+                    <a href={"projetos/"+projetos.pr_id}>
+                            <button>Detalhes</button></a>
+                    </p>
+                </div>
+                
                 )}
             </ul>
         </div>

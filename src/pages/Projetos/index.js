@@ -8,6 +8,7 @@ import AllProjects from "../../components/allprojects";
 import MyApp from "./date";
 import "./style.css"
 import PostForm from "./PostForm";
+import Projec from "../Equipes/search";
 
 function Projetos() {
     return (
@@ -94,7 +95,7 @@ function Projetos() {
                         <Grafico/>
                     </div> 
                     <div>
-                        <AllProjects/>
+                        <Projec/>
                     </div>      
                 </div> 
                 <div className="decor">
