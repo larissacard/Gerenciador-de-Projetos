@@ -1,37 +1,36 @@
  import React, { useEffect, useState } from "react";
-import { Input } from "reactstrap";
+
 
 
  function Projec(){
-    const [initialProjeto, setInitialProjeto] = useState([])
-    const [projeto, setProjeto] = useState([])
+    const [initialProjetos, setInitialProjetos] = useState([])
+    const [projetos, setProjetos] = useState([])
 
     useEffect (() =>{
-        const fetchProjeto = async  () => {
+        const fetchProjetos = async  () => {
             try {
                 const response = await fetch('https://api-brisa-nodejs-postgresql.herokuapp.com/projetos');
                 const data = await response.json();
-                setInitialProjeto(data);
-                setProjeto(data);
+                setInitialProjetos(data);
+                setProjetos(data);
                
             } catch (error) {
                 console.log(error);
             }
         };
-        fetchProjeto();
-        console.log(projeto)
+        fetchProjetos();
     }, []);
 
-    const handleChange = ({ target }) => {
+    const handleChange = ({target}) =>{
         if(!target.value){
-            setProjeto(initialProjeto)
+            setProjetos(initialProjetos)
             return;
         }
+        const filterProjetos = projetos.filter((projetos,pr_nome) => projetos.pr_nome.includes(target.value))
+        setProjetos(filterProjetos)
+    }
 
-        const filterProjetos = projeto.filter((nome) => nome.includes(target.values))
-
-        setProjeto(filterProjetos);
-    };
+    console.log(projetos)
     return(
     <div>
         <div className="container-input">
@@ -39,9 +38,9 @@ import { Input } from "reactstrap";
         </div>
         <div className="container-list">
             <ul>
-                {projeto.map((projetos) => {
-                    <li key={projetos.pr_id}>{projetos.pr_nome}</li>
-                })}
+                {projetos.map((projetos, index) =>
+                <li key={projetos.pr_id}>{projetos.pr_nome}</li>
+                )}
             </ul>
         </div>
     </div>)
