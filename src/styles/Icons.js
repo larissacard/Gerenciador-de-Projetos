@@ -57,3 +57,13 @@ export const Tarefas = (props) => {
 
     );
 }
+
+export const Lupa = (props) => {
+    return (
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" 
+        {...props} xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.83 25.66C20.3635 25.66 25.66 20.3635 25.66 13.83C25.66 7.29647 20.3635 2 13.83 2C7.29647 2 2 7.29647 2 13.83C2 20.3635 7.29647 25.66 13.83 25.66Z" stroke="#280948" stroke-width="3" stroke-miterlimit="10"/>
+            <path d="M22.99 22.99L31.65 31.65" stroke="#280948" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+        </svg>
+    );
+}

@@ -1,18 +1,29 @@
-import React, { useEffect, useState } from "react";
-import "./searchstyle.css";
+import React, {useEffect, useState} from "react";
+import {Dropdown} from 'react-bootstrap';
 
-function Projec(){
+import {
+    ContProjetos,
+    CabecalhoProjetos,
+    Filtros,
+    Search,
+    SearchIcon,
+    ContTabela,
+    CardProjeto,
+    ContMais,
+} from './styles';
+
+function Tabela() {
     const [initialProjetos, setInitialProjetos] = useState([])
     const [projetos, setProjetos] = useState([])
 
-    useEffect (() => {
-        const fetchProjetos = async  () => {
+    useEffect(() => {
+        const fetchProjetos = async () => {
             try {
                 const response = await fetch('https://api-brisa-nodejs-postgresql.herokuapp.com/projetos');
                 const data = await response.json();
                 setInitialProjetos(data);
                 setProjetos(data);
-               
+
             } catch (error) {
                 console.log(error);
             }
@@ -20,42 +31,53 @@ function Projec(){
         fetchProjetos();
     }, []);
 
-    const handleChange = ({target}) =>{
-        if(!target.value){
+    const handleChange = ({target}) => {
+        if (!target.value) {
             setProjetos(initialProjetos)
             return;
         }
-        const filterProjetos = projetos.filter((projetos,pr_nome) => projetos.pr_nome.toUpperCase().includes(target.value.toUpperCase()))
+        const filterProjetos = projetos.filter((projetos, pr_nome) => projetos.pr_nome.toUpperCase().includes(target.value.toUpperCase()))
         setProjetos(filterProjetos)
     }
 
-    console.log(projetos)
-    return(
-    <div className="mt-4">
-        <div className="container-input d-flex justify-content-between">
-            <h4>Todos os Projetos</h4>
-            <input style={{outline: "none"}} type="search" placeholder="Pesquise..." onChange={handleChange}>
-            </input>
-        </div>
-        <div className="container-list d-flex " style={{overflowY:"scroll", overflowX:"hidden"}}>
-            <ul style={{paddinLeft:"-2rem", listStyleType: "none"}}>
-                {projetos.map((projetos, index) =>
-                <div className="table_projetos d-flex justify-content-between align-items-center">
-                    <p classNam="text" key={projetos.pr_id}>{projetos.pr_nome}
-                    </p>
-                    <p>
-                    <a href={"projetos/"+projetos.pr_id}>
-                            <button>Detalhes</button></a>
-                    </p>
-                </div>
-                
-                )}
-            </ul>
-        </div>
-    </div>)
- }
+    return (
+        <ContProjetos>
+            <CabecalhoProjetos>
+                <h2>Todos os Projetos</h2>
 
- export default Projec;
+                <ContMais>
+                    <Filtros>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="" id="dropdown-basic">Filtros</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="#">Ordem Alfabetica A-Z</Dropdown.Item>
+                                <Dropdown.Item href="#">Mais Recentes</Dropdown.Item>
+                                <Dropdown.Item href="#">Mais Antigos</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Filtros>
+                    <Search>
+                        <input type="search" placeholder="Pesquise..." onChange={handleChange}></input>
+                        <SearchIcon/>
+                    </Search>
+                </ContMais>
+            </CabecalhoProjetos>
+
+            <ContTabela>
+                <ul> 
+                    {projetos.map((projetos, index) => 
+                    <CardProjeto>
+                        <p key={projetos.pr_id}> {projetos.pr_nome} </p>
+                        <a href={"projetos/" + projetos.pr_id}>Detalhes</a>
+                    </CardProjeto>)} 
+                </ul>
+            </ContTabela>
+
+        </ContProjetos>
+    )
+}
+
+export default Tabela;
 
 // function Registers({list = []}){
 //     const [order, setOrder] = useState(1)
@@ -66,7 +88,6 @@ function Projec(){
 //         setOrder(-order)
 //         setColumnOrder(fieldName)
 //     }
-
 
 
 //     list = list.sort((a, b) =>{
@@ -102,7 +123,7 @@ function Projec(){
 //                             <td>{pr_descricao}</td>
 //                         </tr>
 //                     }
-                        
+
 //                         )
 //                 }
 //             </tbody>
