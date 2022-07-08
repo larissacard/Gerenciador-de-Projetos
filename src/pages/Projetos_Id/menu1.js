@@ -1,6 +1,7 @@
 import React from "react";
 import Data from "./Titulo";
 import Tarefas from "./Tarefas";
+import ExibirDetalhesProjeto from "./data";
 
 function Menu1() {
     return (
@@ -12,10 +13,10 @@ function Menu1() {
                 </a>
 
                 <div className="title_projeto_id">
-                    <Data/>
+                    <ExibirDetalhesProjeto/>
                 </div>
             </div>
-
+{/* 
             <div className="cont_tarefasdoprojeto">
                 <div className="Title_exibirTarefasProjeto">
                     <h3>Tarefas do Projeto</h3>
@@ -38,14 +39,13 @@ function Menu1() {
                         </div>
                     </div>
                     </div>
-                </div>
+                </div> */}
 
             
-                <div className="cont_table">
+                {/* <div className="cont_table">
                     <Tarefas />
-                </div>
+                </div> */}
             </div>
-        </div>
     );
 }
 export default Menu1;
