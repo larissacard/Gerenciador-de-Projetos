@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Chart } from "react-google-charts";
 
 // dados
-export const data = [
+const data = [
   ["Dia", "Tarefas Concluidas", "Não Concluidas"],
   ["Seg", 0, 2],
   ["Ter", 2, 3],
@@ -13,22 +13,20 @@ export const data = [
   ["Dom", 7.6, 1.2],
 ];
 
-export const options = {
+const options = {
   curveType: "function",
   legend: { position: "top" },
   colors: ["#280948", "#667EEA"],
   backgroundColor: "none",
-  
-
 };
 
 export function Grafico() {
   return (
     <Chart
-      style={{transform: "scale(1.1"}}
+      style={{position:"relative", overflow:"hidden", marginLeft:"-5%", marginTop:"-5%"}}
       chartType="LineChart"
-      width="100%"
-      height="400px"
+      width="110%"
+      height="110%"
       data={data}
       options={options}
     />

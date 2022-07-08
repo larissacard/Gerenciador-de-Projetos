@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
-import { Button, Drawer } from 'rsuite';
+import { Drawer } from 'rsuite';
+import { Button } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
 
@@ -46,15 +47,11 @@ function PostForm() {
 
     return (
         <>
-            <Drawer 
-                open={open} 
-                onClose={handleClose}
-                size="sm"
-                >
-
+            <Drawer open={open} onClose={handleClose} size="sm">
                 <Drawer.Header>
                     <Drawer.Title>Cadastro de um novo Projeto</Drawer.Title>
                 </Drawer.Header>
+                
                 <Drawer.Body>
                     <Form onSubmit={(e)=> cadastrar(e)}>
                         <Form.Group className="mb-3">
@@ -77,7 +74,7 @@ function PostForm() {
                 </Drawer.Body>
             </Drawer>
             <div>
-                <button onClick={handleOpen}><img src="assets/btn_create.svg" /></button>
+                <Button onClick={handleOpen}><img src="assets/btn_create.svg" /></Button>
             </div>
         </>
     );

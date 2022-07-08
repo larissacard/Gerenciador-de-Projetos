@@ -95,54 +95,6 @@
     width: 28.8rem;
 }
 
-.create_card {
-    display: flex;
-    width: 27.4rem;
-    height: 6rem;
-    background-image: url("../../../public/assets/create_background.svg");
-    align-items: center;
-    border-radius: 20px;
-    margin-bottom: 0.625rem;
-}
-
- .create {
-    margin-left: -12%;
-    margin-top: 0;
- }
- .create_card h5{
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 27px;
-    color: var(--white)
- }
- .create_card p{
-    color: var(--cinza);
-    opacity: 0.3;
-    font-weight: 400;
-    font-size: 16px;
- }
- .create_card button{
-    display: flex;
-    width: 3.25rem;
-    height: 3.25rem;
-    justify-content: center;
-    background-color: white;
-    border-radius: 10px;
-    border: none;
- }
- .btn_criar{
-    margin-right: -13%;
- }
- .btn_criar img{
-    width: 1.5rem;
-    height: 1.5rem;
-    align-self: center;
- }
- .btn_criar button:hover{
-    width: 3.5rem;
-    height: 3.5rem;
- }
-
  .scroll_agenda::-webkit-scrollbar-thumb{
     background: #764BA2;
     border-radius: 10px;

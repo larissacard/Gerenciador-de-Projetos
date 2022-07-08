@@ -16,7 +16,8 @@ import {
 
 import MyApp from "./date";
 import "./style.css"
-import PostForm from "./PostForm";
+import PostForm from "./modal";
+import CardCriar from "../../components/CardCriar";
 
 function Projetos() {
     return (
@@ -57,17 +58,9 @@ function Projetos() {
                     <Tabela/>
                 </ColunaUm>
 
-
+                
                 <div className="coluna-tres">
-                    <div className="create_card d-flex justify-content-around align-items-center">
-                        <div className="create">
-                            <h5>Criar Projeto</h5>
-                            <p>Criar um novo projeto</p>
-                        </div>
-                        <div className="btn_criar d-flex flex-row">
-                            <PostForm/>
-                        </div>
-                    </div>
+                    <CardCriar titulo="Criar Projeto" descricao="Criar um novo projeto" button={<PostForm/>}/>
 
                     {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
                     <div className="calendario">

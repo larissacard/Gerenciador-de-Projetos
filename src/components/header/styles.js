@@ -54,8 +54,9 @@ export const NavMenu = styled.div `
 export const MenuButton = styled.div `
     display: flex;
     align-items: center;
-    color: white;
     font-size: 20px;
+
+    transition-duration: .3s;
 
     > span {
         margin-left: 15px;
@@ -68,6 +69,10 @@ export const MenuButton = styled.div `
         }
     }
 
+    :hover {
+        transform: scale(1.05);
+        transition-duration: .3s;
+    }
 `;
 
 const iconCSS = css`

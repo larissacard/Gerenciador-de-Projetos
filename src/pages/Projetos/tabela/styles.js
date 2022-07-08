@@ -47,6 +47,17 @@ export const Search = styled.div`
 export const SearchIcon = styled(Lupa)`
     width: 25px;
     height: 25px;
+    z-index: 2;
+
+    transition-duration: 0.3s;
+
+    &:hover {
+        transform: scale(1.05);
+        transform: rotate(-7deg);
+        transition-duration: 0.3s;
+
+        cursor: pointer;
+    }
 `;
 
 export const ContTabela = styled.div`
@@ -109,4 +120,11 @@ export const CardProjeto = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    transition-duration: .3s;
+
+    &:hover {
+        transform: scale(1.02);
+        transition-duration: .3s;
+    }
 `;
