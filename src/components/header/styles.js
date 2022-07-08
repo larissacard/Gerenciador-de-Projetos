@@ -44,7 +44,6 @@ export const NavMenu = styled.div `
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    overflow-y: scroll;
 
     > a {
         text-decoration: none;
