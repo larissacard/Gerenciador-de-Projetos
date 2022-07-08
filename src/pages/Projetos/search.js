@@ -25,7 +25,7 @@ function Projec(){
             setProjetos(initialProjetos)
             return;
         }
-        const filterProjetos = projetos.filter((projetos,pr_nome) => projetos.pr_nome.includes(target.value))
+        const filterProjetos = projetos.filter((projetos,pr_nome) => projetos.pr_nome.toUpperCase().includes(target.value.toUpperCase()))
         setProjetos(filterProjetos)
     }
 

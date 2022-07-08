@@ -30,14 +30,7 @@ body{
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 2rem;
 }
-.header {
-    margin-left: 2.5rem;
-    margin-top: 1.5rem;
-    width: 15%;
-    height: 95%;
-    background-color: var(--roxo); 
-    border-radius: 32px;
-}
+
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÕES DO MENU -=-=-=-=-=-=-=-=-=-=-=-=-=- */
 .btmenu{
     margin-top: 2.5rem;

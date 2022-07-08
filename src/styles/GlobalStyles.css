@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik';
+}
+
+:root {
+    --roxo: #280948;
+    --roxo1: #764BA2;
+    --azul: #96B3FD;
+    --azul1: #667EEA;
+    --branco: #F5F5F7;
+    --cinza1: grey;
+}
+
+.active {
+    color: var(--branco) !important;
+}
+
+.active path {
+    fill: var(--branco) !important;
+}
