@@ -15,6 +15,14 @@
     --cinza1: grey;
 }
 
+#root {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .active {
     color: var(--branco) !important;
 }

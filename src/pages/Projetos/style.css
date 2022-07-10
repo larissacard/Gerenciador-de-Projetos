@@ -31,19 +31,7 @@
     justify-content: flex-end;
     align-items: center;
 }
-
-.bt input {
-    padding-left: 0.7rem;
-}   
-.lupa img{
-    position: relative;
-    margin-left: -2.5rem;
-    margin-top: 2px;
-    width: 20px;
-    height: 30px;
- }
  
-
 .opbttn{
     border-radius: 0.68rem;
     width: 7.8rem;
@@ -109,17 +97,6 @@
     border-radius: 10px;
 }
 
- .agenda {
-    display: flex;
-    align-items: center;
-    width: 25rem;
-    height: 11rem;
-    background-image: url("../../../public/assets/create_background2.svg");
-    border-radius: 20px;
-    margin-bottom: 2rem; 
-    margin-top: 1rem; 
-    margin-left: 2.5rem;
- }
 .info_agenda {
     height: 8.125rem;
     width: 12rem;
@@ -128,40 +105,7 @@
     flex-direction: column;
     justify-content: space-between
  }
-.info_agenda h5 {
-    width: 10vw;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 27px;
-    color: var(--white)
- }
-.people {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-right: 43%;
-    align-items: flex-end;
-}
- 
-.people img {
-    margin-left: -1rem;
-}
-.agenda h6 {
-    color: var(--white);
-    font-weight: 500;
-    font-size: 16px;
-}
-#lado1 button {
-    display: flex;
-    width: 36px;
-    height: 36px;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--azul);
-    border-radius: 10px;
-    border: none;
-    margin-left: 0.75rem;
-    margin-top: 3.5rem;
-}
+
 #lado2 button {
     display: flex;
     width: 36px;
@@ -174,16 +118,7 @@
     margin-left: 0.75rem;
     margin-top: 3.5rem;
 }
-.info_agenda2 {
-    width: 8.125rem;
-    height: 8.125rem;
-    margin-right: 2rem;
-    margin-top: 10px;
-}
-.info_agenda2 img {
-    width: 1.25rem;  
-    height: 0.85rem; 
-}
+
 
 .allpro::-webkit-scrollbar-thumb{
     background: var(--roxo1);

@@ -5,13 +5,14 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
 
-    height: 6rem;
+    width: 100%;
     border-radius: 20px;
 
     background-image: url(/assets/create_background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     transition-duration: .3s;
 
     &:hover {

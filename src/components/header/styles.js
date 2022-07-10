@@ -21,7 +21,7 @@ export const Container = styled.div `
     flex-direction: column;
 
     @media (max-width: 1280px) {
-        min-width: 100px;
+        min-width: 65px;
     }
 `;
 

@@ -31,14 +31,14 @@
   
   
   .react-calendar { 
-    width: 26.5rem;
-    margin-left: 10px;
-    max-height: 18.12rem;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+
+    margin-top: 20px;
     background-color: transparent;
     color: #280948;
     border-radius: 10px;
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.316);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
    }
