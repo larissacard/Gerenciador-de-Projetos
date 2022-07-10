@@ -12,7 +12,8 @@ import {
   ColunaUm,
   Titulo,
   ContGrafico,
-  TopoGrafico,
+  TopGrafico,
+  ContTabela,
   Filtros,
   ColunaDois,
   Agenda,
@@ -28,11 +29,8 @@ function Projetos() {
       <Header />
 
       <ColunaUm>
-        <Titulo>
+        <TopGrafico>
           <h1>Projetos</h1>
-        </Titulo>
-
-        <ContGrafico>
           <Filtros>
             <Dropdown>
               <Dropdown.Toggle variant="" id="dropdown-basic">
@@ -45,15 +43,23 @@ function Projetos() {
               </Dropdown.Menu>
             </Dropdown>
           </Filtros>
+        </TopGrafico>
 
+        <ContGrafico>
           <Grafico />
         </ContGrafico>
 
-        <Tabela />
+        <ContTabela>
+          <Tabela />
+        </ContTabela>
       </ColunaUm>
 
       <ColunaDois>
-        <CardCriar titulo="Criar Projeto" descricao="Criar um novo projeto" button={<PostForm />}/>
+        <CardCriar
+          titulo="Criar Projeto"
+          descricao="Criar um novo projeto"
+          button={<PostForm />}
+        />
 
         <MyApp />
         <Agenda>

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 1440px;
-  max-height: 900px;
+  max-width: min(1440px, 90vw);
+  max-height: min(900px, 90vh);
   margin: 24px;
 
   background-color: white;
@@ -16,13 +16,20 @@ export const ColunaUm = styled.div`
   width: 45%;
   height: calc(100% - 48px);
   margin: 24px;
+
+  display: flex;
+  flex-direction: column;
 `;
 
-export const Titulo = styled.div`
-    margin-top: 20px;
-    height: 60px;
+export const ContGrafico = styled.div`
+    width: 100%;
+    height: 40%;
+`;
 
-    h1 {
+export const TopGrafico = styled.div`
+  margin-top: 20px;
+
+  h1 {
         font-weight: 600;
         font-size: 32px;
         line-height: 48px;
@@ -30,18 +37,16 @@ export const Titulo = styled.div`
     }
 `;
 
-export const ContGrafico = styled.div`
-    width: 100%;
-    height: 44%;
-    margin-top: 20px;
-    margin-bottom: 15px;
-`;
-
 export const Filtros = styled.div`
     z-index: 1;
     float: right;
     margin-bottom: -100%;
     position: relative;
+`;
+
+export const ContTabela = styled.div`
+  overflow-y: scroll;
+  margin-top: 20px;
 `;
 
 export const ColunaDois = styled.div`

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Lupa } from '../../../styles/Icons';
 
 export const ContProjetos = styled.div`
-    width: 100%;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const ContMais = styled.div`
@@ -12,9 +13,16 @@ export const ContMais = styled.div`
 
 export const CabecalhoProjetos = styled.div`
     display: flex;
-    width: 100%;
+    top: 0;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    z-index: 2;
+    background-color: var(--branco);
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
 
     > h2 {
         color: #280948;
@@ -62,13 +70,9 @@ export const SearchIcon = styled(Lupa)`
 
 export const ContTabela = styled.div`
     width: 100%;
-    display: flex;
-    flex-direction: column;
     margin-top: 20px;
-
-    overflow-y: scroll !important;
-    height: 360px !important; 
-    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 
     a {
         color: white;

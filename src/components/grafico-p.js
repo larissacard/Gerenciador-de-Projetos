@@ -20,7 +20,7 @@ export function GraficoP() {
     <Chart
       chartType="Bar"
       width="100%"
-      height="400px"
+      height="410px"
       data={data}
       options={options}
     />

@@ -23,7 +23,7 @@ const options = {
 export function Grafico() {
   return (
     <Chart
-      style={{position:"relative", overflow:"hidden", marginLeft:"-5%", marginTop:"-5%"}}
+      style={{position:"relative", overflow:"hidden", marginLeft:"-5%", marginTop:"-2%"}}
       chartType="LineChart"
       width="110%"
       height="110%"
