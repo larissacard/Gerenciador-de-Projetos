@@ -27,13 +27,13 @@ function PostForm() {
         e.preventDefault();
         axios.post(url,{
             pe_nome: data.pe_nome,
-            pe_fk_cargo: data.pe_fk_cargo,
+            ca_cargo: data.ca_cargo,
             pe_data_nasc: data.pe_data_nasc
         })
             .then(res=>{
                 console.log(res.data)
                 if (res.data == 'Essa pessoa já foi inserida!') {
-                    alert('Essa pessoa já foi inserida!')
+                    alert('Essa Pessoa já foi inserida!')
                 }
                 else {
                     alert('Pessoa inserida com sucesso!')

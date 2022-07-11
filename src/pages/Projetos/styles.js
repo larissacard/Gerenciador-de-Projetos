@@ -45,7 +45,7 @@ export const Filtros = styled.div`
 `;
 
 export const ContTabela = styled.div`
-  overflow-y: scroll;
+  
   margin-top: 20px;
 `;
 

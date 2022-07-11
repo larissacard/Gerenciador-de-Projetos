@@ -55,7 +55,7 @@ function Tarefas() {
                 <p>Criar uma Nova Tarefa</p>
               </div>
               <div className="ms-5">
-                    <PostForm />
+                  <PostForm />
               </div>
           </div>
 
