@@ -30,7 +30,7 @@ class ExibirTarefas extends Component{
               </thead>
               <tbody>
                 {tarefas.map(t => (
-                  <tr key={t.id}>
+                  <tr key={t.id} >
                     <td className='id_table'>{t.id}</td>
                     <td>{t.nome}</td>
                     <td>{t.data_criacao.substring(0,10)}</td>

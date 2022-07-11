@@ -6,6 +6,7 @@ import ExibirTarefa from "../../components/datatask";
 import CardAgenda from "../../components/CardAgenda";
 import { Agenda } from "../Projetos/styles";
 import "./style.css";
+import PostForm from "./modal";
 
 function Tarefas() {
   return (
@@ -49,15 +50,13 @@ function Tarefas() {
         </div>
         <div className="coluna-tres">
           <div className="create_card d-flex flex-row justify-content-around">
-            <div className="create">
-              <h5>Criar Tarefa</h5>
-              <p>Criar uma Nova Tarefa</p>
-            </div>
-            <div className="btn_criar d-flex flex-row">
-              <button>
-                <img src="assets/btn_create.svg" />
-              </button>
-            </div>
+              <div className="create">
+                <h5>Criar Tarefa</h5>
+                <p>Criar uma Nova Tarefa</p>
+              </div>
+              <div className="ms-5">
+                    <PostForm />
+              </div>
           </div>
 
           {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}

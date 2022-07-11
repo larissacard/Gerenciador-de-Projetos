@@ -15,3 +15,38 @@
     opacity: 0.3;
     border-radius: 10px;
 }
+
+.create_card{
+    display: flex;
+    width: 27.4rem;
+    height: 6rem;
+    background-image: url("../../../public/assets/create_background.svg");
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 0.625rem;
+    margin-top: 1rem;
+}
+
+.create_card h5{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: var(--white)
+}
+
+ .create_card p{
+    color: var(--cinza);
+    opacity: 0.3;
+    font-weight: 400;
+    font-size: 16px;
+ }
+
+ .create_card button{
+    display: flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+ }

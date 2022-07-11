@@ -18,7 +18,6 @@ export const CabecalhoProjetos = styled.div`
     align-items: center;
     position: sticky;
     z-index: 2;
-    background-color: var(--branco);
 
     padding-left: 20px;
     padding-right: 20px;
