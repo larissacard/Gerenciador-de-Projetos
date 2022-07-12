@@ -120,13 +120,13 @@
 }
 
 
-.allpro::-webkit-scrollbar-thumb{
+.ContTabela::-webkit-scrollbar-thumb{
     background: var(--roxo1);
     border-radius: 10px;
     width: 5px;
     height: 30px;
 }
-.allpro::-webkit-scrollbar{
+.ContTabela::-webkit-scrollbar{
     background: var(--cinza);
     width: 5px;
     opacity: 0.3;

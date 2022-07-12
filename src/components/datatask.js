@@ -11,6 +11,11 @@ class ExibirTarefa extends Component{
   
       this.setState({ tarefas: response.data })
     }
+
+    deletarTarefas = (tr_id) => {
+      fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + tr_id, {method: 'DELETE'})
+      .then(resposta => {})
+    }
   
     render() {
   
@@ -19,7 +24,7 @@ class ExibirTarefa extends Component{
       return(
         <div className='alltasks' style={{overflowY:"scroll"}}>
             {tarefas.map(p => (
-              <div key={p.pr_id} className="task_table" style={{border:"1px solid transparent"}}  >
+              <div key={p.tr_id} className="task_table" style={{border:"1px solid transparent"}}  >
                   <div className="inforcard">
                     <h6>{p.tr_nome}</h6>
                     <p style={{width:"96.5%"}}>{p.tr_descricao}</p>
@@ -35,8 +40,12 @@ class ExibirTarefa extends Component{
                           <p>Progresso</p>
                           <p style={{color: "var(--roxo1)"}}>40%</p>
                       </div>
-                      <div className="progress" style={{height: "8px", borderRadius: "50px"}}> 
+                      {/* <div className="progress" style={{height: "8px", borderRadius: "50px"}}> 
                         <div className="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}} ></div>
+                      </div> */}
+                      <div>
+                      <a href={"tarefas/"+p.tr_id}><button type="button" class="btn btn-light">Detalhar</button></a>
+                      <button type="button" class="btn btn-danger" onClick={() =>this.deletarTarefas(tarefas.tr_id)}>Excluir</button>
                       </div>
                   </div> 
             </div>

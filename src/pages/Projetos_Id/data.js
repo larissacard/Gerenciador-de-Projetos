@@ -20,6 +20,11 @@ class ExibirDetalhesProjeto extends Component {
       });
   }
 
+  deletarProjetos = (pr_id) => {
+    fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath, {method: 'DELETE'})
+    .then(resposta => {})
+  }
+
   render() {
     const { dados } = this.state;
     const { equipes } = this.state;
@@ -62,6 +67,10 @@ class ExibirDetalhesProjeto extends Component {
             </li>
           </ul>
         ))}
+
+        <>
+        <button type="button" class="btn btn-danger" onClick={() =>this.deletarProjetos(dados.pr_id)}>Excluir</button>
+        </>
       </>
     );
   }
