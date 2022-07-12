@@ -56,46 +56,9 @@
 }
 
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=- COLUNA-TRES-=-=-=-=-=-=-=-=-=-=-=-=-=- */
-.scrollbar{
-    width: 10px;
-    height: 39.81rem;
-    margin-top: 12.1rem;
-    margin-left: 56.5rem;
-    position: absolute;
-}
-.smallscroll{
-    position: absolute;
-    margin-top: 33rem;
-    margin-left: 58rem;
-}
-.decor{
-    position: absolute;
-    margin-top: 28.8rem;
-    margin-left: 60rem;
-    width: 24px;
-    height: 29rem;
-    
-}
-.coluna-tres{
-    margin-top: 25px;
-    margin-left: 3.12rem;
-    margin-right: 2.5rem;
-    width: 28.8rem;
-}
 
- .scroll_agenda::-webkit-scrollbar-thumb{
-    background: #764BA2;
-    border-radius: 10px;
-    width: 5px;
-    height: 1.8rem;
- }
 
- .scroll_agenda::-webkit-scrollbar{
-    background-color: #F5F5F7;
-    width: 5px;
-    height: 0.8rem;
-    border-radius: 10px;
-}
+
 
 .info_agenda {
     height: 8.125rem;
@@ -135,3 +98,4 @@
 .allpro{
     height: 18.75rem;
 }
+

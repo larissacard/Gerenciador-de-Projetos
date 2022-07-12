@@ -4,7 +4,8 @@ import Header from "../../components/header";
 import Menu1 from "./menu1";
 import { GraficoP } from "../../components/grafico-p";
 import ExibirPessoas from "./data";
-import "./style.css"
+import PostForm from "./modal";
+import "./style.css";
 
 function Pessoas(){
     return (
@@ -78,12 +79,12 @@ function Pessoas(){
                         <a className='lupa_pessoas'><img src="assets/search.svg"></img></a>
                     </div>
                     <div className="create_card_pessoas d-flex flex-row justify-content-around">
-                        <div className="create_pessoas">
+                        <div className="create_pessoas ms-4">
                             <h5>Adicionar Pessoa</h5>
                             <p>Adicionar uma nova pessoa</p>
                         </div>
-                        <div className="btn_criar d-flex flex-row">
-                            <button><img src="assets/btn_create.svg"/></button>
+                        <div className="ms-5">
+                            <PostForm />
                         </div>
                     </div> 
                     <ExibirPessoas/>

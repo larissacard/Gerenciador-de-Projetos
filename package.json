@@ -16,7 +16,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.1",
-    "rsuite": "^5.15.2",
+    "rsuite": "^5.16.0",
     "sassy-datepicker": "^0.8.0",
     "simplebar": "^5.3.8",
     "simplebar-react": "^2.4.1",

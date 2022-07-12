@@ -18,7 +18,6 @@ export const CabecalhoProjetos = styled.div`
     align-items: center;
     position: sticky;
     z-index: 2;
-    background-color: var(--branco);
 
     padding-left: 20px;
     padding-right: 20px;
@@ -86,20 +85,9 @@ export const ContTabela = styled.div`
     ul {
         list-style-type: none;
         padding: 0;
-    }
-
-    &::-webkit-scrollbar-thumb{
-        background: #764BA2;
-        border-radius: 10px;
-        width: 5px;
-        height: 1.8rem;
-}
-
-    &::-webkit-scrollbar{
-        background-color: #F5F5F7;
-        width: 5px;
-        height: 1.8rem;
-        border-radius: 10px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 33.5vh;
     }
 `;
 
@@ -130,5 +118,19 @@ export const CardProjeto = styled.div`
     &:hover {
         transform: scale(1.02);
         transition-duration: .3s;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background: #764BA2;
+        border-radius: 10px;
+        width: 5px;
+        height: 1.8rem;
+    }
+
+    &::-webkit-scrollbar{
+        background-color: #F5F5F7;
+        width: 5px;
+        height: 1.8rem;
+        border-radius: 10px;
     }
 `;
