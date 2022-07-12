@@ -28,12 +28,12 @@ class ExibirEquipes extends Component{
                 </tr>
               </thead>
               <tbody>
-                {equipes.map(e => (
-                  <tr key={e.id}>
-                    <td className='id_table col-1'>{e.id}</td>
-                    <td className='col-9'>{e.nome}</td>
+                {equipes.map(equipes => (
+                  <tr key={quipes.eq_id}>
+                    <td className='id_table col-1'>{equipes.eq_id}</td>
+                    <td className='col-9'>{equipes.eq_nome}</td>
                     <td>
-                    <a className='col-2' href={"equipes/"+e.id}><button>Detalhar</button></a>
+                    <a className='col-2' href={"equipes/"+equipes.eq_id}><button>Detalhar</button></a>
                     </td>
                   </tr>
                 ))}

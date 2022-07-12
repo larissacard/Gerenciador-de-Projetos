@@ -6,7 +6,7 @@ import { Button } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
 
-function PostForm() {
+function PostEquipes() {
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -16,25 +16,24 @@ function PostForm() {
         setOpen(false);
     }
 
-    const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/tarefas"
+    const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/equipes"
     const [data, setData]= useState({
-        tr_nome: "",
-        tr_descricao: ""
+        eq_nome: "",
+
     })
 
     function cadastrar(e){
         e.preventDefault();
         axios.post(url,{
-            tr_nome: data.tr_nome,
-            tr_descricao: data.tr_descricao
+            eq_nome: data.eq_nome,
         })
             .then(res=>{
                 console.log(res.data)
-                if (res.data == 'Essa tarefa já foi inserida!') {
-                    alert('Essa Tarefa já foi inserida!')
+                if (res.data == 'Essa equipe já foi inserida!') {
+                    alert('Essa Equipe já foi inserida!')
                 }
                 else {
-                    alert('Tarefa inserida com sucesso!')
+                    alert('Equipe inserida com sucesso!')
                 }
             })
     }
@@ -49,19 +48,14 @@ function PostForm() {
         <>
             <Drawer open={open} onClose={handleClose} size="sm">
                 <Drawer.Header>
-                    <Drawer.Title>Cadastro de uma nova tarefa</Drawer.Title>
+                    <Drawer.Title>Cadastro de uma nova Equipe</Drawer.Title>
                 </Drawer.Header>
                 
                 <Drawer.Body>
                     <Form onSubmit={(e)=> cadastrar(e)}>
                         <Form.Group className="mb-3">
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="tr_nome" value={data.tr_nome} type="text" placeholder="Digite o nome da tarefa"/>
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                            <Form.Label>Descrição</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="tr_descricao" value={data.tr_descricao} type="text" placeholder="Digite a descrição da tarefa"/>
+                            <Form.Control onChange={(e)=>handle(e)} id="eq_nome" value={data.eq_nome} type="text" placeholder="Digite o nome da Equipe"/>
                         </Form.Group>
 
                         <Drawer.Actions>
@@ -80,4 +74,4 @@ function PostForm() {
     );
 }
 
-export default PostForm;
+export default PostEquipes;

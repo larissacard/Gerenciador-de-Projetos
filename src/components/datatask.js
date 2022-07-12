@@ -23,11 +23,11 @@ class ExibirTarefa extends Component{
   
       return(
         <div className='alltasks' style={{overflowY:"scroll"}}>
-            {tarefas.map(p => (
-              <div key={p.tr_id} className="task_table" style={{border:"1px solid transparent"}}  >
+            {tarefas.map(tarefas => (
+              <div key={tarefas.tr_id} className="task_table" style={{border:"1px solid transparent"}}  >
                   <div className="inforcard">
-                    <h6>{p.tr_nome}</h6>
-                    <p style={{width:"96.5%"}}>{p.tr_descricao}</p>
+                    <h6>{tarefas.tr_nome}</h6>
+                    <p style={{width:"96.5%"}}>{tarefas.tr_descricao}</p>
                   </div>
                   <div className="people_tarefas">
                     <img src="assets/people.svg"/>

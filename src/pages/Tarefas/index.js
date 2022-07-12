@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
-import Menu1 from "./menu1";
-import Data from "./data";
+
 import ExibirTarefa from "../../components/datatask";
 import CardAgenda from "../../components/CardAgenda";
 import { Agenda } from "../Projetos/styles";
