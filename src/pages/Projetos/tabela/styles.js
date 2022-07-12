@@ -93,6 +93,7 @@ export const ContTabela = styled.div`
 
 export const Filtros = styled.div`
     z-index: 1;
+    margin-right: 0.8rem;
 `;
 
 export const CardProjeto = styled.div`

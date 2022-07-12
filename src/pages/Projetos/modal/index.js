@@ -6,7 +6,7 @@ import { Button } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
 
-function PostForm() {
+function PostProjetos() {
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -80,4 +80,4 @@ function PostForm() {
     );
 }
 
-export default PostForm;
+export default PostProjetos;

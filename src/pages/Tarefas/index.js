@@ -6,7 +6,7 @@ import ExibirTarefa from "../../components/datatask";
 import CardAgenda from "../../components/CardAgenda";
 import { Agenda } from "../Projetos/styles";
 import "./style.css";
-import PostForm from "./modal";
+import PostTarefas from "./modal"
 
 function Tarefas() {
   return (
@@ -55,7 +55,7 @@ function Tarefas() {
                 <p>Criar uma Nova Tarefa</p>
               </div>
               <div className="ms-5">
-                  <PostForm />
+                  <PostTarefas />
               </div>
           </div>
 

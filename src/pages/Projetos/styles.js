@@ -45,7 +45,6 @@ export const Filtros = styled.div`
 `;
 
 export const ContTabela = styled.div`
-  
   margin-top: 20px;
 `;
 

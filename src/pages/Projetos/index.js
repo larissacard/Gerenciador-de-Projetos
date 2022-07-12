@@ -21,7 +21,7 @@ import {
 
 import MyApp from "./date";
 import "./style.css";
-import PostForm from "./modal";
+import PostProjetos from "./modal";
 
 function Projetos() {
   return (
@@ -58,7 +58,7 @@ function Projetos() {
         <CardCriar
           titulo="Criar Projeto"
           descricao="Criar um novo projeto"
-          button={<PostForm />}
+          button={<PostProjetos />}
         />
 
         <MyApp />

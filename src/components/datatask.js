@@ -44,8 +44,8 @@ class ExibirTarefa extends Component{
                         <div className="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}} ></div>
                       </div> */}
                       <div>
-                      <a href={"tarefas/"+p.tr_id}><button type="button" class="btn btn-light">Detalhar</button></a>
-                      <button type="button" class="btn btn-danger" onClick={() =>this.deletarTarefas(tarefas.tr_id)}>Excluir</button>
+                      <a href={"tarefas/"+p.tr_id}><button type="button" className="btn btn-light">Detalhar</button></a>
+                      <button type="button" className="btn btn-danger" onClick={() =>this.deletarTarefas(tarefas.tr_id)}>Excluir</button>
                       </div>
                   </div> 
             </div>
