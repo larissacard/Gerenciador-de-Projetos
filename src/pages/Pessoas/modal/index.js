@@ -70,6 +70,14 @@ function PostPessoas() {
                             <Form.Label>Data de nascimento</Form.Label>
                             <Form.Control onChange={(e)=>handle(e)} id="pe_data_nasc" value={data.pe_data_nasc} type="date" placeholder="Digite a data de nascimento"/>
                         </Form.Group>
+
+                        <Form.Select>
+                            <option>Selecione o cargo</option>
+                            <option value="1">FrontEnd Junior</option>
+                            <option value="2">FrontEnd Pleno</option>
+                            <option value="3">BackEnd Junior</option>
+                            <option value="4">BackEnd Pleno</option>
+                        </Form.Select>
                         
                         <Drawer.Actions>
                             <Button onClick={() => setOpen(false)} variant="primary" type="submit">
