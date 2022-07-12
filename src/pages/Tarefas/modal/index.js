@@ -28,15 +28,15 @@ function PostForm() {
             tr_nome: data.tr_nome,
             tr_descricao: data.tr_descricao
         })
-            // .then(res=>{
-            //     console.log(res.data)
-            //     if (res.data == 'Essa tarefa já foi inserida!') {
-            //         alert('Essa Tarefa já foi inserida!')
-            //     }
-            //     else {
-            //         alert('Tarefa inserida com sucesso!')
-            //     }
-            // })
+        .then(res=>{
+            console.log(res.data)
+            if (res.data == 'Essa tarefa já foi inserida!') {
+                alert('Essa Tarefa já foi inserida!')
+            }
+            else {
+                alert('Tarefa inserida com sucesso!')
+            }
+        })
     }
 
     function handle(e) {

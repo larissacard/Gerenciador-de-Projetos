@@ -4,7 +4,7 @@ import Header from "../../components/header";
 import Menu1 from "./menu1";
 import { GraficoP } from "../../components/grafico-p";
 import ExibirPessoas from "./data";
-import PostForm from "./modal";
+import PostPessoas from "./modal";
 import "./style.css";
 
 function Pessoas(){
@@ -84,7 +84,7 @@ function Pessoas(){
                             <p>Adicionar uma nova pessoa</p>
                         </div>
                         <div className="ms-5">
-                            <PostForm />
+                            <PostPessoas />
                         </div>
                     </div> 
                     <ExibirPessoas/>

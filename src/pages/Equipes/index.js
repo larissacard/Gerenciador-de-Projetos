@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
-import Menu1 from "./menu1";
+import PostEquipes from "./modal"
 
 
 function Equipes(){
@@ -11,6 +11,15 @@ function Equipes(){
                 <Header/>
                     
                 {/* <Show/> */}
+                <div className="create_card d-flex flex-row justify-content-around">
+                <div className="create ms-4">
+                    <h5>Adicionar Equipe</h5>
+                    <p>Adicionar uma nova equipe</p>
+                </div>
+                <div className="ms-5">
+                    <PostEquipes />
+                </div>
+            </div> 
             </div>
         </div>
     );
