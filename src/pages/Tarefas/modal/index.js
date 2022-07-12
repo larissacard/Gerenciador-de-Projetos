@@ -28,15 +28,15 @@ function PostForm() {
             tr_nome: data.tr_nome,
             tr_descricao: data.tr_descricao
         })
-        .then(res=>{
-            console.log(res.data)
-            if (res.data == 'Essa tarefa já foi inserida!') {
-                alert('Essa Tarefa já foi inserida!')
-            }
-            else {
-                alert('Tarefa inserida com sucesso!')
-            }
-        })
+            .then(res=>{
+                console.log(res.data)
+                if (res.data == 'Esse tarefa já foi inserido!') {
+                    alert('Esse tarefa já foi inserido!')
+                }
+                else {
+                    alert('Tarefa inserida com sucesso!')
+                }
+            })
     }
 
     function handle(e) {
@@ -44,7 +44,6 @@ function PostForm() {
         newdata[e.target.id] = e.target.value
         setData(newdata)
     }
-
     return (
         <>
             <Drawer open={open} onClose={handleClose} size="sm">
