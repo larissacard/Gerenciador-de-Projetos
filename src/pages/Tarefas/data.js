@@ -36,6 +36,7 @@ class ExibirTarefas extends Component{
                     <td>{t.data_criacao.substring(0,10)}</td>
                     <td>
                     <a href={"tarefas/"+t.id}><button>Detalhar</button></a>
+                    <button type="button" class="btn btn-danger" onClick={() =>this.deletarTarefas(tarefas.tr_id)}>Excluir</button>
                     </td>
                   </tr>
                 ))}

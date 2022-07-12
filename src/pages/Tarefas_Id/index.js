@@ -1,5 +1,8 @@
 import React from "react";
 import Header from "../../components/header"
+import ExibirDetalhesTarefas from "./data";
+import ExibirTarefa from "./data";
+
 
 function TarefasId(){
     return (
@@ -7,6 +10,8 @@ function TarefasId(){
 
             <div className="container_maior">
                 <Header/>
+                aaaaaaaaaaaaaaaaa
+                <ExibirDetalhesTarefas/>
             </div>
         </div>
     );
