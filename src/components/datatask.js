@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import api from '../api'
 
+const projetoPath = window.location.pathname;
+
 class ExibirTarefa extends Component{
     state = {
       tarefas: [],
     }
   
     async componentDidMount(){
+     
+
       const response = await api.get('/tarefas');
   
       this.setState({ tarefas: response.data })
     }
 
-    deletarTarefas = (tr_id) => {
-      fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + tr_id, {method: 'DELETE'})
-      .then(resposta => {})
-    }
   
     render() {
   
@@ -44,8 +44,7 @@ class ExibirTarefa extends Component{
                         <div className="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}} ></div>
                       </div> */}
                       <div>
-                      <a href={"tarefas/"+p.tr_id}><button type="button" className="btn btn-light">Detalhar</button></a>
-                      <button type="button" className="btn btn-danger" onClick={() =>this.deletarTarefas(tarefas.tr_id)}>Excluir</button>
+                      <a href={"tarefas/" + p.tr_id}>Detalhes</a>
                       </div>
                   </div> 
             </div>
