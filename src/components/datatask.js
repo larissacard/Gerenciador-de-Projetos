@@ -23,11 +23,11 @@ class ExibirTarefa extends Component{
   
       return(
         <div className='alltasks' style={{overflowY:"scroll"}}>
-            {tarefas.map(p => (
-              <div key={p.tr_id} className="task_table" style={{border:"1px solid transparent"}}  >
+            {tarefas.map(tarefas => (
+              <div key={tarefas.tr_id} className="task_table" style={{border:"1px solid transparent"}}  >
                   <div className="inforcard">
-                    <h6>{p.tr_nome}</h6>
-                    <p style={{width:"96.5%"}}>{p.tr_descricao}</p>
+                    <h6>{tarefas.tr_nome}</h6>
+                    <p style={{width:"96.5%"}}>{tarefas.tr_descricao}</p>
                   </div>
                   <div className="people_tarefas">
                     <img src="assets/people.svg"/>
@@ -44,7 +44,7 @@ class ExibirTarefa extends Component{
                         <div className="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}} ></div>
                       </div> */}
                       <div>
-                      <a href={"tarefas/"+p.tr_id}><button type="button" className="btn btn-light">Detalhar</button></a>
+                      <a href={"tarefas/"+tarefas.tr_id}><button type="button" className="btn btn-light">Detalhar</button></a>
                       <button type="button" className="btn btn-danger" onClick={() =>this.deletarTarefas(tarefas.tr_id)}>Excluir</button>
                       </div>
                   </div> 

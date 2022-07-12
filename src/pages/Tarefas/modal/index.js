@@ -6,7 +6,7 @@ import { Button } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
 
-function PostTarefas() {
+function PostForm() {
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -28,6 +28,15 @@ function PostTarefas() {
             tr_nome: data.tr_nome,
             tr_descricao: data.tr_descricao
         })
+            // .then(res=>{
+            //     console.log(res.data)
+            //     if (res.data == 'Essa tarefa já foi inserida!') {
+            //         alert('Essa Tarefa já foi inserida!')
+            //     }
+            //     else {
+            //         alert('Tarefa inserida com sucesso!')
+            //     }
+            // })
     }
 
     function handle(e) {
@@ -55,8 +64,8 @@ function PostTarefas() {
                             <Form.Control onChange={(e)=>handle(e)} id="tr_descricao" value={data.tr_descricao} type="text" placeholder="Digite a descrição da tarefa"/>
                         </Form.Group>
 
-                        <Drawer.Actions className="d-flex" style={{gap: "20px"}}>
-                            <Button onClick={() => setOpen(false)} variant="danger" type="submit">
+                        <Drawer.Actions>
+                            <Button onClick={() => setOpen(false)} variant="primary" type="submit">
                                 Cadastrar
                             </Button>
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
@@ -71,4 +80,4 @@ function PostTarefas() {
     );
 }
 
-export default PostTarefas;
+export default PostForm;
