@@ -10,7 +10,7 @@ function TarefasId(){
 
             <div className="container_maior">
                 <Header/>
-                aaaaaaaaaaaaaaaaa
+                
                 <ExibirDetalhesTarefas/>
             </div>
         </div>

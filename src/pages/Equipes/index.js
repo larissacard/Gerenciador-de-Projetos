@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
+import ExibirEquipes from "./get/data";
 import PostEquipes from "./modal"
 
 
@@ -11,6 +12,9 @@ function Equipes(){
                 <Header/>
                     
                 {/* <Show/> */}
+                <>
+                <ExibirEquipes/>
+                </>
                 <div className="create_card d-flex flex-row justify-content-around">
                 <div className="create ms-4">
                     <h5>Adicionar Equipe</h5>

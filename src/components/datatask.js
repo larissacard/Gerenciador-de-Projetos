@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../api'
+import { Tarefas } from '../styles/Icons';
 
 const projetoPath = window.location.pathname;
 
