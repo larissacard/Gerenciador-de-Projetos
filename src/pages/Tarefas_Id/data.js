@@ -19,10 +19,10 @@ class ExibirDetalhesTarefas extends Component{
     });
 }
 
-  // deletarTarefa = (tr_id) => {
-  //   fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath, {method: 'DELETE'})
-  //   .then(resposta => {})
-  // }
+   deletarTarefa = (tr_id) => {
+     fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + tarefasPath, {method: 'DELETE'})
+     .then(res => {})
+   }
 
   render() {
     const { tarefas } = this.state;
@@ -31,10 +31,14 @@ class ExibirDetalhesTarefas extends Component{
     return (
       <>
         <h2>Tarefas</h2>
+        <div className="">
         <ul>
           <li>Id: {tarefas?.tr_id}</li>
           <li>Nome: {tarefas?.tr_nome}</li>
+          <li>Descrição: {tarefas?.tr_descricao}</li>
         </ul>
+        <button type="button" class="btn btn-danger" onClick={() =>this.deletarTarefa(tarefas.tr_id)}>Excluir</button>
+        </div>
         
 
         {/* {tarefas.map((t) => (
@@ -43,7 +47,7 @@ class ExibirDetalhesTarefas extends Component{
         ))} */}
         <>
         </>
-        {/* <button type="button" class="btn btn-danger" onClick={() =>this.deletarTarefa(tarefas.tr_id)}>Excluir</button> */}
+         
       </>
     );
   }
