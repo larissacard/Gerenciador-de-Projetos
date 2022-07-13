@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 import api from "../../api";
 
-const projetoPath = window.location.pathname;
+const tarefasPath = window.location.pathname;
+console.log(tarefasPath)
 
-class ExibirDetalhesTarefas extends Component {
+class ExibirDetalhesTarefas extends Component{
   state = {
-    tarefas: [],
+    tarefas:[],
   }
 
   async componentDidMount(){
    
 
-    const response = await api.get('/tarefas/' +projetoPath);
+    fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + tarefasPath)
+    .then((res) => res.json())
+    .then((res) => {
+      this.setState({ tarefas: res});
+    });
+}
 
-    this.setState({ tarefas: response.data })
-  
-
-  }
-
-  deletarTarefa = (tr_id) => {
-    fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath, {method: 'DELETE'})
-    .then(resposta => {})
-  }
+  // deletarTarefa = (tr_id) => {
+  //   fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath, {method: 'DELETE'})
+  //   .then(resposta => {})
+  // }
 
   render() {
     const { tarefas } = this.state;
@@ -30,10 +31,16 @@ class ExibirDetalhesTarefas extends Component {
     return (
       <>
         <h2>Tarefas</h2>
-        {tarefas.map((t) => (
-          <li key={t.tr_id}>{t.tr_nome}</li>
+        <ul>
+          <li>Id: {tarefas?.tr_id}</li>
+          <li>Nome: {tarefas?.tr_nome}</li>
+        </ul>
+        
 
-        ))}
+        {/* {tarefas.map((t) => (
+          <li key={t.tr_nome}>{t.tr_nome}</li>
+
+        ))} */}
         <>
         </>
         {/* <button type="button" class="btn btn-danger" onClick={() =>this.deletarTarefa(tarefas.tr_id)}>Excluir</button> */}
