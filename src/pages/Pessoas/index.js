@@ -60,7 +60,8 @@ function Pessoas(){
                     </div>  
                     <div className="grafico-pessoas">
                         <GraficoP />
-                    </div>    
+                    </div>   
+            
                 </div>
                 
                 <div className="coluna_pessoas">
