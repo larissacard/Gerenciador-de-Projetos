@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
+
 
 function PostPessoas() {
     const [open, setOpen] = useState(false);
@@ -15,19 +16,29 @@ function PostPessoas() {
     const handleClose = () => {
         setOpen(false);
     }
+    
+    const [cargos, setCargos] = useState([])
+    useEffect(() => {
+        const fetchCargos = async () => {
+            let results = await axios.get('https://api-brisa-nodejs-postgresql.herokuapp.com/cargos')
+            setCargos(results.data)
+        }
+        fetchCargos();
+    }, [])
 
     const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/pessoas"
     const [data, setData]= useState({
         pe_nome: "",
-        ca_cargo: "",
-        pe_data_nasc: ""
+        pe_data_nasc: "",
     })
+
+    const [caId, setCaId] = useState()
 
     function cadastrar(e){
         e.preventDefault();
         axios.post(url,{
             pe_nome: data.pe_nome,
-            ca_cargo: data.ca_cargo,
+            pe_fk_cargo: caId,
             pe_data_nasc: data.pe_data_nasc
         })
             .then(res=>{
@@ -62,21 +73,15 @@ function PostPessoas() {
                         </Form.Group>
 
                         <Form.Group className="mb-3">
-                            <Form.Label>Cargo</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="ca_cargo" value={data.ca_cargo} type="number" placeholder="Digite o cargo da pessoa"/>
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
                             <Form.Label>Data de nascimento</Form.Label>
                             <Form.Control onChange={(e)=>handle(e)} id="pe_data_nasc" value={data.pe_data_nasc} type="date" placeholder="Digite a data de nascimento"/>
                         </Form.Group>
 
                         <Form.Select>
                             <option>Selecione o cargo</option>
-                            <option value="1">FrontEnd Junior</option>
-                            <option value="2">FrontEnd Pleno</option>
-                            <option value="3">BackEnd Junior</option>
-                            <option value="4">BackEnd Pleno</option>
+                            {cargos.map(({ ca_id, ca_cargo}) => 
+                                <option value={ca_id} key={ca_id}> {ca_cargo} </option>
+                            )}
                         </Form.Select>
                         
                         <Drawer.Actions>
