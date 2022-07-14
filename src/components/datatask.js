@@ -45,7 +45,7 @@ class ExibirTarefa extends Component{
                         <div className="progress-bar barra" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style={{borderRadius: "50px", backgroundColor: "var(--roxo1)"}} ></div>
                       </div> */}
                       <div>
-                      <a href={"tarefas/" + tarefas.tr_id}>Detalhes</a>
+                      <a href={"tarefas/" + p.tr_id}>Detalhes</a>
                       </div>
                   </div> 
             </div>

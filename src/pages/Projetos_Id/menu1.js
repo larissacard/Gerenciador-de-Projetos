@@ -1,4 +1,6 @@
 import React from "react";
+import Data from "./Titulo";
+import Tarefas from "./Tarefas";
 import ExibirDetalhesProjeto from "./data";
 
 function Menu1() {
