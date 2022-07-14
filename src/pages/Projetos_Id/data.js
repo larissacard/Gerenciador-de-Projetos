@@ -69,7 +69,7 @@ class ExibirDetalhesProjeto extends Component {
         ))}
 
         <>
-        <button type="button" class="btn btn-danger" onClick={() =>this.deletarProjetos(dados.pr_id)}>Excluir</button>
+        <button type="button" className="btn btn-danger" onClick={() =>this.deletarProjetos(dados.pr_id)}>Excluir</button>
         </>
       </>
     );
