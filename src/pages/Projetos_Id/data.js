@@ -32,11 +32,11 @@ class ExibirDetalhesProjeto extends Component {
 
     return (
       <>
-        <h1>Projeto:</h1>
+        <h1>Projeto {dados?.pr_nome}</h1>
         <ul>
           <li>Id: {dados?.pr_id}</li>
-          <li>{dados?.pr_nome}</li>
-          <li>{dados?.pr_descricao}</li>
+          {/* <li>{dados?.pr_nome}</li> */}
+          <li>Descrição: {dados?.pr_descricao}</li>
           <li>Status: {dados?.pr_status}</li>
           <li>Data de Criação: {dados?.pr_data_criacao}</li>
           <li>Data de Finalização: {dados?.pr_data_finalizacao}</li>
@@ -69,7 +69,7 @@ class ExibirDetalhesProjeto extends Component {
         ))}
 
         <>
-        <button type="button" class="btn btn-danger" onClick={() =>this.deletarProjetos(dados.pr_id)}>Excluir</button>
+        <button type="button" className="btn btn-danger" onClick={() =>this.deletarProjetos(dados.pr_id)}>Excluir</button>
         </>
       </>
     );

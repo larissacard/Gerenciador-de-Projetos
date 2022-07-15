@@ -1,9 +1,8 @@
 import React from "react";
-import Data from "./data"
+
 import Header from "../../components/header";
-import Menu1 from "./menu1";
 import { GraficoP } from "../../components/grafico-p";
-import ExibirPessoas from "./data";
+
 import PostPessoas from "./modal";
 import "./style.css";
 
@@ -64,7 +63,7 @@ function Pessoas(){
                 </div>
                 
                 <div className="coluna_pessoas">
-                    <div className='bt'>
+                    {/* <div className='bt'>
                     <div className="dropdown me-5">
                         <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Filtros
@@ -77,7 +76,7 @@ function Pessoas(){
                     </div>
                         <input className='search_pessoas' id="placeholder" type="search" placeholder="Pesquise aqui..."></input>
                         <a className='lupa_pessoas'><img src="assets/search.svg"></img></a>
-                    </div>
+                    </div> */}
                     <div className="create_card_pessoas d-flex flex-row justify-content-around">
                         <div className="create_pessoas ms-4">
                             <h5>Adicionar Pessoa</h5>
@@ -86,8 +85,8 @@ function Pessoas(){
                         <div className="ms-5">
                             <PostPessoas />
                         </div>
+                        
                     </div> 
-                    <ExibirPessoas/>
                 </div>        
             </div>    
         </div>
