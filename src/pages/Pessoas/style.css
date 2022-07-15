@@ -125,6 +125,8 @@
     border-radius: 30px;
     border: 1px solid var(--roxo);
     background-color: white;
+    padding-left: 16px;
+    outline: none;
 }
 
 .lupa_pessoas img {

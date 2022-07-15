@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import {Dropdown} from 'react-bootstrap';
-import "./style.css"
+import PostPessoas from "../modal";
 
 function Cards () {
     const [initialPessoas, setInitialPessoas] = useState([])
@@ -46,6 +46,14 @@ function Cards () {
                 <input className='search_pessoas' id="placeholder" type="search" placeholder="Pesquise aqui..." onChange={handleChange}></input>
                 <a className='lupa_pessoas'><img src="assets/search.svg"></img></a>
             </div>
+            <div className="create_card_pessoas d-flex flex-row justify-content-around">
+            <div className="create_pessoas ms-4">
+                <h5>Adicionar Pessoa</h5>
+                <p>Adicionar uma nova pessoa</p>
+            </div>
+            <div className="ms-5">
+                <PostPessoas />
+            </div>
         </div>
 
         <div className="all_cards" style={{ overflowY: "scroll" }}>
@@ -63,6 +71,9 @@ function Cards () {
                 </a>
             ))}
         </div>
+        </div>
+
+        
         </>
     );
 }
