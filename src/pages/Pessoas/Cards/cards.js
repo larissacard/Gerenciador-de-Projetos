@@ -47,30 +47,30 @@ function Cards () {
                 <a className='lupa_pessoas'><img src="assets/search.svg"></img></a>
             </div>
             <div className="create_card_pessoas d-flex flex-row justify-content-around">
-            <div className="create_pessoas ms-4">
-                <h5>Adicionar Pessoa</h5>
-                <p>Adicionar uma nova pessoa</p>
+                <div className="create_pessoas ms-4">
+                    <h5>Adicionar Pessoa</h5>
+                    <p>Adicionar uma nova pessoa</p>
+                </div>
+                <div className="ms-5">
+                    <PostPessoas />
+                </div>
             </div>
-            <div className="ms-5">
-                <PostPessoas />
-            </div>
-        </div>
 
-        <div className="all_cards" style={{ overflowY: "scroll" }}>
-            {pessoas.map((p, index) => (
-                <a href={"pessoas/" + p.pe_id} key={p.pe_id} style={{ border: "none", textDecoration: "none" }}>
-                    <div className="card_pessoas d-flex mb-4">
-                        <div className="info_pessoas mt-3" style={{ width: "10vw" }}>
-                            <h2>{p.pe_nome}</h2>
-                            <p>{p.ca_cargo}</p>
+            <div className="all_cards" style={{ overflowY: "scroll" }}>
+                {pessoas.map((p, index) => (
+                    <a href={"pessoas/" + p.pe_id} key={p.pe_id} style={{ border: "none", textDecoration: "none" }}>
+                        <div className="card_pessoas d-flex mb-4">
+                            <div className="info_pessoas mt-3" style={{ width: "10vw" }}>
+                                <h2>{p.pe_nome}</h2>
+                                <p>{p.ca_cargo}</p>
+                            </div>
+                            <div>
+                                <img className="profile" src="assets/profile.svg"></img>
+                            </div>
                         </div>
-                        <div>
-                            <img className="profile" src="assets/profile.svg"></img>
-                        </div>
-                    </div>
-                </a>
-            ))}
-        </div>
+                    </a>
+                ))}
+            </div>
         </div>
 
         
