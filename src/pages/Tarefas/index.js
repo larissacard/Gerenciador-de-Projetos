@@ -1,11 +1,10 @@
 import React from "react";
 import Header from "../../components/header";
-
-import ExibirTarefa from "../../components/datatask";
 import CardAgenda from "../../components/CardAgenda";
 import { Agenda } from "../Projetos/styles";
 import "./style.css";
 import PostTarefas from "./modal"
+import Cards from "./Cards/cards";
 
 function Tarefas() {
   return (
@@ -16,37 +15,13 @@ function Tarefas() {
       <div className="container_maior">
         <Header />
 
-        <div className="coluna-dois">
+        <div className="coluna_tarefas">
           <div className="info_search">
             <h5>Tarefas</h5>
-            <div
-              className="d-flex align-items-center"
-              style={{ width: "38.1rem" }}
-            >
-              <input
-                id="placeholder"
-                type="search"
-                placeholder="Pesquise aqui..."
-                className="search2 px-3"
-              ></input>
-              <a>
-                <img
-                  style={{
-                    marginLeft: "-2.5rem",
-                    width: "25px",
-                    height: "35px",
-                  }}
-                  src="assets/search.svg"
-                ></img>
-              </a>
-            </div>
+            <Cards />
           </div>
-          <ExibirTarefa />
         </div>
 
-        <div className="decor">
-          <img src="assets/decor.svg"></img>
-        </div>
         <div className="coluna-tres">
           <div className="create_card d-flex flex-row justify-content-around">
               <div className="create">

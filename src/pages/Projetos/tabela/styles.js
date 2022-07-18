@@ -70,8 +70,6 @@ export const SearchIcon = styled(Lupa)`
 export const ContTabela = styled.div`
     width: 100%;
     margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
 
     a {
         color: white;
@@ -84,7 +82,7 @@ export const ContTabela = styled.div`
 
     ul {
         list-style-type: none;
-        padding: 0;
+        padding: 10px;
         overflow-y: scroll;
         overflow-x: hidden;
         height: 33.5vh;

@@ -3,7 +3,6 @@ import React from "react";
 import Header from "../../components/header";
 import { GraficoP } from "../../components/grafico-p";
 import Cards from "./Cards/cards";
-import PostPessoas from "./modal";
 import "./style.css";
 
 function Pessoas(){

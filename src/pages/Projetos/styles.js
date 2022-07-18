@@ -59,6 +59,7 @@ export const ColunaDois = styled.div`
 
 export const Agenda = styled.div`
   width: 100%;
+  height: 47.8vh;
   display: flex;
   flex-direction: column;
   align-items: center;

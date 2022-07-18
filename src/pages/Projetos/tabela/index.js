@@ -23,7 +23,6 @@ function Tabela() {
                 const data = await response.json();
                 setInitialProjetos(data);
                 setProjetos(data);
-
             } catch (error) {
                 console.log(error);
             }
