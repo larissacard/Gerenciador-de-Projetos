@@ -1,0 +1,11 @@
+.box-one{
+    width: 16.625rem;
+    height: 8.938rem;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.box-one ul{
+    color: #280948;
+    padding-top: 22px;
+}

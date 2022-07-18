@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import api from "../../api";
-import AtualizarProjetos from "./put-method";
+import './style.css'
 
 const projetoPath = window.location.pathname;
 
@@ -33,15 +33,16 @@ class ExibirDetalhesProjeto extends Component {
 
     return (
       <>
-        <h1>Projeto {dados?.pr_nome}</h1>
-        <ul>
-          <li>Id: {dados?.pr_id}</li>
-          {/* <li>{dados?.pr_nome}</li> */}
-          <li>Descrição: {dados?.pr_descricao}</li>
-          <li>Status: {dados?.pr_status}</li>
-          <li>Data de Criação: {dados?.pr_data_criacao}</li>
-          <li>Data de Finalização: {dados?.pr_data_finalizacao}</li>
-        </ul>
+        <h1 style={{color: "#280948", width:"12.813rem", fontSize:"2rem", lineHeight:"3rem", fontWeight:"600"}}>{dados?.pr_nome}</h1>
+        <div className="box-one">
+          <ul>
+            {/* <li>Id: {dados?.pr_id}</li> */}
+            {/* <li>Descrição: {dados?.pr_descricao}</li> */}
+            {/* <li>Status: {dados?.pr_status}</li> */}
+            <li>Data de Criação: {dados?.pr_data_criacao}</li>
+            <li>Data de Finalização: {dados?.pr_data_finalizacao}</li>
+          </ul>
+        </div>
 
         <h2>Equipes</h2>
         {equipes.map((e) => (
@@ -71,7 +72,6 @@ class ExibirDetalhesProjeto extends Component {
 
         <>
         <button type="button" className="btn btn-danger" onClick={() =>this.deletarProjetos(dados.pr_id)}>Excluir</button>
-        <AtualizarProjetos />
         </>
       </>
     );
