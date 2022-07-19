@@ -1,17 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
+import api from "../api";
+
 
 // dados
-const data = [
-  ["Dia", "Tarefas Concluidas", "Não Concluidas"],
-  ["Seg", 0, 2],
-  ["Ter", 2, 3],
-  ["Qua", 3.9, 4],
-  ["Qui", 1.7, 1.8],
-  ["Sex", 1.9, 1.7],
-  ["Sab", 8.8, 1.3],
-  ["Dom", 7.6, 1.2],
-];
+let data = []
 
 const options = {
   curveType: "function",
@@ -21,9 +14,32 @@ const options = {
 };
 
 export function Grafico() {
+  const [data2, setData2] = useState([]);
+  useEffect(() => {
+    const fetchProjetos = async () => {
+      const response = await api.get("/relatorios/projetos");
+      setData2(response.data);
+    };
+    fetchProjetos();
+  }, []);
+
+
+  data = [
+    ["Mês", "Projetos Concluidos", "Não Concluidos"],
+  ];
+  data2.forEach((element) => {
+    data.push([`${element.mes}-${element.ano}`, parseInt(element.count), 0])
+  })
+
+
   return (
     <Chart
-      style={{position:"relative", overflow:"hidden", marginLeft:"-5%", marginTop:"-2%"}}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        marginLeft: "-5%",
+        marginTop: "-2%",
+      }}
       chartType="LineChart"
       width="110%"
       height="110%"
@@ -34,5 +50,3 @@ export function Grafico() {
 }
 
 export default Grafico;
-
-
