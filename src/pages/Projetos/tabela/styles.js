@@ -83,9 +83,10 @@ export const ContTabela = styled.div`
     ul {
         list-style-type: none;
         padding: 10px;
+        padding-bottom: 0;
         overflow-y: scroll;
         overflow-x: hidden;
-        height: 35.3vh;
+        height: calc(min(355px, 35vh));
     }
 `;
 

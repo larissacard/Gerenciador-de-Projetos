@@ -63,7 +63,7 @@ export const ColunaDois = styled.div`
 
 export const CardCalendar = styled.div`
   width: 100%;
-  height: 42.3vh;
+  height: auto;
   padding: 15px 20px;
   border-radius: 20px;
 
@@ -72,7 +72,7 @@ export const CardCalendar = styled.div`
 
 export const Agenda = styled.div`
   width: 100%;
-  height: 40.8vh;
+  height: auto;
   margin-top: 10px;
   padding: 10px 5px;
   border-radius: 20px;
