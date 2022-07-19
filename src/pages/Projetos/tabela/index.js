@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Dropdown} from 'react-bootstrap';
+import api from "../../../api";
 
 import {
     ContProjetos,
@@ -19,10 +20,9 @@ function Tabela() {
     useEffect(() => {
         const fetchProjetos = async () => {
             try {
-                const response = await fetch('https://api-brisa-nodejs-postgresql.herokuapp.com/projetos');
-                const data = await response.json();
-                setInitialProjetos(data);
-                setProjetos(data);
+                const response = await api.get('/projetos');
+                setInitialProjetos(response.data);
+                setProjetos(response.data);
             } catch (error) {
                 console.log(error);
             }
