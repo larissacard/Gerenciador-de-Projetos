@@ -5,7 +5,7 @@ export const Container = styled.div`
   max-height: min(900px, 90vh);
   margin: 24px;
 
-  background-color: white;
+  background-color: #F5F5F7;
   display: flex;
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -13,10 +13,13 @@ export const Container = styled.div`
 `;
 
 export const ColunaUm = styled.div`
-  width: 45%;
+  width: 46%;
   height: calc(100% - 48px);
-  margin: 24px;
+  margin: 24px 0px;
+  padding: 0 10px;
+  border-radius: 20px;
 
+  background-color: white;
   display: flex;
   flex-direction: column;
 `;
@@ -34,6 +37,7 @@ export const TopGrafico = styled.div`
         font-size: 32px;
         line-height: 48px;
         color: var(--roxo);
+        padding-left: 15px;
     }
 `;
 
@@ -45,26 +49,39 @@ export const Filtros = styled.div`
 `;
 
 export const ContTabela = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const ColunaDois = styled.div`
-  width: 30.56%;
+  width: 33%;
   height: calc(100% - 48px);
-  margin: 24px;
-
+  margin: 24px 10px;
+  
   display: flex;
   flex-direction: column;
+`;
+
+export const CardCalendar = styled.div`
+  width: 100%;
+  height: 42.3vh;
+  padding: 15px 20px;
+  border-radius: 20px;
+
+  background-color: white;
 `;
 
 export const Agenda = styled.div`
   width: 100%;
-  height: 47.8vh;
+  height: 40.8vh;
+  margin-top: 10px;
+  padding: 10px 5px;
+  border-radius: 20px;
+
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  
   overflow-y: scroll;
-  margin-top: 30px;
 `;
 

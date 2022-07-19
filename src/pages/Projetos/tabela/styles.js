@@ -19,7 +19,7 @@ export const CabecalhoProjetos = styled.div`
     position: sticky;
     z-index: 2;
 
-    padding-left: 20px;
+    padding-left: 15px;
     padding-right: 20px;
     padding-bottom: 10px;
 
@@ -69,7 +69,7 @@ export const SearchIcon = styled(Lupa)`
 
 export const ContTabela = styled.div`
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
 
     a {
         color: white;
@@ -85,7 +85,7 @@ export const ContTabela = styled.div`
         padding: 10px;
         overflow-y: scroll;
         overflow-x: hidden;
-        height: 33.5vh;
+        height: 35.3vh;
     }
 `;
 
