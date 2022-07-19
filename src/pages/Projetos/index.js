@@ -10,12 +10,14 @@ import CardAgenda from "../../components/CardAgenda";
 import {
   Container,
   ColunaUm,
+  ColunaUm_bg,
   Titulo,
   ContGrafico,
   TopGrafico,
   ContTabela,
   Filtros,
   ColunaDois,
+  CardCalendar,
   Agenda,
 } from "./styles";
 
@@ -29,39 +31,38 @@ function Projetos() {
       <Header />
 
       <ColunaUm>
-        <TopGrafico>
-          <h1>Projetos</h1>
-          <Filtros>
-            <Dropdown>
-              <Dropdown.Toggle variant="" id="dropdown-basic">
-                Filtros
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#">Ordem Alfabetica A-Z</Dropdown.Item>
-                <Dropdown.Item href="#">Mais Recentes</Dropdown.Item>
-                <Dropdown.Item href="#">Mais Antigos</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Filtros>
-        </TopGrafico>
-
-        <ContGrafico>
-          <Grafico />
-        </ContGrafico>
-
-        <ContTabela>
-          <Tabela />
-        </ContTabela>
+          <TopGrafico>
+            <h1>Projetos</h1>
+            <Filtros>
+              <Dropdown>
+                <Dropdown.Toggle variant="" id="dropdown-basic">
+                  Filtros
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#">Ordem Alfabetica A-Z</Dropdown.Item>
+                  <Dropdown.Item href="#">Mais Recentes</Dropdown.Item>
+                  <Dropdown.Item href="#">Mais Antigos</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Filtros>
+          </TopGrafico>
+          <ContGrafico>
+            <Grafico />
+          </ContGrafico>
+          <ContTabela>
+            <Tabela />
+          </ContTabela>
       </ColunaUm>
 
       <ColunaDois>
-        <CardCriar
-          titulo="Criar Projeto"
-          descricao="Criar um novo projeto"
-          button={<PostProjetos />}
-        />
-
-        <MyApp />
+        <CardCalendar>
+          <CardCriar
+            titulo="Criar Projeto"
+            descricao="Criar um novo projeto"
+            button={<PostProjetos />}
+          />
+          <MyApp />
+        </CardCalendar>
         <Agenda>
           <CardAgenda titulo="Gp Inovação" hora="9:00 AM" />
           <CardAgenda titulo="Gerenciamento de Pousadas" hora="11:00 AM" />

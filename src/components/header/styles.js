@@ -14,7 +14,7 @@ export const Container = styled.div `
     height: calc(100% - 48px);
     width: 16.67%;
     min-width: 200px;
-    margin: 24px;
+    margin: 24px 10px 24px 24px;
     border-radius: 24px;
 
     display: flex;
