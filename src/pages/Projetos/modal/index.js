@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
-import { Drawer } from 'rsuite';
+import { Drawer, Message, useToaster } from 'rsuite';
 import { Button } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
-import { format } from "rsuite/esm/utils/dateUtils";
 
 function PostProjetos() {
     const [open, setOpen] = useState(false);
@@ -16,6 +15,16 @@ function PostProjetos() {
     const handleClose = () => {
         setOpen(false);
     }
+
+    const [alertOpen, setalertOpen] = useState(false);
+
+    const handleAlert = () => {
+        setalertOpen(true);
+    };
+    const handleCloseAlert = () => {
+        setalertOpen(false);
+    }
+    
 
     const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/projetos"
     const [data, setData]= useState({
@@ -35,7 +44,7 @@ function PostProjetos() {
                     alert('Esse Projeto já foi inserido!')
                 }
                 else {
-                    alert('Projeto inserido com sucesso!')
+            
                 }
             })
     }
@@ -72,9 +81,10 @@ function PostProjetos() {
                                 }
                             }} variant="primary" type="submit">
                                 Cadastrar
-                            </Button>
+                            </Button >
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
                         </Drawer.Actions>
+                        <Message open={alertOpen} autoHideDuration={2500} showIcon type="success" header="Funcionou oh!"></Message>
                     </Form>
                 </Drawer.Body>
             </Drawer>

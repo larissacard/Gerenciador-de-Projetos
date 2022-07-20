@@ -8,6 +8,7 @@ export const Button = styled.button`
     background-color: white;
     border-radius: 10px;
     border: none;
+    outline: none;
     transition-duration: .2s;
     
     img{
