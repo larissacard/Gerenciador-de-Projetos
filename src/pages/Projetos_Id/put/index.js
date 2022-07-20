@@ -78,7 +78,7 @@ function Edit() {
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}><img src="assets/btn_create.svg" /></Button>
+                <Button onClick={handleOpen}>Editar</Button>
             </div>
         </>
     );
