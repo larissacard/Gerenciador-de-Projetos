@@ -5,6 +5,7 @@ import { Drawer } from 'rsuite';
 import { Button } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
+import { format } from "rsuite/esm/utils/dateUtils";
 
 function PostProjetos() {
     const [open, setOpen] = useState(false);
@@ -56,7 +57,7 @@ function PostProjetos() {
                     <Form onSubmit={(e)=> cadastrar(e)}>
                         <Form.Group className="mb-3">
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="pr_nome" value={data.pr_nome} type="text" placeholder="Digite o nome do projeto"/>
+                            <Form.Control required onChange={(e)=>handle(e)} id="pr_nome" value={data.pr_nome} type="text" placeholder="Digite o nome do projeto"/>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
@@ -65,7 +66,11 @@ function PostProjetos() {
                         </Form.Group>
                         
                         <Drawer.Actions>
-                            <Button onClick={() => setOpen(false)} variant="primary" type="submit">
+                            <Button onClick={() => {
+                                if(data.pr_nome != ""){
+                                    setOpen(false)
+                                }
+                            }} variant="primary" type="submit">
                                 Cadastrar
                             </Button>
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
