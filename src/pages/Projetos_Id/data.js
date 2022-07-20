@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../../api";
+import Edit from "./put";
 import './style.css'
 
 const projetoPath = window.location.pathname;
@@ -72,6 +73,7 @@ class ExibirDetalhesProjeto extends Component {
 
         <>
         <button type="button" className="btn btn-danger" onClick={() =>this.deletarProjetos(dados.pr_id)}>Excluir</button>
+        <Edit/> 
         </>
       </>
     );
