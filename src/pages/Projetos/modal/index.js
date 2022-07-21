@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import * as React from 'react';
+import {useState} from "react";
 import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer, Message, useToaster } from 'rsuite';
 import { Button } from './styles'
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 import "rsuite/dist/rsuite.min.css";
 
@@ -16,15 +19,21 @@ function PostProjetos() {
         setOpen(false);
     }
 
-    const [alertOpen, setalertOpen] = useState(false);
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+      });
 
-    const handleAlert = () => {
-        setalertOpen(true);
+    const [openAlert, setOpenAlert] = React.useState(false);
+
+    const handleClickCad = () => {
+        setOpenAlert(true);
     };
-    const handleCloseAlert = () => {
-        setalertOpen(false);
-    }
-    
+    const handleCloseAlert = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+        setOpenAlert(false);
+    };
 
     const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/projetos"
     const [data, setData]= useState({
@@ -40,11 +49,8 @@ function PostProjetos() {
         })
             .then(res=>{
                 console.log(res.data)
-                if (res.data == 'Esse projeto já foi inserido!') {
-                    alert('Esse Projeto já foi inserido!')
-                }
-                else {
-            
+                if (res.data == 'Inserido com sucesso!') {
+                    setOpenAlert(true);
                 }
             })
     }
@@ -57,6 +63,12 @@ function PostProjetos() {
 
     return (
         <>
+            <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
+                <Alert onClose={handleCloseAlert} severity="success" sx={{ width: '100%' }}>
+                    Ih, funcionou oh!
+                </Alert>
+            </Snackbar>
+            <Alert severity="success">Ih, funcionou oh!</Alert>
             <Drawer open={open} onClose={handleClose} size="sm">
                 <Drawer.Header>
                     <Drawer.Title>Cadastro de um novo Projeto</Drawer.Title>
@@ -84,7 +96,6 @@ function PostProjetos() {
                             </Button >
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
                         </Drawer.Actions>
-                        <Message open={alertOpen} autoHideDuration={2500} showIcon type="success" header="Funcionou oh!"></Message>
                     </Form>
                 </Drawer.Body>
             </Drawer>
