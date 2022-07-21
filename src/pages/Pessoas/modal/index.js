@@ -79,8 +79,8 @@ function PostPessoas() {
 
                         <Form.Select>
                             <option>Selecione o cargo</option>
-                            {cargos.map(({ ca_id, ca_cargo}) => 
-                                <option value={ca_id} key={ca_id}> {ca_cargo} </option>
+                            {cargos.map(({cargo, index}) => 
+                                <option value={cargo} key={index}> {cargo} </option>
                             )}
                         </Form.Select>
                         
