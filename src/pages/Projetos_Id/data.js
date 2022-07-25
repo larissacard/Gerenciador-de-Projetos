@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 import api from "../../api";
 import Edit from "./put";
@@ -22,7 +23,7 @@ class ExibirDetalhesProjeto extends Component {
   }
 
   deletarProjetos = (pr_id) => {
-    fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath, {method: 'DELETE'})
+    api.delete("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath)
   }
 
   render() {
