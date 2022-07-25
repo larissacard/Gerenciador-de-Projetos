@@ -16,11 +16,11 @@ const options = {
 export function Grafico() {
   const [data2, setData2] = useState([]);
   useEffect(() => {
-    const fetchProjetos = async () => {
+    const getProjetos = async () => {
       const response = await api.get("/relatorios/projetos");
       setData2(response.data);
     };
-    fetchProjetos();
+    getProjetos();
   }, []);
 
 

@@ -10,12 +10,9 @@ class ExibirDetalhesTarefas extends Component{
   }
 
   async componentDidMount(){
-   
-
-    fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + tarefasPath)
-    .then((res) => res.json())
+    api.get("/" + tarefasPath)
     .then((res) => {
-      this.setState({ tarefas: res});
+      this.setState({ tarefas: res.data});
     });
 }
 

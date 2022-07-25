@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import api from "../../../api";
 // import {Dropdown} from 'react-bootstrap';
 import PostPessoas from "../modal";
 
@@ -7,17 +8,16 @@ function Cards () {
     const [pessoas, setPessoas] = useState([])
 
     useEffect(() => {
-        const fetchPessoas = async () => {
+        const getPessoas = async () => {
             try {
-                const response =await fetch('https://api-brisa-nodejs-postgresql.herokuapp.com/pessoas');
-                const data = await response.json();
-                setInitialPessoas(data);
-                setPessoas(data);
+                const response =await api.get('/pessoas');
+                setInitialPessoas(response.data);
+                setPessoas(response.data);
             } catch (error) {
                 console.log(error);
             }
         };
-        fetchPessoas();
+        getPessoas();
     }, []);
 
     const handleChange = ({target}) => {

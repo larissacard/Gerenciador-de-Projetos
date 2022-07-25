@@ -4,6 +4,7 @@ import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
 
+import api from "../../../api";
 import "rsuite/dist/rsuite.min.css";
 
 
@@ -19,14 +20,13 @@ function PostPessoas() {
     
     const [cargos, setCargos] = useState([])
     useEffect(() => {
-        const fetchCargos = async () => {
-            let results = await axios.get('https://api-brisa-nodejs-postgresql.herokuapp.com/cargos')
+        const getCargos = async () => {
+            let results = await api.get('/cargos')
             setCargos(results.data)
         }
-        fetchCargos();
+        getCargos();
     }, [])
 
-    const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/pessoas"
     const [data, setData]= useState({
         pe_nome: "",
         pe_data_nasc: "",
@@ -36,7 +36,7 @@ function PostPessoas() {
 
     function cadastrar(e){
         e.preventDefault();
-        axios.post(url,{
+        api.post('/pessoas',{
             pe_nome: data.pe_nome,
             pe_fk_cargo: caId,
             pe_data_nasc: data.pe_data_nasc

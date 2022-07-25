@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import api from "../../../api";
 // import {Dropdown} from 'react-bootstrap';
 import PostTarefas from "../modal";
 
@@ -7,17 +8,16 @@ function Cards() {
     const [tarefas, setTarefas] = useState([])
 
     useEffect(() => {
-        const fetchTarefas = async () => {
+        const getTarefas = async () => {
             try {
-                const response =await fetch('https://api-brisa-nodejs-postgresql.herokuapp.com/tarefas');
-                const data = await response.json();
-                setInitialTarefas(data);
-                setTarefas(data);
+                const response =await api.get('/tarefas');
+                setInitialTarefas(response.data);
+                setTarefas(response.data);
             } catch (error) {
                 console.log(error);
             }
         };
-        fetchTarefas();
+        getTarefas();
     }, []);
 
     const handleChange = ({target}) => {

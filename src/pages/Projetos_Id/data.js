@@ -13,18 +13,16 @@ class ExibirDetalhesProjeto extends Component {
   };
 
   componentDidMount() {
-    fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath)
-      .then((res) => res.json())
+    api.get("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath)
       .then((res) => {
-        this.setState({ dados: res.dados });
-        this.setState({ equipes: res.equipes });
-        this.setState({ tarefas: res.tarefas });
+        this.setState({ dados: res.data.dados });
+        this.setState({ equipes: res.data.equipes });
+        this.setState({ tarefas: res.data.tarefas });
       });
   }
 
   deletarProjetos = (pr_id) => {
     fetch("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath, {method: 'DELETE'})
-    .then(resposta => {})
   }
 
   render() {
