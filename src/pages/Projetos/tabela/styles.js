@@ -82,11 +82,22 @@ export const ContTabela = styled.div`
 
     ul {
         list-style-type: none;
-        padding: 10px;
-        padding-bottom: 0;
+        padding: 0px 10px;
         overflow-y: scroll;
         overflow-x: hidden;
         height: calc(min(355px, 35vh));
+    }
+    
+    ul::-webkit-scrollbar-thumb{
+        background: #764BA2;
+        border-radius: 10px;
+        width: 5px;
+    }
+    
+    ul::-webkit-scrollbar{
+        background-color: #F5F5F7;
+        width: 5px;
+        border-radius: 10px;
     }
 `;
 
@@ -115,22 +126,4 @@ export const CardProjeto = styled.div`
 
     transition-duration: .3s;
 
-    &:hover {
-        transform: scale(1.02);
-        transition-duration: .3s;
-    }
-
-    &::-webkit-scrollbar-thumb{
-        background: #764BA2;
-        border-radius: 10px;
-        width: 5px;
-        height: 1.8rem;
-    }
-
-    &::-webkit-scrollbar{
-        background-color: #F5F5F7;
-        width: 5px;
-        height: 1.8rem;
-        border-radius: 10px;
-    }
 `;

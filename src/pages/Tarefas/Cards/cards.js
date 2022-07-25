@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import api from "../../../api";
-// import {Dropdown} from 'react-bootstrap';
-import PostTarefas from "../modal";
 
 function Cards() {
     const [initialTarefas, setInitialTarefas] = useState([])
@@ -40,7 +38,7 @@ function Cards() {
 
         <div className='alltasks' style={{overflowY:"scroll"}}>
             {tarefas.map((t, index) => (
-                <div className="task_table" style={{border:"1px solid transparent"}}>
+                <div className="task_table" key={t.tr_id} style={{border:"1px solid transparent"}}>
                     <a href={"tarefas/" + t.tr_id} key={t.tr_id} style={{ border: "none", textDecoration: "none" }}>
                         <div className="inforcard">
                             <h6>{t.tr_nome}</h6>

@@ -82,6 +82,18 @@ export const Agenda = styled.div`
   flex-direction: column;
   align-items: center;
   
-  overflow-y: scroll;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar-thumb{
+    background: #764BA2;
+    border-radius: 10px;
+    width: 5px;
+  }
+    
+  ::-webkit-scrollbar{
+    background-color: #F5F5F7;
+    width: 5px;
+    border-radius: 10px;
+  }
 `;
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { Dropdown } from "react-bootstrap";
 
 import Header from "../../components/header";
 import Grafico from "../../components/grafico";
@@ -33,18 +32,6 @@ function Projetos() {
       <ColunaUm>
           <TopGrafico>
             <h1>Projetos</h1>
-            <Filtros>
-              <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-basic">
-                  Filtros
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#">Ordem Alfabetica A-Z</Dropdown.Item>
-                  <Dropdown.Item href="#">Mais Recentes</Dropdown.Item>
-                  <Dropdown.Item href="#">Mais Antigos</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </Filtros>
           </TopGrafico>
           <ContGrafico>
             <Grafico />
