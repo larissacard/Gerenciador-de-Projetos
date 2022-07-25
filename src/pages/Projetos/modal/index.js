@@ -8,6 +8,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
 import "rsuite/dist/rsuite.min.css";
+import api from '../../../api';
 
 function PostProjetos() {
     const [open, setOpen] = useState(false);
@@ -49,9 +50,7 @@ function PostProjetos() {
         })
             .then(res=>{
                 console.log(res.data)
-                if (res.data == 'Inserido com sucesso!') {
-                    setOpenAlert(true);
-                }
+                
             })
     }
 
@@ -64,11 +63,11 @@ function PostProjetos() {
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
-                <Alert onClose={handleCloseAlert} severity="success" sx={{ width: '100%' }}>
+                <Alert onClose={handleCloseAlert} severity="success" color="info">
                     Ih, funcionou oh!
                 </Alert>
+            
             </Snackbar>
-            <Alert severity="success">Ih, funcionou oh!</Alert>
             <Drawer open={open} onClose={handleClose} size="sm">
                 <Drawer.Header>
                     <Drawer.Title>Cadastro de um novo Projeto</Drawer.Title>
@@ -90,6 +89,8 @@ function PostProjetos() {
                             <Button onClick={() => {
                                 if(data.pr_nome != ""){
                                     setOpen(false)
+                                    setOpenAlert(true);
+                                
                                 }
                             }} variant="primary" type="submit">
                                 Cadastrar
