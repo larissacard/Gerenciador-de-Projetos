@@ -61,7 +61,7 @@ function Cards(Props) {
         </div>
       </div>
 
-        <ul>
+        <ul style={{overflowY:"scroll"}}>
           {pessoas.map((p) => (
             <CardPessoa key={p.pe_id} id={p.pe_id} nome={p.pe_nome} profissao={p.pe_cargo} childToParent={childToParent}/>
           ))}

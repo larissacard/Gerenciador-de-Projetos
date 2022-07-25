@@ -7,7 +7,7 @@ import Cards from "./cards";
 import { Container, ColunaUm, ColunaDois } from "./styles";
 
 function Pessoas() {
-  const [data, setData] = useState(1);
+  const [data, setData] = useState({nome: "Ninguem selecionado"});
 
   const childToParent = (childdata) => {
     setData(childdata);

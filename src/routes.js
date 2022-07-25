@@ -8,10 +8,6 @@ import EquipesId from './pages/Equipes_Id'
 import Tarefas from './pages/Tarefas'
 import TarefasId from './pages/Tarefas_Id'
 import Pessoas from './pages/Pessoas'
-import PessoasId from './pages/Pessoas_Id'
-
-
-
 
 function Rout() {
     return (
@@ -23,7 +19,6 @@ function Rout() {
                 <Route exact path="/equipes" element={<Equipes/>} />
                 <Route exact path="/equipes/:id" element={<EquipesId/>} />
                 <Route exact path="/pessoas" element={<Pessoas/>} />
-                <Route exact path="/pessoas/:id" element={<PessoasId/>} />
                 <Route exact path="/tarefas" element={<Tarefas/>} />
                 <Route exact path="/tarefas/:id" element={<TarefasId/>} />
             </Routes>

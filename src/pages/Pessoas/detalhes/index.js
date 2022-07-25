@@ -10,7 +10,7 @@ function Detalhes(Props) {
     <Container>
         <CardInfoPessoa nome={Props.id.nome} profissao={Props.id.profissao} />
         <div className="progresso-p">
-          <div className="nome-icon d-flex">
+          <div className="nome-icon d-flex justify-content-between">
             <h6>Status da Equipe</h6>
             <div className="d-flex pessoas-equipe">
               <img src="assets/people.svg" />
@@ -26,7 +26,7 @@ function Detalhes(Props) {
           <div
             className="progress"
             style={{ height: "8px", borderRadius: "50px" }}
-          >
+            >
             <div
               className="progress-bar barra"
               role="progressbar"
@@ -37,11 +37,11 @@ function Detalhes(Props) {
                 borderRadius: "50px",
                 backgroundColor: "var(--roxo1)",
               }}
-            ></div>
+              ></div>
           </div>
         </div>
 
-        <div className="opcoes-pessoas d-flex justify-content-between">
+<div className="opcoes-pessoas d-flex justify-content-between">
           <div className="d-flex op">
             <h6>Desempenhos</h6>
           </div>
@@ -53,7 +53,7 @@ function Detalhes(Props) {
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-            >
+              >
               Semanal
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -71,9 +71,9 @@ function Detalhes(Props) {
           </div>
         </div>
 
-        <GraficoP />
+<GraficoP />
       </Container>
-  );
-}
-
-export default Detalhes;
+      );
+    }
+    
+    export default Detalhes;
