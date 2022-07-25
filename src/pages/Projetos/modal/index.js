@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {useState} from "react";
-import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import api from '../../../api';
 
 import "rsuite/dist/rsuite.min.css";
 
@@ -44,16 +44,20 @@ function PostProjetos() {
 
     function cadastrar(e){
         e.preventDefault();
-        axios.post(url,{
+        api.post(url,{
             pr_nome: data.pr_nome,
             pr_descricao: data.pr_descricao
+        }).then(res=>{
+            console.log(res.data)
+            if (res.data == 'Inserido com sucesso!') {
+                alert('Esse Projeto já foi inserido')
+            }
+            else {
+                setOpenAlert(true);
+            }
         })
-            .then(res=>{
-                console.log(res.data)
-                
-            })
     }
-
+        
     function handle(e) {
         const newdata = {...data}
         newdata[e.target.id] = e.target.value
@@ -65,9 +69,9 @@ function PostProjetos() {
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
                 <Alert onClose={handleCloseAlert} severity="success" color="info">
                     Ih, funcionou oh!
-                </Alert>
-            
+                </Alert>    
             </Snackbar>
+
             <Drawer open={open} onClose={handleClose} size="sm">
                 <Drawer.Header>
                     <Drawer.Title>Cadastro de um novo Projeto</Drawer.Title>
@@ -89,8 +93,7 @@ function PostProjetos() {
                             <Button onClick={() => {
                                 if(data.pr_nome != ""){
                                     setOpen(false)
-                                    setOpenAlert(true);
-                                
+                                    // setOpenAlert(true);
                                 }
                             }} variant="primary" type="submit">
                                 Cadastrar

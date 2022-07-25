@@ -5,6 +5,7 @@ import { Drawer } from 'rsuite';
 import { Button } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
+import api from "../../../api";
 
 function PostTarefas() {
     const [open, setOpen] = useState(false);
@@ -24,7 +25,7 @@ function PostTarefas() {
 
     function cadastrar(e){
         e.preventDefault();
-        axios.post(url,{
+        api.post(url,{
             tr_nome: data.tr_nome,
             tr_descricao: data.tr_descricao
         })

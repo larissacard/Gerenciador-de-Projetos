@@ -3,6 +3,7 @@ import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
+import api from "../../../api";
 
 import "rsuite/dist/rsuite.min.css";
 
@@ -19,12 +20,11 @@ function PostEquipes() {
     const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/equipes"
     const [data, setData]= useState({
         eq_nome: "",
-
     })
 
     function cadastrar(e){
         e.preventDefault();
-        axios.post(url,{
+        api.post(url,{
             eq_nome: data.eq_nome,
         })
             .then(res=>{
