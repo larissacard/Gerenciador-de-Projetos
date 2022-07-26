@@ -6,7 +6,7 @@ function CardPessoa(Props) {
   return (
     <div>
       <Container
-        style={{ backgroundColor: Props.pessoaSelecionada == Props.id ? "rgba(118, 75, 162, 0.5)" : "white"}}
+        style={{ backgroundColor: Props.pessoaSelecionada == Props.id ? "rgba(118, 75, 162, 0.5)" : "#f5f5f5"}}
         onClick={() => {
           Props.childToParent(Props);
         }}>

@@ -9,6 +9,12 @@ import "rsuite/dist/rsuite.min.css";
 
 
 function PostPessoas() {
+    const [cargoEscolhido, setCargoEscolhido] = useState()
+    const childToParent = (childdata) => {
+        setCargoEscolhido(childdata);
+        console.log(childdata)
+      }
+
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -21,7 +27,7 @@ function PostPessoas() {
     const [data, setData]= useState({
         pe_nome: "",
         pe_data_nasc: "",
-        pe_cargo: "",
+        pe_salario: "",
     })
 
     function cadastrar(e){
@@ -29,7 +35,8 @@ function PostPessoas() {
         api.post('/pessoas',{
             pe_nome: data.pe_nome,
             pe_data_nasc: data.pe_data_nasc,
-            pe_cargo: data.pe_cargo,
+            pe_cargo: cargoEscolhido,
+            pe_salario: data.pe_salario
         })
             .then(res=>{
                 console.log(res.data)
@@ -61,6 +68,10 @@ function PostPessoas() {
                             <Form.Label>Nome</Form.Label>
                             <Form.Control onChange={(e)=>handle(e)} id="pe_nome" value={data.pe_nome} type="text" placeholder="Digite o nome da pessoa"/>
                         </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Salario</Form.Label>
+                            <Form.Control onChange={(e)=>handle(e)} id="pe_salario" value={data.pe_salario} type="text" placeholder="Digite o salario da pessoa"/>
+                        </Form.Group>
 
                         <Form.Group className="mb-3">
                             <Form.Label>Data de nascimento</Form.Label>
@@ -73,7 +84,7 @@ function PostPessoas() {
                                 <option value={cargo} key={index}> {cargo} </option>
                             )}
                         </Form.Select> */}
-                        <CargosPessoa />
+                        <CargosPessoa childToParent={childToParent}/>
                         
                         <Drawer.Actions>
                             <Button onClick={() => setOpen(false)} variant="primary" type="submit">

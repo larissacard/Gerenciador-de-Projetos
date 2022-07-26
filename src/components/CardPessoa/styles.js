@@ -8,7 +8,6 @@ export const Container = styled.button`
   justify-content: space-between;
   align-items: center;
 
-  background-color: #fff;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 20px;
@@ -16,7 +15,8 @@ export const Container = styled.button`
   cursor: pointer;
   z-index: 1;
 
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1)
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  transition-duration: .2s;
 `;
 
 export const InfoPessoa = styled.div`
@@ -38,6 +38,6 @@ export const FotoPerfil = styled.div`
     height: 80px;
     width: 80px;
 
-    background-color: #f1f1f1;
+    background-color: white;
     border-radius: 15px;
 `;

@@ -3,15 +3,13 @@ import React, {useEffect, useState} from "react";
 
 import api from "../../../api";
 
-export default function CargosPessoa () {
-    const [inicialCargo, setInicialCargo] = useState ([])
+export default function CargosPessoa (Props) {
     const [cargos, setCargos] = useState ([])
     
     useEffect(() => {
         const getCargos = async () => {
             try {
                 const response = await api.get('/cargos');
-                setInicialCargo(response.data);
                 setCargos(response.data);
             } catch (error) {
                 console.log(error);
@@ -21,10 +19,10 @@ export default function CargosPessoa () {
     }, []);
 
     return(
-        <Form.Select>
+        <Form.Select onChange={(e) => Props.childToParent(e.target.value)}>
             <option>Selecione o cargo</option>
             {cargos.map((cargos) =>
-            <option value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</option>
+                <option value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</option>
             )}
         </Form.Select> 
     )
