@@ -39,5 +39,6 @@ export const FotoPerfil = styled.div`
     width: 80px;
 
     background-color: white;
+    margin: 0px 5px;
     border-radius: 15px;
 `;

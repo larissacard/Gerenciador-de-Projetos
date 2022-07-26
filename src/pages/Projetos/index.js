@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from "../../components/header";
-import Grafico from "../../components/grafico";
+import Grafico from "./grafico";
 import Tabela from "./tabela";
 import CardCriar from "../../components/CardCriar";
 import CardAgenda from "../../components/CardAgenda";
@@ -9,12 +9,9 @@ import CardAgenda from "../../components/CardAgenda";
 import {
   Container,
   ColunaUm,
-  ColunaUm_bg,
-  Titulo,
   ContGrafico,
   TopGrafico,
   ContTabela,
-  Filtros,
   ColunaDois,
   CardCalendar,
   Agenda,
