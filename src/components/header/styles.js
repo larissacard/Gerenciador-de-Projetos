@@ -59,7 +59,7 @@ export const MenuButton = styled.div `
 
     > span {
         margin-left: 15px;
-        color: var(--cinza1);
+        color: rgba(255, 255, 255, 0.6);;
     }
 
     @media (max-width: 1280px) {
@@ -79,7 +79,7 @@ const iconCSS = css`
     width: 50px;
 
     path {
-        fill: var(--cinza1);
+        fill: rgba(255, 255, 255, 0.4);;
     }
 
     @media (max-width: 1280px) {
