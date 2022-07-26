@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
+import CargosPessoa from "./cargos";
 
 import api from "../../../api";
 import "rsuite/dist/rsuite.min.css";
@@ -17,29 +17,19 @@ function PostPessoas() {
     const handleClose = () => {
         setOpen(false);
     }
-    
-    const [cargos, setCargos] = useState([])
-    useEffect(() => {
-        const getCargos = async () => {
-            let results = await api.get('/cargos')
-            setCargos(results.data)
-        }
-        getCargos();
-    }, [])
 
     const [data, setData]= useState({
         pe_nome: "",
         pe_data_nasc: "",
+        pe_cargo: "",
     })
-
-    const [caId, setCaId] = useState()
 
     function cadastrar(e){
         e.preventDefault();
         api.post('/pessoas',{
             pe_nome: data.pe_nome,
-            pe_fk_cargo: caId,
-            pe_data_nasc: data.pe_data_nasc
+            pe_data_nasc: data.pe_data_nasc,
+            pe_cargo: data.pe_cargo,
         })
             .then(res=>{
                 console.log(res.data)
@@ -77,12 +67,13 @@ function PostPessoas() {
                             <Form.Control onChange={(e)=>handle(e)} id="pe_data_nasc" value={data.pe_data_nasc} type="date" placeholder="Digite a data de nascimento"/>
                         </Form.Group>
 
-                        <Form.Select>
+                        {/* <Form.Select>
                             <option>Selecione o cargo</option>
                             {cargos.map(({cargo, index}) => 
                                 <option value={cargo} key={index}> {cargo} </option>
                             )}
-                        </Form.Select>
+                        </Form.Select> */}
+                        <CargosPessoa />
                         
                         <Drawer.Actions>
                             <Button onClick={() => setOpen(false)} variant="primary" type="submit">
