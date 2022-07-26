@@ -5,7 +5,6 @@ import { Container } from './styles';
 import api from '../../../api';
 
 function Detalhes(Props) {
-  console.log(Props)
   return (
     <Container>
         <CardInfoPessoa nome={Props.id.nome} profissao={Props.id.profissao} />

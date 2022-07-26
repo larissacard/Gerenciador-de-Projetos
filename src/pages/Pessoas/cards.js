@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 function Cards(Props) {
   const [initialPessoas, setInitialPessoas] = useState([]);
   const [pessoas, setPessoas] = useState([]);
+  const [pessoaSelecionada, setPessoaSelecionada] = useState(0)
 
   useEffect(() => {
     const getPessoas = async () => {
@@ -32,6 +33,7 @@ function Cards(Props) {
   };
 
   const childToParent = (childdata) => {
+    setPessoaSelecionada(childdata.id)
     Props.childToParent(childdata)
   }
 
@@ -63,7 +65,7 @@ function Cards(Props) {
 
         <ul style={{overflowY:"scroll"}}>
           {pessoas.map((p) => (
-            <CardPessoa key={p.pe_id} id={p.pe_id} nome={p.pe_nome} profissao={p.pe_cargo} childToParent={childToParent}/>
+            <CardPessoa key={p.pe_id} id={p.pe_id} nome={p.pe_nome} profissao={p.pe_cargo} childToParent={childToParent} pessoaSelecionada={pessoaSelecionada}/>
           ))}
         </ul>
       </>

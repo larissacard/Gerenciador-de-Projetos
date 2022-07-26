@@ -15,6 +15,8 @@ export const Container = styled.button`
 
   cursor: pointer;
   z-index: 1;
+
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1)
 `;
 
 export const InfoPessoa = styled.div`

@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { 
-    Container,
-    InfoPessoa,
-    FotoPerfil,
-} from './styles';
+import { Container, InfoPessoa, FotoPerfil } from "./styles";
 
 function CardPessoa(Props) {
   return (
-    <Container onClick={() => {
-      Props.childToParent(Props)
-    }}>
+    <div>
+      <Container
+        style={{ backgroundColor: Props.pessoaSelecionada == Props.id ? "rgba(118, 75, 162, 0.5)" : "white"}}
+        onClick={() => {
+          Props.childToParent(Props);
+        }}>
         <InfoPessoa>
-            <h3>{Props.nome}</h3>
-            <p>{Props.profissao}</p>
+          <h3>{Props.nome}</h3>
+          <p>{Props.profissao}</p>
         </InfoPessoa>
-        <FotoPerfil/>
-    </Container>
+        <FotoPerfil />
+      </Container>
+    </div>
   );
 }
 
