@@ -20,7 +20,7 @@ function App() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await api.get("/projetos")
+                const response = await api.get("/equipes")
                 setEquipes(response.data);
             } catch (error) {
                 console.log(error)
@@ -29,22 +29,22 @@ function App() {
         getData();
     }, []);
 
-
-    equipes.map(e => (
-        equipes2.push(e.pr_nome)
-    ))
-
+    {
+        equipes.map(e => (
+            equipes2.push(e.eq_nome)
+        ))
+    }
 
     return (
         <div className="main">
-            <select defaultValue={'DEFAULT'} onChange={(e) => setSortState(e.target.value)}>
-                <option value="DEFAULT" disabled>None</option>
-                <option value="ascending">Ascending</option>
-                <option value="descending">Descending</option>
+            <select defaultValue={'DEFAULT'} onChange={(e) => setSortState(e.target.value)} style={{backgroundColor:"black"}}>
+                <option value="DEFAULT" disabled>Filtro</option>
+                <option value="ascending">Mais Antigos</option>
+                <option value="descending">Mais Recentes</option>
             </select>
             <ul>
-                {equipes2.sort(sortMethods[sortState].method).map((f) => (
-                    <li key={f}>{f}</li>
+           { equipes2.sort(sortMethods[sortState].method).map((f) => (
+                <li key={f}>{f}</li>
                 ))}
             </ul>
         </div>
