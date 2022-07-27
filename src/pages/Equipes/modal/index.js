@@ -1,13 +1,19 @@
 import React, {useState} from "react";
-import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
 import api from "../../../api";
+import PessoasEquipe from "./pessoas";
 
 import "rsuite/dist/rsuite.min.css";
 
 function PostEquipes() {
+    const [pessoaEscolhida, setPessoaEscolhida] = useState()
+    const childToParent = (childdata) => {
+        setPessoaEscolhida(childdata);
+        console.log(childdata)
+      }
+
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -57,6 +63,7 @@ function PostEquipes() {
                             <Form.Label>Nome</Form.Label>
                             <Form.Control onChange={(e)=>handle(e)} id="eq_nome" value={data.eq_nome} type="text" placeholder="Digite o nome da Equipe"/>
                         </Form.Group>
+                        <PessoasEquipe childToParent={childToParent}/>
 
                         <Drawer.Actions>
                             <Button onClick={() => setOpen(false)} variant="primary" type="submit">
