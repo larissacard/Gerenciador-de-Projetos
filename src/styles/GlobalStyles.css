@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Rubik';
-}
-
 :root {
     --roxo: #280948;
     --roxo1: #764BA2;
@@ -29,4 +23,90 @@
 
 .active path {
     fill: var(--branco) !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;   
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-y:hidden;
+}
+:root {
+    --roxo: #280948;
+    --roxo1: #764BA2;
+    --azul: #96B3FD;
+    --azul1: #667EEA;
+    --cinza: #F5F5F7;
+    --cinza1: grey;
+    --white: #FFFFFF;
+}
+#root {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(135deg, var(--azul), var(--roxo));
+}
+.container_maior {
+    display: flex;
+    width: 78vw;
+    height: 92vh;
+    background-color: #F5F5F7;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 2rem;
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=- BOTÕES DO MENU -=-=-=-=-=-=-=-=-=-=-=-=-=- */
+.btmenu{
+    margin-top: 2.5rem;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 0.5rem;
+}
+.btmenu h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.btn1_p1, .btn2_p h5{
+    margin-top: 5px;
+}
+/* Tamanho dos botões */
+.btn1, .btn2 {
+    height: 6%;
+    width: 30%;
+    height: 4%;
+    margin-top: 3.5vh;
+    transition: .2s;
+}
+/* Cor do botão 1 */
+.btn1 {
+    color: #fff;
+}
+/* Cor do botão 2 */
+.btn2 {
+    color:#fff;
+    opacity: 60%;
+}
+/* Icone e texto dos botões */
+.btn1_p1, .btn2_p1 {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 1vw;
+    gap:30%;
+    width: 40px;
+    
+}
+.btn1:hover, .btn2:hover {
+    color: white;
+    opacity: 100%;
+    transition: .2s;
+    transform: scale(1.05);
 }

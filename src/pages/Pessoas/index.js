@@ -12,7 +12,6 @@ import SearchBar from "../../components/SearchBar";
 
 function Pessoas() {
   const [data, setData] = useState({nome: "Ninguem selecionado"});
-  const [atividades, setAtividades] = useState()
   const [search, setSearch] = useState("")
 
   const childToParent = (childdata) => {

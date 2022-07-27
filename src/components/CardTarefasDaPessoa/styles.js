@@ -27,6 +27,10 @@ export const Top = styled.div`
     font-weight: 600;
     font-size: 16px;
     color: #280948;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;
   }
 `;
 
@@ -47,11 +51,16 @@ export const Bottom = styled.div`
     font-weight: 600;
     font-size: 14px;
     color: #280948;
+    width: 200px;
   }
 
   > span {
     font-weight: 600;
     font-size: 14px;
     color: rgba(40, 9, 72, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: none;
+    max-width: 9ch;
   }
 `;

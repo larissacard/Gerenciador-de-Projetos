@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: 50%;
   height: auto;
   background-color: #f5f5f7;
   border-radius: 17px;
@@ -11,16 +11,12 @@ export const Container = styled.div`
     font-weight: 500;
     font-size: 20px;
     color: #000000;
-  }
-
-  &+div {
-    margin-left: 10px;
+    height: 45px;
   }
 `;
 
 export const List = styled.ul`
-    height: auto;
-    max-height: 248px;
+    height: calc(100% - 45px);
     overflow-y: scroll;
     width: 100%;
 

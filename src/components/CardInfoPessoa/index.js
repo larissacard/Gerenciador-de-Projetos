@@ -15,8 +15,8 @@ function CardPessoa(Props) {
     <Container>
         <FotoPerfil/>
         <InfoPessoa>
-            <h2>{Props.nome}</h2>
-            <p>{Props.profissao}</p>
+            <h2>{Props.dados.dados.pe_nome}</h2>
+            <p>{Props.dados.dados.pe_cargo}</p>
             <AllButtons>
               <EditButton>Editar</EditButton>
               <DeleteButton>Deletar</DeleteButton>
@@ -24,19 +24,15 @@ function CardPessoa(Props) {
             <DadosTarefas>
               <li>
                 <p>Tarefas Não Iniciadas</p>
-                <span>35</span>
+                <span>{Props.dados.tarefas.NaoIniciadas.length}</span>
               </li>
               <li>
                 <p>Tarefas Em Desenvolvimento</p>
-                <span>35</span>
-              </li>
-              <li>
-                <p>Tarefas Canceladas</p>
-                <span>35</span>
+                <span>{Props.dados.tarefas.EmDesenvolvimento.length}</span>
               </li>
               <li>
                 <p>Tarefas Concluidas</p>
-                <span>35</span>
+                <span>{Props.dados.tarefas.Concluidas.length}</span>
               </li>
             </DadosTarefas>
         </InfoPessoa>
