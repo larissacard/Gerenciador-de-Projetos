@@ -62,7 +62,7 @@
 
      useEffect( () =>{
          fetch('https://api-brisa-nodejs-postgresql.herokuapp.com/equipes').then(async result => {
-             setList (await result.json())
+            setList (await result.json())
          })
 
      }, [])

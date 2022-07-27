@@ -39,7 +39,7 @@ export const FotoPerfil = styled.div`
   height: 225px;
   width: 225px;
 
-  border: 21px solid rgba(118, 75, 162, 0.5);
+  border: 21px solid rgba(118, 75, 162, 0.4);
   margin-right: 15px;
   background-color: #f1f1f1;
   border-radius: 15px;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Lista from "../../../components/Lista";
 
 export const Container = styled.div`
   width: 46%;
@@ -13,4 +14,11 @@ export const Container = styled.div`
   padding: 20px;
 
   overflow-y: hidden;
+`;
+
+export const Tarefas = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 `;
