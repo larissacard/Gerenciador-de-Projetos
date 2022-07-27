@@ -9,13 +9,13 @@ function Detalhes(Props) {
   return (
     <>
       <Container>
-        {Props.id.nome == "Ninguem selecionado"
+        {Props.dados.nome == "Ninguem selecionado"
         ? <>
           Nenhuma pessoa selecionada
         </>
 
         : <>
-          <CardInfoPessoa nome={Props.id.nome} profissao={Props.id.profissao} />
+          <CardInfoPessoa nome={Props.dados.nome} profissao={Props.dados.profissao} />
           <Tarefas>
             <Lista titulo="Tarefas em Andamento" elementos={[
               <CardTarefasDaPessoa titulo="teste" prioridade="Alta" data="okjah"/>,
@@ -30,7 +30,7 @@ function Detalhes(Props) {
           </Tarefas>
 
           <Lista titulo="Projetos" elementos={[
-            <CardProjetosDaPessoa titulo="Gp Inovação" id="1"/>
+            <CardProjetosDaPessoa titulo="Gp Inovação"/>
           ]}/>
         </>
         }

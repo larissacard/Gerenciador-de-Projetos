@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import api from "../../api";
 
 import Header from "../../components/header";
 import Detalhes from "./detalhes";
@@ -11,6 +12,7 @@ import SearchBar from "../../components/SearchBar";
 
 function Pessoas() {
   const [data, setData] = useState({nome: "Ninguem selecionado"});
+  const [atividades, setAtividades] = useState()
   const [search, setSearch] = useState("")
 
   const childToParent = (childdata) => {
@@ -25,7 +27,7 @@ function Pessoas() {
   return (
     <Container>
       <Header />
-      <Detalhes id={data}/>
+      <Detalhes dados={data}/>
       <ColunaDois>
         <CardCriar titulo="Adicionar Pessoa" descricao="Cadastre uma nova pessoa" button={<PostPessoas/>}/>
         <ContFiltros>
