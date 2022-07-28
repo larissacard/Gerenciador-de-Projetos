@@ -9,7 +9,7 @@ function EquipesId(){
 
             <div className="container_maior">
                 <Header/>
-                <Menu1 />
+                {/*<Menu1 />*/}
             </div>
         </div>
     );
