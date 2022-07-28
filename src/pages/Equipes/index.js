@@ -3,7 +3,6 @@ import Header from "../../components/header";
 import App from "./filter";
 import ExibirEquipes from "./get/data";
 import PostEquipes from "./modal"
-import Datatable from "./tablefilter.js/table";
 
 
 function Equipes(){
@@ -15,7 +14,7 @@ function Equipes(){
                     
                 {/* <Show/> */}
                 <>
-                {/* <ExibirEquipes/><Datatable/> */}
+                {/* <ExibirEquipes/>*/}
                 <App/>
                 </>
                 <div className="create_card d-flex flex-row justify-content-around">
