@@ -31,22 +31,36 @@ function App() {
 
     {
         equipes.map(e => (
-            equipes2.push(e.eq_nome)
+            equipes2.push(e.eq_nome, e.eq_id)
         ))
+    }
+
+    function ValidaEquipe(props) {
+        if (isNaN(props.f) === false) {
+            return (
+                <a href={"equipes/" + props.f}>Detalhes</a>
+            )
+        } else {
+            return (
+                <div key={props.f}>
+                    <p>{props.f}</p>
+                </div>
+            )
+        }
     }
 
     return (
         <div className="main">
-            <select defaultValue={'DEFAULT'} onChange={(e) => setSortState(e.target.value)} style={{backgroundColor:"black"}}>
+            <select defaultValue={'DEFAULT'} onChange={(e) => setSortState(e.target.value)} style={{ backgroundColor: "black" }}>
                 <option value="DEFAULT" disabled>Filtro</option>
                 <option value="ascending">Mais Antigos</option>
                 <option value="descending">Mais Recentes</option>
             </select>
-            <ul>
-           { equipes2.sort(sortMethods[sortState].method).map((f) => (
-                <li key={f}>{f}</li>
+            <div>
+                {equipes2.sort(sortMethods[sortState].method).map(f => (
+                    <ValidaEquipe f={f} />
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }
