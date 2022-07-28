@@ -10,12 +10,19 @@ import Checkbox from '@mui/material/Checkbox';
 
 import api from "../../../api";
 
+const ITEM_HEIGHT = 50;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+    },
+  },
+};
 
 export default function PessoasEquipe(Props) {
     const [pessoas, setPessoas] = useState ([])
-    const nomes = [
-        pessoas
-    ]
+
     useEffect(() => {
         const getPessoas = async () => {
             try {
@@ -29,14 +36,8 @@ export default function PessoasEquipe(Props) {
     }, []);
     const [pessoaNome, setPessoaNome] = React.useState([]);
 
-  const handleChange = (e) => {
-    const {
-      target: { value },
-    } = e;
-    setPessoaNome(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+  const handleChange = (event) => {
+    setPessoaNome(event.target.value)
   };
 
   return (
@@ -46,16 +47,19 @@ export default function PessoasEquipe(Props) {
         <Select
           multiple
           value={pessoaNome}
-          onChange={(e) => {(Props.childToParent(e.target.value)); handleChange()}}
+          onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
           input={<OutlinedInput label="Selecione as Pessoas" />}
           renderValue={(selected) => selected.join(', ')}
+          MenuProps={MenuProps}
         >
-          {pessoas.map((pessoas) => (
-            <MenuItem key={pessoas.pe_nome} value={pessoas.pe_nome}>
-              <Checkbox checked={pessoaNome.indexOf(nomes) > -1} />
-              <ListItemText primary={pessoas.pe_nome} />
+          
+          {pessoas.map((p) => 
+            <MenuItem key={p.pe_id} value={p.pe_id}>
+              <Checkbox checked={pessoaNome.indexOf(p.pe_id) > -1} />
+              {p.pe_nome}
             </MenuItem>
-          ))}
+          )}
+          console.log(pessoaNome)
         </Select>
       </FormControl>
     </div>

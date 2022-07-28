@@ -32,6 +32,7 @@ function PostEquipes() {
         e.preventDefault();
         api.post(url,{
             eq_nome: data.eq_nome,
+            pessoas: pessoaEscolhida
         })
             .then(res=>{
                 console.log(res.data)
