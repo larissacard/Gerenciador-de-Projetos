@@ -1,17 +1,56 @@
-import React from "react";
-import Header from "../../components/header"
-import Menu1 from "./menu1";
+import React, { useEffect, useState } from 'react'
+import api from '../../api'
 
-function ProjetosId(){
-    return (
-        <div className="d-flex justify-content-center align-items-center" style={{width: "100vw", height: "100vh"}}>
+import Header from '../../components/header'
+import { Container, ContDados, Top, Buttons, Editar, Deletar, Titulo, Detalhamento, Dados, Descricao, StatusTarefas, Trelo } from './styles'
 
-            <div className="container_maior">
-                <Header/>
-                <Menu1 />
-            </div>
-        </div>
-    );
+export default function Index() {
+    const path = window.location.pathname;
+    const [dados, setDados] = useState()
+
+    useEffect(() => {
+        const getDados = async () => {
+            try {
+                const response = await api.get(path)
+                setDados(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getDados();
+    }, []);
+
+  return (
+    <Container>
+        <Header/>
+
+        {dados ?
+        <ContDados>
+            <Top>
+                <Titulo>{dados.dados.pr_nome}</Titulo>
+                <Buttons>
+                    <Editar>Editar</Editar>
+                    <Deletar>Deletar</Deletar>
+                </Buttons>
+            </Top>
+            <Detalhamento>
+                <Dados>
+                    <p>Data de Criação: {dados.dados.pr_data_criacao}</p>
+                    <p>Data de Finalização: {dados.dados.pr_data_finalizacao}</p>
+                    <p>Equipes: {JSON.stringify(dados.equipes)}</p>
+                </Dados>
+                <Descricao>
+                    <p>Descrição: {dados.dados.pr_descricao}</p>
+                </Descricao>
+                <StatusTarefas>
+                </StatusTarefas>
+            </Detalhamento>
+            <Trelo></Trelo>
+        </ContDados>
+        : <>
+            Aguardando...
+        </>
+        }
+    </Container>
+  )
 }
-
-export default ProjetosId;
