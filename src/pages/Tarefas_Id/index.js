@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../../components/header"
 import ExibirDetalhesTarefas from "./data";
-import ExibirTarefa from "./data";
 
 
 function TarefasId(){

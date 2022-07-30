@@ -14,7 +14,7 @@ function Detalhes(Props) {
       const response = await api.get(`/pessoas/${Props.dados.id}`);
       setDetalhes(response.data);
     };
-    if ((!detalhes || Props.dados.id != detalhes.dados.pe_id) && Props.dados.id) {
+    if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id) {
       getDetalhes()
     }
   })
@@ -22,7 +22,7 @@ function Detalhes(Props) {
   return (
     <>
       <Container>
-        {Props.dados.nome == "Ninguem selecionado" ?
+        {Props.dados.nome === "Ninguem selecionado" ?
 
         // Quando não tem pessoas para serem exibidas
         <>

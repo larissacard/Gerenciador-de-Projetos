@@ -15,7 +15,6 @@ export const Container = styled.div`
 export const ContDados = styled.div`
     height: calc(100% - 48px);
     width: 80%;
-    border: 1px solid red;
     margin: 24px 0px;
     padding: 0 10px;
     display: flex;
@@ -64,12 +63,11 @@ export const Deletar = styled.button`
     background: #E74444;
 `;
 
-export const Detalhamento = styled.div``;
-
-export const Dados = styled.div``;
-
-export const Descricao = styled.div``;
-
-export const StatusTarefas = styled.div``;
+export const Detalhamento = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
+`;
 
 export const Trelo = styled.div``; 

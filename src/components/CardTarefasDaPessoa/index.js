@@ -8,7 +8,7 @@ function CardTarefasDaPessoa(Props) {
     <Container>
         <Top>
           <h3>{Props.titulo}</h3>
-          <Prioridade style={{backgroundColor: Props.prioridade == 3 ? "#E74444" : Props.prioridade == 2 ? "#FF9533" : Props.prioridade == 1 ? "#67CB65" : "#666"}}>
+          <Prioridade style={{backgroundColor: Props.prioridade === 3 ? "#E74444" : Props.prioridade === 2 ? "#FF9533" : Props.prioridade === 1 ? "#67CB65" : "#666"}}>
             {status[Props.prioridade - 1]}
           </Prioridade>
         </Top>

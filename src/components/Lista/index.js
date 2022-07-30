@@ -1,5 +1,4 @@
 import React from 'react';
-import CardTarefasDaPessoa from '../CardTarefasDaPessoa';
 
 import { Container, List } from './styles';
 

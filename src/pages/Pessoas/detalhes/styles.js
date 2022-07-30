@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Lista from "../../../components/Lista";
 
 export const Container = styled.div`
   width: 46%;

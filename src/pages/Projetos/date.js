@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Calendar from 'react-calendar';  
 import './date.css';
 
 function MyApp() {
-  const [value, onChange] = useState(new Date());
+  // const [value, onChange] = useState(new Date());
 
   return (
-   <Calendar onChange={onChange}/>
+  //  <Calendar onChange={onChange}/>
+   <Calendar/>
   );
 }
 

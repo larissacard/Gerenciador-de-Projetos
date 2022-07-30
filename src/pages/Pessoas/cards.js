@@ -35,7 +35,7 @@ function Cards(Props) {
   };
 
   // Verifica se a barra de pesquisa teve alguma mudança
-  if (Props.search != search) {
+  if (Props.search !== search) {
     setSearch(Props.search)
     handleChange()
   }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
+import CardDetalhesList from '../../components/CardDetalhesList';
 
 import Header from '../../components/header'
-import { Container, ContDados, Top, Buttons, Editar, Deletar, Titulo, Detalhamento, Dados, Descricao, StatusTarefas, Trelo } from './styles'
+import { Container, ContDados, Top, Buttons, Editar, Deletar, Titulo, Detalhamento, Trelo } from './styles'
 
 export default function Index() {
     const path = window.location.pathname;
@@ -18,7 +19,7 @@ export default function Index() {
             }
         };
         getDados();
-    }, []);
+    });
 
   return (
     <Container>
@@ -34,16 +35,13 @@ export default function Index() {
                 </Buttons>
             </Top>
             <Detalhamento>
-                <Dados>
-                    <p>Data de Criação: {dados.dados.pr_data_criacao}</p>
-                    <p>Data de Finalização: {dados.dados.pr_data_finalizacao}</p>
-                    <p>Equipes: {JSON.stringify(dados.equipes)}</p>
-                </Dados>
-                <Descricao>
-                    <p>Descrição: {dados.dados.pr_descricao}</p>
-                </Descricao>
-                <StatusTarefas>
-                </StatusTarefas>
+                    <CardDetalhesList width="23.29%" height="143px" keys={[
+                       "Data de Criação" , "Data de Finalização", "Equipes"
+                    ]} values={[dados.dados.pr_data_criacao, dados.dados.pr_data_finalizacao, "eq"]}/>
+
+                    <CardDetalhesList width="58.32%" height="143px" keys={["Descrição"]} values={[dados.dados.pr_descricao]}/>
+
+                    <CardDetalhesList width="15.32%" height="143px" keys={[""]} values={[""]}/>
             </Detalhamento>
             <Trelo></Trelo>
         </ContDados>

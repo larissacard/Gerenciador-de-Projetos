@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import api from "../../api";
+import React, { useState } from "react";
 
 import Header from "../../components/header";
 import Detalhes from "./detalhes";
@@ -34,9 +33,9 @@ function Pessoas() {
           <div className="dropdown">
             <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Filtros</button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a className="dropdown-item" href="#">Ordem Alfabetica A-Z</a></li>
-              <li><a className="dropdown-item" href="#">Mais Antigos</a></li>
-              <li><a className="dropdown-item" href="#">Mais Recentes</a></li>
+              <li><a className="dropdown-item" href="/pessoas">Ordem Alfabetica A-Z</a></li>
+              <li><a className="dropdown-item" href="/pessoas">Mais Antigos</a></li>
+              <li><a className="dropdown-item" href="/pessoas">Mais Recentes</a></li>
             </ul>
           </div>
         </ContFiltros>

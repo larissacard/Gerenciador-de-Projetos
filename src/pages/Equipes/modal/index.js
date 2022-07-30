@@ -36,7 +36,7 @@ function PostEquipes() {
         })
             .then(res=>{
                 console.log(res.data)
-                if (res.data == 'Essa equipe já foi inserida!') {
+                if (res.data === 'Essa equipe já foi inserida!') {
                     alert('Essa Equipe já foi inserida!')
                 }
                 else {
@@ -76,7 +76,7 @@ function PostEquipes() {
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}><img src="assets/btn_create.svg" /></Button>
+                <Button onClick={handleOpen}><img src="assets/btn_create.svg" alt="create icon"/></Button>
             </div>
         </>
     );

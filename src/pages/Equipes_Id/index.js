@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "../../components/header"
-import Data from "./Titulo"
-import Menu1 from "./menu1";
 
 function EquipesId(){
     return (

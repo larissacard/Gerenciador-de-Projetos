@@ -35,7 +35,7 @@ function Tarefas() {
 
           {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
           <div className="calendario">
-            <img src="assets/calendario.svg" />
+            <img src="assets/calendario.svg" alt="calendario"/>
           </div>
           <Agenda>
             <CardAgenda titulo="Gp Inovação" hora="9:00 AM" />

@@ -12,14 +12,14 @@ function CardAgenda(props) {
 
       <BottomInfo>
         <Pessoas>
-            <img src="assets/people.svg" />
-            <img src="assets/people.svg" />
-            <img src="assets/people.svg" />
-            <img src="assets/people.svg" />
+            <img src="assets/people.svg" alt="member1"/>
+            <img src="assets/people.svg" alt="member2"/>
+            <img src="assets/people.svg" alt="member3"/>
+            <img src="assets/people.svg" alt="member4"/>
         </Pessoas>
 
         <Button>
-          <img src="assets/btn_completed_white.svg" />
+          <img src="assets/btn_completed_white.svg" alt="button icon"/>
         </Button>
       </BottomInfo>
     </Container>

@@ -31,9 +31,7 @@ function Cards() {
         <>
         <div className="d-flex align-items-center">
             <input type="search" placeholder="Pesquise aqui..." onChange={handleChange} className="search_tarefas px-3"></input>
-            <a>
-                <img src="assets/search.svg" style={{marginLeft: "-2.5rem", width: "25px", height: "35px",}} ></img>
-            </a>
+            <img src="assets/search.svg" alt="search icon" style={{marginLeft: "-2.5rem", width: "25px", height: "35px",}} ></img>
         </div>
 
         <div className='alltasks' style={{overflowY:"scroll"}}>
@@ -45,10 +43,10 @@ function Cards() {
                             <p style={{width:"96.5%"}}>{t.tr_descricao}</p>
                         </div>
                         <div className="people_tarefas">
-                            <img src="assets/people.svg"/>
-                            <img src="assets/people.svg"/>
-                            <img src="assets/people.svg"/>
-                            <img src="assets/people.svg"/>
+                            <img src="assets/people.svg" alt="member photo1"/>
+                            <img src="assets/people.svg" alt="member photo2"/>
+                            <img src="assets/people.svg" alt="member photo3"/>
+                            <img src="assets/people.svg" alt="member photo4"/>
                         </div>
                         <div className="pross mb-4">
                             <div className="d-flex align-items-center justify-content-between">

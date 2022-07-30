@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
@@ -31,7 +30,7 @@ function PostTarefas() {
         })
             .then(res=>{
                 console.log(res.data)
-                if (res.data == 'Esse tarefa já foi inserido!') {
+                if (res.data === 'Esse tarefa já foi inserido!') {
                     alert('Esse tarefa já foi inserido!')
                 }
                 else {
@@ -74,7 +73,7 @@ function PostTarefas() {
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}><img src="assets/btn_create.svg" /></Button>
+                <Button onClick={handleOpen}><img src="assets/btn_create.svg" alt="create icon"/></Button>
             </div>
         </>
     );

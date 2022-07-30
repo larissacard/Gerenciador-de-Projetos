@@ -29,11 +29,9 @@ function App() {
         getData();
     }, []);
 
-    {
-        equipes.map(e => (
-            equipes2.push(e.eq_nome, e.eq_id)
-        ))
-    }
+    equipes.map(e => (
+        equipes2.push(e.eq_nome, e.eq_id)
+    ))
 
     function ValidaEquipe(props) {
         if (isNaN(props.f) === false) {

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
@@ -40,7 +40,7 @@ function PostPessoas() {
         })
             .then(res=>{
                 console.log(res.data)
-                if (res.data == 'Essa pessoa já foi inserida!') {
+                if (res.data === 'Essa pessoa já foi inserida!') {
                     alert('Essa Pessoa já foi inserida!')
                 }
                 else {
@@ -96,7 +96,7 @@ function PostPessoas() {
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}><img src="assets/btn_create.svg" /></Button>
+                <Button onClick={handleOpen}><img src="assets/btn_create.svg" alt="create icon"/></Button>
             </div>
         </>
     );

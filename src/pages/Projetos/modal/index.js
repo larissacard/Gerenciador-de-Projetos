@@ -26,9 +26,9 @@ function PostProjetos() {
 
     const [openAlert, setOpenAlert] = React.useState(false);
 
-    const handleClickCad = () => {
-        setOpenAlert(true);
-    };
+    /* const handleClickCad = () => {
+        // setOpenAlert(true);
+    }; */
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
         return;
@@ -49,7 +49,7 @@ function PostProjetos() {
             pr_descricao: data.pr_descricao
         }).then(res=>{
             console.log(res.data)
-            if (res.data == 'Inserido com sucesso!') {
+            if (res.data === 'Inserido com sucesso!') {
                 alert('Esse Projeto já foi inserido')
             }
             else {
@@ -91,7 +91,7 @@ function PostProjetos() {
                         
                         <Drawer.Actions>
                             <Button onClick={() => {
-                                if(data.pr_nome != ""){
+                                if(data.pr_nome !== ""){
                                     setOpen(false)
                                     // setOpenAlert(true);
                                 }
@@ -104,7 +104,7 @@ function PostProjetos() {
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}><img src="assets/btn_create.svg" /></Button>
+                <Button onClick={handleOpen}><img src="assets/btn_create.svg" alt="icone criar"/></Button>
             </div>
         </>
     );

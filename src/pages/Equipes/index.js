@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
 import App from "./filter";
-import ExibirEquipes from "./get/data";
 import PostEquipes from "./modal"
 
 
