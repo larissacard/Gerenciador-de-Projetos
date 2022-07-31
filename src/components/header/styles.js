@@ -23,6 +23,8 @@ export const Container = styled.div `
     @media (max-width: 1280px) {
         min-width: 65px;
     }
+
+    font-weight: 500;
 `;
 
 export const ContLogo = styled.div `

@@ -66,8 +66,13 @@ export const Deletar = styled.button`
 export const Detalhamento = styled.div`
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 10px;
 `;
 
-export const Trelo = styled.div``; 
+export const Trelo = styled.div`
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 245px);
+    margin-top: 15px;
+`; 

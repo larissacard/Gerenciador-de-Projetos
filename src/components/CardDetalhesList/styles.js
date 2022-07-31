@@ -5,7 +5,7 @@ export const Container = styled.ul`
     box-shadow: 2px 2px 4px rgba(0,0,0,.1);
     border-radius: 15px;
     list-style: none;
-    padding: 5px 10px;
+    padding: 15px 10px;
 
     strong {
         font-weight: 600;
