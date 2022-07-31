@@ -4,7 +4,7 @@ import Header from "../../components/header";
 import Grafico from "./grafico";
 import Tabela from "./tabela";
 import CardCriar from "../../components/CardCriar";
-import CardAgenda from "../../components/CardAgenda";
+import SalaVirtual from "../../components/CardSalaVirtual";
 
 import {
   Container,
@@ -14,8 +14,10 @@ import {
   ContTabela,
   ColunaDois,
   CardCalendar,
-  Agenda,
+
 } from "./styles";
+
+
 
 import MyApp from "./date";
 import "./style.css";
@@ -47,12 +49,7 @@ function Projetos() {
           />
           <MyApp />
         </CardCalendar>
-        <Agenda>
-          <CardAgenda titulo="Gp Inovação" hora="9:00 AM" />
-          <CardAgenda titulo="Gerenciamento de Pousadas" hora="11:00 AM" />
-          <CardAgenda titulo="Evento Tal" hora="15:00 PM" />
-          <CardAgenda titulo="Bla Bla Bla" hora="22:00 PM" />
-        </Agenda>
+        <SalaVirtual/>
       </ColunaDois>
     </Container>
   );
