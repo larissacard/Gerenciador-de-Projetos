@@ -9,7 +9,6 @@ import api from '../../../api';
 
 import "rsuite/dist/rsuite.min.css";
 
-
 function PostProjetos() {
     const [open, setOpen] = useState(false);
     
@@ -18,6 +17,10 @@ function PostProjetos() {
     };
     const handleClose = () => {
         setOpen(false);
+        setData({
+            pr_nome: "",
+            pr_descricao: ""
+        })
     }
 
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -26,9 +29,9 @@ function PostProjetos() {
 
     const [openAlert, setOpenAlert] = React.useState(false);
 
-    /* const handleClickCad = () => {
-        // setOpenAlert(true);
-    }; */
+    const handleClickCad = () => {
+        setOpenAlert(true);
+    }; 
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
         return;
@@ -36,7 +39,6 @@ function PostProjetos() {
         setOpenAlert(false);
     };
 
-    const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/projetos"
     const [data, setData]= useState({
         pr_nome: "",
         pr_descricao: ""
@@ -44,17 +46,15 @@ function PostProjetos() {
 
     function cadastrar(e){
         e.preventDefault();
-        api.post(url,{
+        api.post(('/projetos'),  {
             pr_nome: data.pr_nome,
             pr_descricao: data.pr_descricao
         }).then(res=>{
             console.log(res.data)
-            if (res.data === 'Inserido com sucesso!') {
-                alert('Esse Projeto já foi inserido')
-            }
-            else {
-                setOpenAlert(true);
-            }
+            setData({
+                pr_nome: "",
+                pr_descricao: ""
+            })
         })
     }
         
@@ -93,7 +93,7 @@ function PostProjetos() {
                             <Button onClick={() => {
                                 if(data.pr_nome !== ""){
                                     setOpen(false)
-                                    // setOpenAlert(true);
+                                    setOpenAlert(true);
                                 }
                             }} variant="primary" type="submit">
                                 Cadastrar
