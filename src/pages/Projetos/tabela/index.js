@@ -45,7 +45,7 @@ function Tabela() {
                 <h2>Todos os Projetos</h2>
 
                 <ContMais>
-                    <Filtros>
+                    {/* <Filtros>
                         <Dropdown>
                             <Dropdown.Toggle variant="" id="dropdown-basic">Filtros</Dropdown.Toggle>
                             <Dropdown.Menu>
@@ -54,7 +54,7 @@ function Tabela() {
                                 <Dropdown.Item href="#">Mais Antigos</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                    </Filtros>
+                    </Filtros> */}
                     <Search>
                         <input type="search" placeholder="Pesquise..." onChange={handleChange}></input>
                         <SearchIcon/>

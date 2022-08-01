@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../components/header";
 import App from "./filter";
+import ExibirEquipes from "./get/data";
 import PostEquipes from "./modal"
 
 
@@ -13,8 +14,9 @@ function Equipes(){
                     
                 {/* <Show/> */}
                 <>
+                <ExibirEquipes/>
                 {/* <ExibirEquipes/>*/}
-                <App/>
+                {/* <App/> */}
                 </>
                 <div className="create_card d-flex flex-row justify-content-around">
                 <div className="create ms-4">

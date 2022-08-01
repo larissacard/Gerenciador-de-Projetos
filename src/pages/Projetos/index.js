@@ -5,6 +5,9 @@ import Grafico from "./grafico";
 import Tabela from "./tabela";
 import CardCriar from "../../components/CardCriar";
 import SalaVirtual from "../../components/CardSalaVirtual";
+import { Provider } from 'react-redux';
+import { createStore } from '@reduxjs/toolkit'
+import Index from "../Projetos/reminder/index";
 
 import {
   Container,
@@ -21,6 +24,9 @@ import {
 import MyApp from "./date";
 import "./style.css";
 import PostProjetos from "./modal";
+import Reminder from "./reminder/reminder";
+
+ const store = createStore(Index);
 
 function Projetos() {
   return (
@@ -47,7 +53,11 @@ function Projetos() {
             button={<PostProjetos />}
           />
           <MyApp />
+           <Provider store={store}> 
+            <Reminder/>
+           </Provider> 
         </CardCalendar>
+        
         <SalaVirtual/>
       </ColunaDois>
     </Container>
