@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 90%;
     min-height: 5rem;
-    background-image: url("assets/Rectangle 742.svg");
     border-radius: 20px;
     background-repeat: no-repeat;
 `
