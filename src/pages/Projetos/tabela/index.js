@@ -28,7 +28,7 @@ function Tabela() {
             }
         };
         getProjetos();
-    }, []);
+    }, [projetos]);
 
     const handleChange = ({target}) => {
         if (!target.value) {

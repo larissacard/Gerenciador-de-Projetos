@@ -28,13 +28,13 @@ function PostProjetos() {
       });
 
     const [openAlert, setOpenAlert] = React.useState(false);
-
+    
     const handleClickCad = () => {
         setOpenAlert(true);
     }; 
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
-        return;
+            return;
         }
         setOpenAlert(false);
     };
@@ -55,7 +55,7 @@ function PostProjetos() {
                 pr_nome: "",
                 pr_descricao: ""
             })
-        })
+        }) 
     }
         
     function handle(e) {
@@ -64,12 +64,10 @@ function PostProjetos() {
         setData(newdata)
     }
 
+
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
-                <Alert onClose={handleCloseAlert} severity="success" color="info">
-                    Ih, funcionou oh!
-                </Alert>    
             </Snackbar>
 
             <Drawer open={open} onClose={handleClose} size="sm">
