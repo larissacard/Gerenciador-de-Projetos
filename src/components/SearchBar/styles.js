@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Lupa } from '../../styles/Icons';
 
 export const Container = styled.div`
-  width: 80%;
+  width: 100%;
   border: 2px solid #764BA2;
 
   padding: 5px 15px;
@@ -15,7 +15,7 @@ export const SearchInput = styled.input`
   border: none;
   background-color: transparent;
   outline: none;
-  color: #764BA2;
+  color: #666;
 `;
 
 export const SearchIcon = styled(Lupa)`

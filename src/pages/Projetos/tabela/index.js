@@ -67,7 +67,7 @@ function Tabela() {
                     {projetos.map((projetos, index) => 
                     <CardProjeto key={projetos.pr_id}>
                         <p> {projetos.pr_nome} </p>
-                        <a href={"projetos/" + projetos.pr_id}>Detalhes</a>
+                        <a href={"projetos/" + projetos.pr_id}>{'Detalhes >'}</a>
                     </CardProjeto>)} 
                 </ul>
             </ContTabela>

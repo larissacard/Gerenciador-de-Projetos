@@ -18,7 +18,6 @@ function Pessoas() {
   };
 
   function handleChange(e) {
-    console.log(e)
     setSearch(e);
   }
 

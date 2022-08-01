@@ -18,7 +18,6 @@ import {
 } from "./styles";
 
 
-
 import MyApp from "./date";
 import "./style.css";
 import PostProjetos from "./modal";

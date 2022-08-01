@@ -1,51 +1,49 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "../../components/header";
+import SearchBar from "../../components/SearchBar"
+import CardCriar from "../../components/CardCriar"
+
 import CardAgenda from "../../components/CardAgenda";
-import { Agenda } from "../Projetos/styles";
-import "./style.css";
-import PostTarefas from "./modal"
-import Cards from "./Cards/cards";
+import PostTarefas from "./modal";
+import Cards from "./cards";
+import { Container, ColunaUm, ColunaDois } from "./styles";
+
 
 function Tarefas() {
+  const [search, setSearch] = useState("")
+  
+  function handleChange(e) {
+    setSearch(e);
+  }
+
   return (
-    <div
-      className="d-flex justify-content-center align-items-center"
-      style={{ width: "100vw", height: "100vh" }}
-    >
-      <div className="container_maior">
-        <Header />
+    <Container>
+      <Header/>
+      <ColunaUm>
+        <h1>Tarefas</h1>
+        <SearchBar placeholder="Pesquise uma tarefa aqui..." handleChange={handleChange}/>
+        <Cards search={search}/>
+      </ColunaUm>
 
-        <div className="coluna_tarefas">
-          <div className="info_search">
-            <h5>Tarefas</h5>
-            <Cards />
-          </div>
-        </div>
+      <ColunaDois>
+        <CardCriar titulo="Criar Tarefa" descricao="Criar uma Nova Tarefa" button={<PostTarefas/>}/>
+      </ColunaDois>
+    </Container>
 
-        <div className="coluna-tres">
-          <div className="create_card d-flex flex-row justify-content-around">
-              <div className="create">
-                <h5>Criar Tarefa</h5>
-                <p>Criar uma Nova Tarefa</p>
-              </div>
-              <div className="ms-5">
-                  <PostTarefas />
-              </div>
-          </div>
-
-          {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
-          <div className="calendario">
-            <img src="assets/calendario.svg" alt="calendario"/>
-          </div>
-          <Agenda>
-            <CardAgenda titulo="Gp Inovação" hora="9:00 AM" />
-            <CardAgenda titulo="Gerenciamento de Pousadas" hora="11:00 AM" />
-            <CardAgenda titulo="Evento Tal" hora="15:00 PM" />
-            <CardAgenda titulo="Bla Bla Bla" hora="22:00 PM" />
-          </Agenda>
-        </div>
-      </div>
-    </div>
+    // <div
+    //       {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
+    //       <div className="calendario">
+    //         <img src="assets/calendario.svg" alt="calendario"/>
+    //       </div>
+    //       <Agenda>
+    //         <CardAgenda titulo="Gp Inovação" hora="9:00 AM" />
+    //         <CardAgenda titulo="Gerenciamento de Pousadas" hora="11:00 AM" />
+    //         <CardAgenda titulo="Evento Tal" hora="15:00 PM" />
+    //         <CardAgenda titulo="Bla Bla Bla" hora="22:00 PM" />
+    //       </Agenda>
+    //     </div>
+    //   </div>
+    // </div>
   );
 }
 export default Tarefas;

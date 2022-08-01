@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {useState} from "react";
 import { Form } from 'react-bootstrap';
-import { Drawer } from 'rsuite';
-import { Button } from './styles'
+import { Drawer, Button } from 'rsuite';
+import { ContButton } from './styles'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import api from '../../../api';
@@ -103,9 +103,9 @@ function PostProjetos() {
                     </Form>
                 </Drawer.Body>
             </Drawer>
-            <div>
+            <ContButton>
                 <Button onClick={handleOpen}><img src="assets/btn_create.svg" alt="icone criar"/></Button>
-            </div>
+            </ContButton>
         </>
     );
 }
