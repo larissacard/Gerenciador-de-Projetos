@@ -79,7 +79,7 @@ export const Body = styled.div`
 export const Avatar = styled.span`
   display: flex;
   justify-content: center;
-  color: #777;
+  color: #fff;
   align-items: center;
 
   width: 30px;
