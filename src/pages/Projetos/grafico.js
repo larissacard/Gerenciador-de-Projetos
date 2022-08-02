@@ -25,10 +25,10 @@ export function Grafico() {
 
 
   data = [
-    ["Mês", "Projetos Concluidos", "Não Concluidos"],
+    ["Mês", "Concluidos", "Não Concluidos"],
   ];
   data2.forEach((element) => {
-    data.push([`${element.mes}-${element.ano}`, parseInt(element.count), 0])
+    data.push([`${element.mes}-${element.ano}`, 0, parseInt(element.count)])
   })
 
 

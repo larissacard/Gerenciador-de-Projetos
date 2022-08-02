@@ -10,6 +10,7 @@ import api from '../../../api';
 import "rsuite/dist/rsuite.min.css";
 
 function PostProjetos() {
+    var [mensagem, setMensagem] = useState("")
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -50,12 +51,13 @@ function PostProjetos() {
             pr_nome: data.pr_nome,
             pr_descricao: data.pr_descricao
         }).then(res=>{
+            setMensagem("Deu Certo")
             console.log(res.data)
             setData({
                 pr_nome: "",
                 pr_descricao: ""
             })
-        }) 
+        }).catch(e => setMensagem(e.response.data))
     }
         
     function handle(e) {
@@ -68,6 +70,9 @@ function PostProjetos() {
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
+                <Alert onClose={handleCloseAlert} severity="success" color="info">
+                    {mensagem}
+                </Alert>
             </Snackbar>
 
             <Drawer open={open} onClose={handleClose} size="sm">
