@@ -61,6 +61,5 @@ export const Bottom = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: none;
-    max-width: 9ch;
   }
 `;

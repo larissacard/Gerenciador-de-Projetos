@@ -20,7 +20,10 @@ function KanbanLi(Props) {
         </Top>
         <Body>
             <ul>
-              <li> <strong>Data de Criação:</strong> {Props.dados.tr_data_criacao}</li>
+              <li>
+                <p>Data de Criação:</p> 
+                <span>{Props.dados.tr_data_criacao.substring(0,10)}</span>
+              </li>
               {/* <li> <strong>Data de Entrega:</strong> {Props.dados.tr_data_entrega}</li> */}
             </ul>
         </Body>

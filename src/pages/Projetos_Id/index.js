@@ -47,7 +47,7 @@ export default function Index() {
 
                         <CardDetalhesList width="23.29%" height="143px" keys={[
                             "Data de Criação", "Data de Finalização", "Equipes"
-                        ]} values={[dados.dados.pr_data_criacao, dados.dados.pr_data_finalizacao, string_equipes]} />
+                        ]} values={[dados.dados.pr_data_criacao.substring(0,10), dados.dados.pr_data_finalizacao, string_equipes]} />
 
                         <CardDetalhesList width="58.32%" height="143px" keys={["Descrição"]} values={[dados.dados.pr_descricao]} />
 
