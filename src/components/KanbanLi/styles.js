@@ -41,9 +41,11 @@ export const Body = styled.div`
         font-weight: 600;
         font-size: 12px;
         color: rgba(40, 9, 72, 0.5);
+        display: flex;
+        justify-content: space-between;
     }
     
-    strong {
+    p {
         font-size: 12px;
         font-weight: 600;
         color: #280948;

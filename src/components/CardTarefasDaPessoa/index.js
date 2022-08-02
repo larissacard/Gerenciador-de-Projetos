@@ -14,7 +14,7 @@ function CardTarefasDaPessoa(Props) {
         </Top>
         <Bottom>
           <p>Data de Criação:</p>
-          <span>{Props.data}</span>
+          <span>{Props.data.substring(0,12)}</span>
         </Bottom>
     </Container>
   );
