@@ -24,7 +24,7 @@ function CardTarefa(Props) {
         </Top>
         <Body>
           {Props.dados.pessoas.map((p, index) =>
-            <div style={{background: "#fff", borderRadius: "50%"}}>
+            <div style={{background: "#c5a6e4", borderRadius: "50%"}}>
               <Avatar style={{ background: `#${Math.floor(Math.random()*16777215).toString(16)}57` }} key={index} title={p.pe_nome}>{p.pe_nome[0]}</Avatar>
             </div>
           )}
