@@ -16,6 +16,7 @@ import {
 function Tabela() {
     const [initialProjetos, setInitialProjetos] = useState([])
     const [projetos, setProjetos] = useState([])
+    // const [projetosFilter, setProjetosFilter] = useState([projetos])
 
     useEffect(() => {
         const getProjetos = async () => {

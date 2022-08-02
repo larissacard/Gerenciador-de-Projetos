@@ -54,23 +54,23 @@ function PostProjetos() {
             pr_nome: data.pr_nome,
             pr_descricao: data.pr_descricao
         }).then(res=>{
-            setMensagem("Deu Certo")
+            setMensagem("Deu Certo!")
             setOpen(false)
             console.log(res.data)
             setData({
                 pr_nome: '',
                 pr_descricao: ''
             })
-            setEstado(true);
+            setEstado("success");
         }).catch(e => { 
             setMensagem(e.response.data);
             setOpen(true);
-            setEstado();     
+            setEstado("error");     
         })
 
     }
         
-    const [estado, setEstado] = useState();
+    const [estado, setEstado] = useState("");
 
     function handle(e) {
         const newdata = {...data}
@@ -78,12 +78,11 @@ function PostProjetos() {
         setData(newdata)
     }
 
-    var alerta = (estado === true) ? "success" : "error";
         
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
-                <Alert onClose={handleCloseAlert} severity={alerta}>
+                <Alert onClose={handleCloseAlert} severity={estado}>
                     {mensagem}
                 </Alert>
             </Snackbar>
