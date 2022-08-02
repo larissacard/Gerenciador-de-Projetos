@@ -15,16 +15,17 @@ export const Container = styled.li`
 `;
 
 export const Titulo = styled.h2`
-  font-weight: 700;
-  font-size: 22px;
+  font-weight: 500;
+  font-size: 20px;
   color: #280948;
   line-height: 25px;
 `;
 
 export const Descricao = styled.h3`
   font-weight: 400;
-  font-size: 18px;
-  color: #b5b5b5;
+  line-height: 20px;
+  font-size: 15px;
+  color: #764ba2;
 `;
 
 export const Top = styled.div`
@@ -70,7 +71,7 @@ export const ProgressDesc = styled.div`
 export const Body = styled.div`
   display: flex;
 
-  span + span {
+  > div + div {
     margin-left: -12px;
   }
 `;
