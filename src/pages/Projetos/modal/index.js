@@ -28,16 +28,19 @@ function PostProjetos() {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
       });
 
-    const [openAlert, setOpenAlert] = React.useState(false);
+    const [openAlert, setOpenAlert] = useState(false);
     
     const handleClickCad = () => {
-        setOpenAlert(true);
+        if(data.pr_nome !== ""){
+            setOpenAlert(true);
+        }
     }; 
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
         setOpenAlert(false);
+        setEstado()
     };
 
     const [data, setData]= useState({
@@ -52,25 +55,35 @@ function PostProjetos() {
             pr_descricao: data.pr_descricao
         }).then(res=>{
             setMensagem("Deu Certo")
+            setOpen(false)
             console.log(res.data)
             setData({
                 pr_nome: "",
                 pr_descricao: ""
             })
-        }).catch(e => setMensagem(e.response.data))
+            setEstado(true);
+        }).catch(e => { 
+            setMensagem(e.response.data);
+            setOpen(true);
+            setEstado();     
+        })
+
     }
         
+    const [estado, setEstado] = useState();
+
     function handle(e) {
         const newdata = {...data}
         newdata[e.target.id] = e.target.value
         setData(newdata)
     }
 
-
+    var alerta = (estado === true) ? "success" : "error";
+        
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
-                <Alert onClose={handleCloseAlert} severity="success" color="info">
+                <Alert onClose={handleCloseAlert} severity={alerta}>
                     {mensagem}
                 </Alert>
             </Snackbar>
@@ -93,12 +106,7 @@ function PostProjetos() {
                         </Form.Group>
                         
                         <Drawer.Actions>
-                            <Button onClick={() => {
-                                if(data.pr_nome !== ""){
-                                    setOpen(false)
-                                    setOpenAlert(true);
-                                }
-                            }} variant="primary" type="submit">
+                            <Button onClick={handleClickCad} variant="primary" type="submit">
                                 Cadastrar
                             </Button >
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
