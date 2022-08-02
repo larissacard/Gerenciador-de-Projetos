@@ -10,7 +10,7 @@ import api from '../../../api';
 import "rsuite/dist/rsuite.min.css";
 
 function PostProjetos() {
-    var [mensagem, setMensagem] = useState("")
+    var [mensagem, setMensagem] = useState('')
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -19,8 +19,8 @@ function PostProjetos() {
     const handleClose = () => {
         setOpen(false);
         setData({
-            pr_nome: "",
-            pr_descricao: ""
+            pr_nome: '',
+            pr_descricao: ''
         })
     }
 
@@ -31,7 +31,7 @@ function PostProjetos() {
     const [openAlert, setOpenAlert] = useState(false);
     
     const handleClickCad = () => {
-        if(data.pr_nome !== ""){
+        if(data.pr_nome !== ''){
             setOpenAlert(true);
         }
     }; 
@@ -40,12 +40,12 @@ function PostProjetos() {
             return;
         }
         setOpenAlert(false);
-        setEstado()
+        setEstado('')
     };
 
     const [data, setData]= useState({
-        pr_nome: "",
-        pr_descricao: ""
+        pr_nome: '',
+        pr_descricao: ''
     })
 
     function cadastrar(e){
@@ -58,8 +58,8 @@ function PostProjetos() {
             setOpen(false)
             console.log(res.data)
             setData({
-                pr_nome: "",
-                pr_descricao: ""
+                pr_nome: '',
+                pr_descricao: ''
             })
             setEstado(true);
         }).catch(e => { 
