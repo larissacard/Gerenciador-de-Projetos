@@ -26,61 +26,33 @@ function Header() {
                 <Logo/>
             </ContLogo>
 
-            {/* Os Botões do menu estão passando por uma renderização condicional
-                Que permite mostrar os botões destacados quando você está em
-                determinada página */}
-
             <NavMenu>
-                <a href="/projetos">
-                  { url.substring(0,9) === '/projetos' || url === '/' 
-                    ? <MenuButton>
-                        <ImgProjetos className='active'/>
-                        <span className='active'>Projetos</span>
+                <a href="/projetos"> 
+                    <MenuButton>
+                        <ImgProjetos className={url.substring(0,9) === '/projetos' || url === '/' ? 'active' : ""}/>
+                        <span className={url.substring(0,9) === '/projetos' || url === '/' ? 'active' : ""}>Projetos</span>
                     </MenuButton> 
-                    : <MenuButton>
-                        <ImgProjetos/>
-                        <span>Projetos</span>
-                    </MenuButton>
-                  } 
                 </a>
 
                 <a href="/equipes">
-                  { url.substring(0,8) === '/equipes'
-                    ? <MenuButton>
-                        <ImgEquipes className='active'/>
-                        <span className='active'>Equipes</span>
+                    <MenuButton>
+                        <ImgEquipes className={url.substring(0,8) === '/equipes' ? 'active' : ""}/>
+                        <span className={url.substring(0,9) === '/equipes' ? 'active' : ""}>Equipes</span>
                     </MenuButton> 
-                    : <MenuButton>
-                        <ImgEquipes/>
-                        <span>Equipes</span>
-                    </MenuButton>
-                  } 
                 </a>
 
                 <a href="/pessoas">
-                  { url.substring(0,8) === '/pessoas'
-                    ? <MenuButton>
-                        <ImgPessoas className='active'/>
-                        <span className='active'>Pessoas</span>
+                    <MenuButton>
+                        <ImgPessoas className={url.substring(0,8) === '/pessoas' ? 'active' : ""}/>
+                        <span className={url.substring(0,9) === '/pessoas' ? 'active' : ""}>Pessoas</span>
                     </MenuButton> 
-                    : <MenuButton>
-                        <ImgPessoas/>
-                        <span>Pessoas</span>
-                    </MenuButton>
-                  } 
                 </a>
 
                 <a href="/tarefas">
-                  { url.substring(0,8) === '/tarefas'
-                    ? <MenuButton>
-                        <ImgTarefas className='active'/>
-                        <span className='active'>Tarefas</span>
+                    <MenuButton>
+                        <ImgTarefas className={url.substring(0,8) === '/tarefas' ? 'active' : ""}/>
+                        <span className={url.substring(0,9) === '/tarefas' ? 'active' : ""}>Tarefas</span>
                     </MenuButton> 
-                    : <MenuButton>
-                        <ImgTarefas/>
-                        <span>Tarefas</span>
-                    </MenuButton>
-                  } 
                 </a>
             </NavMenu>
         </Container>

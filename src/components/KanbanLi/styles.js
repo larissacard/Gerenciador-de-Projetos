@@ -45,7 +45,7 @@ export const Body = styled.div`
         justify-content: space-between;
     }
     
-    p {
+    p, strong {
         font-size: 12px;
         font-weight: 600;
         color: #280948;
