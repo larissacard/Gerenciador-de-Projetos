@@ -6,7 +6,7 @@ import MuiAlert from '@mui/material/Alert';
 import api from '../../../api';
 import 'antd/dist/antd.css';
 
-export default function PostProjetosNew() {
+export default function PostProjetosNew(Props) {
     var [mensagem, setMensagem] = useState('')
     const [visible, setVisible] = useState(false);
   
@@ -56,6 +56,7 @@ export default function PostProjetosNew() {
                 pr_descricao: ''
             })
             setEstado("success");
+            Props.update()
         }).catch(e => { 
             setMensagem(e.response.data);
             setVisible(true);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import api from '../../api'
 import CardDetalhesList from '../../components/CardDetalhesList';
 import KanbanUl from '../../components/KanbanUl';
@@ -8,21 +8,20 @@ import { Container, ContDados, Top, Buttons, Editar, Deletar, Titulo, Detalhamen
 export default function Index() {
     const path = window.location.pathname;
     const [dados, setDados] = useState()
+    const [updateScrenn, setUpdateScreen] = useState(true)
     let string_equipes = ""
     let qtd_pessoas = 0
 
-    useEffect(() => {
-        const getDados = async () => {
-            try {
-                const response = await api.get(path)
-                setDados(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getDados();
-    }, [dados]);
+    const getDados = async () => {
+        const response = await api.get(path)
+        setDados(response.data);
+    };
 
+    if (updateScrenn) {
+        getDados()
+        setUpdateScreen(false)
+    }
+    
     return (
         <Container>
             <Header />
@@ -59,10 +58,10 @@ export default function Index() {
                             ]} />
                     </Detalhamento>
                     <Trelo>
-                        <KanbanUl status="Não Iniciado" titulo="To Do" elements={dados.tarefas.NaoIniciadas} />
-                        <KanbanUl status="Em Desenvolvimento" titulo="In Progress" elements={dados.tarefas.EmDesenvolvimento} />
-                        <KanbanUl status="Em Testes" titulo="Test" elements={[]} />
-                        <KanbanUl status="Concluido" titulo="Done" elements={dados.tarefas.Concluidas} />
+                        <KanbanUl func={getDados} status="Não Iniciado" titulo="To Do" elements={dados.tarefas.NaoIniciadas} />
+                        <KanbanUl func={getDados} status="Em Desenvolvimento" titulo="In Progress" elements={dados.tarefas.EmDesenvolvimento} />
+                        <KanbanUl func={getDados} status="Em Testes" titulo="Test" elements={[]} />
+                        <KanbanUl func={getDados} status="Concluido" titulo="Done" elements={dados.tarefas.Concluidas} />
                     </Trelo>
                 </ContDados>
                 : <>

@@ -9,7 +9,7 @@ import api from '../../../api';
 
 import "rsuite/dist/rsuite.min.css";
 
-function PostProjetos() {
+function PostProjetos(Props) {
     var [mensagem, setMensagem] = useState('')
     const [open, setOpen] = useState(false);
     
@@ -62,6 +62,7 @@ function PostProjetos() {
                 pr_descricao: ''
             })
             setEstado("success");
+            Props.update()
         }).catch(e => { 
             setMensagem(e.response.data);
             setOpen(true);

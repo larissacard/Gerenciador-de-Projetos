@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
+import api from "../../api";
 
 import Header from "../../components/header";
 import Grafico from "./grafico";
-import Tabela from "./tabela";
 import CardCriar from "../../components/CardCriar";
 import SalaVirtual from "../../components/CardSalaVirtual";
 import { Provider } from 'react-redux';
 import { createStore } from '@reduxjs/toolkit'
 import Index from "../Projetos/reminder/index";
+import PostProjetos from "./modal";
 
 import {
   Container,
@@ -17,19 +18,45 @@ import {
   ContTabela,
   ColunaDois,
   CardCalendar,
-
+  ContProjetos,
+  CabecalhoProjetos,
+  Search,
+  SearchIcon,
+  CardProjeto,
+  ContMais
 } from "./styles";
 
-
-import MyApp from "./date";
 import "./style.css";
-import PostProjetos from "./modal";
 import PostProjetosNew from "./modal/testedrawer";
 import Reminder from "./reminder/reminder";
 
 const store = createStore(Index);
 
 function Projetos() {
+  const [initialProjetos, setInitialProjetos] = useState([])
+    const [projetos, setProjetos] = useState([])
+    const [updateScreen, setUpdate] = useState(true)
+
+    const getProjetos = async () => {
+      const response = await api.get('/projetos');
+      setInitialProjetos(response.data);
+      setProjetos(response.data);
+    };
+
+    if (updateScreen) {
+        getProjetos()
+        setUpdate(false)
+    }
+
+    const handleChange = ({target}) => {
+        if (!target.value) {
+            setProjetos(initialProjetos)
+            return;
+        }
+        const filterProjetos = projetos.filter((projetos) => 
+        projetos.pr_nome.toUpperCase().includes(target.value.toUpperCase()))
+        setProjetos(filterProjetos)
+    }
   return (
     <Container>
       <Header />
@@ -41,9 +68,28 @@ function Projetos() {
           <ContGrafico>
             <Grafico />
           </ContGrafico>
-          <ContTabela>
-            <Tabela />
-          </ContTabela>
+          <ContProjetos>
+            <CabecalhoProjetos>
+                <h2>Todos os Projetos</h2>
+
+                <ContMais>
+                    <Search>
+                        <input type="search" placeholder="Pesquise..." onChange={handleChange}></input>
+                        <SearchIcon/>
+                    </Search>
+                </ContMais>
+            </CabecalhoProjetos>
+
+            <ContTabela>
+                <ul> 
+                    {projetos.map((projetos, index) => 
+                    <CardProjeto key={projetos.pr_id}>
+                        <p> {projetos.pr_nome} </p>
+                        <a href={"projetos/" + projetos.pr_id}>{'Detalhes >'}</a>
+                    </CardProjeto>)} 
+                </ul>
+            </ContTabela>
+        </ContProjetos>
       </ColunaUm>
 
       <ColunaDois>
@@ -52,8 +98,8 @@ function Projetos() {
             titulo="Criar Projeto"
             descricao="Criar um novo projeto"
             button=
-            // {<PostProjetos />}
-            {<PostProjetosNew />}
+            //{<PostProjetos update={getProjetos} />}
+            {<PostProjetosNew update={getProjetos}/>}
           />
            
            <Provider store={store}> 

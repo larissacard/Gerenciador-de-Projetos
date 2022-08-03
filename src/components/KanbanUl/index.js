@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import KanbanLi from '../KanbanLi';
 import { useDrop } from 'react-dnd'
 
@@ -8,9 +8,7 @@ import api from '../../api';
 function KanbanUl(Props) {
   const [, dropRef] = useDrop({
     accept: 'CARD',
-    hover(item, monitor){
-      const draggedIndex = item.index;
-      
+    hover(item){
       if (item.status !== Props.status) {
         console.log(item)
         console.log(Props.status)
@@ -19,12 +17,13 @@ function KanbanUl(Props) {
         const updateStatus = async () => {
           const response = await api.put(`/tarefas/${item.id}/status/${Props.status}`)
           console.log(response.data)
+          Props.func()
         }
         updateStatus()
       }
     }
   })
-  
+
   return (
     <Container ref={dropRef}>
         <h2>{Props.titulo}</h2>
