@@ -21,7 +21,7 @@ export default function Index() {
             }
         };
         getDados();
-    }, [path]);
+    }, [dados]);
 
     return (
         <Container>
@@ -59,10 +59,10 @@ export default function Index() {
                             ]} />
                     </Detalhamento>
                     <Trelo>
-                        <KanbanUl titulo="To Do" elements={dados.tarefas.NaoIniciadas} />
-                        <KanbanUl titulo="In Progress" elements={dados.tarefas.EmDesenvolvimento} />
-                        <KanbanUl titulo="Frozen" elements={[]} />
-                        <KanbanUl titulo="Done" elements={dados.tarefas.Concluidas} />
+                        <KanbanUl status="Não Iniciado" titulo="To Do" elements={dados.tarefas.NaoIniciadas} />
+                        <KanbanUl status="Em Desenvolvimento" titulo="In Progress" elements={dados.tarefas.EmDesenvolvimento} />
+                        <KanbanUl status="Em Testes" titulo="Test" elements={[]} />
+                        <KanbanUl status="Concluido" titulo="Done" elements={dados.tarefas.Concluidas} />
                     </Trelo>
                 </ContDados>
                 : <>
