@@ -52,13 +52,14 @@ function Projetos() {
             descricao="Criar um novo projeto"
             button={<PostProjetos />}
           />
-          <MyApp />
+           
            <Provider store={store}> 
             <Reminder/>
            </Provider> 
+           <SalaVirtual/>
         </CardCalendar>
         
-        <SalaVirtual/>
+       
       </ColunaDois>
     </Container>
   );
