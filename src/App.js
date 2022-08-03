@@ -1,10 +1,12 @@
 import Rout from './routes'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 function App (props) {
   return (
-    <div className='d-flex'>
+    <DndProvider backend={HTML5Backend}>
       <Rout/>
-    </div>    
+    </DndProvider>    
   );
 };
 

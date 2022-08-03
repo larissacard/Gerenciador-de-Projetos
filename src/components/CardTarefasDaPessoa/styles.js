@@ -53,7 +53,7 @@ export const Bottom = styled.div`
     color: #280948;
     width: 200px;
   }
-
+  
   > span {
     font-weight: 600;
     font-size: 14px;
@@ -61,5 +61,6 @@ export const Bottom = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: none;
+    padding-right: 3px;
   }
 `;

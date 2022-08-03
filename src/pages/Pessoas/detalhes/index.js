@@ -44,7 +44,7 @@ function Detalhes(Props) {
             {/* Lista de Tarefas que estão com status "Concluido"*/}
             <Lista titulo="Tarefas Concluidas" width="49%" height="220px">
               {detalhes.tarefas.Concluidas.map((e) =>
-                <CardTarefasDaPessoa key={e.tr_id} titulo={e.tr_nome} prioridade={e.tr_prioridade} data={e.tr_data_criacao}/>
+                <CardTarefasDaPessoa key={e.tr_id} titulo={e.tr_nome} prioridade={e.tr_prioridade} data={e.tr_data_criacao}z/>
               )}
             </Lista>
           </Tarefas>

@@ -9,7 +9,7 @@ function KanbanUl(Props) {
         <h2>{Props.titulo}</h2>
         <ContTarefas>
             {Props.elements.map((e, index) =>
-                <KanbanLi key={index} dados={e}/>
+                <KanbanLi key={index} index={index} dados={e}/>
             )}
         </ContTarefas>
     </Container>

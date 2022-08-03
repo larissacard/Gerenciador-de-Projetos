@@ -55,13 +55,14 @@ function Projetos() {
             // {<PostProjetos />}
             {<PostProjetosNew />}
           />
-          <MyApp />
+           
            <Provider store={store}> 
             <Reminder/>
            </Provider> 
+           <SalaVirtual/>
         </CardCalendar>
         
-        <SalaVirtual/>
+       
       </ColunaDois>
     </Container>
   );
