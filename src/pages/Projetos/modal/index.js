@@ -77,8 +77,6 @@ function PostProjetos() {
         newdata[e.target.id] = e.target.value
         setData(newdata)
     }
-
-        
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
@@ -88,7 +86,7 @@ function PostProjetos() {
             </Snackbar>
 
             <Drawer open={open} onClose={handleClose} size="sm">
-                <Drawer.Header>
+                <Drawer.Header className='teste'>
                     <Drawer.Title>Cadastro de um novo Projeto</Drawer.Title>
                 </Drawer.Header>
                 

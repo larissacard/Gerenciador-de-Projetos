@@ -24,9 +24,10 @@ import {
 import MyApp from "./date";
 import "./style.css";
 import PostProjetos from "./modal";
+import PostProjetosNew from "./modal/testedrawer";
 import Reminder from "./reminder/reminder";
 
- const store = createStore(Index);
+const store = createStore(Index);
 
 function Projetos() {
   return (
@@ -50,7 +51,9 @@ function Projetos() {
           <CardCriar
             titulo="Criar Projeto"
             descricao="Criar um novo projeto"
-            button={<PostProjetos />}
+            button=
+            // {<PostProjetos />}
+            {<PostProjetosNew />}
           />
           <MyApp />
            <Provider store={store}> 
