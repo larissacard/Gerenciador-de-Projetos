@@ -27,8 +27,12 @@ function CardPessoa(Props) {
                 <span>{Props.dados.tarefas.NaoIniciadas.length}</span>
               </li>
               <li>
-                <p>Tarefas Em Desenvolvimento</p>
+                <p>Tarefas Em Andamento</p>
                 <span>{Props.dados.tarefas.EmDesenvolvimento.length}</span>
+              </li>
+              <li>
+                <p>Tarefas Em Testes</p>
+                <span>{Props.dados.tarefas.Testes.length}</span>
               </li>
               <li>
                 <p>Tarefas Concluidas</p>
