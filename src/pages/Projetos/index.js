@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore } from '@reduxjs/toolkit'
 import Index from "../Projetos/reminder/index";
 import PostProjetos from "./modal";
-import Alert from '@mui/material';
+import Alert from '@mui/material/Alert';
 import Reminder from "./reminder/reminder";
 
 import {
