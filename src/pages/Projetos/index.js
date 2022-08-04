@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import { createStore } from '@reduxjs/toolkit'
 import Index from "../Projetos/reminder/index";
 import PostProjetos from "./modal";
+import Alert from '@mui/material/Alert';
+import Reminder from "./reminder/reminder";
 
 import {
   Container,
@@ -25,68 +27,75 @@ import {
   ContMais
 } from "./styles";
 
-
-import Reminder from "./reminder/reminder";
-
 const store = createStore(Index);
 
 function Projetos() {
-  const [initialProjetos, setInitialProjetos] = useState([])
-    const [projetos, setProjetos] = useState([])
     const [updateScreen, setUpdate] = useState(true)
+    const [projetos, setProjetos] = useState([])
+    const [name, setName] = useState('');
+    const [foundProjetos, setFoundProjetos] = useState();
 
     const getProjetos = async () => {
       const response = await api.get('/projetos');
-      setInitialProjetos(response.data);
       setProjetos(response.data);
+      setFoundProjetos(response.data);
+    };
+    
+    const filter = (e) => {
+      const keyword = e.target.value;
+      if (keyword !== '') {
+        const results = projetos.filter((projeto) => {
+          return projeto.pr_nome.toLowerCase().startsWith(keyword.toLowerCase());
+        });
+        setFoundProjetos(results);
+      } else {
+        setFoundProjetos(projetos);
+      }
+      setName(keyword);
     };
 
     if (updateScreen) {
-        getProjetos()
-        setUpdate(false)
+      getProjetos()
+      setUpdate(false)
     }
 
-    const handleChange = ({target}) => {
-        if (!target.value) {
-            setProjetos(initialProjetos)
-            return;
-        }
-        const filterProjetos = projetos.filter((projetos) => 
-        projetos.pr_nome.toLowerCase().includes(target.value.toLowerCase()))
-        setProjetos(filterProjetos)
-    }
   return (
     <Container>
       <Header />
-
       <ColunaUm>
-          <TopGrafico>
-            <h1>Projetos</h1>
-          </TopGrafico>
-          <ContGrafico>
-            <Grafico />
-          </ContGrafico>
-          <ContProjetos>
-            <CabecalhoProjetos>
-                <h2>Todos os Projetos</h2>
+        <TopGrafico>
+          <h1>Projetos</h1>
+        </TopGrafico>
+        <ContGrafico>
+          <Grafico />
+        </ContGrafico>
+        <ContProjetos>
+          <CabecalhoProjetos>
+              <h2>Todos os Projetos</h2>
+              <ContMais>
+                  <Search>
+                      <input type="search" placeholder="Pesquise..." onChange={filter} value={name}></input>
+                      <SearchIcon/>
+                  </Search>
+              </ContMais>
+          </CabecalhoProjetos>
 
-                <ContMais>
-                    <Search>
-                        <input type="search" placeholder="Pesquise..." onChange={handleChange}></input>
-                        <SearchIcon/>
-                    </Search>
-                </ContMais>
-            </CabecalhoProjetos>
-
-            <ContTabela>
-                <ul> 
-                    {projetos.map((projetos, index) => 
-                    <CardProjeto key={projetos.pr_id}>
-                        <p> {projetos.pr_nome} </p>
-                        <a href={"projetos/" + projetos.pr_id}>{'Detalhes >'}</a>
-                    </CardProjeto>)} 
-                </ul>
-            </ContTabela>
+          <ContTabela>
+              <ul> 
+                {foundProjetos && foundProjetos.length > 0 ? (
+                  foundProjetos.map((projeto) => (
+                  <CardProjeto key={projeto.pr_id}>
+                      <p> {projeto.pr_nome} </p>
+                      <a href={"projetos/" + projeto.pr_id}>{'Detalhes >'}</a>
+                  </CardProjeto> 
+                  ))
+                  ) : (
+                    <Alert variant="outlined" severity="warning">
+                      Projeto não encontrado! ;-;
+                    </Alert>
+                  )}
+              </ul>
+          </ContTabela>
         </ContProjetos>
       </ColunaUm>
 
@@ -97,7 +106,6 @@ function Projetos() {
             descricao="Criar um novo projeto"
             button=
             {<PostProjetos update={getProjetos} />}
-            
           />
            
            <Provider store={store}> 
@@ -105,8 +113,6 @@ function Projetos() {
            </Provider> 
            <SalaVirtual/>
         </CardCalendar>
-        
-       
       </ColunaDois>
     </Container>
   );
