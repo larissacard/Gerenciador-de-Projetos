@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { Form } from 'react-bootstrap';
-import { Drawer, button } from 'rsuite';
-import { Button, Editar } from './styles'
+import { Drawer} from 'rsuite';
+import { Editar } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
 const projetoPath = window.location.pathname;

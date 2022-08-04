@@ -62,7 +62,7 @@ export const Lembrete = styled.div`
     
 `
 export const Notas = styled.div`
-    height: 253px;
+    height: 273px;
     width: 100%;
     margin-top: 20px;
     overflow-y: auto;

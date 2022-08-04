@@ -15,9 +15,15 @@ export const Container = styled.div`
   overflow-y: hidden;
 `;
 
+export const Body = styled.div`
+  overflow-y: scroll;
+`;
+
 export const Tarefas = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
 `;
