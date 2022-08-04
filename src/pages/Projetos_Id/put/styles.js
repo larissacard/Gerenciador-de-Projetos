@@ -29,6 +29,7 @@ export const Editar = styled.button`
     height: 20px;
     font-size: 14px;
     color: #FFFFFF;
+    margin-right: 8px;
     
     &:hover{
         transform: scale(1.1);

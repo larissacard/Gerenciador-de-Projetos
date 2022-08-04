@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
-import { Drawer } from 'rsuite';
+import { Drawer, button } from 'rsuite';
 import { Button, Editar } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
@@ -68,10 +68,10 @@ function Edit() {
                         
                         <Drawer.Actions>
                             <div className={`d-flex`}> 
-                            <Button className={`btn btn-light`} onClick={(update) => setOpen(false)} variant="primary" type="submit">
+                            <button className={`btn btn-light`} onClick={(update) => setOpen(false)} variant="primary" type="submit">
                                 Editar
-                            </Button>
-                            <Button className={`btn btn-light`} onClick={() => setOpen(false)}>Cancelar</Button>
+                            </button>
+                            <button className={`btn btn-light`} onClick={() => setOpen(false)}>Cancelar</button>
                             </div>
                         </Drawer.Actions>
                     </Form>
