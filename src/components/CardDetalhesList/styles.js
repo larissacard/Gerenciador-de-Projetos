@@ -6,16 +6,17 @@ export const Container = styled.ul`
     border-radius: 15px;
     list-style: none;
     padding: 15px 10px;
+    overflow-y: scroll;
 
     strong {
         font-weight: 600;
-        font-size: 15px;
+        font-size: 14px;
         color: #280948;
     }
 
     li {
         font-weight: 600;
-        font-size: 15px;
+        font-size: 14px;
         color: rgba(40, 9, 72, 0.5);
     }
 `;

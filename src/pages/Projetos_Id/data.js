@@ -17,8 +17,8 @@ class ExibirDetalhesProjeto extends Component {
       });
   }
 
-  deletarProjetos = (pr_id) => {
-    api.delete("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath)
+  deletarProjeto = (pr_id) => {
+    api.delete(projetoPath)
   }
 
   render() {

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    height: 443px;
+`
+
 export const Title = styled.div`
     color: #280948;
     font-weight: 600;
@@ -34,13 +38,14 @@ export const Save = styled.button`
 `
 export const Delete = styled.button`
     background-color: #E74444;
-    width: 82px;
+    width: 150px;
     height: 30px;
     font-size: 14px;
     line-height: 20px;
     color: white;
     border-radius: 20px ;
     text-align: center;
+    font-size: 14px;
 `
 
 export const Lembrete = styled.div`
@@ -53,6 +58,25 @@ export const Lembrete = styled.div`
     border-radius: 20px;
     margin-top: 1rem;
     margin-left: 0.5rem;
-    width: 100%;
+    width: 95%;
     
+`
+export const Notas = styled.div`
+    height: 253px;
+    width: 100%;
+    margin-top: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+        ::-webkit-scrollbar-thumb{
+        background: #764BA2;
+        border-radius: 10px;
+        width: 5px;
+    }
+        
+    ::-webkit-scrollbar{
+        background-color: #F5F5F7;
+        width: 5px;
+        border-radius: 10px;
+    }
 `

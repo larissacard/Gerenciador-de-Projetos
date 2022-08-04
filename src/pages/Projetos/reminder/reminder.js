@@ -4,7 +4,8 @@ import { bindActionCreators } from "redux";
 import { addReminder, deleteReminder, clearReminders } from "./action";
 import moment from "moment";
 import 'moment/locale/pt-br'
-import { Title, Input, Save, Delete, Lembrete } from "./style";
+import { Title, Input, Save, Delete, Lembrete, Notas } from "./style";
+import { Container } from "react-bootstrap";
 
 
 
@@ -71,7 +72,7 @@ class Reminder extends Component {
 
                         </Input>
                     </div>
-                    <div className="d-flex" style={{ width: "20px", marginLeft: "0.5rem" }}>
+                    <div className="d-flex" style={{ width: "300px", marginLeft: "0.5rem" }}>
                         <Save className="btn"
                             onClick={() => this.addReminder()}>
                             Salvar
@@ -81,10 +82,12 @@ class Reminder extends Component {
                             className="btn"
                             onClick={() => this.props.clearReminders()}
                         >
-                            Apagar
+                            Apagar Todos
                         </Delete>
                     </div>
+                    <Notas >
                         {this.renderReminders()}
+                    </Notas>
                 </div>
             </div>
         )
