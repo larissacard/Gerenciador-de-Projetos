@@ -51,16 +51,15 @@ export default function Index() {
                         <CardDetalhesList width="58.32%" height="143px" keys={["Descrição"]} values={[dados.dados.pr_descricao]} />
 
                         <CardDetalhesList width="15.32%" height="143px" keys={[
-                            "Total de Tarefas", "Total de Pessoas"
+                            "Total de Tarefas", "Total de Pessoas", "Status"
                             ]} values={[
-                                dados.tarefas.EmDesenvolvimento.length + dados.tarefas.Concluidas.length + dados.tarefas.NaoIniciadas.length,
-                                qtd_pessoas
+                                dados.tarefas.EmDesenvolvimento.length + dados.tarefas.Concluidas.length + dados.tarefas.NaoIniciadas.length + dados.tarefas.Testes.length, qtd_pessoas, dados.dados.pr_status
                             ]} />
                     </Detalhamento>
                     <Trelo>
                         <KanbanUl func={getDados} status="Não Iniciado" titulo="To Do" elements={dados.tarefas.NaoIniciadas} />
                         <KanbanUl func={getDados} status="Em Desenvolvimento" titulo="In Progress" elements={dados.tarefas.EmDesenvolvimento} />
-                        <KanbanUl func={getDados} status="Em Testes" titulo="Test" elements={[]} />
+                        <KanbanUl func={getDados} status="Em Testes" titulo="Test" elements={dados.tarefas.Testes} />
                         <KanbanUl func={getDados} status="Concluido" titulo="Done" elements={dados.tarefas.Concluidas} />
                     </Trelo>
                 </ContDados>

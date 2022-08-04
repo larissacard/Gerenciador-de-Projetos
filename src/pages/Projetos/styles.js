@@ -205,7 +205,7 @@ export const CardProjeto = styled.div`
     
     color: white;
     font-weight: 600;
-    line-height: 1.7rem;
+    line-height: 100%;
 
     display: flex;
     justify-content: space-between;
