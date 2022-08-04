@@ -29,7 +29,8 @@ function Edit(Props) {
             pr_nome: data.pr_nome,
             pr_descricao: data.pr_descricao
         })
-            .then(res=>{
+        .then(res=>{
+                Props.atualizar()
                 console.log(res.data)
                 if (res.data == 'Esse projeto já foi editado!') {
                     alert('Esse Projeto já foi editado!')

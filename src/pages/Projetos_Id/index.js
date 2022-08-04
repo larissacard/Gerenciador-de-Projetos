@@ -33,7 +33,7 @@ export default function Index() {
                     <Top>
                         <Titulo>{dados.dados.pr_nome}</Titulo>
                         <Buttons>
-                            <Edit dados={dados}/>
+                            <Edit dados={dados} atualizar={getDados}/>
                             <ExibirDetalhesProjeto />
                         </Buttons>
                     </Top>

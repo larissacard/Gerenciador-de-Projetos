@@ -3,7 +3,7 @@ import api from "../../api";
 import { Deletar } from './styles' 
 
 const projetoPath = window.location.pathname;
-
+  
 class ExibirDetalhesProjeto extends Component {
   state = {
     dados: {},
@@ -27,7 +27,6 @@ class ExibirDetalhesProjeto extends Component {
     return (
       <>
         <Deletar type="button" onClick={() =>this.deletarProjetos(dados.pr_id)}>Deletar</Deletar>
-        
       </>
     );
   }
