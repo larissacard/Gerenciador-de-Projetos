@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import api from '../../../api';
-import { Card, Container, FooterCard, Name, Title } from './syle';
+import { CardAdicionar } from '../style';
+import { Card, AllCards, FooterCard, Name, Title } from './syle';
+import PostEquipes from '../modal';
 
 
 class ExibirEquipes extends Component {
@@ -22,10 +24,9 @@ class ExibirEquipes extends Component {
     const { equipes } = this.state;
 
     return (
-      <div>
-        <Title>Equipes</Title>
-        <Container>
-
+      <div style={{overflowY:"scroll"}}>
+        <AllCards>
+        <CardAdicionar><PostEquipes /></CardAdicionar>
 
           {equipes.map(equipes => (
             <Card key={equipes.eq_id}>
@@ -38,7 +39,7 @@ class ExibirEquipes extends Component {
               </FooterCard>
             </Card>
           ))}
-        </Container>
+        </AllCards>
       </div>
     )
   }

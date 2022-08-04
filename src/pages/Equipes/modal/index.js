@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
-import { Button } from './styles'
+import { Button, Name } from './styles'
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
 
@@ -76,7 +76,10 @@ function PostEquipes() {
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}><img src="assets/btn_create.svg" alt="create icon"/></Button>
+                <Button onClick={handleOpen}>
+                    <img src="assets/Group.svg" alt="create icon"/>
+                    <Name>Adicionar Equipe</Name>
+                </Button>
             </div>
         </>
     );

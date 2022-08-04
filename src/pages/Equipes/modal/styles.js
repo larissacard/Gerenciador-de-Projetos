@@ -2,17 +2,16 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
     display: flex;
-    width: 3.25rem;
-    height: 3.25rem;
+    flex-direction: column;
     justify-content: center;
-    background-color: white;
+    background-color: transparent;
     border-radius: 10px;
     border: none;
     transition-duration: .2s;
     
     img{
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
         align-self: center;
     }
 
@@ -21,3 +20,12 @@ export const Button = styled.button`
         transition-duration: .2s;
     }
 `;
+
+export const Name = styled.div`
+    font-weight: 400;
+    font-size: 23.8953px;
+    line-height: 32px;
+    color: #280948; 
+    text-align: center;
+    padding: 5px 20px;
+`

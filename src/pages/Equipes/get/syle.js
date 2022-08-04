@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const AllCards = styled.div`
     height: 46rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -35,6 +35,7 @@ export const Name = styled.div`
     font-size: 20px;
     line-height: 30px;  
     color: #280948;
+    text-align: center;
 `
 
 export const FooterCard = styled.div`
