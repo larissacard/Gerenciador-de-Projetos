@@ -3,7 +3,9 @@ import api from '../../api'
 import CardDetalhesList from '../../components/CardDetalhesList';
 import KanbanUl from '../../components/KanbanUl';
 import Header from '../../components/header'
-import { Container, ContDados, Top, Buttons, Editar, Deletar, Titulo, Detalhamento, Trelo } from './styles'
+import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo } from './styles'
+import Edit from './put';
+import ExibirDetalhesProjeto from './data';
 
 export default function Index() {
     const path = window.location.pathname;
@@ -31,8 +33,8 @@ export default function Index() {
                     <Top>
                         <Titulo>{dados.dados.pr_nome}</Titulo>
                         <Buttons>
-                            <Editar>Editar</Editar>
-                            <Deletar>Deletar</Deletar>
+                            <Edit />
+                            <ExibirDetalhesProjeto />
                         </Buttons>
                     </Top>
                     <Detalhamento>

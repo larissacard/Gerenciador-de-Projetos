@@ -21,3 +21,18 @@ export const Button = styled.button`
         transition-duration: .2s;
     }
 `;
+
+export const Editar = styled.button`
+    background: #FF9533;
+    border-radius: 14px;
+    width: 82px;
+    height: 20px;
+    font-size: 14px;
+    color: #FFFFFF;
+    
+    &:hover{
+        transform: scale(1.1);
+        transition-duration: .2s;
+    }
+`;
+

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import axios, { Axios } from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
-import { Button } from './styles'
+import { Button, Editar } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
 const projetoPath = window.location.pathname;
@@ -78,7 +78,7 @@ function Edit() {
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}>Editar</Button>
+                <Editar onClick={handleOpen}>Editar</Editar>
             </div>
         </>
     );
