@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import api from "../../api";
-
 import Header from "../../components/header";
 import Grafico from "./grafico";
 import CardCriar from "../../components/CardCriar";
@@ -26,8 +25,7 @@ import {
   ContMais
 } from "./styles";
 
-import "./style.css";
-import PostProjetosNew from "./modal/testedrawer";
+
 import Reminder from "./reminder/reminder";
 
 const store = createStore(Index);
@@ -98,8 +96,8 @@ function Projetos() {
             titulo="Criar Projeto"
             descricao="Criar um novo projeto"
             button=
-            //{<PostProjetos update={getProjetos} />}
-            {<PostProjetosNew update={getProjetos}/>}
+            {<PostProjetos update={getProjetos} />}
+            
           />
            
            <Provider store={store}> 
