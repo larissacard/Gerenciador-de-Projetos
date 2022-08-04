@@ -19,43 +19,43 @@ const MenuProps = {
   },
 };
 
-export default function PessoasEquipe(Props) {
-    const [pessoas, setPessoas] = useState ([])
+export default function EquipesProjeto(Props) {
+    const [equipes, setEquipes] = useState ([])
 
     useEffect(() => {
-        const getPessoas = async () => {
+        const getEquipes = async () => {
             try {
-                const response = await api.get('/pessoas');
-                setPessoas(response.data);
+                const response = await api.get('/equipes');
+                setEquipes(response.data);
             } catch (error) {
                 console.log(error);
             }
         };
-        getPessoas();
+        getEquipes();
     }, []);
-    const [pessoaNome, setPessoaNome] = useState([]);
+    const [equipeNome, setEquipeNome] = useState([]);
 
   const handleChange = (event) => {
-    setPessoaNome(event.target.value)
+    setEquipeNome(event.target.value)
   };
 
   return (
     <div>
       <FormControl fullWidth>
-        <InputLabel>Selecione as Pessoas</InputLabel>
+        <InputLabel>Selecione as Equipes</InputLabel>
         <Select
           multiple
-          value={pessoaNome}
+          value={equipeNome}
           onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
-          input={<OutlinedInput label="Selecione as Pessoas" />}
+          input={<OutlinedInput label="Selecione as Equipes" />}
           renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
         >
           
-          {pessoas.map((p) => 
-            <MenuItem key={p.pe_nome} value={p.pe_nome}>
-              <Checkbox checked={pessoaNome.indexOf(p.pe_nome) > -1} />
-              {p.pe_nome}
+          {equipes.map((equipe) => 
+            <MenuItem key={equipe.eq_nome} value={equipe.eq_nome}>
+              <Checkbox checked={equipeNome.indexOf(equipe.eq_nome) > -1} />
+              {equipe.eq_nome}
             </MenuItem>
           )}
         </Select>

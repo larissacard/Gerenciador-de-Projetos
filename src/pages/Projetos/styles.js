@@ -193,7 +193,7 @@ export const Filtros = styled.div`
     margin-right: 0.8rem;
 `;
 
-export const CardProjeto = styled.div`
+export const CardProjeto = styled.li`
     background: linear-gradient(90.24deg, #764BA2 9.3%, #667EEA 99.93%);
 
     height: 2.5rem;

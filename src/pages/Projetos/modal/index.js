@@ -6,10 +6,17 @@ import { ContButton } from './styles'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import api from '../../../api';
+import EquipesProjeto from './equipes';
 
 import "rsuite/dist/rsuite.min.css";
 
 function PostProjetos(Props) {
+    const [equipeEscolhida, setEquipeEscolhida] = useState()
+    const childToParent = (childdata) => {
+        setEquipeEscolhida(childdata);
+        console.log(childdata)
+    }
+
     var [mensagem, setMensagem] = useState('')
     const [open, setOpen] = useState(false);
     
@@ -18,10 +25,7 @@ function PostProjetos(Props) {
     };
     const handleClose = () => {
         setOpen(false);
-        setData({
-            pr_nome: '',
-            pr_descricao: ''
-        })
+        setData('')
     }
 
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -57,10 +61,7 @@ function PostProjetos(Props) {
             setMensagem("Deu Certo!")
             setOpen(false)
             console.log(res.data)
-            setData({
-                pr_nome: '',
-                pr_descricao: ''
-            })
+            setData('')
             setEstado("success");
             Props.update()
         }).catch(e => { 
@@ -102,6 +103,8 @@ function PostProjetos(Props) {
                             <Form.Label>Descrição</Form.Label>
                             <Form.Control onChange={(e)=>handle(e)} id="pr_descricao" value={data.pr_descricao} type="text" placeholder="Digite a descrição do projeto"/>
                         </Form.Group>
+
+                        <EquipesProjeto childToParent={childToParent}/>
                         
                         <Drawer.Actions>
                             <Button onClick={handleClickCad} variant="primary" type="submit">

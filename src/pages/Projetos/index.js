@@ -31,14 +31,30 @@ import Reminder from "./reminder/reminder";
 const store = createStore(Index);
 
 function Projetos() {
-  const [initialProjetos, setInitialProjetos] = useState([])
     const [projetos, setProjetos] = useState([])
     const [updateScreen, setUpdate] = useState(true)
+    const [name, setName] = useState('');
+    const [foundUsers, setFoundUsers] = useState();
 
     const getProjetos = async () => {
       const response = await api.get('/projetos');
-      setInitialProjetos(response.data);
       setProjetos(response.data);
+      setFoundUsers(response.data);
+    };
+
+    
+    const filter = (e) => {
+      const keyword = e.target.value;
+      if (keyword !== '') {
+        const results = projetos.filter((projeto) => {
+          return projeto.pr_nome.toLowerCase().startsWith(keyword.toLowerCase());
+        });
+        setFoundUsers(results);
+      } else {
+        setFoundUsers(projetos);
+      }
+  
+      setName(keyword);
     };
 
     if (updateScreen) {
@@ -46,19 +62,9 @@ function Projetos() {
         setUpdate(false)
     }
 
-    const handleChange = ({target}) => {
-        if (!target.value) {
-            setProjetos(initialProjetos)
-            return;
-        }
-        const filterProjetos = projetos.filter((projetos) => 
-        projetos.pr_nome.toLowerCase().includes(target.value.toLowerCase()))
-        setProjetos(filterProjetos)
-    }
   return (
     <Container>
       <Header />
-
       <ColunaUm>
           <TopGrafico>
             <h1>Projetos</h1>
@@ -69,10 +75,9 @@ function Projetos() {
           <ContProjetos>
             <CabecalhoProjetos>
                 <h2>Todos os Projetos</h2>
-
                 <ContMais>
                     <Search>
-                        <input type="search" placeholder="Pesquise..." onChange={handleChange}></input>
+                        <input type="search" placeholder="Pesquise..." onChange={filter} value={name}></input>
                         <SearchIcon/>
                     </Search>
                 </ContMais>
@@ -80,11 +85,16 @@ function Projetos() {
 
             <ContTabela>
                 <ul> 
-                    {projetos.map((projetos, index) => 
-                    <CardProjeto key={projetos.pr_id}>
-                        <p> {projetos.pr_nome} </p>
-                        <a href={"projetos/" + projetos.pr_id}>{'Detalhes >'}</a>
-                    </CardProjeto>)} 
+                  {foundUsers && foundUsers.length > 0 ? (
+                    foundUsers.map((projeto) => (
+                    <CardProjeto key={projeto.pr_id}>
+                        <p> {projeto.pr_nome} </p>
+                        <a href={"projetos/" + projeto.pr_id}>{'Detalhes >'}</a>
+                    </CardProjeto> 
+                    ))
+                    ) : (
+                      <h4>Projeto não encontrado! ;-;</h4>
+                    )}
                 </ul>
             </ContTabela>
         </ContProjetos>
