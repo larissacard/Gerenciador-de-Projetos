@@ -52,7 +52,7 @@ function Projetos() {
             return;
         }
         const filterProjetos = projetos.filter((projetos) => 
-        projetos.pr_nome.toUpperCase().includes(target.value.toUpperCase()))
+        projetos.pr_nome.toLowerCase().includes(target.value.toLowerCase()))
         setProjetos(filterProjetos)
     }
   return (
