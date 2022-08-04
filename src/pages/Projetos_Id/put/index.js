@@ -6,7 +6,7 @@ import { Button, Editar } from './styles'
 
 import "rsuite/dist/rsuite.min.css";
 const projetoPath = window.location.pathname;
-function Edit() {
+function Edit(Props) {
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -18,8 +18,8 @@ function Edit() {
 
     const url= ("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath)
     const [data, setData]= useState({
-        pr_nome: "",
-        pr_descricao: ""
+        pr_nome: Props.dados.dados.pr_nome,
+        pr_descricao: Props.dados.dados.pr_descricao
     })
     console.log(url)
 
