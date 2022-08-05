@@ -29,7 +29,6 @@ function PostTarefas() {
             tr_descricao: data.tr_descricao
         })
             .then(res=>{
-                console.log(res.data)
                 if (res.data === 'Esse tarefa já foi inserido!') {
                     alert('Esse tarefa já foi inserido!')
                 }

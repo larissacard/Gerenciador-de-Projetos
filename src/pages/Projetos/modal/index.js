@@ -59,7 +59,6 @@ function PostProjetos(Props) {
         }).then(res=>{
             setMensagem("Deu Certo!")
             setOpen(false)
-            console.log(res.data)
             setData('')
             setEstado("success");
             Props.update()

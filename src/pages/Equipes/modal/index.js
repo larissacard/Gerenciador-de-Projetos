@@ -11,7 +11,6 @@ function PostEquipes() {
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
     const childToParent = (childdata) => {
         setPessoaEscolhida(childdata);
-        console.log(childdata)
       }
 
     const [open, setOpen] = useState(false);
@@ -35,7 +34,6 @@ function PostEquipes() {
             pessoas: pessoaEscolhida
         })
             .then(res=>{
-                console.log(res.data)
                 if (res.data === 'Essa equipe já foi inserida!') {
                     alert('Essa Equipe já foi inserida!')
                 }

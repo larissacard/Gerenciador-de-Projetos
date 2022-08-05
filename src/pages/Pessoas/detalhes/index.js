@@ -8,7 +8,6 @@ import { Container, Body, Tarefas } from "./styles";
 import { Grafico } from "./grafico";
 
 function Detalhes(Props) {
-  console.log(Props)
   const [detalhes, setDetalhes] = useState(null)
   const [updateScreen, setUpdate] = useState(true)
 
