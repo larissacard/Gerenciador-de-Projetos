@@ -56,7 +56,8 @@ function PostProjetos(Props) {
         e.preventDefault();
         api.post(('/projetos'),  {
             pr_nome: data.pr_nome,
-            pr_descricao: data.pr_descricao
+            pr_descricao: data.pr_descricao,
+            equipes: equipeEscolhida
         }).then(res=>{
             setMensagem("Deu Certo!")
             setOpen(false)

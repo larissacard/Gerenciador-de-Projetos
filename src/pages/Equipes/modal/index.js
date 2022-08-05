@@ -62,7 +62,7 @@ function PostEquipes() {
                     <Form onSubmit={(e)=> cadastrar(e)}>
                         <Form.Group className="mb-3">
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="eq_nome" value={data.eq_nome} type="text" placeholder="Digite o nome da Equipe"/>
+                            <Form.Control required onChange={(e)=>handle(e)} id="eq_nome" value={data.eq_nome} type="text" placeholder="Digite o nome da Equipe"/>
                         </Form.Group>
                         <PessoasEquipe childToParent={childToParent}/>
 

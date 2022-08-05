@@ -10,7 +10,7 @@ function Cards(Props) {
     useEffect(() => {
         const getTarefas = async () => {
             try {
-                const response =await api.get('/tarefas');
+                const response = await api.get('/tarefas');
                 setInitialTarefas(response.data.dados);
                 setTarefas(response.data.dados);
             } catch (error) {

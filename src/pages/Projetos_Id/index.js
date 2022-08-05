@@ -3,9 +3,8 @@ import api from '../../api'
 import CardDetalhesList from '../../components/CardDetalhesList';
 import KanbanUl from '../../components/KanbanUl';
 import Header from '../../components/header'
-import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo } from './styles'
+import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Deletar } from './styles'
 import Edit from './put';
-import ExibirDetalhesProjeto from './data';
 
 export default function Index() {
     const path = window.location.pathname;
@@ -22,8 +21,12 @@ export default function Index() {
     if (updateScrenn) {
         getDados()
         setUpdateScreen(false)
-    }
+    };
     
+    const deletarProjeto = (pr_id) => {
+        api.delete(path)
+    };
+
     return (
         <Container>
             <Header />
@@ -34,7 +37,7 @@ export default function Index() {
                         <Titulo>{dados.dados.pr_nome}</Titulo>
                         <Buttons>
                             <Edit dados={dados} atualizar={getDados}/>
-                            <ExibirDetalhesProjeto />
+                            <Deletar onClick={deletarProjeto}>Deletar</Deletar>
                         </Buttons>
                     </Top>
                     <Detalhamento>
