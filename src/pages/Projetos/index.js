@@ -10,6 +10,7 @@ import Index from "../Projetos/reminder/index";
 import PostProjetos from "./modal";
 import Alert from '@mui/material/Alert';
 import Reminder from "./reminder/reminder";
+import FormReminder from "./reminder/formReminder";
 
 import {
   Container,
@@ -111,6 +112,7 @@ function Projetos() {
            
            <Provider store={store}> 
             <Reminder/>
+            <FormReminder />
            </Provider> 
            <SalaVirtual/>
         </CardCalendar>
