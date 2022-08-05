@@ -8,7 +8,6 @@ import { Container, Body, Tarefas } from "./styles";
 import { Grafico } from "./grafico";
 
 function Detalhes(Props) {
-  console.log(Props.id)
   const [detalhes, setDetalhes] = useState()
 
     const getDetalhes = async () => {

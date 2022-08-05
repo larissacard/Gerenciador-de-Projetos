@@ -45,7 +45,7 @@ function Projetos() {
       const keyword = e.target.value;
       if (keyword !== '') {
         const results = projetos.filter((projeto) => {
-          return projeto.pr_nome.toLowerCase().startsWith(keyword.toLowerCase());
+          return projeto.pr_nome.toLowerCase().includes(keyword.toLowerCase());
         });
         setFoundProjetos(results);
       } else {

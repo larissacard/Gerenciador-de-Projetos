@@ -16,7 +16,7 @@ function CardTarefasDaPessoa(Props) {
   return (
     <Container ref={dragRef} isDragging={isDragging}>
         <Top>
-          <h3>{Props.dados.tr_nome}</h3>
+          <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome}</h3>
           <Prioridade style={{backgroundColor: Props.dados.tr_prioridade === 3 ? "#E74444" : Props.dados.tr_prioridade === 2 ? "#FF9533" : Props.dados.tr_prioridade === 1 ? "#67CB65" : "#666"}}>
             {status[Props.dados.tr_prioridade - 1]}
           </Prioridade>
