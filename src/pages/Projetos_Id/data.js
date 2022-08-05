@@ -8,7 +8,6 @@ class ExibirDetalhesProjeto extends Component {
   state = {
     dados: {},
   };
- 
    
   componentDidMount() {
     api.get("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath)

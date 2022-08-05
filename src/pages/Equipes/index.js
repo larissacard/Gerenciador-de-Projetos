@@ -1,29 +1,76 @@
 import React from "react";
 import Header from "../../components/header";
-// import App from "./filter";
-import ExibirEquipes from "./get/data";
-// import PostEquipes from "./modal"
-import { Title } from "./get/syle";
-import { Container } from "../Projetos/styles";
-import { ContainerUnico } from "./style";
+import App from "./filter";
+import PostEquipes from "./modal"
+import { Container, Search, SearchIcon } from "../Projetos/styles";
+import { CardAdicionar, ContainerUnico } from "./style";
+import { useState } from "react";
+import api from "../../api";
+import { AllCards, Card, FooterCard, Name, Title, Icon } from "./style";
 
 
 function Equipes() {
+    const [updateScreen, setUpdate] = useState(true);
+    const [equipes, setEquipes] = useState([]);
+    const [nome, setNome] = useState('');
+    const [foundEquipes, setFoundEquipes] = useState();
+
+
+    const getEquipes = async () => {
+        const response = await api.get('/equipes');
+        setEquipes(response.data);
+        setFoundEquipes(response.data);
+    };
+
+    const filter = (e) => {
+        const keyword = e.target.value;
+        if (keyword !== '') {
+            const results = equipes.filter((equipes) => {
+                return equipes.eq_nome.toLowerCase().includes(keyword.toLowerCase());
+            });
+            setFoundEquipes(results);
+        } else {
+            setFoundEquipes(equipes);
+        }
+        setNome(keyword);
+    };
+
+    if (updateScreen) {
+        getEquipes()
+        setUpdate(false)
+    }
+    
     return (
         <Container>
             <Header />
             <ContainerUnico>
-            <Title>Equipes</Title>
-                 <ExibirEquipes />
-                {/* <div className="create_card d-flex flex-row justify-content-around">
-                    <div className="create ms-4">
-                        <h5>Adicionar Equipe</h5>
-                        <p>Adicionar uma nova equipe</p>
-                    </div>
-                    <div className="ms-5">
-                        <PostEquipes />
-                    </div>
-                </div> */}
+                <div className="d-flex justify-content-between mt-4">
+                    <Title>Equipes</Title>
+                    <Search>
+                        <input type="search" placeholder="Pesquise..." onChange={filter} value={nome}></input>
+                        <SearchIcon/>   
+                    </Search>
+                </div>
+                <AllCards>
+                    <CardAdicionar><PostEquipes /></CardAdicionar>
+                    {foundEquipes && foundEquipes.length > 0 ? (
+                        foundEquipes.map((equipes) => (
+                            <Card key={equipes.eq_id}>
+                                
+                                <Icon>a</Icon>
+                                <Name>{equipes.eq_nome}</Name>
+                                <FooterCard>
+                                    <a href={"equipes/" + equipes.eq_id}>Inspecionar Equipes</a>
+                                </FooterCard>
+                            </Card>
+                        ))
+                    ) : (
+                        <div variant="outlined" severity="warning">
+                            e não encontrado! ;-;
+                        </div>
+                    )}
+                </AllCards>
+
             </ContainerUnico>
         </Container>
     );
