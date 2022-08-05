@@ -1,31 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
+import api from "../../../api";
 
-export const data = [
-  ["Year", "Sales", "Expenses"],
-  ["2013", 1000, 400],
-  ["2014", 1170, 460],
-  ["2015", 660, 1120],
-  ["2016", 1030, 540],
-];
+var data = [];
 
 export const options = {
   title: "Tarefas Concluidas",
-  hAxis: { title: "Year", titleTextStyle: { color: "#667EEA" } },
   colors: ["#667EEA","#280948"],
   vAxis: { minValue: 0 },
   legend: { position: "top" },
   chartArea: { width: "80%", height: "70%" },
 };
 
-export function Grafico() {
+export function Grafico(Props) {
+  const [relatorio, setRelatorio] = useState([])
+  const [dados, setDados] = useState(Props.dados)
+
+  const getRelatorio = async () => {
+    const response = await api.get(`relatorios/pessoas/${Props.dados.dados.pe_id}`)
+    setRelatorio(response.data)
+  }
+
+  if (dados != Props.dados) {
+    setDados(Props.dados)
+    getRelatorio()
+  }
+
+  data = [
+    ["Mês", "Concluidos"],
+  ];
+
+  relatorio.forEach(e => {
+    data.push([`${e.mes}-${e.ano}`, parseInt(e.count)])  
+  });
+
+
   return (
+    <>
     <Chart
       chartType="AreaChart"
       width="100%"
-      height="400px"
+      height="300px"
       data={data}
       options={options}
-    />
+      />
+    </>
   );
 }

@@ -44,23 +44,32 @@ export const Prioridade = styled.div`
 
 export const Bottom = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  > p {
-    font-weight: 600;
-    font-size: 14px;
-    color: #280948;
-    width: 200px;
+  flex-direction: column;
+  width: 100%;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    > p {
+      font-weight: 600;
+      font-size: 14px;
+      color: #280948;
+      width: 200px;
+    }
+    
+    > span {
+      font-weight: 600;
+      font-size: 14px;
+      color: rgba(40, 9, 72, 0.5);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: none;
+
+      position: absolute;
+      right: 0;
+    }
   }
-  
-  > span {
-    font-weight: 600;
-    font-size: 14px;
-    color: rgba(40, 9, 72, 0.5);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: none;
-    padding-right: 3px;
-  }
+
 `;
