@@ -2,6 +2,7 @@ import React from 'react';
 import KanbanLi from '../KanbanLi';
 import { useDrop } from 'react-dnd'
 
+import TarefasProjeto from './tarefas';
 import { Container, ContTarefas, Top } from './styles';
 import api from '../../api';
 
@@ -27,7 +28,7 @@ function KanbanUl(Props) {
           <h2>{Props.titulo}</h2>
           
           {Props.index === 1 &&
-            <button>+</button>
+            <TarefasProjeto />
           }
         </Top>
         <ContTarefas>
