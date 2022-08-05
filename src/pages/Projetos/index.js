@@ -58,6 +58,7 @@ function Projetos() {
       getProjetos()
       setUpdate(false)
     }
+    console.log()
 
   return (
     <Container>
