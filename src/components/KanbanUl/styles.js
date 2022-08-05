@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.ul`
     width: 23.29%;
     height: 100%;
     background: #FFFFFF;
@@ -26,4 +26,29 @@ export const ContTarefas = styled.ul`
     }
 
     overflow-y: scroll;
+`;
+
+export const Top = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 30px;
+        width: 30px;
+        font-size: 30px;
+        border-radius: 50%;
+        background-color: #667EEA;
+        color: #fff;
+        transition-duration: .2s;
+
+        &:hover {
+            transition-duration: .2s;
+            background: #4B67E4;
+        }
+    }
 `;
