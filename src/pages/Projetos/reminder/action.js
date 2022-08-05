@@ -7,6 +7,7 @@ export const addReminder = (text, dueDate) => {
         dueDate
     }
     console.log('action in reminder', action);
+    console.log(action.dueDate)
     return action;
 }
 

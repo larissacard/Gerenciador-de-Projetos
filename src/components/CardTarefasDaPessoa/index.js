@@ -22,8 +22,17 @@ function CardTarefasDaPessoa(Props) {
           </Prioridade>
         </Top>
         <Bottom>
-          <p>Data de Criação:</p>
-          <span>{Props.dados.tr_data_criacao.substring(0,12)}</span>
+            <div>
+              <p>Data Criação:</p>
+              <span>{Props.dados.tr_data_criacao.substring(0,10)}</span>
+            </div>
+            
+            {Props.dados.tr_data_finalizacao &&
+            <div>
+              <p>Data Finalização:</p>
+              <span>{Props.dados.tr_data_finalizacao.substring(0,10)}</span>
+            </div>
+            }
         </Bottom>
     </Container>
   );
