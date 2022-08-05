@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 443px;
+    height: calc(100% - 48px);
 `
 
 export const Title = styled.div`
@@ -62,7 +62,7 @@ export const Lembrete = styled.div`
     
 `
 export const Notas = styled.div`
-    height: 273px;
+    height: 313px;
     width: 100%;
     margin-top: 20px;
     overflow-y: auto;

@@ -6,7 +6,7 @@ import { Container, Search, SearchIcon } from "../Projetos/styles";
 import { CardAdicionar, ContainerUnico } from "./style";
 import { useState } from "react";
 import api from "../../api";
-import { AllCards, Card, FooterCard, Name, Title, Icon } from "./style";
+import { AllCards, Card, FooterCard, Name, Title, Icon, Retangulo, TeamLength, Elipse, SmallElipse } from "./style";
 
 
 function Equipes() {
@@ -14,7 +14,6 @@ function Equipes() {
     const [equipes, setEquipes] = useState([]);
     const [nome, setNome] = useState('');
     const [foundEquipes, setFoundEquipes] = useState();
-
 
     const getEquipes = async () => {
         const response = await api.get('/equipes');
@@ -56,12 +55,16 @@ function Equipes() {
                     {foundEquipes && foundEquipes.length > 0 ? (
                         foundEquipes.map((equipes) => (
                             <Card key={equipes.eq_id}>
-                                
-                                <Icon>a</Icon>
+                                <Retangulo/>
+                                {/* <Icon>a</Icon> */}
+                                <Elipse>
+                                    <SmallElipse></SmallElipse>
+                                </Elipse>
                                 <Name>{equipes.eq_nome}</Name>
+                                <TeamLength>Quantidade de integrantes: </TeamLength>
                                 <FooterCard>
                                     <a href={"equipes/" + equipes.eq_id}>Inspecionar Equipes</a>
-                                </FooterCard>
+                                </FooterCard> 
                             </Card>
                         ))
                     ) : (
