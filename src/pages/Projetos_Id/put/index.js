@@ -32,7 +32,7 @@ function Edit(Props) {
         .then(res=>{
                 Props.atualizar()
                 console.log(res.data)
-                if (res.data == 'Esse projeto já foi editado!') {
+                if (res.data === 'Esse projeto já foi editado!') {
                     alert('Esse Projeto já foi editado!')
                 }
                 else {

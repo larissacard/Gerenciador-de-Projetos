@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CardInfoPessoa from "../../../components/CardInfoPessoa";
 import CardProjetosDaPessoa from "../../../components/CardProjetosDaPessoa";
 import CardTarefasDaPessoa from "../../../components/CardTarefasDaPessoa";
@@ -18,7 +18,7 @@ function Detalhes(Props) {
       setUpdate(false)
     };
 
-    if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id) {
+    if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id && updateScreen) {
       getDetalhes()
     }
 

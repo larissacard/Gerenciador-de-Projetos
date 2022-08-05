@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../../api';
 import { CardAdicionar } from '../style';
-import { Card, AllCards, FooterCard, Name, Title } from './syle';
+import { Card, AllCards, FooterCard, Name } from './syle';
 import PostEquipes from '../modal';
 
 

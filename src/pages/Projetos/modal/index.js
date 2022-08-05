@@ -14,7 +14,6 @@ function PostProjetos(Props) {
     const [equipeEscolhida, setEquipeEscolhida] = useState()
     const childToParent = (childdata) => {
         setEquipeEscolhida(childdata);
-        console.log(childdata)
     }
 
     var [mensagem, setMensagem] = useState('')
