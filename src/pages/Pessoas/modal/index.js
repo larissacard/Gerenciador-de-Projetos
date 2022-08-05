@@ -12,7 +12,6 @@ function PostPessoas() {
     const [cargoEscolhido, setCargoEscolhido] = useState()
     const childToParent = (childdata) => {
         setCargoEscolhido(childdata);
-        console.log(childdata)
       }
 
     const [open, setOpen] = useState(false);
@@ -39,7 +38,6 @@ function PostPessoas() {
             pe_salario: data.pe_salario
         })
             .then(res=>{
-                console.log(res.data)
                 if (res.data === 'Essa pessoa já foi inserida!') {
                     alert('Essa Pessoa já foi inserida!')
                 }

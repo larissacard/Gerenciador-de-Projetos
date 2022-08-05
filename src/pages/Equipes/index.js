@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "../../components/header";
-import App from "./filter";
+// import App from "./filter";
 import ExibirEquipes from "./get/data";
-import PostEquipes from "./modal"
+// import PostEquipes from "./modal"
 import { Title } from "./get/syle";
-import { ColunaUm, Container } from "../Projetos/styles";
-import { CardAdicionar, ContainerUnico } from "./style";
+import { Container } from "../Projetos/styles";
+import { ContainerUnico } from "./style";
 
 
 function Equipes() {

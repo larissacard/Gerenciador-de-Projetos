@@ -14,7 +14,6 @@ function PostProjetos(Props) {
     const [equipeEscolhida, setEquipeEscolhida] = useState()
     const childToParent = (childdata) => {
         setEquipeEscolhida(childdata);
-        console.log(childdata)
     }
 
     var [mensagem, setMensagem] = useState('')
@@ -61,7 +60,6 @@ function PostProjetos(Props) {
         }).then(res=>{
             setMensagem("Deu Certo!")
             setOpen(false)
-            console.log(res.data)
             setData('')
             setEstado("success");
             Props.update()

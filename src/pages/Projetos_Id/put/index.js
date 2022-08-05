@@ -21,7 +21,6 @@ function Edit(Props) {
         pr_nome: Props.dados.dados.pr_nome,
         pr_descricao: Props.dados.dados.pr_descricao
     })
-    console.log(url)
 
     function update(e){
         e.preventDefault();
@@ -31,15 +30,13 @@ function Edit(Props) {
         })
         .then(res=>{
                 Props.atualizar()
-                console.log(res.data)
-                if (res.data == 'Esse projeto já foi editado!') {
+                if (res.data === 'Esse projeto já foi editado!') {
                     alert('Esse Projeto já foi editado!')
                 }
                 else {
                     alert('Projeto editado com sucesso!')
                 }
             })
-            console.log(update)
     }
 
     function handle(e) {

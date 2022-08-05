@@ -10,13 +10,10 @@ function KanbanUl(Props) {
     accept: 'CARD',
     hover(item){
       if (item.status !== Props.status) {
-        console.log(item)
-        console.log(Props.status)
         item.status = Props.status
 
         const updateStatus = async () => {
           const response = await api.put(`/tarefas/${item.id}/status/${Props.status}`)
-          console.log(response.data)
           Props.func()
         }
         updateStatus()

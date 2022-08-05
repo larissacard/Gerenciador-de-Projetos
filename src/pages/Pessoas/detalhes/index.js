@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CardInfoPessoa from "../../../components/CardInfoPessoa";
 import CardProjetosDaPessoa from "../../../components/CardProjetosDaPessoa";
 import CardTarefasDaPessoa from "../../../components/CardTarefasDaPessoa";
@@ -8,14 +8,11 @@ import { Container, Body, Tarefas } from "./styles";
 import { Grafico } from "./grafico";
 
 function Detalhes(Props) {
-  console.log(Props)
-  const [detalhes, setDetalhes] = useState(null)
-  const [updateScreen, setUpdate] = useState(true)
+  const [detalhes, setDetalhes] = useState()
 
     const getDetalhes = async () => {
       const response = await api.get(`/pessoas/${Props.dados.id}`);
       setDetalhes(response.data);
-      setUpdate(false)
     };
 
     if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id) {

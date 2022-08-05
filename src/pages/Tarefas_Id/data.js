@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import api from "../../api";
 
 const tarefasPath = window.location.pathname;
-console.log(tarefasPath);
 
 class ExibirDetalhesTarefas extends Component {
   state = {
@@ -23,8 +22,6 @@ class ExibirDetalhesTarefas extends Component {
 
   render() {
     const { tarefas } = this.state;
-    console.log(tarefas);
-
     return (
       <>
         <h2>Tarefas</h2>
