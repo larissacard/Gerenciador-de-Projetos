@@ -8,16 +8,15 @@ import { Container, Body, Tarefas } from "./styles";
 import { Grafico } from "./grafico";
 
 function Detalhes(Props) {
-  const [detalhes, setDetalhes] = useState(null)
-  const [updateScreen, setUpdate] = useState(true)
+  console.log(Props.id)
+  const [detalhes, setDetalhes] = useState()
 
     const getDetalhes = async () => {
       const response = await api.get(`/pessoas/${Props.dados.id}`);
       setDetalhes(response.data);
-      setUpdate(false)
     };
 
-    if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id && updateScreen) {
+    if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id) {
       getDetalhes()
     }
 
