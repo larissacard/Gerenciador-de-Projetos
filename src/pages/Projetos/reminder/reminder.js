@@ -5,7 +5,7 @@ import { addReminder, deleteReminder, clearReminders } from "./action";
 import moment from "moment";
 import 'moment/locale/pt-br'
 import { Title, Input, Save, Delete, Lembrete, Notas } from "./style";
-import { Container } from "react-bootstrap";
+import { Container } from "./style";
 
 
 
@@ -55,6 +55,7 @@ class Reminder extends Component {
     render() {
         return (
             <div>
+                <Container>
                 <div className="d-flex mt-3">
                     <img src="assets/Frame.svg" style={{ height: "30px", width: "30px" }}></img>
                     <Title>Lembretes</Title>
@@ -89,6 +90,7 @@ class Reminder extends Component {
                         {this.renderReminders()}
                     </Notas>
                 </div>
+                </Container>
             </div>
         )
     }
