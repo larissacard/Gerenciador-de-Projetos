@@ -5,13 +5,35 @@ import KanbanUl from '../../components/KanbanUl';
 import Header from '../../components/header'
 import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Deletar } from './styles'
 import Edit from './put';
+import { useNavigate } from 'react-router-dom'
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 export default function Index() {
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+      });
+    
+    const [open, setOpen] = useState(false);
+    
+    const handleClickDelete = () => {
+        setOpen(true);
+    };
+    
+    const handleCloseAlert = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+    }
+    setOpen(false);
+    } 
+
     const path = window.location.pathname;
     const [dados, setDados] = useState()
     const [updateScrenn, setUpdateScreen] = useState(true)
     let string_equipes = ""
     let qtd_pessoas = 0
+
+    let navigate = useNavigate()
 
     const getDados = async () => {
         const response = await api.get(path)
@@ -25,7 +47,15 @@ export default function Index() {
     
     const deletarProjeto = (pr_id) => {
         api.delete(path)
+        navigate("/projetos");
+        setOpen(true);
     };
+
+    <Snackbar open={open} autoHideDuration={2000} onClose={handleCloseAlert}>
+        <Alert onClose={handleCloseAlert} severity="warning" sx={{ width: '100%' }}>
+            Projeto apagado com sucesso!
+        </Alert>
+    </Snackbar>
 
     return (
         <Container>
