@@ -13,6 +13,7 @@ export const Discord = styled.div`
     min-height: 5rem;
     border-radius: 20px;
     background-image: url("assets/discord.svg");
+    background-size: 100%;
     background-repeat: no-repeat;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -21,8 +22,8 @@ export const Discord = styled.div`
     align-items: center;
     padding-right: 20px;
     button {
-        width: 39px;
-        height: 34px;
+        width: 10%;
+        height: 30%;
         background-color: white;
         border-radius: 10px;
     }
@@ -40,6 +41,7 @@ export const Gather = styled.div`
     min-height: 5rem;
     border-radius: 20px;
     background-image: url("assets/gather.svg");
+    background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: flex-end;
@@ -47,8 +49,8 @@ export const Gather = styled.div`
     padding-right: 20px;
     button {
         text-align: center;
-        width: 39px;
-        height: 34px;
+        width: 10%;
+        height: 30%;
         background-color: white;
         border-radius: 10px;
         

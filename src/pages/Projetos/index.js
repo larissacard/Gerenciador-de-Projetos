@@ -4,13 +4,10 @@ import Header from "../../components/header";
 import Grafico from "./grafico";
 import CardCriar from "../../components/CardCriar";
 import SalaVirtual from "../../components/CardSalaVirtual";
-import { Provider } from 'react-redux';
-import { createStore } from '@reduxjs/toolkit'
 import Index from "../Projetos/reminder/index";
 import PostProjetos from "./modal";
 import Alert from '@mui/material/Alert';
-import Reminder from "./reminder/reminder";
-import FormReminder from "./reminder/formReminder";
+
 
 import {
   Container,
@@ -27,8 +24,10 @@ import {
   CardProjeto,
   ContMais
 } from "./styles";
+import Reminders from "./Reminderr";
 
-const store = createStore(Index);
+
+
 
 function Projetos() {
     const [updateScreen, setUpdate] = useState(true)
@@ -46,7 +45,7 @@ function Projetos() {
       const keyword = e.target.value;
       if (keyword !== '') {
         const results = projetos.filter((projeto) => {
-          return projeto.pr_nome.toLowerCase().includes(keyword.toLowerCase());
+          return projeto.pr_nome.toLowerCase().startsWith(keyword.toLowerCase());
         });
         setFoundProjetos(results);
       } else {
@@ -59,7 +58,6 @@ function Projetos() {
       getProjetos()
       setUpdate(false)
     }
-    console.log()
 
   return (
     <Container>
@@ -110,10 +108,8 @@ function Projetos() {
             {<PostProjetos update={getProjetos} />}
           />
            
-           <Provider store={store}> 
-            <Reminder/>
-            <FormReminder />
-           </Provider> 
+
+           <Reminders/>
            <SalaVirtual/>
         </CardCalendar>
       </ColunaDois>
