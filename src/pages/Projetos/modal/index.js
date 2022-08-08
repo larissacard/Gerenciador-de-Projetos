@@ -15,9 +15,10 @@ function PostProjetos(Props) {
     const childToParent = (childdata) => {
         setEquipeEscolhida(childdata);
     }
-
+    
     var [mensagem, setMensagem] = useState('')
     const [open, setOpen] = useState(false);
+    const [estado, setEstado] = useState();
     
     const handleOpen = () => {
         setOpen(true);
@@ -26,9 +27,9 @@ function PostProjetos(Props) {
         setOpen(false);
         setData('')
     }
-
+    
     const Alert = React.forwardRef(function Alert(props, ref) {
-        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+        return <MuiAlert elevation={6} ref={ref} severity={props.severity} variant="filled" {...props} />;
       });
 
     const [openAlert, setOpenAlert] = useState(false);
@@ -43,7 +44,7 @@ function PostProjetos(Props) {
             return;
         }
         setOpenAlert(false);
-        setEstado('')
+        setEstado()
     };
 
     const [data, setData]= useState({
@@ -69,15 +70,14 @@ function PostProjetos(Props) {
             setEstado("error");     
         })
 
-    }
-        
-    const [estado, setEstado] = useState("");
+    } 
 
     function handle(e) {
         const newdata = {...data}
         newdata[e.target.id] = e.target.value
         setData(newdata)
     }
+
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
@@ -95,12 +95,12 @@ function PostProjetos(Props) {
                     <Form onSubmit={(e)=> cadastrar(e)}>
                         <Form.Group className="mb-3">
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control required onChange={(e)=>handle(e)} id="pr_nome" value={data.pr_nome} type="text" placeholder="Digite o nome do projeto"/>
+                            <Form.Control required onChange={(e)=>handle(e)} id="pr_nome" type="text" placeholder="Digite o nome do projeto"/>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
                             <Form.Label>Descrição</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="pr_descricao" value={data.pr_descricao} type="text" placeholder="Digite a descrição do projeto"/>
+                            <Form.Control onChange={(e)=>handle(e)} id="pr_descricao" type="text" placeholder="Digite a descrição do projeto"/>
                         </Form.Group>
 
                         <EquipesProjeto childToParent={childToParent}/>

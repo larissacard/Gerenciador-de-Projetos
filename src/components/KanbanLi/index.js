@@ -37,6 +37,12 @@ function KanbanLi(Props) {
               <p>Data de Criação:</p> 
               <span>{Props.dados.tr_data_criacao.substring(0,10)}</span>
             </li>
+            {Props.dados.tr_data_finalizacao &&
+            <li style={{marginTop: "5px"}}>
+              <p>Data de Finalização:</p> 
+              <span>{Props.dados.tr_data_finalizacao.substring(0,10)}</span>
+            </li>
+            }
             {/* <li> <strong>Data de Entrega:</strong> {Props.dados.tr_data_entrega}</li> */}
           </ul>
       </Body>
