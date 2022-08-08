@@ -7,13 +7,19 @@ import "rsuite/dist/rsuite.min.css";
 import PessoasTarefa from './pessoas';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function TarefasProjeto(Props) {
+    const path = window.location.pathname;
+
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
-    const childToParent = (childdata) => {
+    const childToParentPessoa = (childdata) => {
         setPessoaEscolhida(childdata);
+    }
+
+    const [prioridadeEscolhida, setPrioridadeEscolhida] = useState()
+    const childToParentPrioridade = (childdata) => {
+        setPrioridadeEscolhida(childdata);
     }
 
     const [open, setOpen] = useState(false);
@@ -23,13 +29,12 @@ export default function TarefasProjeto(Props) {
     };
     const handleClose = () => {
         setOpen(false);
+        setData('')
     }
 
     const [data, setData]= useState({
         tr_nome: '',
         tr_descricao: '',
-        tr_prioridade: '',
-        pr_id: '',
     })
 
     function cadastrar(e){
@@ -37,8 +42,8 @@ export default function TarefasProjeto(Props) {
         api.post(('/tarefas'),{
             tr_nome: data.tr_nome,
             tr_descricao: data.tr_descricao,
-            tr_prioridade: data.tr_prioridade, //mudar para o input para um select e puxar a prioridade do banco
-            pr_id: data.pr_id, //passar o id do projeto aqui
+            tr_prioridade: prioridadeEscolhida, //mudar para o input para um select e puxar a prioridade do banco
+            pr_id: path.substring(10,), //passar o id do projeto aqui
             pessoas: pessoaEscolhida
         })
         .then(res=>{
@@ -81,7 +86,7 @@ export default function TarefasProjeto(Props) {
                             />
                         </FormControl>
 
-                        <PessoasTarefa childToParent={childToParent}/>
+                        <PessoasTarefa childToParentPrioridade={childToParentPrioridade} childToParentPessoa={childToParentPessoa}/>
 
                         <Drawer.Actions>
                             <Button onClick={() => setOpen(false)} variant="primary" type="submit">

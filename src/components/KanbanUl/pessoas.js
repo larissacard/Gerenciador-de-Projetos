@@ -6,6 +6,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
+import TextField from '@mui/material/TextField';
+
 
 import api from '../../api';
 
@@ -20,6 +22,7 @@ const MenuProps = {
 };
 
 export default function PessoasTarefa(Props) {
+  console.log(Props)
   const [pessoas, setPessoas] = useState ([])
 
   useEffect(() => {
@@ -35,19 +38,66 @@ export default function PessoasTarefa(Props) {
   }, []);
   const [pessoaNome, setPessoaNome] = useState([]);
 
-  const handleChange = (event) => {
+  const [prioridade, setPrioridade] = useState();
+  console.log(prioridade)
+  const handleChangePrioridade = (event) => {
+      const value = event.target.value
+      setPrioridade(typeof value === 'string' ? value.split(',') : value);
+    };
+
+  const handleChangePessoa = (event) => {
     setPessoaNome(event.target.value)
   };
 
   return (
     <div>
+      <TextField
+        select
+        fullWidth
+        label="Prioridade"
+        size='small'
+        margin='normal'
+        value={prioridade}
+        onChange={(e) => {Props.childParentPrioridade(e.target.value); handleChangePrioridade(e);}} 
+        placeholder='Selecione a Prioridade'
+    >
+        <MenuItem value={1}>Baixa</MenuItem>
+        <MenuItem value={2}>Média</MenuItem>
+        <MenuItem value={3}>Alta</MenuItem>
+      </TextField>
+
+      {/* <TextField
+        select
+        fullWidth
+        label="Pessoas"
+        size='small'
+        margin='normal'
+        value={pessoaNome}                                                                  
+        onChange={(e) => {(Props.childToParentPessoa(e.target.value)); handleChangePessoa(e);}}
+        input={<OutlinedInput label="Selecione as Pessoas" />}
+        renderValue={(selected) => selected.join(', ')}
+        MenuProps={MenuProps}
+        SelectProps={{
+          multiple: true,
+          ITEM_HEIGHT: 50,
+          ITEM_PADDING_TOP: 8,
+        }}
+      >
+        {pessoas.map((p) => 
+            <MenuItem key={p.pe_nome} value={p.pe_nome}>
+              <Checkbox checked={pessoaNome.indexOf(p.pe_nome) > -1} />
+              {p.pe_nome}
+            </MenuItem>
+          )}
+      </TextField>   */}
+
       <FormControl fullWidth>
         <InputLabel>Selecione as Pessoas</InputLabel>
         <Select
           multiple
           size='small'
           value={pessoaNome}                                                                  
-          onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
+          onChange={(e) => {(Props.childToParentPessoa(e.target.value)); handleChangePessoa(e);}}
           input={<OutlinedInput label="Selecione as Pessoas" />}
           renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
