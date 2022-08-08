@@ -29,6 +29,7 @@ function PostProjetos(Props) {
     }
     
     const Alert = React.forwardRef(function Alert(props, ref) {
+        console.log(props)
         return <MuiAlert elevation={6} ref={ref} severity={props.severity} variant="filled" {...props} />;
       });
 

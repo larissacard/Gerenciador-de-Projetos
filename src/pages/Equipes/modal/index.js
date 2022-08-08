@@ -11,7 +11,7 @@ function PostEquipes() {
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
     const childToParent = (childdata) => {
         setPessoaEscolhida(childdata);
-      }
+    }
 
     const [open, setOpen] = useState(false);
     
@@ -70,6 +70,7 @@ function PostEquipes() {
                             </Button>
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
                         </Drawer.Actions>
+
                     </Form>
                 </Drawer.Body>
             </Drawer>

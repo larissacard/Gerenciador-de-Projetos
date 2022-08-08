@@ -4,9 +4,18 @@ import TextField from '@mui/material/TextField';
 import FormControl, { useFormControl } from '@mui/material/FormControl';
 import { Drawer, Button} from 'rsuite';
 import "rsuite/dist/rsuite.min.css";
-import { Form } from 'react-bootstrap';
+import PessoasTarefa from './pessoas';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
-export default function TarefasProjeto() {
+export default function TarefasProjeto(Props) {
+    const [pessoaEscolhida, setPessoaEscolhida] = useState()
+    const childToParent = (childdata) => {
+        setPessoaEscolhida(childdata);
+    }
+
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -29,7 +38,8 @@ export default function TarefasProjeto() {
             tr_nome: data.tr_nome,
             tr_descricao: data.tr_descricao,
             tr_prioridade: data.tr_prioridade, //mudar para o input para um select e puxar a prioridade do banco
-            pr_id: data.pr_id //passar o id do projeto aqui
+            pr_id: data.pr_id, //passar o id do projeto aqui
+            pessoas: pessoaEscolhida
         })
         .then(res=>{
             console.log(res.data)
@@ -49,39 +59,29 @@ export default function TarefasProjeto() {
                 </Drawer.Header>
                 
                 <Drawer.Body>
-                    <Form onSubmit={(e)=> cadastrar(e)}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Nome</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="tr_nome" value={data.tr_nome} type="text" placeholder="Digite o nome da tarefa"/>
-                        </Form.Group>
+                    <div onSubmit={(e)=> cadastrar(e)}>
+                        <FormControl onChange={(e)=>handle(e)} id="tr_nome" value={data.tr_nome} type="text" fullWidth>
+                            <TextField
+                            required
+                            size='small'
+                            id="outlined-required"
+                            label="Nome"
+                            placeholder='Digite o nome da Tarefa'
+                            margin='dense'
+                            />
+                        </FormControl>
+                    
+                        <FormControl onChange={(e)=>handle(e)} id="tr_descricao" value={data.tr_descricao} type="text" fullWidth>
+                            <TextField
+                            size='small'
+                            id="outlined-required"
+                            label="Descrição"
+                            placeholder='Digite a descrição da tarefa'
+                            margin='normal'
+                            />
+                        </FormControl>
 
-                        <div>
-                            <FormControl onChange={(e)=>handle(e)} id="tr_nome" value={data.tr_nome} type="text" fullWidth>
-                                <TextField
-                                required
-                                id="outlined-required"
-                                label="Nome"
-                                placeholder='Digite o nome da Tarefa'
-                                margin='dense'
-                                />
-                            </FormControl>
-                        </div>
-
-                        <div>
-                            <FormControl onChange={(e)=>handle(e)} id="tr_descricao" value={data.tr_descricao} type="text" fullWidth>
-                                <TextField
-                                id="outlined-required"
-                                label="Descrição"
-                                placeholder='Digite a descrição da tarefa'
-                                margin='normal'
-                                />
-                            </FormControl>
-                        </div>
-
-                        <Form.Group className="mb-3">
-                            <Form.Label>Descrição</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="tr_descricao" value={data.tr_descricao} type="text" placeholder="Digite a descrição da tarefa"/>
-                        </Form.Group>
+                        <PessoasTarefa childToParent={childToParent}/>
 
                         <Drawer.Actions>
                             <Button onClick={() => setOpen(false)} variant="primary" type="submit">
@@ -89,7 +89,7 @@ export default function TarefasProjeto() {
                             </Button>
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
                         </Drawer.Actions>
-                    </Form>
+                    </div>
                 </Drawer.Body>
             </Drawer>
             <div>
