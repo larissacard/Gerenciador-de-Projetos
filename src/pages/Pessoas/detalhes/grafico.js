@@ -36,7 +36,6 @@ export function Grafico(Props) {
 
 
   return (
-    <>
     <Chart
       chartType="AreaChart"
       width="100%"
@@ -44,6 +43,5 @@ export function Grafico(Props) {
       data={data}
       options={options}
       />
-    </>
   );
 }

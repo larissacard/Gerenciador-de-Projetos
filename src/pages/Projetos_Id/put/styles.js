@@ -36,4 +36,3 @@ export const Editar = styled.button`
         transition-duration: .2s;
     }
 `;
-

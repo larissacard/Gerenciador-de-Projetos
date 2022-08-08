@@ -3,7 +3,7 @@ import api from '../../api'
 import CardDetalhesList from '../../components/CardDetalhesList';
 import KanbanUl from '../../components/KanbanUl';
 import Header from '../../components/header'
-import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Deletar } from './styles'
+import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Deletar, Main } from './styles'
 import Edit from './put';
 import { useNavigate } from 'react-router-dom'
 import Snackbar from '@mui/material/Snackbar';
@@ -64,7 +64,11 @@ export default function Index() {
             {dados ?
                 <ContDados>
                     <Top>
-                        <Titulo>{dados.dados.pr_nome}</Titulo>
+                        <Main>
+                            <Titulo>{dados.dados.pr_nome}</Titulo>
+                            <p>(#{dados.dados.pr_id})</p>
+                            <span>{dados.dados.pr_status}</span>
+                        </Main>
                         <Buttons>
                             <Edit dados={dados} atualizar={getDados}/>
                             <Deletar onClick={deletarProjeto}>Deletar</Deletar>

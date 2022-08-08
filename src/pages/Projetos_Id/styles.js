@@ -82,3 +82,24 @@ export const Trelo = styled.div`
     height: calc(100% - 245px);
     margin-top: 15px;
 `; 
+
+export const Main = styled.div`
+    display: flex;
+    align-items: center;
+
+    > span {
+        margin-top: 10px;
+        margin-left: 5px;
+
+        padding: 0px 10px;
+        color: white;
+        background-color: #667EEA;
+        border-radius: 15px;
+    }
+
+    >p {
+        color: #280948;
+        margin-left: 5px;
+        margin-top: 10px;
+    }
+`;
