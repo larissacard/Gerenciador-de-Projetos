@@ -9,73 +9,48 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 
 function Reminders() {
-    const [data, setData] = useState({
-        le_descricao: '',
-        le_data_lembrete: ''
-    })
+    const [data, setData] = useState(new Date().toISOString())
+    const [descricao, setDescricao] = useState("")
+
     function cadastrar(e) {
         e.preventDefault();
-        api.post(('/lembretes'), {
-            le_descricao: data.le_descricao,
-            le_data_lembrete: data.le_data_lembrete,
-        }).then(res => {
-            console.log('Deu certo')
-        }).catch(e => {
-            console.log(Error)
-        })
-
-    }
-    
-    function handle(e) {
-        const newdata = { ...data }
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-    }
-
-    function handleDate(event) {
-        const newdata = { ...data }
-        setData(newdata)
+        if (data && descricao) {
+            api.post(('/lembretes'), {
+                le_descricao: descricao,
+                le_data_lembrete: data,
+            }).then(res => {
+                console.log('Deu certo')
+            }).catch(e => {
+                console.log(Error)
+            })
+        }
     }
 
     const handleClickCad = () => {
-        try {
-            if (data.le_descricao !== '') {
-            }
-        } catch (error) {
-            console.log(error)
-        }
+        console.log(descricao)
+        console.log(data)
     };
 
     return (
 
-        <div>
+        <div>   
             <Form onSubmit={(e) => cadastrar(e)}>
                 <Form.Group className="mb-3">
                     <Form.Label>Lembrete</Form.Label>
-                    <Form.Control required onChange={(e) => handle(e)} id="le_descricao" value={data.le_descricao} type="text" placeholder="Digite o lembrete" />
+                    <Form.Control required onChange={(e) => setDescricao(e.target.value)} id="le_descricao" type="text" placeholder="Digite o lembrete" value={descricao}/>
                 </Form.Group>
-                {/* <Form.Group className="mb-3">
-                    <Form.Label>Data</Form.Label>
-                    <Form.Control required onChange={(e) => handle(e)} id="le_data_lembrete" value={data.le_data_lembrete} type="date " placeholder="Informe a data" />
-                </Form.Group>  */}
                 <LocalizationProvider dateAdapter={AdapterDateFns} >
                     <DateTimePicker
-                        renderInput={(props) => <TextField {...props} />}
+                        renderInput={(props) => <TextField {...props} />}a
+                        value={data}
                         label="DateTimePicker"
-                        value={data.le_data_lembrete}
-                        onChange={(event) => handleDate(event.toISOString())}
+                        onChange={(e) => setData(e.toISOString())}
                     />
                 </LocalizationProvider>
                 <Button onClick={handleClickCad} variant="primary" type="submit">
                     Cadastrar
                 </Button >
-
-
             </Form>
-
-
-
-
         </div>
 
     )
