@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import api from '../../api';
 import TextField from '@mui/material/TextField';
 import FormControl, { useFormControl } from '@mui/material/FormControl';
-import { Drawer, Button} from 'rsuite';
+import { Drawer } from 'rsuite';
 import "rsuite/dist/rsuite.min.css";
 import PessoasTarefa from './pessoas';
+import { Button } from './styles'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
