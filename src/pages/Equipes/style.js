@@ -6,10 +6,8 @@ export const ContainerUnico = styled.div`
     margin: 24px 0px;
     background-color: white;
     border-radius: 20px;
-
-    padding: 0 19px;
     overflow: hidden;
-
+    padding: 0 25px;
 `;
 
 export const CardAdicionar = styled.button`
@@ -18,8 +16,8 @@ export const CardAdicionar = styled.button`
     background: rgba(118, 75, 162, 0.2);
     border: 1px dashed rgba(40, 9, 72, 0.2);
     border-radius: 24px;
-
 `;
+
 export const AllCards = styled.div`
     height: 46rem;
     display: grid;
@@ -27,6 +25,8 @@ export const AllCards = styled.div`
     grid-gap: 21px;
 
     overflow-y: auto;
+
+    padding: 10px 20px 40px 10px;
 
   ::-webkit-scrollbar-thumb{
     background: #764BA2;
@@ -51,20 +51,29 @@ export const Title = styled.div`
     margin-top: none;
 `;
 
-export const Card = styled.div`
+export const Card = styled.a`
     min-height: 18.75rem;
     min-width: 15.60rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     position: relative;
 
+    text-decoration: none;
+    color: #444;
 
     background-color: white;
     border-radius: 24px;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.25);
 
+    &:hover {
+        text-decoration: none;
+        color: #444;
+        background: rgba(118, 75, 162, .05);
+    }
 `;
 
 export const Name = styled.div`
@@ -106,10 +115,8 @@ export const Retangulo = styled.div`
     width: 4.813rem;
     height: 11.063rem;
     position: absolute;
-    left: 187px;
-    top: -1px;
-
-
+    top: 0px;
+    right: 0px;
 
     background: rgba(220, 211, 230, 0.6);
     border-radius: 0px 24px 0px 80px;
@@ -119,9 +126,11 @@ export const Retangulo = styled.div`
 export const TeamLength = styled.div`
     background: rgba(220, 211, 230, 0.6);
     border-radius: 10px;
-    width: 215px;
-    height: 25px;
+    padding: 2px 10px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
 `;
 
 export const Elipse = styled.div`
