@@ -17,12 +17,7 @@ export default function TarefasProjeto(Props) {
     const childToParentPessoa = (childdata) => {
         setPessoaEscolhida(childdata);
     }
-
-    const [prioridade, setPrioridade] = useState();
-    const handleChange = (e) => {
-        setPrioridade(e.target.value);
-    };
-
+    
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
@@ -30,19 +25,21 @@ export default function TarefasProjeto(Props) {
     };
     const handleClose = () => {
         setOpen(false);
-        setData('')
     }
-
-    const [data, setData]= useState({
-        tr_nome: '',
-        tr_descricao: '',
-    })
+    
+    const [nomeProjeto, setNomeProjeto] = useState('')
+    const [descricaoProjeto, setDescricaoProjeto] = useState('')
+    const [prioridade, setPrioridade] = useState([]);
+    
+    const handleChange = (e) => {
+        setPrioridade(e.target.value);
+    };
 
     function cadastrar(e){
         e.preventDefault();
         api.post('/tarefas', {
-            tr_nome: data.tr_nome,
-            tr_descricao: data.tr_descricao,
+            tr_nome: nomeProjeto,
+            tr_descricao: descricaoProjeto,
             tr_prioridade: prioridade, 
             pr_id: path.substring(10,), 
             pessoas: pessoaEscolhida
@@ -56,12 +53,6 @@ export default function TarefasProjeto(Props) {
         })
     }
 
-    function handle(e) {
-        const newdata = {...data}
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-    }
-    
     return (
         <>
             <Drawer open={open} onClose={handleClose} size='sm'>
@@ -72,7 +63,7 @@ export default function TarefasProjeto(Props) {
                 <Drawer.Body>
                     <div>
                         <form onSubmit={() => setOpen(false)}>
-                            <FormControl onChange={(e)=>handle(e)} fullWidth>
+                            <FormControl onChange={(e) => setNomeProjeto(e.target.value)} fullWidth>
                                 <TextField
                                 required
                                 size='small'
@@ -83,7 +74,7 @@ export default function TarefasProjeto(Props) {
                                 />
                             </FormControl>
                         
-                            <FormControl onChange={(e)=>handle(e)} fullWidth>
+                            <FormControl onChange={(e) => setDescricaoProjeto(e.target.value)} fullWidth>
                                 <TextField
                                 size='small'
                                 id='outlined-required'
@@ -99,7 +90,7 @@ export default function TarefasProjeto(Props) {
                                 label='Prioridade'
                                 size='small'
                                 margin='normal'
-                                onChange={(e)=> {handle(e); handleChange(e);}}
+                                onChange={(e)=> handleChange(e)}
                                 placeholder='Selecione a Prioridade'
                                 defaultValue=''
                             >
