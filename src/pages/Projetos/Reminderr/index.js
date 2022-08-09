@@ -58,6 +58,17 @@ function Reminders() {
             })
     }, [])
 
+    function update() {
+        api.get('/lembretes')
+            .then((response) => {
+                setLembretes(response.data)
+
+            })
+            .catch(() => {
+                console.log('Errrrrooouuu')
+            })
+    }
+
 
     function cadastrar(e) {
         e.preventDefault();
@@ -66,15 +77,22 @@ function Reminders() {
                 le_descricao: descricao,
                 le_data_lembrete: data.toISOString(),
             }).then(res => {
+                update();
                 console.log('Deu certo')
             }).catch(e => {
                 console.log(Error)
             })
         }
     }
-    function deleteReminder(le_id){
-        api.delete(`/lembretes/${le_id}`)
 
+    function deleteReminder(le_id) {
+        api.delete(`/lembretes/${le_id}`)
+        .then(res => {
+            update();
+            console.log('Deu certo')
+        }).catch(e => {
+            console.log(Error)
+        })
     }
 
     const handleClickCad = () => {
@@ -124,8 +142,8 @@ function Reminders() {
             <Lembretes>
                 {lembretes.map(le => (
                     <Nota key={le.le_id}>
-                         <button onClick={() => deleteReminder(le.le_id)} >xxxxxx</button>
-                       
+                        <button onClick={() => deleteReminder(le.le_id)} >xxxxxx</button>
+
                         <div className="d-flex justify-content-between">
                             <div>
                                 <Name>
@@ -135,10 +153,10 @@ function Reminders() {
                                 <Descricao></Descricao>
                             </div>
                             <div>
-                                <Datetime> 
-                                    <img src="assets/calendar.svg"/>
+                                <Datetime>
+                                    <img src="assets/calendar.svg" />
                                     {moment(le.le_data_lembrete)
-                                    .format('MMM Do YY')}
+                                        .format('MMM Do YY')}
                                 </Datetime>
                                 <div><em>{moment(new Date(le.le_data_lembrete)).fromNow()}</em></div>
                             </div>
