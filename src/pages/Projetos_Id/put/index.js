@@ -1,11 +1,13 @@
 import React, {useState} from "react";
-import axios from "axios";
 import { Form } from 'react-bootstrap';
 import { Drawer} from 'rsuite';
 import { Editar } from './styles'
-
 import "rsuite/dist/rsuite.min.css";
+
+import api from "../../../api";
+
 const projetoPath = window.location.pathname;
+
 function Edit(Props) {
     const [open, setOpen] = useState(false);
     
@@ -24,7 +26,7 @@ function Edit(Props) {
 
     function update(e){
         e.preventDefault();
-        axios.put(url,{
+        api.put(url,{
             pr_nome: data.pr_nome,
             pr_descricao: data.pr_descricao
         })
