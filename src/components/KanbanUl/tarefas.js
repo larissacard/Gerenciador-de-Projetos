@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import api from '../../api';
 import TextField from '@mui/material/TextField';
-import FormControl, { useFormControl } from '@mui/material/FormControl';
+import FormControl from '@mui/material/FormControl';
 import { Drawer } from 'rsuite';
 import "rsuite/dist/rsuite.min.css";
 import PessoasTarefa from './pessoas';
-import { Button } from './styles'
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
+import { Button, ButtonMore, ContButtons } from './styles'
 
 export default function TarefasProjeto(Props) {
     const path = window.location.pathname;
@@ -90,16 +87,18 @@ export default function TarefasProjeto(Props) {
                         <PessoasTarefa childToParentPrioridade={childToParentPrioridade} childToParentPessoa={childToParentPessoa}/>
 
                         <Drawer.Actions>
-                            <Button onClick={() => setOpen(false)} variant="primary" type="submit">
-                                Cadastrar
-                            </Button>
-                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                            <ContButtons>
+                                <Button onClick={() => setOpen(false)} variant="primary" type="submit">
+                                    Cadastrar
+                                </Button>
+                                <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                            </ContButtons>
                         </Drawer.Actions>
                     </div>
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}>+</Button>
+                <ButtonMore onClick={handleOpen}>+</ButtonMore>
             </div>
         </>
     );

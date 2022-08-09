@@ -34,7 +34,7 @@ export const Top = styled.div`
     align-items: center;
 `;
 
-export const Button = styled.button`
+export const ButtonMore = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,5 +50,28 @@ export const Button = styled.button`
     &:hover {
         transition-duration: .2s;
         background: #4B67E4;
+    }
+`;
+
+export const Button = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+
+    padding: 5px 15px;
+
+    &:hover {
+        transition-duration: .2s;
+        background: #ddd;
+    }
+`;
+
+export const ContButtons = styled.div`
+    display: flex;
+    margin-top: 10px;
+
+    > button + button {
+        margin-left: 10px;
     }
 `;
