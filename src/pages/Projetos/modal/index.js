@@ -1,12 +1,11 @@
-import * as React from 'react';
-import {useState} from "react";
-import { Form } from 'react-bootstrap';
+import React, {useState} from "react";
 import { Drawer, Button } from 'rsuite';
 import { ContButton } from './styles'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import api from '../../../api';
 import EquipesProjeto from './equipes';
+import { TextField, FormControl, MenuItem } from '@mui/material';
 
 import "rsuite/dist/rsuite.min.css";
 
@@ -25,7 +24,8 @@ function PostProjetos(Props) {
     };
     const handleClose = () => {
         setOpen(false);
-        setData('')
+        setNomeProjeto('')
+        setDescricaoProjeto('')
     }
     
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -36,7 +36,7 @@ function PostProjetos(Props) {
     const [openAlert, setOpenAlert] = useState(false);
     
     const handleClickCad = () => {
-        if(data.pr_nome !== ''){
+        if(nomeProjeto !== ''){
             setOpenAlert(true);
         }
     }; 
@@ -49,21 +49,18 @@ function PostProjetos(Props) {
         setEstado()
     };
 
-    const [data, setData]= useState({
-        pr_nome: '',
-        pr_descricao: ''
-    })
+    const [nomeProjeto, setNomeProjeto] = useState('')
+    const [descricaoProjeto, setDescricaoProjeto] = useState('')
 
     function cadastrar(e){
         e.preventDefault();
         api.post(('/projetos'),  {
-            pr_nome: data.pr_nome,
-            pr_descricao: data.pr_descricao,
+            pr_nome: nomeProjeto,
+            pr_descricao: descricaoProjeto,
             equipes: equipeEscolhida
         }).then(res=>{
             setMensagem("Deu Certo!")
             setOpen(false)
-            setData('')
             setEstado("success");
             Props.update()
         }).catch(e => { 
@@ -72,12 +69,6 @@ function PostProjetos(Props) {
             setEstado("error");     
         })
     } 
-
-    function handle(e) {
-        const newdata = {...data}
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-    }
 
     return (
         <>
@@ -93,8 +84,28 @@ function PostProjetos(Props) {
                 </Drawer.Header>
                 
                 <Drawer.Body>
-                    <Form onSubmit={(e)=> cadastrar(e)}>
-                        <Form.Group className="mb-3">
+                        <TextField
+                            required
+                            onChange={(e) => setNomeProjeto(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Nome'
+                            placeholder='Digite o nome do Projeto'
+                            margin='dense'
+                        />
+
+                        <TextField
+                            onChange={(e) => setDescricaoProjeto(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Descrição'
+                            placeholder='Digite a descrição do Projeto'
+                            margin='normal'
+                        />
+
+                        {/* <Form.Group className="mb-3">
                             <Form.Label>Nome</Form.Label>
                             <Form.Control required onChange={(e)=>handle(e)} id="pr_nome" type="text" placeholder="Digite o nome do projeto"/>
                         </Form.Group>
@@ -102,7 +113,7 @@ function PostProjetos(Props) {
                         <Form.Group className="mb-3">
                             <Form.Label>Descrição</Form.Label>
                             <Form.Control onChange={(e)=>handle(e)} id="pr_descricao" type="text" placeholder="Digite a descrição do projeto"/>
-                        </Form.Group>
+                        </Form.Group> */}
 
                         <EquipesProjeto childToParent={childToParent}/>
                         
@@ -112,7 +123,6 @@ function PostProjetos(Props) {
                             </Button >
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
                         </Drawer.Actions>
-                    </Form>
                 </Drawer.Body>
             </Drawer>
             <ContButton>

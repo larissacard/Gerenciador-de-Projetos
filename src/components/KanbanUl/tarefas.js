@@ -4,7 +4,6 @@ import PessoasTarefa from './pessoas';
 import { Button, ButtonMore, ContButtons } from './styles'
 import { TextField, FormControl, MenuItem } from '@mui/material';
 import { Drawer } from 'rsuite';
-import { Form } from 'react-bootstrap';
 
 import 'rsuite/dist/rsuite.min.css';
 
@@ -27,19 +26,25 @@ export default function TarefasProjeto(Props) {
         setOpen(false);
     }
     
-    const [nomeProjeto, setNomeProjeto] = useState('')
-    const [descricaoProjeto, setDescricaoProjeto] = useState('')
+    const [nomeTarefa, setNomeTarefa] = useState('')
+    const [descricaoTarefa, setDescricaoTarefa] = useState('')
     const [prioridade, setPrioridade] = useState([]);
     
     const handleChange = (e) => {
         setPrioridade(e.target.value);
     };
 
+    // const handleClick = () => {
+    //     if (nomeTarefa !== '') {
+    //         setOpen(false)
+    //     }
+    // }
+
     function cadastrar(e){
-        e.preventDefault();
+        // e.preventDefault();
         api.post('/tarefas', {
-            tr_nome: nomeProjeto,
-            tr_descricao: descricaoProjeto,
+            tr_nome: nomeTarefa,
+            tr_descricao: descricaoTarefa,
             tr_prioridade: prioridade, 
             pr_id: path.substring(10,), 
             pessoas: pessoaEscolhida
@@ -50,6 +55,7 @@ export default function TarefasProjeto(Props) {
         })
         .catch (e => {
             console.log(e.response.data)
+            setOpen(true);
         })
     }
 
@@ -61,54 +67,52 @@ export default function TarefasProjeto(Props) {
                 </Drawer.Header>
                 
                 <Drawer.Body>
-                    <div>
-                        <form onSubmit={() => setOpen(false)}>
-                            <FormControl onChange={(e) => setNomeProjeto(e.target.value)} fullWidth>
-                                <TextField
-                                required
-                                size='small'
-                                id='outlined-required'
-                                label='Nome'
-                                placeholder='Digite o nome da Tarefa'
-                                margin='dense'
-                                />
-                            </FormControl>
-                        
-                            <FormControl onChange={(e) => setDescricaoProjeto(e.target.value)} fullWidth>
-                                <TextField
-                                size='small'
-                                id='outlined-required'
-                                label='Descrição'
-                                placeholder='Digite a descrição da tarefa'
-                                margin='normal'
-                                />
-                            </FormControl>
-
-                            <TextField
-                                select
-                                fullWidth
-                                label='Prioridade'
-                                size='small'
-                                margin='normal'
-                                onChange={(e)=> handleChange(e)}
-                                placeholder='Selecione a Prioridade'
-                                defaultValue=''
+                    <form onSubmit={handleClose}>
+                        <TextField
+                            required
+                            onChange={(e) => setNomeTarefa(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Nome'
+                            placeholder='Digite o nome da Tarefa'
+                            margin='dense'
+                        />
+                        <TextField
+                            onChange={(e) => setDescricaoTarefa(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Descrição'
+                            placeholder='Digite a descrição da Tarefa'
+                            margin='normal'
+                        />
+                        <TextField
+                            select
+                            fullWidth
+                            label='Prioridade'
+                            size='small'
+                            margin='normal'
+                            onChange={(e)=> handleChange(e)}
+                            placeholder='Selecione a Prioridade'
+                            defaultValue=''
                             >
-                                <MenuItem value={1}>Baixa</MenuItem>
-                                <MenuItem value={2}>Média</MenuItem>
-                                <MenuItem value={3}>Alta</MenuItem>
-                            </TextField>
-                            <PessoasTarefa childToParentPessoa={childToParentPessoa}/>
-                            <Drawer.Actions>
-                                <ContButtons>
-                                    <Button onClick={(e)=> {cadastrar(e); setOpen(false)}} variant="primary" type="submit">
-                                        Cadastrar
-                                    </Button>
-                                    <Button onClick={() => setOpen(false)}>Cancelar</Button>
-                                </ContButtons>
-                            </Drawer.Actions>
-                        </form>
-                    </div>
+                            <MenuItem value={1}>Baixa</MenuItem>
+                            <MenuItem value={2}>Média</MenuItem>
+                            <MenuItem value={3}>Alta</MenuItem>
+                        </TextField>
+                        <PessoasTarefa childToParentPessoa={childToParentPessoa}/>
+                        <Drawer.Actions>
+                            <ContButtons>
+                                <Button onClick={(e)=> cadastrar(e)} variant="primary" type="submit">
+                                    Cadastrar
+                                </Button>
+                                <Button onClick={() => setOpen(false)} preventDefault>
+                                    Cancelar
+                                </Button>
+                            </ContButtons>
+                        </Drawer.Actions>
+                    </form>
                 </Drawer.Body>
             </Drawer>
             <div>
