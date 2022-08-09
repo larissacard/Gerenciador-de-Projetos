@@ -4,6 +4,8 @@ import PessoasTarefa from './pessoas';
 import { Button, ButtonMore, ContButtons } from './styles'
 import { TextField, FormControl, MenuItem } from '@mui/material';
 import { Drawer } from 'rsuite';
+import { Form } from 'react-bootstrap';
+
 import 'rsuite/dist/rsuite.min.css';
 
 import api from '../../api';
@@ -17,8 +19,8 @@ export default function TarefasProjeto(Props) {
     }
 
     const [prioridade, setPrioridade] = useState();
-    const handleChange = (event) => {
-        setPrioridade(event.target.value);
+    const handleChange = (e) => {
+        setPrioridade(e.target.value);
     };
 
     const [open, setOpen] = useState(false);
@@ -38,7 +40,7 @@ export default function TarefasProjeto(Props) {
 
     function cadastrar(e){
         e.preventDefault();
-        api.post(('/tarefas'),{
+        api.post('/tarefas', {
             tr_nome: data.tr_nome,
             tr_descricao: data.tr_descricao,
             tr_prioridade: prioridade, 
@@ -46,7 +48,11 @@ export default function TarefasProjeto(Props) {
             pessoas: pessoaEscolhida
         })
         .then(res=>{
+            console.log("Cadastrou")
             console.log(res.data)
+        })
+        .catch (e => {
+            console.log(e.response.data)
         })
     }
 
@@ -64,53 +70,53 @@ export default function TarefasProjeto(Props) {
                 </Drawer.Header>
                 
                 <Drawer.Body>
-                    <div onSubmit={(e)=> cadastrar(e)}>
-                        <FormControl onChange={(e)=>handle(e)} value={data.tr_nome} type='text' fullWidth>
+                    <div>
+                        <form onSubmit={() => setOpen(false)}>
+                            <FormControl onChange={(e)=>handle(e)} fullWidth>
+                                <TextField
+                                required
+                                size='small'
+                                id='outlined-required'
+                                label='Nome'
+                                placeholder='Digite o nome da Tarefa'
+                                margin='dense'
+                                />
+                            </FormControl>
+                        
+                            <FormControl onChange={(e)=>handle(e)} fullWidth>
+                                <TextField
+                                size='small'
+                                id='outlined-required'
+                                label='Descrição'
+                                placeholder='Digite a descrição da tarefa'
+                                margin='normal'
+                                />
+                            </FormControl>
+
                             <TextField
-                            required
-                            size='small'
-                            id='outlined-required'
-                            label='Nome'
-                            placeholder='Digite o nome da Tarefa'
-                            margin='dense'
-                            />
-                        </FormControl>
-                    
-                        <FormControl onChange={(e)=>handle(e)} value={data.tr_descricao} type='text' fullWidth>
-                            <TextField
-                            size='small'
-                            id='outlined-required'
-                            label='Descrição'
-                            placeholder='Digite a descrição da tarefa'
-                            margin='normal'
-                            />
-                        </FormControl>
-
-                        <TextField
-                            select
-                            fullWidth
-                            label='Prioridade'
-                            size='small'
-                            margin='normal'
-                            onChange={(e)=> {handle(e); handleChange(e);}}
-                            placeholder='Selecione a Prioridade'
-                            defaultValue=''
-                        >
-                            <MenuItem value={1}>Baixa</MenuItem>
-                            <MenuItem value={2}>Média</MenuItem>
-                            <MenuItem value={3}>Alta</MenuItem>
-                        </TextField>
-
-                        <PessoasTarefa childToParentPessoa={childToParentPessoa}/>
-
-                        <Drawer.Actions>
-                            <ContButtons>
-                                <Button onClick={() => setOpen(false)} variant="primary" type="submit">
-                                    Cadastrar
-                                </Button>
-                                <Button onClick={() => setOpen(false)}>Cancelar</Button>
-                            </ContButtons>
-                        </Drawer.Actions>
+                                select
+                                fullWidth
+                                label='Prioridade'
+                                size='small'
+                                margin='normal'
+                                onChange={(e)=> {handle(e); handleChange(e);}}
+                                placeholder='Selecione a Prioridade'
+                                defaultValue=''
+                            >
+                                <MenuItem value={1}>Baixa</MenuItem>
+                                <MenuItem value={2}>Média</MenuItem>
+                                <MenuItem value={3}>Alta</MenuItem>
+                            </TextField>
+                            <PessoasTarefa childToParentPessoa={childToParentPessoa}/>
+                            <Drawer.Actions>
+                                <ContButtons>
+                                    <Button onClick={(e)=> cadastrar(e)} variant="primary" type="submit">
+                                        Cadastrar
+                                    </Button>
+                                    <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                                </ContButtons>
+                            </Drawer.Actions>
+                        </form>
                     </div>
                 </Drawer.Body>
             </Drawer>

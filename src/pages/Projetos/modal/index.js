@@ -40,6 +40,7 @@ function PostProjetos(Props) {
             setOpenAlert(true);
         }
     }; 
+
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -70,7 +71,6 @@ function PostProjetos(Props) {
             setOpen(true);
             setEstado("error");     
         })
-
     } 
 
     function handle(e) {
@@ -88,7 +88,7 @@ function PostProjetos(Props) {
             </Snackbar>
 
             <Drawer open={open} onClose={handleClose} size="sm">
-                <Drawer.Header className='teste'>
+                <Drawer.Header>
                     <Drawer.Title>Cadastro de um novo Projeto</Drawer.Title>
                 </Drawer.Header>
                 
