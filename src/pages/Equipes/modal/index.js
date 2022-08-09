@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
-import { Button, Name } from './styles'
+import { Button, Name, ButtonForm, ContButtons } from './styles'
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
 
@@ -66,10 +66,10 @@ function PostEquipes(Props) {
                         <PessoasEquipe childToParent={childToParent}/>
 
                         <Drawer.Actions>
-                            <Button onClick={() => setOpen(false)} variant="primary" type="submit">
-                                Cadastrar
-                            </Button>
-                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                            <ContButtons>
+                                <ButtonForm onClick={() => setOpen(false)} variant="primary" type="submit">Cadastrar</ButtonForm>
+                                <ButtonForm onClick={() => setOpen(false)}>Cancelar</ButtonForm>
+                            </ContButtons>
                         </Drawer.Actions>
 
                     </Form>
