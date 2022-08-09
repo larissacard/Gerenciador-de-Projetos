@@ -51,7 +51,7 @@ function Equipes() {
                     </Search>
                 </div>
                 <AllCards>
-                    <CardAdicionar><PostEquipes /></CardAdicionar>
+                    <CardAdicionar><PostEquipes update={getEquipes}/></CardAdicionar>
                     {foundEquipes && foundEquipes.length > 0 ? (
                         foundEquipes.map((equipes) => (
                             <Card key={equipes.eq_id}>
