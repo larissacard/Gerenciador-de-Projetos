@@ -29,7 +29,6 @@ function PostProjetos(Props) {
     }
     
     const Alert = React.forwardRef(function Alert(props, ref) {
-        console.log(props)
         return <MuiAlert elevation={6} ref={ref} severity={props.severity} variant="filled" {...props} />;
       });
 
@@ -52,16 +51,15 @@ function PostProjetos(Props) {
     const [nomeProjeto, setNomeProjeto] = useState('')
     const [descricaoProjeto, setDescricaoProjeto] = useState('')
 
-    function cadastrar(e){
-        e.preventDefault();
+    function cadastrar(){
         api.post(('/projetos'),  {
             pr_nome: nomeProjeto,
             pr_descricao: descricaoProjeto,
             equipes: equipeEscolhida
         }).then(res=>{
             setMensagem("Deu Certo!")
-            setOpen(false)
             setEstado("success");
+            setOpen(false)
             Props.update()
         }).catch(e => { 
             setMensagem(e.response.data);
@@ -118,7 +116,7 @@ function PostProjetos(Props) {
                         <EquipesProjeto childToParent={childToParent}/>
                         
                         <Drawer.Actions>
-                            <Button onClick={handleClickCad} variant="primary" type="submit">
+                            <Button onClick={() => {handleClickCad(); cadastrar()}} variant="primary" type="submit">
                                 Cadastrar
                             </Button >
                             <Button onClick={() => setOpen(false)}>Cancelar</Button>
