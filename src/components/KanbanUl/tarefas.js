@@ -101,7 +101,7 @@ export default function TarefasProjeto(Props) {
                             <PessoasTarefa childToParentPessoa={childToParentPessoa}/>
                             <Drawer.Actions>
                                 <ContButtons>
-                                    <Button onClick={(e)=> cadastrar(e)} variant="primary" type="submit">
+                                    <Button onClick={(e)=> {cadastrar(e); setOpen(false)}} variant="primary" type="submit">
                                         Cadastrar
                                     </Button>
                                     <Button onClick={() => setOpen(false)}>Cancelar</Button>
