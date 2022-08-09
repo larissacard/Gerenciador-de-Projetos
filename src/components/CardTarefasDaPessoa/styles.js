@@ -12,6 +12,7 @@ export const Container = styled.li`
   height: 95px;
 
   padding: 5px 15px 10px;
+  cursor: grab;
 
   &+li {
     margin-top: 18px;
