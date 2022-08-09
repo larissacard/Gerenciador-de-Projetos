@@ -55,6 +55,8 @@ function Projetos() {
       getProjetos()
       setUpdate(false)
     }
+    
+
 
   return (
     <Container>
