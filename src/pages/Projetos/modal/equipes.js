@@ -6,8 +6,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
-
 import api from "../../../api";
+import { TextField } from '@mui/material';
 
 const ITEM_HEIGHT = 50;
 const ITEM_PADDING_TOP = 8;
@@ -45,6 +45,7 @@ export default function EquipesProjeto(Props) {
         <InputLabel>Selecione as Equipes</InputLabel>
         <Select
           multiple
+          margin='dense'
           value={equipeNome}
           onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
           input={<OutlinedInput label="Selecione as Equipes" />}

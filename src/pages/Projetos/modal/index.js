@@ -5,7 +5,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import api from '../../../api';
 import EquipesProjeto from './equipes';
-import { TextField, FormControl, MenuItem } from '@mui/material';
+import { TextField } from '@mui/material';
 
 import "rsuite/dist/rsuite.min.css";
 
@@ -24,8 +24,6 @@ function PostProjetos(Props) {
     };
     const handleClose = () => {
         setOpen(false);
-        setNomeProjeto('')
-        setDescricaoProjeto('')
     }
     
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -34,12 +32,6 @@ function PostProjetos(Props) {
 
     const [openAlert, setOpenAlert] = useState(false);
     
-    const handleClickCad = () => {
-        if(nomeProjeto !== ''){
-            setOpenAlert(true);
-        }
-    }; 
-
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -47,21 +39,29 @@ function PostProjetos(Props) {
         setOpenAlert(false);
         setEstado()
     };
-
+    
     const [nomeProjeto, setNomeProjeto] = useState('')
     const [descricaoProjeto, setDescricaoProjeto] = useState('')
 
+    const handleClickCad = () => {
+        if(nomeProjeto !== ''){
+            setOpenAlert(true)
+        }
+    }
+
     function cadastrar(){
-        api.post(('/projetos'),  {
+        api.post('/projetos',  {
             pr_nome: nomeProjeto,
             pr_descricao: descricaoProjeto,
             equipes: equipeEscolhida
-        }).then(res=>{
+        })
+        .then(res=>{
             setMensagem("Deu Certo!")
             setEstado("success");
             setOpen(false)
             Props.update()
-        }).catch(e => { 
+        })
+        .catch(e => { 
             setMensagem(e.response.data);
             setOpen(true);
             setEstado("error");     
@@ -82,45 +82,37 @@ function PostProjetos(Props) {
                 </Drawer.Header>
                 
                 <Drawer.Body>
-                        <TextField
-                            required
-                            onChange={(e) => setNomeProjeto(e.target.value)}
-                            fullWidth
-                            size='small'
-                            id='outlined-required'
-                            label='Nome'
-                            placeholder='Digite o nome do Projeto'
-                            margin='dense'
-                        />
+                        <form onSubmit={handleClose}>
+                            <TextField
+                                required
+                                onChange={(e) => setNomeProjeto(e.target.value)}
+                                fullWidth
+                                size='small'
+                                id='outlined-required'
+                                label='Nome'
+                                placeholder='Digite o nome do Projeto'
+                                margin='dense'
+                            />
 
-                        <TextField
-                            onChange={(e) => setDescricaoProjeto(e.target.value)}
-                            fullWidth
-                            size='small'
-                            id='outlined-required'
-                            label='Descrição'
-                            placeholder='Digite a descrição do Projeto'
-                            margin='normal'
-                        />
+                            <TextField
+                                onChange={(e) => setDescricaoProjeto(e.target.value)}
+                                fullWidth
+                                size='small'
+                                id='outlined-required'
+                                label='Descrição'
+                                placeholder='Digite a descrição do Projeto'
+                                margin='normal'
+                            />
 
-                        {/* <Form.Group className="mb-3">
-                            <Form.Label>Nome</Form.Label>
-                            <Form.Control required onChange={(e)=>handle(e)} id="pr_nome" type="text" placeholder="Digite o nome do projeto"/>
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                            <Form.Label>Descrição</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="pr_descricao" type="text" placeholder="Digite a descrição do projeto"/>
-                        </Form.Group> */}
-
-                        <EquipesProjeto childToParent={childToParent}/>
-                        
-                        <Drawer.Actions>
-                            <Button onClick={() => {handleClickCad(); cadastrar()}} variant="primary" type="submit">
-                                Cadastrar
-                            </Button >
-                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
-                        </Drawer.Actions>
+                            <EquipesProjeto childToParent={childToParent}/>
+                            
+                            <Drawer.Actions>
+                                <Button onClick={()=> {cadastrar(); handleClickCad()}} variant="primary" type="submit">
+                                    Cadastrar
+                                </Button >
+                                <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                            </Drawer.Actions>
+                        </form>
                 </Drawer.Body>
             </Drawer>
             <ContButton>

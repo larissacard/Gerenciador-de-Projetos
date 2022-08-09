@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import "rsuite/dist/rsuite.min.css";
 import PessoasTarefa from './pessoas';
 import { Button, ButtonMore, ContButtons } from './styles'
-import { TextField, FormControl, MenuItem } from '@mui/material';
+import { TextField, MenuItem } from '@mui/material';
 import { Drawer } from 'rsuite';
-
-import 'rsuite/dist/rsuite.min.css';
 
 import api from '../../api';
 
@@ -22,6 +20,7 @@ export default function TarefasProjeto(Props) {
     const handleOpen = () => {
         setOpen(true);
     };
+
     const handleClose = () => {
         setOpen(false);
     }
@@ -34,14 +33,13 @@ export default function TarefasProjeto(Props) {
         setPrioridade(e.target.value);
     };
 
-    // const handleClick = () => {
-    //     if (nomeTarefa !== '') {
-    //         setOpen(false)
-    //     }
-    // }
+    const handleClick = () => {
+        if (nomeTarefa !== '') {
+            setOpen(false)
+        }
+    }
 
-    function cadastrar(e){
-        // e.preventDefault();
+    function cadastrar(){
         api.post('/tarefas', {
             tr_nome: nomeTarefa,
             tr_descricao: descricaoTarefa,
@@ -78,6 +76,7 @@ export default function TarefasProjeto(Props) {
                             placeholder='Digite o nome da Tarefa'
                             margin='dense'
                         />
+                        
                         <TextField
                             onChange={(e) => setDescricaoTarefa(e.target.value)}
                             fullWidth
@@ -87,6 +86,7 @@ export default function TarefasProjeto(Props) {
                             placeholder='Digite a descrição da Tarefa'
                             margin='normal'
                         />
+
                         <TextField
                             select
                             fullWidth
@@ -101,13 +101,15 @@ export default function TarefasProjeto(Props) {
                             <MenuItem value={2}>Média</MenuItem>
                             <MenuItem value={3}>Alta</MenuItem>
                         </TextField>
+
                         <PessoasTarefa childToParentPessoa={childToParentPessoa}/>
+
                         <Drawer.Actions>
                             <ContButtons>
-                                <Button onClick={(e)=> cadastrar(e)} variant="primary" type="submit">
+                                <Button onClick={()=> {cadastrar(); handleClick()}} variant="primary" type="submit">
                                     Cadastrar
                                 </Button>
-                                <Button onClick={() => setOpen(false)} preventDefault>
+                                <Button onClick={() => setOpen(false)}>
                                     Cancelar
                                 </Button>
                             </ContButtons>
