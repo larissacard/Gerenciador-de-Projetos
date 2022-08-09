@@ -112,7 +112,6 @@ function Reminders() {
                         value={data}
                         label="Data"
                         onChange={(e) => setData(e)}
-
                     />
                 </LocalizationProvider>
                 <div>

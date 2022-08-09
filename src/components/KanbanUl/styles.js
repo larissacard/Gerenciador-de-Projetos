@@ -32,23 +32,46 @@ export const Top = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+`;
 
-    > button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+export const ButtonMore = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        height: 30px;
-        width: 30px;
-        font-size: 30px;
-        border-radius: 50%;
-        background-color: #667EEA;
-        color: #fff;
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+    border-radius: 50%;
+    background-color: #667EEA;
+    color: #fff;
+    transition-duration: .2s;
+
+    &:hover {
         transition-duration: .2s;
+        background: #4B67E4;
+    }
+`;
 
-        &:hover {
-            transition-duration: .2s;
-            background: #4B67E4;
-        }
+export const Button = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+
+    padding: 5px 15px;
+
+    &:hover {
+        transition-duration: .2s;
+        background: #ddd;
+    }
+`;
+
+export const ContButtons = styled.div`
+    display: flex;
+    margin-top: 10px;
+
+    > button + button {
+        margin-left: 10px;
     }
 `;

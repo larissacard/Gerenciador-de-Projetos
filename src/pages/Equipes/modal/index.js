@@ -7,7 +7,7 @@ import PessoasEquipe from "./pessoas";
 
 import "rsuite/dist/rsuite.min.css";
 
-function PostEquipes() {
+function PostEquipes(Props) {
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
     const childToParent = (childdata) => {
         setPessoaEscolhida(childdata);
@@ -33,7 +33,8 @@ function PostEquipes() {
             eq_nome: data.eq_nome,
             pessoas: pessoaEscolhida
         })
-            .then(res=>{
+            .then(res=> {
+                Props.update()
                 if (res.data === 'Essa equipe já foi inserida!') {
                     alert('Essa Equipe já foi inserida!')
                 }
