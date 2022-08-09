@@ -48,7 +48,7 @@ function Reminders() {
         if (data && descricao) {
             api.post(('/lembretes'), {
                 le_descricao: descricao,
-                le_data_lembrete: data,
+                le_data_lembrete: data.toISOString(),
             }).then(res => {
                 console.log('Deu certo')
             }).catch(e => {
@@ -93,7 +93,7 @@ function Reminders() {
                          />}
                         value={data}
                         label="Data"
-                        onChange={(e) => setData(e.toISOString())}
+                        onChange={(e) => setData(e)}
                         
                     />
                 </LocalizationProvider>
