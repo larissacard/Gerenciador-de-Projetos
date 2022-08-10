@@ -9,7 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import moment from "moment";
 import 'moment/locale/pt-br'
-import { Lembretes, Nota, Save, Name, Descricao, Datetime } from "./style";
+import { Lembretes, Nota, Save, Name, Descricao, Datetime, Delete } from "./style";
 
 const CssTextField = styled(TextField)({
     '& .MuiOutlinedInput-root': {
@@ -62,22 +62,23 @@ function Reminders() {
         api.get('/lembretes')
             .then((response) => {
                 setLembretes(response.data)
-
             })
             .catch(() => {
                 console.log('Errrrrooouuu')
             })
-    }
+        }
 
-
-    function cadastrar(e) {
-        e.preventDefault();
+        
+        function cadastrar(e) {
+            e.preventDefault();
         if (data && descricao) {
             api.post(('/lembretes'), {
                 le_descricao: descricao,
                 le_data_lembrete: data.toISOString(),
             }).then(res => {
                 update();
+                setDescricao("");
+                setData((new Date().toISOString()));
                 console.log('Deu certo')
             }).catch(e => {
                 console.log(Error)
@@ -142,10 +143,14 @@ function Reminders() {
             <Lembretes>
                 {lembretes.map(le => (
                     <Nota key={le.le_id}>
-                        <button onClick={() => deleteReminder(le.le_id)} >xxxxxx</button>
-
+                        <div className="d-flex justify-content-end">
+                        <Delete onClick={() => deleteReminder(le.le_id)}>
+                            <img src="assets/delete.svg"/>
+                        </Delete>
+                        </div>
                         <div className="d-flex justify-content-between">
                             <div>
+                            
                                 <Name>
                                     <img src="assets/pin.svg" />
                                     {le.le_descricao}
@@ -161,6 +166,7 @@ function Reminders() {
                                 <div><em>{moment(new Date(le.le_data_lembrete)).fromNow()}</em></div>
                             </div>
                         </div>
+                        
                     </Nota>
                 ))}
             </Lembretes>
