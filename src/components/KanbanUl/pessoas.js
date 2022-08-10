@@ -54,15 +54,15 @@ export default function PessoasTarefa(Props) {
   const [pessoas, setPessoas] = useState ([])
 
   useEffect(() => {
-      const getPessoas = async () => {
-          try {
-              const response = await api.get('/pessoas');
-              setPessoas(response.data);
-          } catch (error) {
-              console.log(error);
-          }
-      };
-      getPessoas();
+    const getPessoas = async () => {
+        try {
+            const response = await api.get('/pessoas');
+            setPessoas(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    getPessoas();
   }, []);
 
   const [pessoaNome, setPessoaNome] = useState([]);
@@ -76,17 +76,16 @@ export default function PessoasTarefa(Props) {
     <FormControl fullWidth>
       <InputLabel>Selecione as Pessoas</InputLabel>
       <Select
-        fullWidth
         multiple
-        size='small'
         value={pessoaNome}                                                                  
         onChange={(e) => {(Props.childToParentPessoa(e.target.value)); handleChangePessoa(e);}}
         renderValue={(selected) => (<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
           {selected.map((pessoaNome) => (
             <Chip key={pessoaNome} label={pessoaNome} />
-              ))}
+            ))}
             </Box>
           )}
+        size='small'
         MenuProps={MenuProps}
         input={<OutlinedInput label="Selecione as Pessoas"/>}
       >

@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import { Drawer, Button } from 'rsuite';
 import { ContButton } from './styles'
-import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import api from '../../../api';
 import EquipesProjeto from './equipes';
-import { TextField } from '@mui/material';
+import { TextField, Snackbar } from '@mui/material';
 
 import "rsuite/dist/rsuite.min.css";
 
@@ -51,7 +50,7 @@ function PostProjetos(Props) {
 
     function cadastrar(e){
         e.preventDefault()
-        api.post('/projetos',  {
+        api.post('/projetos', {
             pr_nome: nomeProjeto,
             pr_descricao: descricaoProjeto,
             equipes: equipeEscolhida

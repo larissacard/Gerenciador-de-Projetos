@@ -1,13 +1,8 @@
 import * as React from 'react';
 import {useEffect, useState} from "react";
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Checkbox from '@mui/material/Checkbox';
 import api from "../../../api";
-import { TextField } from '@mui/material';
+
+import { InputLabel, FormControl, OutlinedInput, useTheme, MenuItem, Select, Box, Chip, styled } from '@mui/material';
 
 const ITEM_HEIGHT = 50;
 const ITEM_PADDING_TOP = 8;
@@ -19,21 +14,32 @@ const MenuProps = {
   },
 };
 
-export default function EquipesProjeto(Props) {
-    const [equipes, setEquipes] = useState ([])
+function getStyles(equipes, equipeNome, theme) {
+  return {
+    fontWeight:
+      equipeNome.indexOf(equipes) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
 
-    useEffect(() => {
-        const getEquipes = async () => {
-            try {
-                const response = await api.get('/equipes');
-                setEquipes(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getEquipes();
-    }, []);
-    const [equipeNome, setEquipeNome] = useState([]);
+export default function EquipesProjeto(Props) {
+  const [equipes, setEquipes] = useState ([])
+
+  useEffect(() => {
+      const getEquipes = async () => {
+          try {
+              const response = await api.get('/equipes');
+              setEquipes(response.data);
+          } catch (error) {
+              console.log(error);
+          }
+      };
+      getEquipes();
+  }, []);
+
+  const [equipeNome, setEquipeNome] = useState([]);
+  const theme = useTheme();
 
   const handleChange = (event) => {
     setEquipeNome(event.target.value)
@@ -45,17 +51,20 @@ export default function EquipesProjeto(Props) {
         <InputLabel>Selecione as Equipes</InputLabel>
         <Select
           multiple
-          margin='dense'
           value={equipeNome}
           onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
-          input={<OutlinedInput label="Selecione as Equipes" />}
-          renderValue={(selected) => selected.join(', ')}
+          renderValue={(selected) => (<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
+          {selected.map((equipeNome) => (
+            <Chip key={equipeNome} label={equipeNome} />
+            ))}
+            </Box>
+          )}
+          size='small'
           MenuProps={MenuProps}
+          input={<OutlinedInput label="Selecione as Equipes" />}
         >
-          
           {equipes.map((equipe) => 
-            <MenuItem key={equipe.eq_nome} value={equipe.eq_nome}>
-              <Checkbox checked={equipeNome.indexOf(equipe.eq_nome) > -1} />
+            <MenuItem key={equipe.eq_nome} value={equipe.eq_nome} style={getStyles(equipes, equipeNome, theme)}>
               {equipe.eq_nome}
             </MenuItem>
           )}
