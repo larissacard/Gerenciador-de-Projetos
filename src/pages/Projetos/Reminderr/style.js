@@ -94,3 +94,10 @@ export const Datetime = styled.div`
     }
 
 `;
+
+export const Delete = styled.button`
+    background-color: transparent;
+    margin-right: 15px;
+    margin-bottom: -12px;
+    
+`
