@@ -15,8 +15,7 @@ function CardPessoa(Props) {
         <p>{Props.profissao}</p>
       </InfoPessoa>
       {Props.foto &&
-        console.log(`https://api-brisa-nodejs-postgresql.herokuapp.com/uploads/${Props.foto}`)
-        // <FotoPerfil src={`https://api-brisa-nodejs-postgresql.herokuapp.com/uploads/${Props.foto}`}/>
+        <FotoPerfil src={`https://api-brisa-nodejs-postgresql.herokuapp.com/uploads/${Props.foto}`}/>
       }
     </Container>
   );

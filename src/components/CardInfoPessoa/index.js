@@ -13,7 +13,7 @@ import {
 function CardPessoa(Props) {
   return (
     <Container>
-        <FotoPerfil/>
+        <FotoPerfil src={`https://api-brisa-nodejs-postgresql.herokuapp.com/uploads/${Props.dados.dados.pe_foto}`}/>
         <InfoPessoa>
             <h2>{Props.dados.dados.pe_nome}</h2>
             <p>{Props.dados.dados.pe_cargo}</p>
