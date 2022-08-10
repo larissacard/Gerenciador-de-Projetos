@@ -49,7 +49,8 @@ function PostProjetos(Props) {
         }
     }
 
-    function cadastrar(){
+    function cadastrar(e){
+        e.preventDefault()
         api.post('/projetos',  {
             pr_nome: nomeProjeto,
             pr_descricao: descricaoProjeto,
@@ -107,7 +108,7 @@ function PostProjetos(Props) {
                             <EquipesProjeto childToParent={childToParent}/>
                             
                             <Drawer.Actions>
-                                <Button onClick={()=> {cadastrar(); handleClickCad()}} variant="primary" type="submit">
+                                <Button onClick={(e)=> {cadastrar(e); handleClickCad()}} variant="primary" type="submit">
                                     Cadastrar
                                 </Button >
                                 <Button onClick={() => setOpen(false)}>Cancelar</Button>
