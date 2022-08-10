@@ -109,6 +109,7 @@ export const Icon = styled.div`
     width: 50px;
     align-self: center;
     text-align: center;
+    z-index: 2;
 `;
 
 export const Retangulo = styled.div`
@@ -120,7 +121,6 @@ export const Retangulo = styled.div`
 
     background: rgba(220, 211, 230, 0.6);
     border-radius: 0px 24px 0px 80px;
-    
 `;
 
 export const TeamLength = styled.div`
@@ -141,6 +141,7 @@ export const Elipse = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
+    z-index: 1;
 `;
 
 export const SmallElipse = styled.div`
@@ -151,5 +152,5 @@ export const SmallElipse = styled.div`
     display: flex;
     justify-content: center;
     background-image: url("assets/gatoruivo.svg");
-    
+    z-index: 1;
 `;

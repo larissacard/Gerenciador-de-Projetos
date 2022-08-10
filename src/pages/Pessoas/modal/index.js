@@ -76,6 +76,11 @@ function PostPessoas() {
                             <Form.Control onChange={(e)=>handle(e)} id="pe_data_nasc" value={data.pe_data_nasc} type="date" placeholder="Digite a data de nascimento"/>
                         </Form.Group>
 
+                        <Form.Group className="mb-3">
+                            <Form.Label>Foto de Perfil</Form.Label>
+                            <Form.Control onChange={(e)=>handle(e)} id="pe_foto" type="file" enctype="multipart/form-data"/>
+                        </Form.Group>
+
                         {/* <Form.Select>
                             <option>Selecione o cargo</option>
                             {cargos.map(({cargo, index}) => 
