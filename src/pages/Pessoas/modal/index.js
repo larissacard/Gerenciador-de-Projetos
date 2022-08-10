@@ -10,6 +10,7 @@ import "rsuite/dist/rsuite.min.css";
 
 function PostPessoas() {
     const [cargoEscolhido, setCargoEscolhido] = useState()
+    const [imagem, setImagem] = useState()
     const childToParent = (childdata) => {
         setCargoEscolhido(childdata);
       }
