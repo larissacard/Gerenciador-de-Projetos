@@ -49,7 +49,7 @@ function Cards(Props) {
   return (
       <ul style={{overflowY:"scroll"}}>
         {pessoas.map((p) => (
-          <CardPessoa key={p.pe_id} id={p.pe_id} nome={p.pe_nome} profissao={p.pe_cargo} childToParent={childToParent} pessoaSelecionada={pessoaSelecionada}/>
+          <CardPessoa key={p.pe_id} id={p.pe_id} nome={p.pe_nome} profissao={p.pe_cargo} foto={p.pe_foto} childToParent={childToParent} pessoaSelecionada={pessoaSelecionada}/>
         ))}
       </ul>
   );
