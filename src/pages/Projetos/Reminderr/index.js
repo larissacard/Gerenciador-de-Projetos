@@ -71,17 +71,18 @@ function Reminders() {
         
         function cadastrar(e) {
             e.preventDefault();
+            console.log(descricao)
         if (data && descricao) {
-            api.post(('/lembretes'), {
+            api.post('/lembretes', {
                 le_descricao: descricao,
                 le_data_lembrete: data.toISOString(),
             }).then(res => {
                 update();
                 setDescricao("");
-                setData((new Date().toISOString()));
+                setData((new Date()).toISOString());
                 console.log('Deu certo')
             }).catch(e => {
-                console.log(Error)
+                console.log(e)
             })
         }
     }
