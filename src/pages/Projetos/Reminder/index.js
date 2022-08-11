@@ -28,7 +28,7 @@ const CssTextField = styled(TextField)({
             transition: '0.5s',
         },
         '& fieldset': {
-            borderRadius: '20px',
+            borderRadius: 20,
             border: '2px solid #764BA2',
             transition: '0.5s',
         },
@@ -53,6 +53,10 @@ const CssTextField = styled(TextField)({
 
 function Reminders() {
     const [data, setData] = useState(new Date().toISOString())
+    const handleChange = (newValue) => {
+        setData(newValue);
+      };
+
     const [descricao, setDescricao] = useState('')
     const [lembretes, setLembretes] = useState([])
 
@@ -75,8 +79,7 @@ function Reminders() {
             .catch(() => {
                 console.log('Errrrrooouuu')
             })
-        }
-
+    }
 
     function cadastrar(e) {
         e.preventDefault();
@@ -85,9 +88,9 @@ function Reminders() {
                 le_descricao: descricao,
                 le_data_lembrete: data.toISOString(),
             }).then(res => {
-                update();
                 setDescricao('');
                 setData((new Date()).toISOString());
+                update();
             }).catch(e => {
                 console.log(e)
             })
@@ -107,34 +110,34 @@ function Reminders() {
     return (
         <div>
             <Form onSubmit={(e) => cadastrar(e)}>
-                <Stack spacing={1.5}>
+                <Stack spacing={1}>
                     <CssTextField
                         fullWidth
-                        id='outlined-basic' label='Lembrete' variant='outlined'
+                        label='Lembrete'
+                        variant='outlined'
+                        value={descricao}
                         size='small'
                         onChange={(e) => setDescricao(e.target.value)}
                         sx={{marginTop: '12px'}}
-                    />
+                        />
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DateTimePicker
                             renderInput={(props) => <TextField {...props}
-                                sx={{
-                                    width: '100%',
-                                    '&:hover .MuiInputLabel-outlined': {
-                                        color: '#6956E5',
-                                        transition: '0.5s',
-                                    },
-                                    '& .MuiOutlinedInput-root': {
-                                        color: '#764BA2',
-                                        transition: '0.5s',
-                                        svg: {color: '#764BA2'},
-
-                                    
-                                        '&:hover' :{
+                            sx={{
+                                width: '100%',
+                                '&:hover .MuiInputLabel-outlined': {
+                                    color: '#6956E5',
+                                    transition: '0.5s',
+                                },
+                                '& .MuiOutlinedInput-root': {
+                                    color: '#764BA2',
+                                    transition: '0.5s',
+                                    svg: {color: '#764BA2'},
+                                    '&:hover' :{
                                             color: '#6956E5',
                                             transition: '0.5s',
                                             svg: {color: '#6956E5'},
-
+                                            
                                         },
                                         '&.Mui-focused': {
                                             borderColor: '#764BA2',
@@ -143,14 +146,15 @@ function Reminders() {
                                             svg: {color: '#280948'},
                                         },
                                         '& fieldset': {
-                                            borderRadius: '20px',
+                                            height: 45,
+                                            borderRadius: 20,
                                             border: '2px solid #764BA2',
                                             transition: '0.5s',
                                         },
-                                          '&:hover fieldset': {
+                                        '&:hover fieldset': {
                                             border: '2px solid #6956E5',
                                             transition: '0.5s',
-                                          },
+                                        },
                                         '&.Mui-focused fieldset': {
                                             borderColor: '#280948',
                                             transition: '0.5s',
@@ -161,16 +165,16 @@ function Reminders() {
                                         transition: '0.5s',
                                         '&.Mui-focused': {
                                             color: '#280948',
-                                            transition: '0.5s',
+                                            transition: '0.5s',                               
                                         },
-                                    },
-                                    
+                                    },    
                                 }}
-                                size='small'
-                                value={data}
-                                label='Data'
                                 />}
-                            onChange={(e) => setData(e)}
+                           
+                            value={data}
+                            label='Data'
+                            onChange={handleChange}
+                    
                         />
                     </LocalizationProvider>
                     
