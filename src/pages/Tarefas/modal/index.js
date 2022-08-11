@@ -67,8 +67,8 @@ function PostTarefas() {
                             variant='outlined'
                             margin='dense'
                             fullWidth
-                            // size='small'
-                            // placeholder='Digite o nome da Tarefa'
+                            size='small'
+                            placeholder='Digite o nome da Tarefa'
                         />
     
                         <TextField

@@ -4,10 +4,8 @@ import Header from "../../components/header";
 import Grafico from "./grafico";
 import CardCriar from "../../components/CardCriar";
 import SalaVirtual from "../../components/CardSalaVirtual";
-import Index from "../Projetos/reminder/index";
 import PostProjetos from "./modal";
 import Alert from '@mui/material/Alert';
-
 
 import {
   Container,
@@ -24,7 +22,7 @@ import {
   CardProjeto,
   ContMais
 } from "./styles";
-import Reminders from "./Reminderr";
+import Reminders from "./Reminder";
 
 function Projetos() {
     const [updateScreen, setUpdate] = useState(true)
