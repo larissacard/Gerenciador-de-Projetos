@@ -32,7 +32,7 @@ export const Save = styled.button`
         color: #6956E5;
         border: solid 1px #6956E5;
     }
-`
+`;
 
 export const Name = styled.div`
     color: #280948;
@@ -85,9 +85,8 @@ export const Lembretes = styled.div`
 
 export const Datetime = styled.div`
     color: #280948;
-
-    margin-right: 35px;
-    margin-top: 12px;
+    margin-right: 45px;
+    margin-top: 6px;
 
     img{
         margin-right: 3px;
@@ -97,7 +96,9 @@ export const Datetime = styled.div`
 
 export const Delete = styled.button`
     background-color: transparent;
-    margin-right: 15px;
-    margin-bottom: -12px;
-    
-`
+    margin-right: 10px;
+    margin-bottom: -14px;
+    margin-top: 4px;
+    }
+`;
+   

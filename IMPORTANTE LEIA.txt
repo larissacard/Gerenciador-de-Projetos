@@ -14,3 +14,10 @@ background-size: contain;
 margin: 0;
 padding: 0;
 cursor: pointer;
+
+ transition: transform .3s ease-in-out;
+
+    :hover {
+        transform: rotate(360deg);
+
+testes

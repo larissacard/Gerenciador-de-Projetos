@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {useEffect, useState} from "react";
 import api from "../../../api";
-
-import { InputLabel, FormControl, OutlinedInput, useTheme, MenuItem, Select, Box, Chip, styled } from '@mui/material';
+import { InputLabel, FormControl, OutlinedInput, useTheme, MenuItem, Select, Box, Chip, styled, TextField } from '@mui/material';
 
 const ITEM_HEIGHT = 50;
 const ITEM_PADDING_TOP = 8;
@@ -47,7 +46,7 @@ export default function EquipesProjeto(Props) {
 
   return (
     <div>
-      <FormControl fullWidth size='small'>
+      {/* <FormControl fullWidth size='small'>
         <InputLabel>Selecione as Equipes</InputLabel>
         <Select
           multiple
@@ -59,6 +58,12 @@ export default function EquipesProjeto(Props) {
             ))}
             </Box>
           )}
+          sx={{
+            '& .MuiSelect-outlined': {
+              color: '#280948',
+              transition: '0.5s',
+            }
+          }}
           MenuProps={MenuProps}
           input={<OutlinedInput label="Selecione as Equipes" />}
         >
@@ -68,7 +73,33 @@ export default function EquipesProjeto(Props) {
             </MenuItem>
           )}
         </Select>
-      </FormControl>
+      </FormControl> */}
+          <TextField
+            fullWidth 
+            size='small'
+            label='Selecione as Equipes'
+            select
+            value={equipeNome}
+            onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
+            SelectProps={{
+              multiple: true,
+            }}
+            
+            renderValue={(selected) => (<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
+            {selected.map((equipeNome) => (
+              <Chip key={equipeNome} label={equipeNome} />
+              ))}
+              </Box>
+              )}
+          
+            MenuProps={MenuProps}
+          > 
+            {equipes.map((equipe) => 
+              <MenuItem key={equipe.eq_nome} value={equipe.eq_nome} style={getStyles(equipes, equipeNome, theme)}>
+                {equipe.eq_nome}
+              </MenuItem>
+            )}
+          </TextField>
     </div>
   );
 }

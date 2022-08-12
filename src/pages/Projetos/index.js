@@ -1,12 +1,11 @@
-import React, {useState} from "react";
-import api from "../../api";
-import Header from "../../components/header";
-import Grafico from "./grafico";
-import CardCriar from "../../components/CardCriar";
-import SalaVirtual from "../../components/CardSalaVirtual";
-import PostProjetos from "./modal";
+import React, {useState} from 'react';
+import api from '../../api';
+import Header from '../../components/header';
+import Grafico from './grafico';
+import CardCriar from '../../components/CardCriar';
+import SalaVirtual from '../../components/CardSalaVirtual';
+import PostProjetos from './modal';
 import Alert from '@mui/material/Alert';
-import TesteProjetos from "./modal/teste";
 
 import {
   Container,
@@ -22,8 +21,8 @@ import {
   SearchIcon,
   CardProjeto,
   ContMais
-} from "./styles";
-import Reminders from "./Reminder";
+} from './styles';
+import Reminders from './Reminder';
 
 function Projetos() {
     const [updateScreen, setUpdate] = useState(true)
@@ -54,8 +53,6 @@ function Projetos() {
       getProjetos()
       setUpdate(false)
     }
-    
-
 
   return (
     <Container>
@@ -72,7 +69,7 @@ function Projetos() {
               <h2>Todos os Projetos</h2>
               <ContMais>
                   <Search>
-                      <input type="search" placeholder="Pesquise..." onChange={filter} value={name}></input>
+                      <input type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
                       <SearchIcon/>
                   </Search>
               </ContMais>
@@ -84,11 +81,11 @@ function Projetos() {
                   foundProjetos.map((projeto) => (
                   <CardProjeto key={projeto.pr_id}>
                       <p> {projeto.pr_nome} </p>
-                      <a href={"projetos/" + projeto.pr_id}>{'Detalhes >'}</a>
+                      <a href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
                   </CardProjeto> 
                   ))
                   ) : (
-                    <Alert variant="outlined" severity="warning">
+                    <Alert variant='outlined' severity='warning'>
                       Projeto não encontrado! ;-;
                     </Alert>
                   )}
@@ -100,13 +97,10 @@ function Projetos() {
       <ColunaDois>
         <CardCalendar>
           <CardCriar
-            titulo="Criar Projeto"
-            descricao="Criar um novo projeto"
-            button=
-            // {<PostProjetos update={getProjetos} />}
-            {<TesteProjetos update={getProjetos}/>}
+            titulo='Criar Projeto'
+            descricao='Criar um novo projeto'
+            button={<PostProjetos update={getProjetos}/>}
           />
-           
 
            <Reminders/>
            <SalaVirtual/>

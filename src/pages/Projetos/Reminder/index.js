@@ -8,7 +8,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider,  } from '@mui/x-date-pickers/LocalizationProvider';
 import moment from 'moment';
 import 'moment/locale/pt-br'
-import { Lembretes, Nota, Save, Name, Descricao, Datetime, Delete } from './style';
+import { Lembretes, Nota, Save, Name, Descricao, Datetime, Delete } from './styles';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {

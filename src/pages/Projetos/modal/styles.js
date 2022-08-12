@@ -46,3 +46,39 @@ export const ButtonDrawer = styled.button`
       transition-duration: .2s;
   }
 `;
+export const Cancelar = styled.button`
+  background-color: #E74444;
+  color: white;
+
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 20px;
+  text-align: center;
+
+  :hover{
+      background-color: white;
+      color: #E74444;
+      border: solid 1px #E74444;
+  }
+`;
+
+export const Cadastrar = styled.button`
+  background-color: #6956E5;
+  color: white;
+
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 20px;
+  text-align: center;
+
+  :hover{
+      background-color: white;
+      color: #6956E5;
+      border: solid 1px #6956E5;
+  }
+`;
+
+
+
