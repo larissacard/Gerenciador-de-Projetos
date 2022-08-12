@@ -22,7 +22,12 @@ function GetEquipe() {
 
   // console.log(qtBack)
 
-
+  const PontosFortes =  (props) => {
+    var qtd = equipe.pessoas.filter(cargo => cargo.pe_cargo ===`${props.funcao}`).length
+    return(
+      <>{qtd}</>   
+      )
+  }
   return (
     <>
       {equipe ?
@@ -33,7 +38,7 @@ function GetEquipe() {
             {equipe.pessoas.map((e) =>
               <Person key={e.pe_id}>
                 <Ellipse>
-                  <Icon></Icon>
+                  <Icon>{e.pe_foto}</Icon>
                 </Ellipse>
                 <Name>{e.pe_nome}</Name>
                 <Job>{e.pe_cargo}</Job>
@@ -47,7 +52,14 @@ function GetEquipe() {
               <CardIcon>
                 <img src="../../../assets/cod.svg"/>
               </CardIcon>
-              {equipe.pessoas.filter(cargo => cargo.pe_cargo === 'FrontEnd Junior').length}
+              <PontosFortes funcao = {'FrontEnd Junior'}/>
+            </Card>
+            <Card>
+              <PontosFortes funcao = {'BackEnd Pleno'} />
+            </Card>
+
+            <Card>
+              <PontosFortes funcao/>
             </Card>
           </ColunaUm>
 
