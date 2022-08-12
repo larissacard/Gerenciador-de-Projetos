@@ -65,9 +65,10 @@ export const Members = styled.div`
 
 export const Person = styled.div`
     border: solid 1px #280948;
-    width: 30%;
+    width: 90%;
     height: 2.813rem;
     
+    align-items: center;
     display:flex;
     justify-content: space-between;
 
@@ -129,6 +130,7 @@ export const Job = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+    
 `;
 
 export const TotalTask = styled.div`
