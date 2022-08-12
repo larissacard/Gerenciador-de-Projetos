@@ -2,6 +2,32 @@ import { width } from "@mui/system";
 import styled from "styled-components";
 
 export const Container = styled.div`
+    max-width: 34.313rem;
+    max-height: 53.25rem;
+    background-color: white;
+`
+
+export const ColunaUm = styled.div`
+    width: 37%;
+    height: calc(100% - 48px);
+    margin: 24px 0px;
+    padding: 0 10px;
+    border-radius: 20px;
+
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+`
+
+export const ColunaDois = styled.div`
+    width: 45%;
+    height: calc(100% - 48px);
+    margin: 24px 10px;
+  
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
 `
 
 export const Title = styled.div`
@@ -33,13 +59,13 @@ export const Members = styled.div`
     font-size: 20px;
     line-height: 30px;
 
-    maring-top: 18px;
+    margin-top: 18px;
     margin-left: 17px;
 `;
 
 export const Person = styled.div`
     border: solid 1px #280948;
-    width: 28.938rem;
+    width: 30%;
     height: 2.813rem;
     
     display:flex;
@@ -80,8 +106,8 @@ export const Ellipse = styled.div`
 
 export const Icon = styled.div`
     border: 0.5px solid #280948;
-    width: 2.063rem;
-    height: 1.875rem;
+    width: 1.9rem;
+    height: 1.9rem;
 
     align-self: center;
 
@@ -122,5 +148,18 @@ export const Card = styled.div`
 `;
 
 export const CardIcon = styled.div`
+    background-color: #764BA2;
+    width: 40px;
+    height: 40px;
+    display:flex;
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 10px;
     
+`;
+
+export const Ranking = styled.div`
+
 `
