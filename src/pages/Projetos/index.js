@@ -6,6 +6,7 @@ import CardCriar from "../../components/CardCriar";
 import SalaVirtual from "../../components/CardSalaVirtual";
 import PostProjetos from "./modal";
 import Alert from '@mui/material/Alert';
+import TesteProjetos from "./modal/teste";
 
 import {
   Container,
@@ -102,7 +103,8 @@ function Projetos() {
             titulo="Criar Projeto"
             descricao="Criar um novo projeto"
             button=
-            {<PostProjetos update={getProjetos} />}
+            // {<PostProjetos update={getProjetos} />}
+            {<TesteProjetos update={getProjetos}/>}
           />
            
 

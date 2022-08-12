@@ -212,5 +212,8 @@ export const CardProjeto = styled.li`
     align-items: center;
 
     transition-duration: .3s;
+    &:nth-last-child(1) {
+        margin-bottom: 0;
+    }
 
-`;
+`; 

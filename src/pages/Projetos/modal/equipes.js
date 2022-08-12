@@ -47,7 +47,7 @@ export default function EquipesProjeto(Props) {
 
   return (
     <div>
-      <FormControl fullWidth>
+      <FormControl fullWidth size='small'>
         <InputLabel>Selecione as Equipes</InputLabel>
         <Select
           multiple
@@ -59,7 +59,6 @@ export default function EquipesProjeto(Props) {
             ))}
             </Box>
           )}
-          size='small'
           MenuProps={MenuProps}
           input={<OutlinedInput label="Selecione as Equipes" />}
         >

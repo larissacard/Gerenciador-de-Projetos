@@ -122,7 +122,7 @@ function Reminders() {
                         />
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DateTimePicker
-                            renderInput={(props) => <TextField {...props}
+                            renderInput={(props) => <TextField size='small'{...props}
                             sx={{
                                 width: '100%',
                                 '&:hover .MuiInputLabel-outlined': {
@@ -133,44 +133,42 @@ function Reminders() {
                                     color: '#764BA2',
                                     transition: '0.5s',
                                     svg: {color: '#764BA2'},
+
                                     '&:hover' :{
-                                            color: '#6956E5',
-                                            transition: '0.5s',
-                                            svg: {color: '#6956E5'},
-                                            
-                                        },
-                                        '&.Mui-focused': {
-                                            borderColor: '#764BA2',
-                                            color: '#280948',
-                                            transition: '0.5s',
-                                            svg: {color: '#280948'},
-                                        },
-                                        '& fieldset': {
-                                            height: 45,
-                                            borderRadius: 20,
-                                            border: '2px solid #764BA2',
-                                            transition: '0.5s',
-                                        },
-                                        '&:hover fieldset': {
-                                            border: '2px solid #6956E5',
-                                            transition: '0.5s',
-                                        },
-                                        '&.Mui-focused fieldset': {
-                                            borderColor: '#280948',
-                                            transition: '0.5s',
-                                        },
-                                    },
-                                    '.MuiInputLabel-outlined': {
-                                        color: '#764BA2',
+                                        color: '#6956E5',
                                         transition: '0.5s',
-                                        '&.Mui-focused': {
-                                            color: '#280948',
-                                            transition: '0.5s',                               
-                                        },
-                                    },    
-                                }}
-                                />}
-                           
+                                        svg: {color: '#6956E5'},
+                                    },
+                                    '&.Mui-focused': {
+                                        borderColor: '#764BA2',
+                                        color: '#280948',
+                                        transition: '0.5s',
+                                        svg: {color: '#280948'},
+                                    },
+                                    '& fieldset': {
+                                        borderRadius: 20,
+                                        border: '2px solid #764BA2',
+                                        transition: '0.5s',
+                                    },
+                                    '&:hover fieldset': {
+                                        border: '2px solid #6956E5',
+                                        transition: '0.5s',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: '#280948',
+                                        transition: '0.5s',
+                                    },
+                                },
+                                '.MuiInputLabel-outlined': {
+                                    color: '#764BA2',
+                                    transition: '0.5s',
+                                    '&.Mui-focused': {
+                                        color: '#280948',
+                                        transition: '0.5s',                               
+                                    },
+                                },    
+                            }}
+                        />}
                             value={data}
                             label='Data'
                             onChange={handleChange}

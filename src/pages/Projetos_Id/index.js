@@ -5,7 +5,7 @@ import KanbanUl from '../../components/KanbanUl';
 import Header from '../../components/header'
 import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Deletar, Main } from './styles'
 import Edit from './put';
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
@@ -33,7 +33,7 @@ export default function Index() {
     let string_equipes = ""
     let qtd_pessoas = 0
 
-    // let navigate = useNavigate()
+    let navigate = useNavigate()
 
     const getDados = async () => {
         const response = await api.get(path)
@@ -48,13 +48,12 @@ export default function Index() {
     const deletarProjeto = (pr_id) => {
         api.delete(path)
         handleClickDelete();
-        // navigate("/projetos");
+        setTimeout(() => navigate('/projetos'), 1500);
     };
-
 
     return (
         <>
-            <Snackbar open={open} autoHideDuration={2000} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
+            <Snackbar open={open} autoHideDuration={1500} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
                 <Alert onClose={handleCloseAlert} severity="warning">
                     Projeto apagado com sucesso!
                 </Alert>
