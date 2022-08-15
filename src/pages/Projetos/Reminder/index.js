@@ -110,7 +110,7 @@ function Reminders() {
     return (
         <div>
             <Form onSubmit={(e) => cadastrar(e)}>
-                <Stack spacing={1}>
+                <Stack spacing={1.5}>
                     <CssTextField
                         fullWidth
                         label='Lembrete'
@@ -124,7 +124,6 @@ function Reminders() {
                         <DateTimePicker
                             renderInput={(props) => <TextField size='small'{...props}
                             sx={{
-                                width: '100%',
                                 '&:hover .MuiInputLabel-outlined': {
                                     color: '#6956E5',
                                     transition: '0.5s',
@@ -169,6 +168,7 @@ function Reminders() {
                                 },    
                             }}
                         />}
+                            fullWidth
                             value={data}
                             label='Data'
                             onChange={handleChange}

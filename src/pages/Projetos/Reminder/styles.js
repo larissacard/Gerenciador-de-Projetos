@@ -14,6 +14,10 @@ export const Nota = styled.div`
 
     margin-bottom: 12px;
 
+    &:nth-last-child(1) {
+        margin-bottom: 3px;
+    }
+
 `;
 
 export const Save = styled.button`
@@ -58,14 +62,14 @@ export const Descricao = styled.div`
     font-size: 14px;
     line-height: 21px;
     opacity: 0.8;
- 
 `;
 
 export const Lembretes = styled.div`
     height: 300px;
     width: 100%;
-
-    margin-top: 20px;
+    padding-top: 0px;
+    padding-right: 10px;
+    margin-top: 16px;
 
     overflow-y: auto;
     overflow-x: hidden;
@@ -99,6 +103,5 @@ export const Delete = styled.button`
     margin-right: 10px;
     margin-bottom: -14px;
     margin-top: 4px;
-    }
 `;
    

@@ -15,7 +15,6 @@ export const Container = styled.div`
     background-size: cover;
     transition-duration: .3s;
 
-    
 `;
 
 export const Titulo = styled.div`

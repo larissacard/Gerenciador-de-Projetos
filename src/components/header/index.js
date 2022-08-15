@@ -48,12 +48,12 @@ function Header() {
                     </MenuButton> 
                 </a>
 
-                <a href="/tarefas">
+                {/* <a href="/tarefas">
                     <MenuButton>
                         <ImgTarefas className={url.substring(0,8) === '/tarefas' ? 'active' : ""}/>
                         <span className={url.substring(0,9) === '/tarefas' ? 'active' : ""}>Tarefas</span>
                     </MenuButton> 
-                </a>
+                </a> */}
             </NavMenu>
         </Container>
     );

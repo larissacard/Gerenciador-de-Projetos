@@ -2,7 +2,7 @@ import { Drawer, Box, Typography, Button, TextField, Snackbar, Stack } from '@mu
 import MuiAlert from '@mui/material/Alert';
 import React, { useState } from 'react'
 import { styled } from '@mui/material/styles';
-import {ButtonDrawer, Buttons, Cadastrar, Cancelar } from './styles'
+import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
 import api from '../../../api'
 import EquipesProjeto from './equipes';
 
@@ -24,7 +24,6 @@ const CssTextField = styled(TextField)({
             transition: '0.5s',
         },
         '& fieldset': {
-            borderRadius: 20,
             border: '2px solid #764BA2',
             transition: '0.5s',
         },
@@ -124,12 +123,15 @@ export default function PostProjetos (Props) {
                 padding: '30px 60px'}
             }}>
                 <Box width='480px'
-                    paddingBottom='20px' 
-                    textAlign='start'
-                >
-                    <Typography variant='h6' component='div'>
+                     paddingBottom='20px' 
+                     display='flex'
+                     alignItems='center'
+                     justifyContent='space-between'
+                >                  
+                    <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
                         Cadastro de um novo Projeto
                     </Typography>
+                    <ButtonCancel onClick={handleClose}/>
                 </Box>
 
                 <form onSubmit={handleClose}>
@@ -156,12 +158,12 @@ export default function PostProjetos (Props) {
                         <EquipesProjeto childToParent={childToParent}/>
 
                         <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
-                                <Cancelar onClick={() => setOpenDrawer(false)}>
-                                    Cancelar
-                                </Cancelar>
-                                <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
-                                    Cadastrar
-                                </Cadastrar >
+                            <Cancelar onClick={() => setOpenDrawer(false)}>
+                                Cancelar
+                            </Cancelar>
+                            <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
+                                Cadastrar
+                            </Cadastrar >
                         </Box>
                     </Stack>
                 </form>

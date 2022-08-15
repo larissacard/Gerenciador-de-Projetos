@@ -2,22 +2,4 @@ links
 https://developers.google.com/chart/interactive/docs/queries
 https://www.mundojs.com.br/2018/07/12/graficos-dinamicos-com-eventos-chart-js/
 
-Usar isso para fechar o drawer de projetos, substituindo o cancelar
 
-align-self: flex-start;
-border: none;
-background-color: #0000;
-background-image: url ("data:image/svg+xml,%3Csvg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 339 339' width='339' height='339'%3E%3Cg%3E%3Cpath d='m4.9 15.5l10.4-10.4 318.4 318.4-10.4 10.4z'/%3E%3Cpath d='m4.9 323.3l318.4-318.4 10.4 10.4-318.4 318.4z'/%3E%3C/g%3E%3C/svg%3E");
-background-position: center;
-background-repeat: no-repeat;
-background-size: contain;
-margin: 0;
-padding: 0;
-cursor: pointer;
-
- transition: transform .3s ease-in-out;
-
-    :hover {
-        transform: rotate(360deg);
-
-testes

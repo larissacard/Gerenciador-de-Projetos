@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useEffect, useState} from "react";
 import api from "../../../api";
-import { InputLabel, FormControl, OutlinedInput, useTheme, MenuItem, Select, Box, Chip, styled, TextField } from '@mui/material';
+import { InputLabel, FormControl, OutlinedInput, useTheme, MenuItem, Select, Box, Chip, styled, TextField, Autocomplete } from '@mui/material';
 
 const ITEM_HEIGHT = 50;
 const ITEM_PADDING_TOP = 8;
@@ -45,61 +45,64 @@ export default function EquipesProjeto(Props) {
   };
 
   return (
-    <div>
-      {/* <FormControl fullWidth size='small'>
-        <InputLabel>Selecione as Equipes</InputLabel>
-        <Select
-          multiple
-          value={equipeNome}
-          onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
-          renderValue={(selected) => (<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
-          {selected.map((equipeNome) => (
-            <Chip key={equipeNome} label={equipeNome} />
-            ))}
-            </Box>
-          )}
-          sx={{
-            '& .MuiSelect-outlined': {
-              color: '#280948',
-              transition: '0.5s',
-            }
-          }}
-          MenuProps={MenuProps}
-          input={<OutlinedInput label="Selecione as Equipes" />}
-        >
-          {equipes.map((equipe) => 
-            <MenuItem key={equipe.eq_nome} value={equipe.eq_nome} style={getStyles(equipes, equipeNome, theme)}>
-              {equipe.eq_nome}
-            </MenuItem>
-          )}
-        </Select>
-      </FormControl> */}
-          <TextField
-            fullWidth 
-            size='small'
-            label='Selecione as Equipes'
-            select
-            value={equipeNome}
-            onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
-            SelectProps={{
-              multiple: true,
-            }}
-            
-            renderValue={(selected) => (<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
-            {selected.map((equipeNome) => (
-              <Chip key={equipeNome} label={equipeNome} />
-              ))}
-              </Box>
-              )}
-          
-            MenuProps={MenuProps}
-          > 
-            {equipes.map((equipe) => 
-              <MenuItem key={equipe.eq_nome} value={equipe.eq_nome} style={getStyles(equipes, equipeNome, theme)}>
-                {equipe.eq_nome}
-              </MenuItem>
-            )}
-          </TextField>
-    </div>
+    <Autocomplete
+      multiple
+      options={equipes}
+      getOptionLabel={(equipeNome) => equipeNome.eq_nome}
+      filterSelectedOptions
+      renderInput={(params) => (
+        <TextField
+        {...params}
+        required
+        label="Equipes"
+        placeholder="Selecione as Equipes"
+        size='small'
+        sx={{
+          '&:hover .MuiInputLabel-outlined': {
+            color: '#6956E5',
+            transition: '0.5s',
+          },
+          '& .MuiOutlinedInput-root': {
+            color: '#764BA2',
+            transition: '0.5s',
+            svg: {color: '#764BA2'},
+
+            '&:hover' :{
+                color: '#6956E5',
+                transition: '0.5s',
+                svg: {color: '#6956E5'},
+            },
+            '&.Mui-focused': {
+                borderColor: '#764BA2',
+                color: '#280948',
+                transition: '0.5s',
+                svg: {color: '#280948'},
+            },
+            '& fieldset': {
+                border: '2px solid #764BA2',
+                transition: '0.5s',
+            },
+            '&:hover fieldset': {
+                border: '2px solid #6956E5',
+                transition: '0.5s',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#280948',
+                transition: '0.5s',
+            },
+          },
+          '.MuiInputLabel-outlined': {
+            color: '#764BA2',
+            transition: '0.5s',
+            '&.Mui-focused': {
+                color: '#280948',
+                transition: '0.5s',
+            },
+          },    
+        }}
+        />
+        )}
+    />
+  
   );
 }
