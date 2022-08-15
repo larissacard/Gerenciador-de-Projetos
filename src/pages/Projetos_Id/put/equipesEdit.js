@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import api from "../../../api";
 import { TextField, Autocomplete } from '@mui/material';
 
-export default function EquipesProjeto(Props) {
+export default function EquipesProjetoEdit(Props) {
   const [equipes, setEquipes] = useState ([])
 
   useEffect(() => {

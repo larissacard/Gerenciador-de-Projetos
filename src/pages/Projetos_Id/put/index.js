@@ -1,81 +1,170 @@
 import React, {useState} from "react";
-import { Form } from 'react-bootstrap';
-import { Drawer} from 'rsuite';
+import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
+import MuiAlert from '@mui/material/Alert';
+import { styled } from '@mui/material/styles';
+import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
 import { Editar } from './styles'
-import "rsuite/dist/rsuite.min.css";
-
+import EquipesProjetoEdit from "./equipesEdit";
 import api from "../../../api";
 
-const projetoPath = window.location.pathname;
+
+const CssTextField = styled(TextField)({
+    '&:hover .MuiInputLabel-outlined': {
+        color: '#6956E5',
+        transition: '0.5s',
+    },
+    '& .MuiOutlinedInput-root': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&:hover' :{
+            color: '#6956E5',
+            transition: '0.5s',
+        },
+        '&.Mui-focused': {
+            borderColor: '#764BA2',
+            color: '#280948',
+            transition: '0.5s',
+        },
+        '& fieldset': {
+            border: '2px solid #764BA2',
+            transition: '0.5s',
+        },
+        '&:hover fieldset': {
+            border: '2px solid #6956E5',
+            transition: '0.5s',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: '#280948',
+            transition: '0.5s',
+        },
+    },
+    '.MuiInputLabel-outlined': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&.Mui-focused': {
+            color: '#280948',
+            transition: '0.5s',
+        },
+    },
+})
 
 function Edit(Props) {
-    const [open, setOpen] = useState(false);
+    const [equipeEditEscolhida, setEquipeEditEscolhida] = useState(Props.dados.dados.equipeEditEscolhida)
+    const childToParent = (childdata) => {
+        setEquipeEditEscolhida(childdata);
+    }
+    
+    const [openDrawer, setOpenDrawer] = useState(false)
     
     const handleOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
+        setOpenDrawer(true);
     }
-
-    const url= ("https://api-brisa-nodejs-postgresql.herokuapp.com" + projetoPath)
-    const [data, setData]= useState({
-        pr_nome: Props.dados.dados.pr_nome,
-        pr_descricao: Props.dados.dados.pr_descricao
-    })
-
+    const handleClose = () => {
+        setOpenDrawer(false);
+    }
+    
+    var [mensagem, setMensagem] = useState('')
+    
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} severity={props.severity} variant='filled' {...props} />;
+    });
+    
+    const [openAlert, setOpenAlert] = useState(false);
+    
+    const handleCloseAlert = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpenAlert(false);
+        setEstado()
+    }
+    
+    const projetoPath = window.location.pathname;
+    const [nomeEditProjeto, setNomeEditProjeto] = useState(Props.dados.dados.pr_nome)
+    const [descricaoEditProjeto, setDescricaoEditProjeto] = useState(Props.dados.dados.pr_descricao)
+    
+    const handleClickEdit = () => {
+        if(nomeEditProjeto !== ''){
+            setTimeout(() => setOpenAlert(true), 150)
+        }
+    }
+    
     function update(e){
         e.preventDefault();
-        api.put(url,{
-            pr_nome: data.pr_nome,
-            pr_descricao: data.pr_descricao
+        api.put('/projetos' + projetoPath, {
+            pr_nome: nomeEditProjeto,
+            pr_descricao: descricaoEditProjeto,
+            equipes: equipeEditEscolhida
         })
         .then(res=>{
-                Props.atualizar()
-                if (res.data === 'Esse projeto já foi editado!') {
-                    alert('Esse Projeto já foi editado!')
-                }
-                else {
-                    alert('Projeto editado com sucesso!')
-                }
-            })
-    }
-
-    function handle(e) {
-        const newdata = {...data}
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
+            setMensagem('Projeto Editado com Sucesso!')
+            setOpenDrawer(false)
+            Props.update()
+        })
+        .catch(e => { 
+            console.log(e)
+        })
     }
 
     return (
         <>
-            <Drawer open={open} onClose={handleClose} size="sm">
-                <Drawer.Header>
-                    <Drawer.Title>Editar Projeto</Drawer.Title>
-                </Drawer.Header>
-                
-                <Drawer.Body>
-                    <Form onSubmit={(e)=> update(e)}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Nome</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="pr_nome" value={data.pr_nome} type="text" placeholder="Edite o nome do projeto"/>
-                        </Form.Group>
+            <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+                <Alert onClose={handleCloseAlert} severity={success}>
+                    {mensagem}
+                </Alert>
+            </Snackbar>
 
-                        <Form.Group className="mb-3">
-                            <Form.Label>Descrição</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="pr_descricao" value={data.pr_descricao} type="text" placeholder="Edite a descrição do projeto"/>
-                        </Form.Group>
-                        
-                        <Drawer.Actions>
-                            <div className={`d-flex`}> 
-                            <button className={`btn btn-light`} onClick={(update) => setOpen(false)} variant="primary" type="submit">
-                                Editar
-                            </button>
-                            <button className={`btn btn-light`} onClick={() => setOpen(false)}>Cancelar</button>
-                            </div>
-                        </Drawer.Actions>
-                    </Form>
-                </Drawer.Body>
+            <Drawer anchor='right' 
+                open={openDrawer} 
+                onClose={handleClose} 
+                PaperProps={{sx: {width: '600px',
+                    padding: '30px 60px'}
+                }}
+            >
+                <Box width='480px'
+                        paddingBottom='20px' 
+                        display='flex'
+                        alignItems='center'
+                        justifyContent='space-between'
+                >                  
+                    <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
+                        Editar Projeto
+                    </Typography>
+                    <ButtonCancel onClick={handleClose}/>
+                </Box>
+                <form onSubmit={handleClose}>
+                    <Stack spacing={2.5}>
+                        <CssTextField
+                            required
+                            onChange={(e) => setNomeEditProjeto(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Nome'
+                            placeholder='Digite o novo Nome do Projeto'
+                        />
+
+                        <CssTextField
+                            onChange={(e) => setDescricaoEditProjeto(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Descrição'
+                            placeholder='Digite a nova Descrição do Projeto'
+                        />
+
+                        <EquipesProjetoEdit childToParent={childToParent}/>
+
+                        <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
+                            <Cancelar onClick={() => setOpenDrawer(false)}>
+                                Cancelar
+                            </Cancelar>
+                            <Cadastrar onClick={(e)=> {update(e); handleClickEdit()}} type='submit'>
+                                Cadastrar
+                            </Cadastrar >
+                        </Box>
+                    </Stack>
+                </form>
             </Drawer>
             <div>
                 <Editar onClick={handleOpen}>Editar</Editar>

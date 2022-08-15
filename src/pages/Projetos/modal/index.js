@@ -1,4 +1,4 @@
-import { Drawer, Box, Typography, Button, TextField, Snackbar, Stack } from '@mui/material'
+import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
 import React, { useState } from 'react'
 import { styled } from '@mui/material/styles';
@@ -121,52 +121,53 @@ export default function PostProjetos (Props) {
             onClose={handleClose} 
             PaperProps={{sx: {width: '600px',
                 padding: '30px 60px'}
-            }}>
-                <Box width='480px'
-                     paddingBottom='20px' 
-                     display='flex'
-                     alignItems='center'
-                     justifyContent='space-between'
-                >                  
-                    <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
-                        Cadastro de um novo Projeto
-                    </Typography>
-                    <ButtonCancel onClick={handleClose}/>
-                </Box>
+            }}
+        >
+            <Box width='480px'
+                    paddingBottom='20px' 
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='space-between'
+            >                  
+                <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
+                    Cadastro de um novo Projeto
+                </Typography>
+                <ButtonCancel onClick={handleClose}/>
+            </Box>
 
-                <form onSubmit={handleClose}>
-                    <Stack spacing={2.5}>
-                        <CssTextField
-                            required
-                            onChange={(e) => setNomeProjeto(e.target.value)}
-                            fullWidth
-                            size='small'
-                            id='outlined-required'
-                            label='Nome'
-                            placeholder='Digite o nome do Projeto'
-                        />
+            <form onSubmit={handleClose}>
+                <Stack spacing={2.5}>
+                    <CssTextField
+                        required
+                        onChange={(e) => setNomeProjeto(e.target.value)}
+                        fullWidth
+                        size='small'
+                        id='outlined-required'
+                        label='Nome'
+                        placeholder='Digite o nome do Projeto'
+                    />
 
-                        <CssTextField
-                            onChange={(e) => setDescricaoProjeto(e.target.value)}
-                            fullWidth
-                            size='small'
-                            id='outlined-required'
-                            label='Descrição'
-                            placeholder='Digite a descrição do Projeto'
-                        />
+                    <CssTextField
+                        onChange={(e) => setDescricaoProjeto(e.target.value)}
+                        fullWidth
+                        size='small'
+                        id='outlined-required'
+                        label='Descrição'
+                        placeholder='Digite a descrição do Projeto'
+                    />
 
-                        <EquipesProjeto childToParent={childToParent}/>
+                    <EquipesProjeto childToParent={childToParent}/>
 
-                        <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
-                            <Cancelar onClick={() => setOpenDrawer(false)}>
-                                Cancelar
-                            </Cancelar>
-                            <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
-                                Cadastrar
-                            </Cadastrar >
-                        </Box>
-                    </Stack>
-                </form>
+                    <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
+                        <Cancelar onClick={() => setOpenDrawer(false)}>
+                            Cancelar
+                        </Cancelar>
+                        <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
+                            Cadastrar
+                        </Cadastrar >
+                    </Box>
+                </Stack>
+            </form>
         </Drawer>
         <div>
             <ButtonDrawer onClick={handleOpen}><img src='assets/btn_create.svg' /></ButtonDrawer>
