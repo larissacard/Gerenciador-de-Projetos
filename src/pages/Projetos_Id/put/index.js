@@ -76,7 +76,6 @@ function Edit(Props) {
             return;
         }
         setOpenAlert(false);
-        setEstado()
     }
     
     const projetoPath = window.location.pathname;
@@ -109,7 +108,7 @@ function Edit(Props) {
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
-                <Alert onClose={handleCloseAlert} severity={success}>
+                <Alert onClose={handleCloseAlert} severity='success'>
                     {mensagem}
                 </Alert>
             </Snackbar>
@@ -142,6 +141,7 @@ function Edit(Props) {
                             id='outlined-required'
                             label='Nome'
                             placeholder='Digite o novo Nome do Projeto'
+                            value={nomeEditProjeto}
                         />
 
                         <CssTextField
@@ -151,6 +151,7 @@ function Edit(Props) {
                             id='outlined-required'
                             label='Descrição'
                             placeholder='Digite a nova Descrição do Projeto'
+                            value={descricaoEditProjeto}
                         />
 
                         <EquipesProjetoEdit childToParent={childToParent}/>
