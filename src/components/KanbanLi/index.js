@@ -33,10 +33,12 @@ function KanbanLi(Props) {
               <span><strong>Descricao:</strong> {`${Props.dados.tr_descricao.substring(0, 100)}...`}</span>
               : <span><strong>Descricao:</strong> {Props.dados.tr_descricao}</span>}
             </li>
-            <li>
-              <p>Data de Criação:</p> 
-              <span>{Props.dados.tr_data_criacao.substring(0,10)}</span>
-            </li>
+            {Props.dados.tr_data_criacao &&
+              <li>
+                <p>Data de Criação:</p> 
+                <span>{Props.dados.tr_data_criacao.substring(0,10)}</span>
+              </li>
+            }
             {Props.dados.tr_data_finalizacao &&
             <li style={{marginTop: "5px"}}>
               <p>Data de Finalização:</p> 
