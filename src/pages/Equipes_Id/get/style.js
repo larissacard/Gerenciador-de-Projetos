@@ -143,10 +143,12 @@ export const TotalTask = styled.div`
 `;
 
 export const Card = styled.div`
-    width: 10.813rem;
+    width: 10rem;
     height: 14.125rem;
+    background-color: white ;
 
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 `;
 
 export const CardIcon = styled.div`
@@ -159,9 +161,72 @@ export const CardIcon = styled.div`
     align-items: center;
 
     border-radius: 10px;
+
+    margin-top: 24px;
+    margin-left: 13px;
     
 `;
 
-export const Ranking = styled.div`
+export const Pontos = styled.div`
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    gap: 10px;
 
-`
+    margin-top: 33px;
+    margin-left: 13px;
+
+    color: #280948;
+
+    h6{ 
+        font-size: 20px;
+        line-height: 28px;
+        color: #280948;
+        font-weight: 400;
+    }
+
+`;
+
+export const BigTaskCard = styled.div`
+    width: 16.813rem;
+    height: 22.563rem;
+
+    background: rgba(150, 178, 253, 0.3);
+    border-radius: 10px;
+    
+    padding-top: 19px;
+    padding-left: 22px;
+
+    h6{
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 26px;
+
+        color: #280948;
+    }
+`;
+
+export const CardTask = styled.div`
+    width: 16.813rem;
+    height: 7.75rem;
+
+    background: rgba(150, 178, 253, 0.3);
+    border-radius: 10px;
+
+    padding-top: 15px;
+    padding-left: 15px;
+
+    h6{
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 20px;
+
+        color: #280948;
+    }
+`;
+
+export const Tasks = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+`;

@@ -154,3 +154,4 @@ export const SmallElipse = styled.div`
     background-image: url("assets/gatoruivo.svg");
     z-index: 1;
 `;
+
