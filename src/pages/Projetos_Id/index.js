@@ -38,6 +38,7 @@ export default function Index() {
     const getDados = async () => {
         const response = await api.get(path)
         setDados(response.data);
+
     };
 
     if (updateScrenn) {
