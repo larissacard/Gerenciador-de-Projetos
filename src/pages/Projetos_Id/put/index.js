@@ -91,7 +91,7 @@ function Edit(Props) {
     
     function update(e){
         e.preventDefault();
-        api.put('/projetos' + projetoPath, {
+        api.put(projetoPath, {
             pr_nome: nomeEditProjeto,
             pr_descricao: descricaoEditProjeto,
             equipes: equipeEditEscolhida
