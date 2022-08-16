@@ -17,13 +17,20 @@ export default function EquipesProjetoEdit(Props) {
       };
       getEquipes();
   }, []);
+  
+  const [value, setValue] = useState(Props.dados.equipes)
 
   return (
     <Autocomplete
+      onChange={(event, newValue) => {
+        setValue(newValue); (Props.childToParent(newValue))
+      }}
+      value={value}
       multiple
       options={equipes}
-      getOptionLabel={(equipeNome) => equipeNome.eq_nome}
+      getOptionLabel={(equipe) => equipe.eq_nome}
       filterSelectedOptions
+      isOptionEqualToValue={(option, value) => option.eq_id === value.eq_id}
       renderInput={(params) => (
         <TextField
           {...params}

@@ -49,9 +49,10 @@ const CssTextField = styled(TextField)({
 })
 
 function Edit(Props) {
-    const [equipeEditEscolhida, setEquipeEditEscolhida] = useState(Props.dados.dados.equipeEditEscolhida)
+    const [equipeEditEscolhida, setEquipeEditEscolhida] = useState(Props.dados.dados.equipes)
     const childToParent = (childdata) => {
         setEquipeEditEscolhida(childdata);
+        console.log(childdata)
     }
     
     const [openDrawer, setOpenDrawer] = useState(false)
@@ -90,7 +91,7 @@ function Edit(Props) {
     
     function update(e){
         e.preventDefault();
-        api.put('/projetos' + projetoPath, {
+        api.put(projetoPath, {
             pr_nome: nomeEditProjeto,
             pr_descricao: descricaoEditProjeto,
             equipes: equipeEditEscolhida
@@ -154,7 +155,7 @@ function Edit(Props) {
                             value={descricaoEditProjeto}
                         />
 
-                        <EquipesProjetoEdit childToParent={childToParent}/>
+                        <EquipesProjetoEdit dados={Props.dados} childToParent={childToParent}/>
 
                         <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
                             <Cancelar onClick={() => setOpenDrawer(false)}>
