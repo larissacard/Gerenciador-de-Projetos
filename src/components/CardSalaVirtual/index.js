@@ -3,8 +3,8 @@ import { Discord, Gather, Title } from "./style";
 function SalaVirtual() {
     return (
         <div>
-            <div className="d-flex mt-4">
-            <img src="assets/house.svg" style={{width: "30px", height:"30px" }}></img>
+            <div className="d-flex mt-4 col-sm-6">
+            <img img-fluid src="assets/house.svg"></img>
             <Title>Salas Virtuais</Title>
             </div>
 
