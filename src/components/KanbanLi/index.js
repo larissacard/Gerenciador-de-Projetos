@@ -14,7 +14,7 @@ function KanbanLi(Props) {
   return (
     <Container ref={dragRef} isDragging={isDragging}>
       <Top>
-        <h3>{Props.dados.tr_nome} (#{Props.dados.tr_id})</h3>
+        <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome} (#{Props.dados.tr_id})</h3>
         <span style={{ backgroundColor: Props.dados.tr_prioridade === 1 ? "#67CB65" :
                                         Props.dados.tr_prioridade === 2 ? "#FF9533" : 
                                         Props.dados.tr_prioridade === 3 ? "#E74444" : "gray"}}>
