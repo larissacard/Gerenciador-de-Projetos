@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import api from '../../../api';
 import { TextField, Autocomplete } from '@mui/material';
 
-export default function EquipesProjeto(Props) {
+export default function EquipesProjetoEdit(Props) {
   const [equipes, setEquipes] = useState ([])
 
   useEffect(() => {
@@ -17,15 +17,15 @@ export default function EquipesProjeto(Props) {
       };
       getEquipes();
   }, []);
-
-  const [nomeEquipe, setNomeEquipe] = useState(equipes)
+  
+  const [value, setValue] = useState(Props.dados.equipes)
 
   return (
     <Autocomplete
       onChange={(event, newValue) => {
-        setNomeEquipe(newValue); (Props.childToParent(newValue))
+        setValue(newValue); (Props.childToParent(newValue))
       }}
-      value={nomeEquipe}
+      value={value}
       multiple
       options={equipes}
       getOptionLabel={(equipe) => equipe.eq_nome}

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const Container = styled.li`
   background: rgba(118, 75, 162, 0.19);
@@ -12,10 +12,21 @@ export const Container = styled.li`
   height: 95px;
 
   padding: 5px 15px 10px;
+  cursor: grab;
 
   &+li {
     margin-top: 18px;
   }
+
+  ${props => props.isDragging && css`
+        border: 2px dashed rgba(0,0,0,.2);
+        box-shadow: none;
+        background: transparent;
+
+        * {
+            opacity: 0;
+        }
+    `}
 `;
 
 export const Top = styled.div`

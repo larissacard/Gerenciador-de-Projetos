@@ -16,7 +16,9 @@ function SalaVirtual() {
             </Discord>
 
             <Gather>
-                <button><a href="https://www.gather.town/" rel="noopener" target={"_blank"}>Ir</a></button>
+                <button>
+                    <a href="https://www.gather.town/" rel="noopener" target={"_blank"}>Ir</a>
+                    </button>
                 
             </Gather>
         </div>

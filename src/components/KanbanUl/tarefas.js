@@ -1,99 +1,124 @@
 import React, { useState } from 'react';
-import api from '../../api';
-import TextField from '@mui/material/TextField';
-import FormControl, { useFormControl } from '@mui/material/FormControl';
-import { Drawer, Button} from 'rsuite';
 import "rsuite/dist/rsuite.min.css";
-import { Form } from 'react-bootstrap';
+import PessoasTarefa from './pessoas';
+import { Button, ButtonMore, ContButtons } from './styles'
+import { TextField, MenuItem } from '@mui/material';
+import { Drawer } from 'rsuite';
 
-export default function TarefasProjeto() {
+import api from '../../api';
+
+export default function TarefasProjeto(Props) {
+    const path = window.location.pathname;
+
+    const [pessoaEscolhida, setPessoaEscolhida] = useState()
+    const childToParentPessoa = (childdata) => {
+        setPessoaEscolhida(childdata);
+    }
+    
     const [open, setOpen] = useState(false);
     
     const handleOpen = () => {
         setOpen(true);
     };
+
     const handleClose = () => {
         setOpen(false);
     }
+    
+    const [nomeTarefa, setNomeTarefa] = useState('')
+    const [descricaoTarefa, setDescricaoTarefa] = useState('')
+    const [prioridade, setPrioridade] = useState([]);
+    
+    const handleChange = (e) => {
+        setPrioridade(e.target.value);
+    };
 
-    const [data, setData]= useState({
-        tr_nome: '',
-        tr_descricao: '',
-        tr_prioridade: '',
-        pr_id: '',
-    })
+    const handleClick = () => {
+        if (nomeTarefa !== '') {
+            setOpen(false)
+        }
+    }
 
-    function cadastrar(e){
-        e.preventDefault();
-        api.post(('/tarefas'),{
-            tr_nome: data.tr_nome,
-            tr_descricao: data.tr_descricao,
-            tr_prioridade: data.tr_prioridade, //mudar para o input para um select e puxar a prioridade do banco
-            pr_id: data.pr_id //passar o id do projeto aqui
+    function cadastrar(){
+        api.post('/tarefas', {
+            tr_nome: nomeTarefa,
+            tr_descricao: descricaoTarefa,
+            tr_prioridade: prioridade, 
+            pr_id: path.substring(10,), 
+            pessoas: pessoaEscolhida
         })
         .then(res=>{
+            console.log("Cadastrou")
             console.log(res.data)
+        })
+        .catch (e => {
+            console.log(e.response.data)
+            setOpen(true);
         })
     }
 
-    function handle(e) {
-        const newdata = {...data}
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-    }
     return (
         <>
-            <Drawer open={open} onClose={handleClose} size="sm">
+            <Drawer open={open} onClose={handleClose} size='sm'>
                 <Drawer.Header>
                     <Drawer.Title>Criar uma nova tarefa</Drawer.Title>
                 </Drawer.Header>
                 
                 <Drawer.Body>
-                    <Form onSubmit={(e)=> cadastrar(e)}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Nome</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="tr_nome" value={data.tr_nome} type="text" placeholder="Digite o nome da tarefa"/>
-                        </Form.Group>
+                    <form onSubmit={handleClose}>
+                        <TextField
+                            required
+                            onChange={(e) => setNomeTarefa(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Nome'
+                            placeholder='Digite o nome da Tarefa'
+                            margin='dense'
+                        />
+                        
+                        <TextField
+                            onChange={(e) => setDescricaoTarefa(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Descrição'
+                            placeholder='Digite a descrição da Tarefa'
+                            margin='normal'
+                        />
 
-                        <div>
-                            <FormControl onChange={(e)=>handle(e)} id="tr_nome" value={data.tr_nome} type="text" fullWidth>
-                                <TextField
-                                required
-                                id="outlined-required"
-                                label="Nome"
-                                placeholder='Digite o nome da Tarefa'
-                                margin='dense'
-                                />
-                            </FormControl>
-                        </div>
+                        <TextField
+                            select
+                            fullWidth
+                            label='Prioridade'
+                            size='small'
+                            margin='normal'
+                            onChange={(e)=> handleChange(e)}
+                            placeholder='Selecione a Prioridade'
+                            defaultValue=''
+                            >
+                            <MenuItem value={1}>Baixa</MenuItem>
+                            <MenuItem value={2}>Média</MenuItem>
+                            <MenuItem value={3}>Alta</MenuItem>
+                        </TextField>
 
-                        <div>
-                            <FormControl onChange={(e)=>handle(e)} id="tr_descricao" value={data.tr_descricao} type="text" fullWidth>
-                                <TextField
-                                id="outlined-required"
-                                label="Descrição"
-                                placeholder='Digite a descrição da tarefa'
-                                margin='normal'
-                                />
-                            </FormControl>
-                        </div>
-
-                        <Form.Group className="mb-3">
-                            <Form.Label>Descrição</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="tr_descricao" value={data.tr_descricao} type="text" placeholder="Digite a descrição da tarefa"/>
-                        </Form.Group>
+                        <PessoasTarefa childToParentPessoa={childToParentPessoa}/>
 
                         <Drawer.Actions>
-                            <Button onClick={() => setOpen(false)} variant="primary" type="submit">
-                                Cadastrar
-                            </Button>
-                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                            <ContButtons>
+                                <Button onClick={()=> {cadastrar(); handleClick()}} variant="primary" type="submit">
+                                    Cadastrar
+                                </Button>
+                                <Button onClick={() => setOpen(false)}>
+                                    Cancelar
+                                </Button>
+                            </ContButtons>
                         </Drawer.Actions>
-                    </Form>
+                    </form>
                 </Drawer.Body>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}>+</Button>
+                <ButtonMore onClick={handleOpen}>+</ButtonMore>
             </div>
         </>
     );

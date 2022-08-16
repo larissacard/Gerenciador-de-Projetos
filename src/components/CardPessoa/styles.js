@@ -34,7 +34,7 @@ export const InfoPessoa = styled.div`
   }
 `;
 
-export const FotoPerfil = styled.div`
+export const FotoPerfil = styled.img`
     height: 80px;
     width: 80px;
 

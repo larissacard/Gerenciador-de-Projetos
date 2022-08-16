@@ -10,6 +10,7 @@ export const Container = styled.li`
     cursor: grab;
     padding: 10px;
 
+    overflow-x: hidden;
 
     ${props => props.isDragging && css`
         border: 2px dashed rgba(0,0,0,.2);
@@ -34,6 +35,8 @@ export const Top = styled.div`
         color: #280948;
         width: calc(100% - 75px);
         line-height: 22px;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     span {

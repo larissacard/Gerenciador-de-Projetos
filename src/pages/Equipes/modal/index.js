@@ -1,17 +1,17 @@
 import React, {useState} from "react";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
-import { Button, Name } from './styles'
+import { Button, Name, ButtonForm, ContButtons } from './styles'
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
 
 import "rsuite/dist/rsuite.min.css";
 
-function PostEquipes() {
+function PostEquipes(Props) {
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
     const childToParent = (childdata) => {
         setPessoaEscolhida(childdata);
-      }
+    }
 
     const [open, setOpen] = useState(false);
     
@@ -33,7 +33,8 @@ function PostEquipes() {
             eq_nome: data.eq_nome,
             pessoas: pessoaEscolhida
         })
-            .then(res=>{
+            .then(res=> {
+                Props.update()
                 if (res.data === 'Essa equipe já foi inserida!') {
                     alert('Essa Equipe já foi inserida!')
                 }
@@ -65,11 +66,12 @@ function PostEquipes() {
                         <PessoasEquipe childToParent={childToParent}/>
 
                         <Drawer.Actions>
-                            <Button onClick={() => setOpen(false)} variant="primary" type="submit">
-                                Cadastrar
-                            </Button>
-                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                            <ContButtons>
+                                <ButtonForm onClick={() => setOpen(false)} variant="primary" type="submit">Cadastrar</ButtonForm>
+                                <ButtonForm onClick={() => setOpen(false)}>Cancelar</ButtonForm>
+                            </ContButtons>
                         </Drawer.Actions>
+
                     </Form>
                 </Drawer.Body>
             </Drawer>

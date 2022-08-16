@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
+import { TextField, MenuItem } from "@mui/material";
 
 import "rsuite/dist/rsuite.min.css";
 import api from "../../../api";
@@ -16,6 +16,11 @@ function PostTarefas() {
         setOpen(false);
     }
 
+    const [prioridade, setPrioridade] = useState();
+    const handleChange = (e) => {
+        setPrioridade(e.target.value);
+    };
+
     const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/tarefas"
     const [data, setData]= useState({
         tr_nome: "",
@@ -26,7 +31,8 @@ function PostTarefas() {
         e.preventDefault();
         api.post(url,{
             tr_nome: data.tr_nome,
-            tr_descricao: data.tr_descricao
+            tr_descricao: data.tr_descricao,
+            tr_prioridade: prioridade
         })
             .then(res=>{
                 if (res.data === 'Esse tarefa já foi inserido!') {
@@ -51,24 +57,56 @@ function PostTarefas() {
                 </Drawer.Header>
                 
                 <Drawer.Body>
-                    <Form onSubmit={(e)=> cadastrar(e)}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Nome</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="tr_nome" value={data.tr_nome} type="text" placeholder="Digite o nome da tarefa"/>
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                            <Form.Label>Descrição</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="tr_descricao" value={data.tr_descricao} type="text" placeholder="Digite a descrição da tarefa"/>
-                        </Form.Group>
+                    <div>
+                        <TextField
+                            required
+                            id='nome'
+                            name='nome'
+                            label='Nome'
+                            onChange={(e) => handle(e.target.value)} 
+                            variant='outlined'
+                            margin='dense'
+                            fullWidth
+                            size='small'
+                            placeholder='Digite o nome da Tarefa'
+                        />
+    
+                        <TextField
+                            fullWidth
+                            id='descricao'
+                            name='descricao'
+                            size='small'
+                            variant='outlined'
+                            label='Descrição'
+                            onChange={(e) => handle(e.target.value)}
+                            placeholder='Digite a descrição da tarefa'
+                            margin='normal'
+                        />
+                    
+                        <TextField
+                            select
+                            fullWidth
+                            label='Prioridade'
+                            size='small'
+                            margin='normal'
+                            onChange={(e)=> {handle(e); handleChange(e);}}
+                            placeholder='Selecione a Prioridade'
+                            defaultValue=''
+                        >
+                            <MenuItem value={1}>Baixa</MenuItem>
+                            <MenuItem value={2}>Média</MenuItem>
+                            <MenuItem value={3}>Alta</MenuItem>
+                        </TextField>
 
                         <Drawer.Actions>
-                            <Button onClick={() => setOpen(false)} variant="primary" type="submit">
+                            <Button onClick={(e)=> cadastrar(e)} variant="primary" type="submit">
                                 Cadastrar
                             </Button>
-                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                            <Button onClick={() => setOpen(false)}>
+                                Cancelar
+                            </Button>
                         </Drawer.Actions>
-                    </Form>
+                    </div>
                 </Drawer.Body>
             </Drawer>
             <div>

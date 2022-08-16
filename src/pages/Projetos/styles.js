@@ -2,27 +2,27 @@ import styled from 'styled-components';
 import { Lupa } from '../../styles/Icons';
 
 export const Container = styled.div`
-  width: min(1440px, 90vw);
-  height: min(900px, 90vh);
-  margin: 24px;
+    width: min(1440px, 90vw);
+    height: min(900px, 90vh);
+    margin: 24px;
 
-  background-color: #F5F5F7;
-  display: flex;
+    background-color: #F5F5F7;
+    display: flex;
 
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 32px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
 `;
 
 export const ColunaUm = styled.div`
-  width: 46%;
-  height: calc(100% - 48px);
-  margin: 24px 0px;
-  padding: 0 10px;
-  border-radius: 20px;
+    width: 46%;
+    height: calc(100% - 48px);
+    margin: 24px 0px;
+    padding: 0 10px;
+    border-radius: 20px;
 
-  background-color: white;
-  display: flex;
-  flex-direction: column;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const ContGrafico = styled.div`
@@ -31,62 +31,61 @@ export const ContGrafico = styled.div`
 `;
 
 export const TopGrafico = styled.div`
-  margin-top: 20px;
+    margin-top: 20px;
 
-  h1 {
+    h1 {
         font-weight: 600;
         font-size: 32px;
         line-height: 48px;
         color: var(--roxo);
         padding-left: 15px;
-    }
+        }
 `;
 
 export const ColunaDois = styled.div`
-  width: 33%;
-  height: calc(100% - 48px);
-  margin: 24px 10px;
-  
-  display: flex;
-  flex-direction: column;
+    width: 33%;
+    height: calc(100% - 48px);
+    margin: 24px 10px;
+    
+    display: flex;
+    flex-direction: column;
 `;
 
 export const CardCalendar = styled.div`
-  width: 100%;
-  height: auto;
-  padding: 15px 20px;
-  border-radius: 20px;
+    width: 100%;
+    height: auto;
+    padding: 15px 20px;
+    border-radius: 20px;
 
-  background-color: white;
+    background-color: white;
 `;
 
 export const Agenda = styled.div`
-  width: 100%;
-  height: auto;
-  margin-top: 10px;
-  padding: 10px 5px;
-  border-radius: 20px;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    padding: 10px 5px;
+    border-radius: 20px;
 
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  overflow-y: auto;
-
-  ::-webkit-scrollbar-thumb{
-    background: #764BA2;
-    border-radius: 10px;
-    width: 5px;
-  }
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
-  ::-webkit-scrollbar{
-    background-color: #F5F5F7;
-    width: 5px;
-    border-radius: 10px;
+    overflow-y: auto;
+
+    ::-webkit-scrollbar-thumb{
+        background: #764BA2;
+        border-radius: 10px;
+        width: 5px;
+    }
+        
+    ::-webkit-scrollbar{
+        background-color: #F5F5F7;
+        width: 5px;
+        border-radius: 10px;
   }
 `;
-
 
 export const ContProjetos = styled.div`
     display: flex;
@@ -212,5 +211,9 @@ export const CardProjeto = styled.li`
     align-items: center;
 
     transition-duration: .3s;
+    
+    &:nth-last-child(1) {
+        margin-bottom: 2px;
+    }
 
-`;
+`; 

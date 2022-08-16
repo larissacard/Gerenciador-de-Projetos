@@ -51,25 +51,22 @@ function Equipes() {
                     </Search>
                 </div>
                 <AllCards>
-                    <CardAdicionar><PostEquipes /></CardAdicionar>
+                    <PostEquipes update={getEquipes}/>
                     {foundEquipes && foundEquipes.length > 0 ? (
                         foundEquipes.map((equipes) => (
-                            <Card key={equipes.eq_id}>
+                            <Card key={equipes.eq_id} href={"equipes/" + equipes.eq_id}>
                                 <Retangulo/>
                                 {/* <Icon>a</Icon> */}
                                 <Elipse>
                                     <SmallElipse></SmallElipse>
                                 </Elipse>
                                 <Name>{equipes.eq_nome}</Name>
-                                <TeamLength>Quantidade de integrantes: </TeamLength>
-                                <FooterCard>
-                                    <a href={"equipes/" + equipes.eq_id}>Inspecionar Equipes</a>
-                                </FooterCard> 
+                                <TeamLength>Quantidade de integrantes: {equipes.pessoas.length}</TeamLength>
                             </Card>
                         ))
                     ) : (
                         <div variant="outlined" severity="warning">
-                            e não encontrado! ;-;
+                            Nome não encontrado! ;-;
                         </div>
                     )}
                 </AllCards>

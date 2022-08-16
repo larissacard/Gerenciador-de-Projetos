@@ -3,6 +3,7 @@ import React from "react";
 import { Container, InfoPessoa, FotoPerfil } from "./styles";
 
 function CardPessoa(Props) {
+  // console.log(Props)
   return (
     <Container
       style={{ backgroundColor: Props.pessoaSelecionada === Props.id ? "rgba(118, 75, 162, 0.4)" : "#f5f5f5"}}
@@ -13,7 +14,9 @@ function CardPessoa(Props) {
         <h3>{Props.nome}</h3>
         <p>{Props.profissao}</p>
       </InfoPessoa>
-      <FotoPerfil />
+      {Props.foto &&
+        <FotoPerfil src={Props.foto}/>
+      }
     </Container>
   );
 }

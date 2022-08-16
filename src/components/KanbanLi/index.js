@@ -14,7 +14,7 @@ function KanbanLi(Props) {
   return (
     <Container ref={dragRef} isDragging={isDragging}>
       <Top>
-        <h3>{Props.dados.tr_nome} (#{Props.dados.tr_id})</h3>
+        <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome} (#{Props.dados.tr_id})</h3>
         <span style={{ backgroundColor: Props.dados.tr_prioridade === 1 ? "#67CB65" :
                                         Props.dados.tr_prioridade === 2 ? "#FF9533" : 
                                         Props.dados.tr_prioridade === 3 ? "#E74444" : "gray"}}>
@@ -33,10 +33,18 @@ function KanbanLi(Props) {
               <span><strong>Descricao:</strong> {`${Props.dados.tr_descricao.substring(0, 100)}...`}</span>
               : <span><strong>Descricao:</strong> {Props.dados.tr_descricao}</span>}
             </li>
-            <li>
-              <p>Data de Criação:</p> 
-              <span>{Props.dados.tr_data_criacao.substring(0,10)}</span>
+            {Props.dados.tr_data_criacao &&
+              <li>
+                <p>Data de Criação:</p> 
+                <span>{Props.dados.tr_data_criacao.substring(0,10)}</span>
+              </li>
+            }
+            {Props.dados.tr_data_finalizacao &&
+            <li style={{marginTop: "5px"}}>
+              <p>Data de Finalização:</p> 
+              <span>{Props.dados.tr_data_finalizacao.substring(0,10)}</span>
             </li>
+            }
             {/* <li> <strong>Data de Entrega:</strong> {Props.dados.tr_data_entrega}</li> */}
           </ul>
       </Body>

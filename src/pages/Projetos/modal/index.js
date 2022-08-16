@@ -1,124 +1,179 @@
-import * as React from 'react';
-import {useState} from "react";
-import { Form } from 'react-bootstrap';
-import { Drawer, Button } from 'rsuite';
-import { ContButton } from './styles'
-import Snackbar from '@mui/material/Snackbar';
+import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
-import api from '../../../api';
+import React, { useState } from 'react'
+import { styled } from '@mui/material/styles';
+import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
+import api from '../../../api'
 import EquipesProjeto from './equipes';
 
-import "rsuite/dist/rsuite.min.css";
+const CssTextField = styled(TextField)({
+    '&:hover .MuiInputLabel-outlined': {
+        color: '#6956E5',
+        transition: '0.5s',
+    },
+    '& .MuiOutlinedInput-root': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&:hover' :{
+            color: '#6956E5',
+            transition: '0.5s',
+        },
+        '&.Mui-focused': {
+            borderColor: '#764BA2',
+            color: '#280948',
+            transition: '0.5s',
+        },
+        '& fieldset': {
+            border: '2px solid #764BA2',
+            transition: '0.5s',
+        },
+          '&:hover fieldset': {
+            border: '2px solid #6956E5',
+            transition: '0.5s',
+          },
+        '&.Mui-focused fieldset': {
+            borderColor: '#280948',
+            transition: '0.5s',
+        },
+    },
+    '.MuiInputLabel-outlined': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&.Mui-focused': {
+            color: '#280948',
+            transition: '0.5s',
+        },
+    },
+})
 
-function PostProjetos(Props) {
+
+export default function PostProjetos (Props) {
     const [equipeEscolhida, setEquipeEscolhida] = useState()
     const childToParent = (childdata) => {
         setEquipeEscolhida(childdata);
     }
-
-    var [mensagem, setMensagem] = useState('')
-    const [open, setOpen] = useState(false);
+    
+    const [openDrawer, setOpenDrawer] = useState(false)
     
     const handleOpen = () => {
-        setOpen(true);
-    };
+        setOpenDrawer(true);
+    }
     const handleClose = () => {
-        setOpen(false);
-        setData('')
+        setOpenDrawer(false);
     }
 
+    var [mensagem, setMensagem] = useState('')
+    const [estado, setEstado] = useState();
+    
     const Alert = React.forwardRef(function Alert(props, ref) {
-        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+        return <MuiAlert elevation={6} ref={ref} severity={props.severity} variant='filled' {...props} />;
       });
 
     const [openAlert, setOpenAlert] = useState(false);
     
-    const handleClickCad = () => {
-        if(data.pr_nome !== ''){
-            setOpenAlert(true);
-        }
-    }; 
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
         setOpenAlert(false);
-        setEstado('')
+        setEstado()
     };
 
-    const [data, setData]= useState({
-        pr_nome: '',
-        pr_descricao: ''
-    })
+    const [nomeProjeto, setNomeProjeto] = useState('')
+    const [descricaoProjeto, setDescricaoProjeto] = useState('')
 
-    function cadastrar(e){
-        e.preventDefault();
-        api.post(('/projetos'),  {
-            pr_nome: data.pr_nome,
-            pr_descricao: data.pr_descricao,
+    const handleClickCad = () => {
+        if(nomeProjeto !== ''){
+            setTimeout(() => setOpenAlert(true), 150)
+        }
+    }
+
+    function cadastrar(e) {
+        e.preventDefault()
+        api.post('/projetos', {
+            pr_nome: nomeProjeto,
+            pr_descricao: descricaoProjeto,
             equipes: equipeEscolhida
-        }).then(res=>{
-            setMensagem("Deu Certo!")
-            setOpen(false)
-            setData('')
-            setEstado("success");
-            Props.update()
-        }).catch(e => { 
-            setMensagem(e.response.data);
-            setOpen(true);
-            setEstado("error");     
         })
+        .then(res=>{
+            setMensagem('Deu Certo!')
+            setEstado('success');
+            setOpenDrawer(false)
+            Props.update()
+        })
+        .catch(e => { 
+            setMensagem(e.response.data);
+            setOpenDrawer(true);
+            setEstado('error');     
+        })
+    } 
 
-    }
-        
-    const [estado, setEstado] = useState("");
-
-    function handle(e) {
-        const newdata = {...data}
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-    }
     return (
-        <>
-            <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
-                <Alert onClose={handleCloseAlert} severity={estado}>
-                    {mensagem}
-                </Alert>
-            </Snackbar>
+    <>
+        <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+            <Alert onClose={handleCloseAlert} severity={estado}>
+                {mensagem}
+            </Alert>
+        </Snackbar>
 
-            <Drawer open={open} onClose={handleClose} size="sm">
-                <Drawer.Header className='teste'>
-                    <Drawer.Title>Cadastro de um novo Projeto</Drawer.Title>
-                </Drawer.Header>
-                
-                <Drawer.Body>
-                    <Form onSubmit={(e)=> cadastrar(e)}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Nome</Form.Label>
-                            <Form.Control required onChange={(e)=>handle(e)} id="pr_nome" value={data.pr_nome} type="text" placeholder="Digite o nome do projeto"/>
-                        </Form.Group>
+        <Drawer anchor='right' 
+            open={openDrawer} 
+            onClose={handleClose} 
+            PaperProps={{sx: {width: '600px',
+                padding: '30px 60px'}
+            }}
+        >
+            <Box width='480px'
+                    paddingBottom='20px' 
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='space-between'
+            >                  
+                <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
+                    Cadastro de um novo Projeto
+                </Typography>
+                <ButtonCancel onClick={handleClose}/>
+            </Box>
 
-                        <Form.Group className="mb-3">
-                            <Form.Label>Descrição</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="pr_descricao" value={data.pr_descricao} type="text" placeholder="Digite a descrição do projeto"/>
-                        </Form.Group>
+            <form onSubmit={handleClose}>
+                <Stack spacing={2.5}>
+                    <CssTextField
+                        required
+                        onChange={(e) => setNomeProjeto(e.target.value)}
+                        fullWidth
+                        size='small'
+                        id='outlined-required'
+                        label='Nome'
+                        placeholder='Digite o nome do Projeto'
+                        value={nomeProjeto}
+                    />
 
-                        <EquipesProjeto childToParent={childToParent}/>
-                        
-                        <Drawer.Actions>
-                            <Button onClick={handleClickCad} variant="primary" type="submit">
-                                Cadastrar
-                            </Button >
-                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
-                        </Drawer.Actions>
-                    </Form>
-                </Drawer.Body>
-            </Drawer>
-            <ContButton>
-                <Button onClick={handleOpen}><img src="assets/btn_create.svg" alt="icone criar"/></Button>
-            </ContButton>
-        </>
-    );
+                    <CssTextField
+                        onChange={(e) => setDescricaoProjeto(e.target.value)}
+                        fullWidth
+                        size='small'
+                        id='outlined-required'
+                        label='Descrição'
+                        placeholder='Digite a descrição do Projeto'
+                        value={descricaoProjeto}
+                    />
+
+                    <EquipesProjeto dados={Props.dados} childToParent={childToParent}/>
+
+                    <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
+                        <Cancelar onClick={() => setOpenDrawer(false)}>
+                            Cancelar
+                        </Cancelar>
+                        <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
+                            Cadastrar
+                        </Cadastrar >
+                    </Box>
+                </Stack>
+            </form>
+        </Drawer>
+        <div>
+            <ButtonDrawer onClick={handleOpen}><img src='assets/btn_create.svg' /></ButtonDrawer>
+        </div>
+    </>
+    )
 }
-
-export default PostProjetos;

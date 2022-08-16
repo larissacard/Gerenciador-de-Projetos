@@ -1,13 +1,11 @@
-import React, {useState} from "react";
-import api from "../../api";
-import Header from "../../components/header";
-import Grafico from "./grafico";
-import CardCriar from "../../components/CardCriar";
-import SalaVirtual from "../../components/CardSalaVirtual";
-import Index from "../Projetos/reminder/index";
-import PostProjetos from "./modal";
+import React, {useState} from 'react';
+import api from '../../api';
+import Header from '../../components/header';
+import Grafico from './grafico';
+import CardCriar from '../../components/CardCriar';
+import SalaVirtual from '../../components/CardSalaVirtual';
+import PostProjetos from './modal';
 import Alert from '@mui/material/Alert';
-
 
 import {
   Container,
@@ -23,41 +21,38 @@ import {
   SearchIcon,
   CardProjeto,
   ContMais
-} from "./styles";
-import Reminders from "./Reminderr";
-
-
-
+} from './styles';
+import Reminders from './Reminder';
 
 function Projetos() {
-    const [updateScreen, setUpdate] = useState(true)
-    const [projetos, setProjetos] = useState([])
-    const [name, setName] = useState('');
-    const [foundProjetos, setFoundProjetos] = useState();
+  const [updateScreen, setUpdate] = useState(true)
+  const [projetos, setProjetos] = useState([])
+  const [name, setName] = useState('');
+  const [foundProjetos, setFoundProjetos] = useState();
 
-    const getProjetos = async () => {
-      const response = await api.get('/projetos');
-      setProjetos(response.data);
-      setFoundProjetos(response.data);
-    };
-    
-    const filter = (e) => {
-      const keyword = e.target.value;
-      if (keyword !== '') {
-        const results = projetos.filter((projeto) => {
-          return projeto.pr_nome.toLowerCase().startsWith(keyword.toLowerCase());
-        });
-        setFoundProjetos(results);
-      } else {
-        setFoundProjetos(projetos);
-      }
-      setName(keyword);
-    };
-
-    if (updateScreen) {
-      getProjetos()
-      setUpdate(false)
+  const getProjetos = async () => {
+    const response = await api.get('/projetos');
+    setProjetos(response.data);
+    setFoundProjetos(response.data);
+  };
+  
+  const filter = (e) => {
+    const keyword = e.target.value;
+    if (keyword !== '') {
+      const results = projetos.filter((projeto) => {
+        return projeto.pr_nome.toLowerCase().includes(keyword.toLowerCase());
+      });
+      setFoundProjetos(results);
+    } else {
+      setFoundProjetos(projetos);
     }
+    setName(keyword);
+  };
+
+  if (updateScreen) {
+    getProjetos()
+    setUpdate(false)
+  }
 
   return (
     <Container>
@@ -71,30 +66,30 @@ function Projetos() {
         </ContGrafico>
         <ContProjetos>
           <CabecalhoProjetos>
-              <h2>Todos os Projetos</h2>
-              <ContMais>
-                  <Search>
-                      <input type="search" placeholder="Pesquise..." onChange={filter} value={name}></input>
-                      <SearchIcon/>
-                  </Search>
-              </ContMais>
+            <h2>Todos os Projetos</h2>
+            <ContMais>
+                <Search>
+                  <input type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
+                  <SearchIcon/>
+                </Search>
+            </ContMais>
           </CabecalhoProjetos>
 
           <ContTabela>
-              <ul> 
-                {foundProjetos && foundProjetos.length > 0 ? (
-                  foundProjetos.map((projeto) => (
-                  <CardProjeto key={projeto.pr_id}>
-                      <p> {projeto.pr_nome} </p>
-                      <a href={"projetos/" + projeto.pr_id}>{'Detalhes >'}</a>
-                  </CardProjeto> 
-                  ))
-                  ) : (
-                    <Alert variant="outlined" severity="warning">
-                      Projeto não encontrado! ;-;
-                    </Alert>
-                  )}
-              </ul>
+            <ul> 
+              {foundProjetos && foundProjetos.length > 0 ? (
+                foundProjetos.map((projeto) => (
+                <CardProjeto key={projeto.pr_id}>
+                  <p> {projeto.pr_nome} </p>
+                  <a href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
+                </CardProjeto> 
+                ))
+                ) : (
+                  <Alert variant='outlined' severity='warning'>
+                    Projeto não encontrado! ;-;
+                  </Alert>
+                )}
+            </ul>
           </ContTabela>
         </ContProjetos>
       </ColunaUm>
@@ -102,13 +97,10 @@ function Projetos() {
       <ColunaDois>
         <CardCalendar>
           <CardCriar
-            titulo="Criar Projeto"
-            descricao="Criar um novo projeto"
-            button=
-            {<PostProjetos update={getProjetos} />}
+            titulo='Criar Projeto'
+            descricao='Criar um novo projeto'
+            button={<PostProjetos update={getProjetos}/>}
           />
-           
-
            <Reminders/>
            <SalaVirtual/>
         </CardCalendar>

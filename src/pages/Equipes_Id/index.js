@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/header"
+import GetEquipe from "./get";
 
 function EquipesId(){
     return (
@@ -8,6 +9,8 @@ function EquipesId(){
             <div className="container_maior">
                 <Header/>
                 {/*<Menu1 />*/}
+                <GetEquipe/>
+               
             </div>
         </div>
     );
