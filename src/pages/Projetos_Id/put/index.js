@@ -154,7 +154,7 @@ function Edit(Props) {
                             value={descricaoEditProjeto}
                         />
 
-                        <EquipesProjetoEdit childToParent={childToParent}/>
+                        <EquipesProjetoEdit dados={Props.dados} childToParent={childToParent}/>
 
                         <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
                             <Cancelar onClick={() => setOpenDrawer(false)}>
