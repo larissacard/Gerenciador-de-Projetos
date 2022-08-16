@@ -41,6 +41,36 @@ export const Title = styled.div`
     margin-left: 17px;
 `;
 
+export const Edit = styled.button`
+    width: 82px;
+    height: 20px;
+
+    color: white;
+
+    text-align: center;
+
+    margin-top: 31px;
+    margin-left: 80px;
+    margin-right: 5px;
+
+    background-color: #FF9533;
+    border-radius: 14px;
+`
+
+export const Delete = styled.button`
+    width: 82px;
+    height: 20px;
+
+    color: white;
+
+    text-align: center;
+
+    margin-top: 31px;
+
+    background-color: #E74444;
+    border-radius: 14px;
+`
+
 export const SubTitle = styled.div`
     font-weight: 600;
     font-size: 20px;
@@ -190,21 +220,59 @@ export const Pontos = styled.div`
 
 export const BigTaskCard = styled.div`
     width: 16.813rem;
-    height: 22.563rem;
+    height: 20.563rem;
 
     background: rgba(150, 178, 253, 0.3);
     border-radius: 10px;
     
     padding-top: 19px;
     padding-left: 22px;
+    margin-top: 3px;
 
-    h6{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+
+    h5{
+        margin-top: -20px;
         font-weight: 500;
         font-size: 17px;
         line-height: 26px;
 
+        align-self: flex-start;
         color: #280948;
     }
+`;
+export const SmallInfo = styled.div`
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+
+    p{
+        margin-left: 3px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 15px;
+
+        color: #280948;
+    }
+`;
+export const SmallIcon = styled.div`
+    width: 36px;
+    height: 36px;
+
+    background: #96B3FD;
+    border-radius: 8px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    
 `;
 
 export const CardTask = styled.div`
@@ -216,17 +284,37 @@ export const CardTask = styled.div`
 
     padding-top: 15px;
     padding-left: 15px;
+    margin-bottom: 10px;
 
-    h6{
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+
+    h5{
         font-weight: 500;
         font-size: 13px;
         line-height: 20px;
 
         color: #280948;
     }
+
+    h6{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+
+        color: #280948;
+    }
+
+    p{
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+
+        color: rgba(118, 75, 162, 0.5);
+    }
 `;
 
 export const Tasks = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    margin-left: 17px;
 `;
