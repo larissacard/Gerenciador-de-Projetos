@@ -28,7 +28,7 @@ export default function EquipesProjetoEdit(Props) {
       value={value}
       multiple
       options={equipes}
-      getOptionLabel={(equipeNome) => equipeNome.eq_nome}
+      getOptionLabel={(equipe) => equipe.eq_nome}
       filterSelectedOptions
       isOptionEqualToValue={(option, value) => option.eq_id === value.eq_id}
       renderInput={(params) => (

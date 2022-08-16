@@ -156,7 +156,7 @@ export default function PostProjetos (Props) {
                         placeholder='Digite a descrição do Projeto'
                     />
 
-                    <EquipesProjeto childToParent={childToParent}/>
+                    <EquipesProjeto dados={Props.dados} childToParent={childToParent}/>
 
                     <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
                         <Cancelar onClick={() => setOpenDrawer(false)}>
