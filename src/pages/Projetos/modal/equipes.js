@@ -18,8 +18,14 @@ export default function EquipesProjeto(Props) {
       getEquipes();
   }, []);
 
+  const [value, setValue] = useState(Props.dados.equipes)
+
   return (
     <Autocomplete
+      onChange={(event, newValue) => {
+        setValue(newValue); (Props.childToParent(newValue))
+      }}
+      value
       multiple
       options={equipes}
       getOptionLabel={(equipeNome) => equipeNome.eq_nome}

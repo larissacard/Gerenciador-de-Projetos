@@ -19,10 +19,11 @@ export default function EquipesProjetoEdit(Props) {
   }, []);
   
   const [value, setValue] = useState(Props.dados.equipes)
+
   return (
     <Autocomplete
       onChange={(event, newValue) => {
-        setValue(newValue);
+        setValue(newValue); (Props.childToParent(newValue))
       }}
       value={value}
       multiple
