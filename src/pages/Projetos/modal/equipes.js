@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {useEffect, useState} from "react";
-import api from "../../../api";
+import {useEffect, useState} from 'react';
+import api from '../../../api';
 import { TextField, Autocomplete } from '@mui/material';
 
 export default function EquipesProjeto(Props) {
@@ -18,7 +18,7 @@ export default function EquipesProjeto(Props) {
       getEquipes();
   }, []);
 
-  const [nomeEquipe, setNomeEquipe] = useState(Props.dados.equipes)
+  const [nomeEquipe, setNomeEquipe] = useState(equipes)
 
   return (
     <Autocomplete
@@ -28,15 +28,15 @@ export default function EquipesProjeto(Props) {
       value={nomeEquipe}
       multiple
       options={equipes}
-      getOptionLabel={(equipeNome) => equipeNome.eq_nome}
+      getOptionLabel={(equipe) => equipe.eq_nome}
       filterSelectedOptions
-      isOptionEqualToValue={(option, value) => option.eq_nome === value.eq_nome}
+      isOptionEqualToValue={(option, value) => option.eq_id === value.eq_id}
       renderInput={(params) => (
         <TextField
           {...params}
           required
-          label="Equipes"
-          placeholder="Selecione as Equipes"
+          label='Equipes'
+          placeholder='Selecione as Equipes'
           size='small'
           sx={{
             '&:hover .MuiInputLabel-outlined': {

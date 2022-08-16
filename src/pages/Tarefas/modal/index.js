@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
-import { TextField, MenuItem, FormControl } from "@mui/material";
+import { TextField, MenuItem } from "@mui/material";
 
 import "rsuite/dist/rsuite.min.css";
 import api from "../../../api";
@@ -102,7 +102,9 @@ function PostTarefas() {
                             <Button onClick={(e)=> cadastrar(e)} variant="primary" type="submit">
                                 Cadastrar
                             </Button>
-                            <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                            <Button onClick={() => setOpen(false)}>
+                                Cancelar
+                            </Button>
                         </Drawer.Actions>
                     </div>
                 </Drawer.Body>

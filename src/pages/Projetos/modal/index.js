@@ -145,6 +145,7 @@ export default function PostProjetos (Props) {
                         id='outlined-required'
                         label='Nome'
                         placeholder='Digite o nome do Projeto'
+                        value={nomeProjeto}
                     />
 
                     <CssTextField
@@ -154,6 +155,7 @@ export default function PostProjetos (Props) {
                         id='outlined-required'
                         label='Descrição'
                         placeholder='Digite a descrição do Projeto'
+                        value={descricaoProjeto}
                     />
 
                     <EquipesProjeto dados={Props.dados} childToParent={childToParent}/>

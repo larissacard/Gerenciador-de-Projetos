@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {useEffect, useState} from "react";
-import api from "../../../api";
+import {useEffect, useState} from 'react';
+import api from '../../../api';
 import { TextField, Autocomplete } from '@mui/material';
 
 export default function EquipesProjetoEdit(Props) {
@@ -35,8 +35,8 @@ export default function EquipesProjetoEdit(Props) {
         <TextField
           {...params}
           required
-          label="Equipes"
-          placeholder="Selecione as Equipes"
+          label='Equipes'
+          placeholder='Selecione as Equipes'
           size='small'
           sx={{
             '&:hover .MuiInputLabel-outlined': {

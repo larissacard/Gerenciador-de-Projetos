@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
-import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
+import { Cadastrar, Cancelar } from './styles'
 import { Editar } from './styles'
-import EquipesProjetoEdit from "./equipesEdit";
-import api from "../../../api";
-
+import EquipesProjetoEdit from './equipesEdit';
+import api from '../../../api';
+import { ButtonCancel } from '../../Projetos/modal/styles';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -130,7 +130,8 @@ function Edit(Props) {
                     <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
                         Editar Projeto
                     </Typography>
-                    <ButtonCancel onClick={handleClose}/>
+                    <ButtonCancel/>
+                    
                 </Box>
                 <form onSubmit={handleClose}>
                     <Stack spacing={2.5}>
