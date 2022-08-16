@@ -19,8 +19,6 @@ export default function EquipesProjetoEdit(Props) {
   }, []);
   
   const [value, setValue] = useState(Props.dados.equipes)
-  console.log(equipes)
-  console.log(value)
   return (
     <Autocomplete
       onChange={(event, newValue) => {
@@ -31,7 +29,7 @@ export default function EquipesProjetoEdit(Props) {
       options={equipes}
       getOptionLabel={(equipeNome) => equipeNome.eq_nome}
       filterSelectedOptions
-      isOptionEqualToValue={(option, value) => option.id === value.id}
+      isOptionEqualToValue={(option, value) => option.eq_id === value.eq_id}
       renderInput={(params) => (
         <TextField
           {...params}
