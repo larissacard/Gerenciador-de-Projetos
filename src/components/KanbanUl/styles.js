@@ -75,3 +75,48 @@ export const ContButtons = styled.div`
         margin-left: 10px;
     }
 `;
+
+export const Cancelar = styled.button`
+  background: rgba(40, 9, 72, 0.5);
+  color: white;
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 20px;
+  text-align: center;
+
+  &:hover {
+    background-color: white;
+    color: rgba(40, 9, 72, 0.5);
+    border: solid 1px rgba(40, 9, 72, 0.5);
+  }
+`;
+
+export const Cadastrar = styled.button`
+  background-color: #6956E5;
+  color: white;
+
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 20px;
+  text-align: center;
+
+  :hover{
+    background-color: white;
+    color: #6956E5;
+    border: solid 1px #6956E5;
+  }
+`;
+
+export const ButtonCancel = styled.div`
+  width: 15px;
+  height: 15px;
+  background-image: url('assets/cancel.svg');
+  cursor: pointer;
+  transition: transform .3s ease-in-out;
+ 
+  :hover {
+    transform: rotate(360deg);
+  }
+`;

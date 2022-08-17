@@ -21,7 +21,6 @@ export const ContDados = styled.div`
     flex-direction: column;
 `;
 
-
 export const Titulo = styled.h1`
     height: auto;
     margin: 0;
@@ -53,20 +52,6 @@ export const Top = styled.div`
  justify-content: space-between;
  width: 100%;
  align-items: flex-end;
-`;
-
-export const Deletar = styled.button`
-    background: #E74444;
-    border-radius: 14px;
-    width: 82px;
-    height: 20px;
-    font-size: 14px;
-    color: #FFFFFF;
-
-    &:hover{
-        transform: scale(1.1);
-        transition-duration: .2s;
-    }
 `;
 
 export const Detalhamento = styled.div`

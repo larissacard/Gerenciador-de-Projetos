@@ -96,7 +96,7 @@ export default function PostProjetos (Props) {
             equipes: equipeEscolhida
         })
         .then(res=>{
-            setMensagem('Deu Certo!')
+            setMensagem('Projeto Inserido com Sucesso!')
             setEstado('success');
             setOpenDrawer(false)
             Props.update()
@@ -116,7 +116,8 @@ export default function PostProjetos (Props) {
             </Alert>
         </Snackbar>
 
-        <Drawer anchor='right' 
+        <Drawer 
+            anchor='right' 
             open={openDrawer} 
             onClose={handleClose} 
             PaperProps={{sx: {width: '600px',

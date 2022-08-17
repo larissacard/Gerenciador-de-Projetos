@@ -70,3 +70,15 @@ export const Cadastrar = styled.button`
     border: solid 1px #6956E5;
   }
 `;
+
+export const ButtonCancel = styled.div`
+  width: 15px;
+  height: 15px;
+  background-image: url('../assets/cancel.svg');
+  cursor: pointer;
+  transition: transform .3s ease-in-out;
+ 
+  :hover {
+    transform: rotate(360deg);
+  }
+`;

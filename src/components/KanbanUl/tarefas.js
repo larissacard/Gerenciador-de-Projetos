@@ -1,29 +1,88 @@
 import React, { useState } from 'react';
-import "rsuite/dist/rsuite.min.css";
+import { Drawer, Box, Typography, TextField, Snackbar, Stack, MenuItem } from '@mui/material'
+import MuiAlert from '@mui/material/Alert';
+import { styled } from '@mui/material/styles';
 import PessoasTarefa from './pessoas';
-import { Button, ButtonMore, ContButtons } from './styles'
-import { TextField, MenuItem } from '@mui/material';
-import { Drawer } from 'rsuite';
-
+import { Button, ButtonMore, ContButtons, Cadastrar, Cancelar, ButtonCancel } from './styles'
 import api from '../../api';
+
+const CssTextField = styled(TextField)({
+    '&:hover .MuiInputLabel-outlined': {
+        color: '#6956E5',
+        transition: '0.5s',
+      },
+      '& .MuiOutlinedInput-root': {
+        color: '#764BA2',
+        transition: '0.5s',
+        svg: {color: '#764BA2'},
+
+        '&:hover' :{
+            color: '#6956E5',
+            transition: '0.5s',
+            svg: {color: '#6956E5'},
+        },
+        '&.Mui-focused': {
+            borderColor: '#764BA2',
+            color: '#280948',
+            transition: '0.5s',
+            svg: {color: '#280948'},
+        },
+        '& fieldset': {
+            border: '2px solid #764BA2',
+            transition: '0.5s',
+        },
+        '&:hover fieldset': {
+            border: '2px solid #6956E5',
+            transition: '0.5s',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: '#280948',
+            transition: '0.5s',
+        },
+      },
+      '.MuiInputLabel-outlined': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&.Mui-focused': {
+            color: '#280948',
+            transition: '0.5s',
+        },
+    },    
+})
 
 export default function TarefasProjeto(Props) {
     const path = window.location.pathname;
 
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
-    const childToParentPessoa = (childdata) => {
+    const childToParent = (childdata) => {
         setPessoaEscolhida(childdata);
     }
     
-    const [open, setOpen] = useState(false);
+    const [openDrawer, setOpenDrawer] = useState(false)
     
     const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
+        setOpenDrawer(true);
     }
+    const handleClose = () => {
+        setOpenDrawer(false);
+    }
+
+    var [mensagem, setMensagem] = useState('')
+    const [estado, setEstado] = useState();
+
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} severity={props.severity} variant='filled' {...props} />;
+      });
+
+    const [openAlert, setOpenAlert] = useState(false);
+    
+    const handleCloseAlert = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpenAlert(false);
+        setEstado()
+    };
     
     const [nomeTarefa, setNomeTarefa] = useState('')
     const [descricaoTarefa, setDescricaoTarefa] = useState('')
@@ -35,7 +94,7 @@ export default function TarefasProjeto(Props) {
 
     const handleClick = () => {
         if (nomeTarefa !== '') {
-            setOpen(false)
+            setTimeout(() => setOpenAlert(true), 150)
         }
     }
 
@@ -48,25 +107,49 @@ export default function TarefasProjeto(Props) {
             pessoas: pessoaEscolhida
         })
         .then(res=>{
-            console.log("Cadastrou")
-            console.log(res.data)
+            setMensagem('Tarefa Inserida com Sucesso!')
+            setEstado('success');
+            setOpenDrawer(false)
+            Props.update()
         })
         .catch (e => {
-            console.log(e.response.data)
-            setOpen(true);
+            setMensagem(e.response.data);
+            setOpenDrawer(true);
+            setEstado('error'); 
         })
     }
 
     return (
         <>
-            <Drawer open={open} onClose={handleClose} size='sm'>
-                <Drawer.Header>
-                    <Drawer.Title>Criar uma nova tarefa</Drawer.Title>
-                </Drawer.Header>
-                
-                <Drawer.Body>
-                    <form onSubmit={handleClose}>
-                        <TextField
+            <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+                <Alert onClose={handleCloseAlert} severity={estado}>
+                    {mensagem}
+                </Alert>
+            </Snackbar>
+
+            <Drawer 
+                anchor='right' 
+                open={openDrawer} 
+                onClose={handleClose} 
+                PaperProps={{sx: {width: '600px',
+                    padding: '30px 60px'}
+                }}
+            >
+                <Box width='480px'
+                    paddingBottom='20px' 
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='space-between'
+                >                  
+                    <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
+                        Cadastro de um novo Projeto
+                    </Typography>
+                    <ButtonCancel onClick={handleClose}/>
+                </Box>
+
+                <form onSubmit={handleClose}>
+                    <Stack spacing={2.5}>
+                        <CssTextField
                             required
                             onChange={(e) => setNomeTarefa(e.target.value)}
                             fullWidth
@@ -74,25 +157,24 @@ export default function TarefasProjeto(Props) {
                             id='outlined-required'
                             label='Nome'
                             placeholder='Digite o nome da Tarefa'
-                            margin='dense'
+                            value={nomeTarefa}
                         />
-                        
-                        <TextField
+
+                        <CssTextField
                             onChange={(e) => setDescricaoTarefa(e.target.value)}
                             fullWidth
                             size='small'
                             id='outlined-required'
                             label='Descrição'
                             placeholder='Digite a descrição da Tarefa'
-                            margin='normal'
+                            value={descricaoTarefa}
                         />
 
-                        <TextField
+                        <CssTextField
                             select
                             fullWidth
                             label='Prioridade'
                             size='small'
-                            margin='normal'
                             onChange={(e)=> handleChange(e)}
                             placeholder='Selecione a Prioridade'
                             defaultValue=''
@@ -100,26 +182,24 @@ export default function TarefasProjeto(Props) {
                             <MenuItem value={1}>Baixa</MenuItem>
                             <MenuItem value={2}>Média</MenuItem>
                             <MenuItem value={3}>Alta</MenuItem>
-                        </TextField>
+                        </CssTextField>
 
-                        <PessoasTarefa childToParentPessoa={childToParentPessoa}/>
+                        <PessoasTarefa dados={Props.dados} childToParent={childToParent}/>
 
-                        <Drawer.Actions>
-                            <ContButtons>
-                                <Button onClick={()=> {cadastrar(); handleClick()}} variant="primary" type="submit">
-                                    Cadastrar
-                                </Button>
-                                <Button onClick={() => setOpen(false)}>
-                                    Cancelar
-                                </Button>
-                            </ContButtons>
-                        </Drawer.Actions>
-                    </form>
-                </Drawer.Body>
+                        <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
+                            <Cancelar onClick={() => setOpenDrawer(false)}>
+                                Cancelar
+                            </Cancelar>
+                            <Cadastrar onClick={(e)=> {cadastrar(e); handleClick()}} type='submit'>
+                                Cadastrar
+                            </Cadastrar >
+                        </Box>
+                    </Stack>
+                </form>
             </Drawer>
             <div>
                 <ButtonMore onClick={handleOpen}>+</ButtonMore>
-            </div>
+            </div>            
         </>
     );
 }

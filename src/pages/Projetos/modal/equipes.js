@@ -7,15 +7,15 @@ export default function EquipesProjeto(Props) {
   const [equipes, setEquipes] = useState ([])
 
   useEffect(() => {
-      const getEquipes = async () => {
-        try {
-            const response = await api.get('/equipes');
-            setEquipes(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-      };
-      getEquipes();
+    const getEquipes = async () => {
+      try {
+        const response = await api.get('/equipes');
+        setEquipes(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getEquipes();
   }, []);
 
   const [nomeEquipe, setNomeEquipe] = useState(equipes)

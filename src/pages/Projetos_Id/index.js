@@ -3,28 +3,29 @@ import api from '../../api'
 import CardDetalhesList from '../../components/CardDetalhesList';
 import KanbanUl from '../../components/KanbanUl';
 import Header from '../../components/header'
-import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Deletar, Main } from './styles'
+import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
 import Edit from './put';
 import { useNavigate } from 'react-router-dom'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import AlertDeleteDialog from '../../components/CardConfirmDelete';
 
 export default function Index() {
     const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
     });
     
-    const [open, setOpen] = useState(false);
+    const [openAlert, setOpenAlert] = useState(false);
     
     const handleClickDelete = () => {
-        setOpen(true);
+        setOpenAlert(true);
     };
     
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
         return;
-    }
-    setOpen(false);
+        }
+        setOpenAlert(false);
     } 
 
     const path = window.location.pathname;
@@ -53,7 +54,7 @@ export default function Index() {
 
     return (
         <>
-            <Snackbar open={open} autoHideDuration={1500} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
+            <Snackbar open={openAlert} autoHideDuration={1500} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
                 <Alert onClose={handleCloseAlert} severity='warning'>
                     Projeto apagado com sucesso!
                 </Alert>
@@ -71,7 +72,7 @@ export default function Index() {
                             </Main>
                             <Buttons>
                                 <Edit dados={dados} atualizar={getDados}/>
-                                <Deletar onClick={deletarProjeto}>Deletar</Deletar>
+                                <AlertDeleteDialog />
                             </Buttons>
                         </Top>
                         <Detalhamento>
@@ -90,9 +91,9 @@ export default function Index() {
                             <CardDetalhesList width='58.32%' height='143px' keys={['Descrição']} values={[dados.dados.pr_descricao]} />
 
                             <CardDetalhesList width='15.32%' height='143px' keys={[
-                                'Total de Tarefas', 'Total de Pessoas', 'Status'
+                                'Total de Tarefas', 'Total de Pessoas'
                                 ]} values={[
-                                    dados.tarefas.EmDesenvolvimento.length + dados.tarefas.Concluidas.length + dados.tarefas.NaoIniciadas.length + dados.tarefas.Testes.length, qtd_pessoas, dados.dados.pr_status
+                                    dados.tarefas.EmDesenvolvimento.length + dados.tarefas.Concluidas.length + dados.tarefas.NaoIniciadas.length + dados.tarefas.Testes.length, qtd_pessoas
                                 ]} />
                         </Detalhamento>
                         <Trelo>
