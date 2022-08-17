@@ -41,7 +41,7 @@ export const Title = styled.div`
     margin-left: 17px;
 `;
 
-export const Edit = styled.button`
+export const Editar = styled.button`
     width: 82px;
     height: 20px;
 
@@ -61,12 +61,11 @@ export const Delete = styled.button`
     width: 82px;
     height: 20px;
 
-    color: white;
-
     text-align: center;
 
     margin-top: 31px;
 
+    color: white;
     background-color: #E74444;
     border-radius: 14px;
 `
@@ -77,11 +76,15 @@ export const SubTitle = styled.div`
     line-height: 30px;
 
     color: #280948;
+
     margin-top: 18px;
     margin-bottom: 11px;
     margin-left: 17px;
 `;
 
+export const SmallCont = styled.div`
+    min-height: 40%;
+`;
 export const Members = styled.div`
     color: #280948;
 
@@ -117,8 +120,6 @@ export const Person = styled.div`
         width: 5px;
         border-radius: 10px;
     }
-
-
 `;
 
 export const Ellipse = styled.div`
@@ -128,12 +129,10 @@ export const Ellipse = styled.div`
     border-radius: 20px;
     
     margin-left: 10px;
+
     display: flex;
     justify-content: center;
-
-
-
-`
+`;
 
 export const Icon = styled.div`
     border: 0.5px solid #280948;
@@ -173,11 +172,14 @@ export const TotalTask = styled.div`
 `;
 
 export const Card = styled.div`
-    width: 10rem;
+    width: 9.9rem;
     height: 14.125rem;
-    background-color: white ;
+    background-color: white;
 
-    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+    margin-left: -5px;
+    margin-right: 10px;
+
+    box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 `;
 
