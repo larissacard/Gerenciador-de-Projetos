@@ -1,11 +1,13 @@
 import React, { Component, useEffect, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, Container, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Edit, SmallInfo, SmallIcon } from './style';
+import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, Container, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont } from './style';
 import { render } from '@testing-library/react';
 import { Equipes } from '../../../styles/Icons';
 import { Progress } from 'rsuite';
 import { Deletar } from '../../Projetos_Id/styles';
 import { useNavigate } from 'react-router-dom'
+import { Ranking } from '../grafico';
+import Edit from '../put';
 
 const style = {
   width: 125,
@@ -41,44 +43,60 @@ function GetEquipe() {
     )
   }
 
-  const Calculo = (props) => {
+  function Calculo (status) {
     var result = 0
-    if (props.status === `Concluidos`) {
-      result = Math.round((props.ConcluidosT * 100) / props.totalT)
-      return (
-        result
+    var total = equipe.tarefas.total;
+
+    if(equipe.tarefas !== null){
+      if (status === `Concluidos`) {
+        var concluidos = equipe.tarefas.Concluidas;
+        result = Math.round(( concluidos* 100) / total)
+        return (
+          result
+        )
+      }
+  
+      else if (status === `Não Iniciado`) {
+        var NaoIniciadas = equipe.tarefas.NaoIniciadas;
+        result = Math.round((NaoIniciadas * 100) / total)
+        return (
+          result
+        )
+      }
+  
+      else if (status === `Em Andamento`) {
+        var EmAndamento = equipe.tarefas.EmAndamento;
+        result = Math.round((EmAndamento * 100) / total)
+        return (
+          result
+        )
+      }
+  
+      else if ( status === 'Em Teste') {
+        var EmTeste = equipe.tarefas.EmTestes;
+        result = Math.round((EmTeste * 100) / total)
+        return (
+          result
+        )
+      }
+
+      else{
+        return(
+          result
+        )
+      }
+
+      
+    }
+    else{
+      return(
+        <p>Sem Informações</p>
       )
     }
 
-    else if (props.status === `Não Iniciado`) {
-      result = Math.round((props.NaoIniciadas * 100) / props.totalT)
-      return (
-        result
-      )
-    }
 
-    else if (props.status === `Em Andamento`) {
-      result = Math.round((props.EmAndamento * 100) / props.totalT)
-      return (
-        result
-      )
-    }
 
-    else {
-      result = Math.round((props.EmTeste * 100) / props.totalT)
-      return (
-        result
-      )
-    }
   }
-
-  const TKN = 0
-  const TKA = 0
-  // <Calculo status="Em Andamento" EmAndamento={equipe.tarefas.EmAndamento} totalT={equipe.tarefas.total}/>
-  const TKT = 0
-  const TKC = 0
-
-
 
   return (
     <>
@@ -87,25 +105,29 @@ function GetEquipe() {
           <ColunaUm>
             <div className='d-flex'>
               <Title>{equipe.eq_nome}</Title>
-              <Edit>Editar</Edit>
+              <Editar>
+                <Edit/>
+              </Editar>
               <Delete onClick={deletarEquipe}>Deletar</Delete>
             </div>
-            <SubTitle>Todos os membros</SubTitle>
-            {equipe.pessoas.map((e) =>
-              <Person key={e.pe_id}>
-                <Ellipse>
-                  <Icon>{e.pe_foto}</Icon>
-                </Ellipse>
-                <Name>{e.pe_nome}</Name>
-                <Job>{e.pe_cargo}</Job>
+            <SmallCont>
+              <SubTitle>Todos os membros</SubTitle>
+              {equipe.pessoas.map((e) =>
+                <Person key={e.pe_id}>
+                  <Ellipse>
+                    <Icon>{e.pe_foto}</Icon>
+                  </Ellipse>
+                  <Name>{e.pe_nome}</Name>
+                  <Job>{e.pe_cargo}</Job>
 
-                <TotalTask>{e.tarefas.qtd}</TotalTask>
-              </Person>
-            )}
+                  <TotalTask>{e.tarefas.qtd}</TotalTask>
+                </Person>
+              )}
+            </SmallCont>
 
             <SubTitle>Estrutura da Equipe</SubTitle>
             <div className='d-flex justify-content-between'>
-              <Card>
+                <Card>
                 <CardIcon>
                   <img src="../../../assets/cod.svg" />
                 </CardIcon>
@@ -118,7 +140,7 @@ function GetEquipe() {
                 </Pontos>
               </Card>
               <Card>
-                <CardIcon>
+                <CardIcon style={{backgroundColor: "#667EEA"}}>
                   <img src='../../../assets/pincel.svg' />
                 </CardIcon>
                 <Pontos>
@@ -128,7 +150,7 @@ function GetEquipe() {
               </Card>
 
               <Card>
-                <CardIcon>
+                <CardIcon style={{backgroundColor: "#E391EA"}}>
                   <img src='../../../assets/sqa.svg' />
                 </CardIcon>
                 <Pontos>
@@ -143,8 +165,7 @@ function GetEquipe() {
 
           <ColunaDois>
             <SubTitle>RANKING</SubTitle>
-            <p>grafico</p>
-            <p></p>
+            {/* <Ranking/> */}
 
             <SubTitle>Tarefas da Equipe</SubTitle>
 
@@ -154,7 +175,7 @@ function GetEquipe() {
                 {/* <h6>{equipe.tarefas.Concluidas}</h6>
                 <p>Tasks</p> */}
                 <div style={style}>
-                  <Progress.Circle percent={<Calculo status="Concluidos" ConcluidosT={equipe.tarefas.Concluidas} totalT={equipe.tarefas.total} />} strokeColor="#667EEA" strokeWidth="12" trailColor="white" trailWidth="10" />
+                  <Progress.Circle percent={Calculo("Concluidos")} strokeColor="#667EEA" strokeWidth="12" trailColor="white" trailWidth="10" />
                 </div>
                 <SmallInfo>
                   <SmallIcon>
@@ -170,7 +191,7 @@ function GetEquipe() {
                   <h6>{equipe.tarefas.NaoIniciadas}</h6>
                   <p>Tasks</p>
                   <div>
-                    <Progress.Line percent={<Calculo status="Não Iniciado" NaoIniciadas={equipe.tarefas.NaoIniciadas} totalT={equipe.tarefas.total} />} strokeColor="#667EEA" trailColor="white" />
+                    <Progress.Line percent={Calculo("Não Iniciado")} strokeColor="#667EEA" trailColor="white" />
                   </div>
                 </CardTask>
                 <CardTask>
@@ -178,7 +199,7 @@ function GetEquipe() {
                   <h6>{equipe.tarefas.EmAndamento}</h6>
                   <p>Tasks</p>
                   <div>
-                    <Progress.Line percent={<Calculo status="Em Andamento" EmAndamento={equipe.tarefas.EmAndamento} totalT={equipe.tarefas.total} />} strokeColor="#764BA2" trailColor="white" />
+                    <Progress.Line percent={Calculo("Em Andamento")} strokeColor="#764BA2" trailColor="white" />
                   </div>
                 </CardTask>
                 <CardTask>
@@ -186,7 +207,7 @@ function GetEquipe() {
                   <h6>{equipe.tarefas.EmTestes}</h6>
                   <p>Tasks</p>
                   <div>
-                    <Progress.Line percent={<Calculo EmTeste={equipe.tarefas.EmTestes} totalT={equipe.tarefas.total} />} strokeColor="#E391EA" trailColor="white" />
+                    <Progress.Line percent={Calculo("Em Teste")} strokeColor="#E391EA" trailColor="white" />
                   </div>
                 </CardTask>
               </div>
