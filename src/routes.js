@@ -8,6 +8,8 @@ import EquipesId from './pages/Equipes_Id'
 import Tarefas from './pages/Tarefas'
 import TarefasId from './pages/Tarefas_Id'
 import Pessoas from './pages/Pessoas'
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function Rout() {
     return (
@@ -21,6 +23,8 @@ function Rout() {
                 <Route exact path="/pessoas" element={<Pessoas/>} />
                 <Route exact path="/tarefas" element={<Tarefas/>} />
                 <Route exact path="/tarefas/:id" element={<TarefasId/>} />
+                <Route exact path="/registro" element={<Register/>} />
+                <Route exact path="/login" element={<Login/>} />
             </Routes>
         </BrowserRouter>
     )
