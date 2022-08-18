@@ -10,7 +10,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDeleteDialog() {
+export default function AlertDeleteDialog(Props) {
     const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
     });
@@ -41,7 +41,7 @@ export default function AlertDeleteDialog() {
 
     let navigate = useNavigate()
 
-    const deletarProjeto = (pr_id) => {
+    const deletarProjeto = () => {
         api.delete(path)
         handleClickDelete();
         setTimeout(() => navigate('/projetos'), 1500);
@@ -50,10 +50,10 @@ export default function AlertDeleteDialog() {
     return (
         <>
             <Snackbar open={openAlert} autoHideDuration={1500} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
-                    <Alert onClose={handleCloseAlert} severity='warning'>
-                        Projeto apagado com sucesso!
-                    </Alert>
-                </Snackbar>
+                <Alert onClose={handleCloseAlert} severity='warning'>
+                    {Props.alert}
+                </Alert>
+            </Snackbar>
             
             <div>
                 <Deletar onClick={handleClick}>
@@ -71,11 +71,11 @@ export default function AlertDeleteDialog() {
                     }}
                 >
                     <DialogTitle sx={{color: '#280948' }}>
-                        {'Excluir Projeto Permanentemente?'}
+                        {Props.titulo}
                     </DialogTitle>
                     <DialogContent>
                     <DialogContentText sx={{color: 'rgba(40, 9, 72, 0.5)'}}>
-                        Se você excluir este projeto, não poderá recuperá-lo. Deseja excluí-lo?
+                        {Props.descricao}
                     </DialogContentText>
                     </DialogContent>
                     <DialogActions sx={{marginRight: '8px', marginBottom: '4px'}}>

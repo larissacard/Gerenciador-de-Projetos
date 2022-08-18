@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Top, Body } from './styles';
+import { Container, Top, Body, Prioridade } from './styles';
 import { useDrag } from 'react-dnd'
+import DetalheTarefa from './dialog';
 
 function KanbanLi(Props) {
   const [{isDragging}, dragRef] = useDrag({
@@ -14,20 +15,22 @@ function KanbanLi(Props) {
   return (
     <Container ref={dragRef} isDragging={isDragging}>
       <Top>
-        <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome} (#{Props.dados.tr_id})</h3>
-        <span style={{ backgroundColor: Props.dados.tr_prioridade === 1 ? "#67CB65" :
-                                        Props.dados.tr_prioridade === 2 ? "#FF9533" : 
-                                        Props.dados.tr_prioridade === 3 ? "#E74444" : "gray"}}>
-          {
-            Props.dados.tr_prioridade === 1 ? "Baixa" :
-            Props.dados.tr_prioridade === 2 ? "Média" :
-            Props.dados.tr_prioridade === 3 ? "Alta" :
-            Props.dados.tr_prioridade
-          }
-        </span>
+        <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome}</h3>
       </Top>
       <Body>
-          <ul>
+          <Prioridade>
+            <span style={{ backgroundColor: Props.dados.tr_prioridade === 1 ? "#67CB65" :
+                                            Props.dados.tr_prioridade === 2 ? "#FF9533" : 
+                                            Props.dados.tr_prioridade === 3 ? "#E74444" : "gray"}}>
+              {
+                Props.dados.tr_prioridade === 1 ? "Baixa" :
+                Props.dados.tr_prioridade === 2 ? "Média" :
+                Props.dados.tr_prioridade === 3 ? "Alta" :
+                Props.dados.tr_prioridade
+              }
+            </span>
+          </Prioridade>
+          {/* <ul>
             <li>
               {Props.dados.tr_descricao.length > 100 ?
               <span><strong>Descricao:</strong> {`${Props.dados.tr_descricao.substring(0, 100)}...`}</span>
@@ -45,8 +48,8 @@ function KanbanLi(Props) {
               <span>{Props.dados.tr_data_finalizacao.substring(0,10)}</span>
             </li>
             }
-            {/* <li> <strong>Data de Entrega:</strong> {Props.dados.tr_data_entrega}</li> */}
-          </ul>
+            <li> <strong>Data de Entrega:</strong> {Props.dados.tr_data_entrega}</li>
+          </ul> */}
       </Body>
     </Container>
   );

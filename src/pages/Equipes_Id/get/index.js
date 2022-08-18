@@ -8,6 +8,8 @@ import { Deletar } from '../../Projetos_Id/styles';
 import { useNavigate } from 'react-router-dom'
 import { Ranking } from '../grafico';
 import PutEquipes from '../put';
+import App from '../grafico';
+import RANKING from '../grafico';
 
 const style = {
   width: 125,
@@ -110,8 +112,9 @@ function GetEquipe() {
               </Editar>
               <Delete onClick={deletarEquipe}>Deletar</Delete>
             </div>
+            <SubTitle>Todos os membros</SubTitle>
             <SmallCont>
-              <SubTitle>Todos os membros</SubTitle>
+              
               {equipe.pessoas.map((e) =>
                 <Person key={e.pe_id}>
                   <Ellipse>
@@ -120,13 +123,13 @@ function GetEquipe() {
                   <Name>{e.pe_nome}</Name>
                   <Job>{e.pe_cargo}</Job>
 
-                  <TotalTask>{e.tarefas.qtd}</TotalTask>
+                  <TotalTask>{e.tarefas.qtd} tasks</TotalTask>
                 </Person>
               )}
             </SmallCont>
 
             <SubTitle>Estrutura da Equipe</SubTitle>
-            <div className='d-flex justify-content-between'>
+            <div className='d-flex justify-content-between mt-3'>
                 <Card>
                 <CardIcon>
                   <img src="../../../assets/cod.svg" />
@@ -165,10 +168,9 @@ function GetEquipe() {
 
           <ColunaDois>
             <SubTitle>RANKING</SubTitle>
-            {/* <Ranking/> */}
+             <RANKING/>
 
             <SubTitle>Tarefas da Equipe</SubTitle>
-
             <Tasks>
               <BigTaskCard>
                 <h5>Tarefas Completas</h5>
@@ -181,7 +183,7 @@ function GetEquipe() {
                   <SmallIcon>
                     <img src='../../../assets/check.svg' />
                   </SmallIcon>
-                  <p>Tarefas Completas: {equipe.tarefas.Concluidas}</p>
+                  <p>Total Tasks Concluidas: {equipe.tarefas.Concluidas}</p>
                 </SmallInfo>
 
               </BigTaskCard>

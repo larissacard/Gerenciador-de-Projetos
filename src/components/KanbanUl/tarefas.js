@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Drawer, Box, Typography, TextField, Snackbar, Stack, MenuItem } from '@mui/material'
+import { Drawer, Box, Typography, TextField, Snackbar, Stack, MenuItem, Icon } from '@mui/material'
+import { blue } from '@mui/material/colors';
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
 import PessoasTarefa from './pessoas';
-import { ButtonMore, Cadastrar, Cancelar, ButtonCancel } from './styles'
+import { Cadastrar, Cancelar, ButtonCancel } from './styles'
 import api from '../../api';
 
 const CssTextField = styled(TextField)({
@@ -111,7 +112,7 @@ export default function TarefasProjeto(Props) {
             setEstado('success');
             setOpenDrawer(false)
             Props.func()
-            Props.update()
+         
         })
         .catch (e => {
             setMensagem(e.response.data);
@@ -200,9 +201,20 @@ export default function TarefasProjeto(Props) {
                     </Stack>
                 </form>
             </Drawer>
-            <div>
-                <ButtonMore onClick={handleOpen}>+</ButtonMore>
-            </div>            
+            <Box
+                onClick={handleOpen}
+                cursor='pointer'
+                sx={{
+                    '& > :not(style)': {
+                    marginRight: '0px',
+                    cursor: 'pointer',
+                    fontSize: 35
+                    },
+                }}
+            >
+                <Icon sx={{ color: blue[600] }}>add_circle</Icon>
+            </Box> 
+               
         </>
     );
 }
