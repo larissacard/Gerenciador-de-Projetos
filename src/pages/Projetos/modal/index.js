@@ -46,7 +46,6 @@ const CssTextField = styled(TextField)({
     },
 })
 
-
 export default function PostProjetos (Props) {
     const [equipeEscolhida, setEquipeEscolhida] = useState()
     const childToParent = (childdata) => {
@@ -139,6 +138,7 @@ export default function PostProjetos (Props) {
             <form onSubmit={handleClose}>
                 <Stack spacing={2.5}>
                     <CssTextField
+                        autoComplete='off'
                         required
                         onChange={(e) => setNomeProjeto(e.target.value)}
                         fullWidth
@@ -150,6 +150,7 @@ export default function PostProjetos (Props) {
                     />
 
                     <CssTextField
+                        autoComplete='off'
                         onChange={(e) => setDescricaoProjeto(e.target.value)}
                         fullWidth
                         size='small'

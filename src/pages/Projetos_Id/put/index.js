@@ -135,6 +135,7 @@ function Edit(Props) {
                 <form onSubmit={handleClose}>
                     <Stack spacing={2.5}>
                         <CssTextField
+                            autoComplete='off'
                             required
                             onChange={(e) => setNomeEditProjeto(e.target.value)}
                             fullWidth
@@ -146,6 +147,7 @@ function Edit(Props) {
                         />
 
                         <CssTextField
+                            autoComplete='off'
                             onChange={(e) => setDescricaoEditProjeto(e.target.value)}
                             fullWidth
                             size='small'

@@ -30,7 +30,7 @@ export default function Index() {
 
     const path = window.location.pathname;
     const [dados, setDados] = useState()
-    const [updateScrenn, setUpdateScreen] = useState(true)
+    const [updateScreen, setUpdateScreen] = useState(true)
     let string_equipes = ''
     let qtd_pessoas = 0
 
@@ -41,7 +41,7 @@ export default function Index() {
         setDados(response.data);
     };
 
-    if (updateScrenn) {
+    if (updateScreen) {
         getDados()
         setUpdateScreen(false)
     };

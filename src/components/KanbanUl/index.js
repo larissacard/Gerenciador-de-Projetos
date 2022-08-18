@@ -29,7 +29,7 @@ function KanbanUl(Props) {
           <h2>{Props.titulo}</h2>
           
           {Props.index === 1 &&
-            <TarefasProjeto />
+            <TarefasProjeto func={Props.func}/>
           }
         </Top>
         <ContTarefas>
