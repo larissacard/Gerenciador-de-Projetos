@@ -37,21 +37,21 @@ function Header() {
                 <a href="/equipes">
                     <MenuButton>
                         <ImgEquipes className={url.substring(0,8) === '/equipes' ? 'active' : ""}/>
-                        <span className={url.substring(0,9) === '/equipes' ? 'active' : ""}>Equipes</span>
+                        <span className={url.substring(0,8) === '/equipes' ? 'active' : ""}>Equipes</span>
                     </MenuButton> 
                 </a>
 
                 <a href="/pessoas">
                     <MenuButton>
                         <ImgPessoas className={url.substring(0,8) === '/pessoas' ? 'active' : ""}/>
-                        <span className={url.substring(0,9) === '/pessoas' ? 'active' : ""}>Pessoas</span>
+                        <span className={url.substring(0,8) === '/pessoas' ? 'active' : ""}>Pessoas</span>
                     </MenuButton> 
                 </a>
 
                 {/* <a href="/tarefas">
                     <MenuButton>
                         <ImgTarefas className={url.substring(0,8) === '/tarefas' ? 'active' : ""}/>
-                        <span className={url.substring(0,9) === '/tarefas' ? 'active' : ""}>Tarefas</span>
+                        <span className={url.substring(0,8) === '/tarefas' ? 'active' : ""}>Tarefas</span>
                     </MenuButton> 
                 </a> */}
             </NavMenu>
