@@ -34,25 +34,6 @@ export const Top = styled.div`
   align-items: center;
 `;
 
-export const ButtonMore = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 30px;
-  width: 30px;
-  font-size: 30px;
-  border-radius: 50%;
-  background-color: #667EEA;
-  color: #fff;
-  transition-duration: .2s;
-
-  &:hover {
-      transition-duration: .2s;
-      background: #4B67E4;
-  }
-`;
-
 export const ContButtons = styled.div`
   display: flex;
   margin-top: 10px;

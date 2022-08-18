@@ -1,37 +1,21 @@
 import * as React from 'react';
 import {useEffect, useState} from "react";
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Checkbox from '@mui/material/Checkbox';
 import { TextField, Autocomplete } from '@mui/material';
 import api from "../../../api";
-
-const ITEM_HEIGHT = 50;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-    },
-  },
-};
 
 export default function PessoasEquipe(Props) {
     const [pessoas, setPessoas] = useState ([])
 
     useEffect(() => {
-        const getPessoas = async () => {
-            try {
-                const response = await api.get('/pessoas');
-                setPessoas(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getPessoas();
+      const getPessoas = async () => {
+        try {
+          const response = await api.get('/pessoas');
+          setPessoas(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getPessoas();
     }, []);
 
     const [value, setValue] = useState(Props.dados.pessoas);

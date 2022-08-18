@@ -72,7 +72,9 @@ export default function Index() {
                             </Main>
                             <Buttons>
                                 <Edit dados={dados} atualizar={getDados}/>
-                                <AlertDeleteDialog />
+                                <AlertDeleteDialog alert="Projeto apagado com Sucesso!"
+                                    titulo='Excluir Projeto Permanentemente?'
+                                    descricao='Se você excluir este projeto, não poderá recuperá-lo. Deseja excluí-lo?' />
                             </Buttons>
                         </Top>
                         <Detalhamento>

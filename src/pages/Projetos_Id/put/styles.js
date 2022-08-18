@@ -11,14 +11,14 @@ export const Button = styled.button`
   transition-duration: .2s;
   
   img{
-      width: 1.5rem;
-      height: 1.5rem;
-      align-self: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-self: center;
   }
 
   &:hover{
-      transform: scale(1.1);
-      transition-duration: .2s;
+    transform: scale(1.1);
+    transition-duration: .2s;
   }
 `;
 
@@ -38,19 +38,18 @@ export const Editar = styled.button`
 `;
 
 export const Cancelar = styled.button`
-  background-color: #E74444;
+  background: rgba(40, 9, 72, 0.5);
   color: white;
-
   width: 100px;
   height: 35px;
   font-size: 16px;
   border-radius: 20px;
   text-align: center;
 
-  :hover{
+  &:hover {
     background-color: white;
-    color: #E74444;
-    border: solid 1px #E74444;
+    color: rgba(40, 9, 72, 0.5);
+    border: solid 1px rgba(40, 9, 72, 0.5);
   }
 `;
 
