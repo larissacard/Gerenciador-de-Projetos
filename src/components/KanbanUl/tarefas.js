@@ -110,6 +110,7 @@ export default function TarefasProjeto(Props) {
             setMensagem('Tarefa Inserida com Sucesso!')
             setEstado('success');
             setOpenDrawer(false)
+            Props.func()
             Props.update()
         })
         .catch (e => {
