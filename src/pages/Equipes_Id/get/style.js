@@ -32,13 +32,14 @@ export const ColunaDois = styled.div`
 
 export const Title = styled.div`
     font-weight: 700;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 48px;
 
     color: #280948;
 
     margin-top: 16px;
     margin-left: 17px;
+
 `;
 
 export const Editar = styled.button`
@@ -83,7 +84,21 @@ export const SubTitle = styled.div`
 `;
 
 export const SmallCont = styled.div`
-    min-height: 40%;
+    height: 43%;
+    margin-bottom: 30px;
+
+    overflow-y: scroll;
+    ::-webkit-scrollbar-thumb{
+        background: #764BA2;
+        border-radius: 10px;
+        width: 5px;
+    }
+        
+    ::-webkit-scrollbar{
+        background-color: #F5F5F7;
+        width: 5px;
+        border-radius: 10px;
+    }
 `;
 export const Members = styled.div`
     color: #280948;
@@ -109,17 +124,6 @@ export const Person = styled.div`
     margin-bottom: 21px;
     border-radius: 20px;
 
-    ::-webkit-scrollbar-thumb{
-        background: #764BA2;
-        border-radius: 10px;
-        width: 5px;
-    }
-        
-    ::-webkit-scrollbar{
-        background-color: #F5F5F7;
-        width: 5px;
-        border-radius: 10px;
-    }
 `;
 
 export const Ellipse = styled.div`
@@ -168,6 +172,7 @@ export const TotalTask = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+    
     margin-right: 33px;
 `;
 
@@ -205,19 +210,25 @@ export const Pontos = styled.div`
     line-height: 28px;
     display: flex;
     gap: 10px;
-
+    
     margin-top: 33px;
     margin-left: 13px;
-
+    
     color: #280948;
-
+    
     h6{ 
         font-size: 20px;
         line-height: 28px;
         color: #280948;
         font-weight: 400;
     }
+    
+`;
 
+export const Tasks = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 17px;
 `;
 
 export const BigTaskCard = styled.div`
@@ -229,7 +240,7 @@ export const BigTaskCard = styled.div`
     
     padding-top: 19px;
     padding-left: 22px;
-    margin-top: 3px;
+    margin-top: 30px;
 
     display: flex;
     flex-direction: column;
@@ -249,6 +260,7 @@ export const BigTaskCard = styled.div`
         color: #280948;
     }
 `;
+
 export const SmallInfo = styled.div`
     display: flex;
     align-items: center;
@@ -263,6 +275,7 @@ export const SmallInfo = styled.div`
         color: #280948;
     }
 `;
+
 export const SmallIcon = styled.div`
     width: 36px;
     height: 36px;
@@ -315,8 +328,3 @@ export const CardTask = styled.div`
     }
 `;
 
-export const Tasks = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 17px;
-`;
