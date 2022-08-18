@@ -112,6 +112,7 @@ function Reminders() {
             <Form onSubmit={(e) => cadastrar(e)}>
                 <Stack spacing={1.5}>
                     <CssTextField
+                        autoComplete='off'
                         fullWidth
                         label='Lembrete'
                         variant='outlined'
@@ -172,7 +173,6 @@ function Reminders() {
                             value={data}
                             label='Data'
                             onChange={handleChange}
-                    
                         />
                     </LocalizationProvider>
                     
