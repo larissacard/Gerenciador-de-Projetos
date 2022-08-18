@@ -5,7 +5,7 @@ export const Container = styled.li`
     border: 2px solid rgba(150, 178, 253, 0);
     border-radius: 20px;
     width: calc(100%-28px);
-    min-height: 70px;
+    min-height: 75px;
     cursor: grab;
     padding: 10px;
     overflow-x: hidden;

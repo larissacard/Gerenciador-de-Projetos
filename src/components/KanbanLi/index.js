@@ -15,7 +15,7 @@ function KanbanLi(Props) {
   return (
     <Container ref={dragRef} isDragging={isDragging}>
       <Top>
-        <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome} (#{Props.dados.tr_id})</h3>
+        <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome}</h3>
       </Top>
       <Body>
           <Prioridade>
