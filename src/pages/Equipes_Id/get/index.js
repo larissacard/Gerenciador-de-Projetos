@@ -106,7 +106,7 @@ function GetEquipe() {
             <div className='d-flex'>
               <Title>{equipe.eq_nome}</Title>
               <Editar>
-                 {/* <PutEquipes/>  */}
+                  <PutEquipes dados={equipe}/> 
               </Editar>
               <Delete onClick={deletarEquipe}>Deletar</Delete>
             </div>

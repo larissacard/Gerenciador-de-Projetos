@@ -48,10 +48,12 @@ const CssTextField = styled(TextField)({
 })
 
 function PutEquipes(Props) {
-    const [pessoaEscolhida, setPessoaEscolhida] = useState(Props.dados.pessoas)
-    const childToParent = (childdata) => {
-        setPessoaEscolhida(childdata);
-    }
+    console.log(Props)
+     const [pessoaEscolhida, setPessoaEscolhida] = useState(Props.dados.pessoas)
+     const childToParent = (childdata) => {
+         setPessoaEscolhida(childdata);
+         console.log(childdata)
+     }
 
     const [openDrawer, setOpenDrawer] = useState(false)
     
@@ -78,7 +80,7 @@ function PutEquipes(Props) {
     }
 
     const path = window.location.pathname;
-    const [nomeEditEquipe, setNomeEditEquipe] = useState(Props.dados.dados.eq_nome)
+    const [nomeEditEquipe, setNomeEditEquipe] = useState()
 
     const handleClickEdit = () => {
         if(nomeEditEquipe !== ''){
@@ -91,7 +93,7 @@ function PutEquipes(Props) {
         e.preventDefault();
         api.put(path,{
             eq_nome: nomeEditEquipe,
-            pessoas: pessoaEscolhida
+
         })
         .then(res=>{
             setMensagem('Equipe Editado com Sucesso!')
@@ -143,7 +145,7 @@ function PutEquipes(Props) {
                             value={nomeEditEquipe}
                         />
 
-                        <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>
+                         <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>
 
                         <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
                             <Cancelar onClick={() => setOpenDrawer(false)}>
