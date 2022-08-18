@@ -3,7 +3,7 @@ import { Drawer, Box, Typography, TextField, Snackbar, Stack, MenuItem } from '@
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
 import PessoasTarefa from './pessoas';
-import { Button, ButtonMore, ContButtons, Cadastrar, Cancelar, ButtonCancel } from './styles'
+import { ButtonMore, Cadastrar, Cancelar, ButtonCancel } from './styles'
 import api from '../../api';
 
 const CssTextField = styled(TextField)({
@@ -143,7 +143,7 @@ export default function TarefasProjeto(Props) {
                     justifyContent='space-between'
                 >                  
                     <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
-                        Cadastro de um novo Projeto
+                        Cadastro de uma Nova Tarefa
                     </Typography>
                     <ButtonCancel onClick={handleClose}/>
                 </Box>
@@ -151,6 +151,7 @@ export default function TarefasProjeto(Props) {
                 <form onSubmit={handleClose}>
                     <Stack spacing={2.5}>
                         <CssTextField
+                            autoComplete='off'
                             required
                             onChange={(e) => setNomeTarefa(e.target.value)}
                             fullWidth
@@ -162,6 +163,7 @@ export default function TarefasProjeto(Props) {
                         />
 
                         <CssTextField
+                            autoComplete='off'
                             onChange={(e) => setDescricaoTarefa(e.target.value)}
                             fullWidth
                             size='small'
