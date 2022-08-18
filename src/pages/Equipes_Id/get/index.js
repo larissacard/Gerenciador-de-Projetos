@@ -7,7 +7,7 @@ import { Progress } from 'rsuite';
 import { Deletar } from '../../Projetos_Id/styles';
 import { useNavigate } from 'react-router-dom'
 import { Ranking } from '../grafico';
-import Edit from '../put';
+import PutEquipes from '../put';
 
 const style = {
   width: 125,
@@ -106,7 +106,7 @@ function GetEquipe() {
             <div className='d-flex'>
               <Title>{equipe.eq_nome}</Title>
               <Editar>
-                <Edit/>
+                 {/* <PutEquipes/>  */}
               </Editar>
               <Delete onClick={deletarEquipe}>Deletar</Delete>
             </div>
