@@ -10,6 +10,7 @@ export const Container = styled.li`
     padding: 10px;
     overflow-x: hidden;
     cursor: pointer;
+    margin-bottom: 20px;
     
     ${props => props.isDragging && css`
     border: 2px dashed rgba(0,0,0,.2);

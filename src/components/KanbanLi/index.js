@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Top, Body, Prioridade } from './styles';
 import { useDrag } from 'react-dnd'
-import DetalheTarefa from './dialog';
+import DetalheTarefa from '../../pages/Projetos_Id/Components/Tarefas_Id';
+
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function KanbanLi(Props) {
   const [{isDragging}, dragRef] = useDrag({
@@ -10,10 +22,23 @@ function KanbanLi(Props) {
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
+
+
   })
 
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <Container ref={dragRef} isDragging={isDragging}>
+    <>
+    <Container ref={dragRef} isDragging={isDragging} onClick={handleClickOpen}>
       <Top>
         <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome}</h3>
       </Top>
@@ -52,6 +77,30 @@ function KanbanLi(Props) {
           </ul> */}
       </Body>
     </Container>
+    <div>
+ 
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Let Google help apps determine location. This means sending anonymous
+            location data to Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Disagree</Button>
+          <Button onClick={handleClose}>Agree</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+
+  </>
   );
 }
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -11,8 +11,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function DetalheTarefa() {
-  const [open, setOpen] = React.useState(false);
+export default function DetalheTarefa(Props) {
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -25,7 +25,7 @@ export default function DetalheTarefa() {
   return (
     <div>
       <Button onClick={handleClickOpen}/>
-      
+        
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -48,3 +48,5 @@ export default function DetalheTarefa() {
     </div>
   );
 }
+
+
