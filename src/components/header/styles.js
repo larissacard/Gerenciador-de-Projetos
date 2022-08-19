@@ -19,12 +19,27 @@ export const Container = styled.div `
 
     display: flex;
     flex-direction: column;
+    
+    font-weight: 500;
 
     @media (max-width: 1280px) {
         min-width: 65px;
     }
 
-    font-weight: 500;
+    @media (max-width: 767px) {
+        display: none;
+    }
+`;
+
+export const HeaderTwo = styled.div`
+    background-color: var(--roxo);
+    width: 360px;
+    height: 33px;
+    display: none;
+
+    /* @media (max-width: 767px) {
+        display: flex;
+    } */
 `;
 
 export const ContLogo = styled.div `
@@ -49,6 +64,11 @@ export const NavMenu = styled.div `
 
     > a {
         text-decoration: none;
+    }
+
+    @media (max-width: 767px) {
+        display: flex;
+        flex-direction: row;
     }
 `;
 

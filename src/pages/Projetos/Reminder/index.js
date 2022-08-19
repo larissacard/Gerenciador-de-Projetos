@@ -8,7 +8,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider,  } from '@mui/x-date-pickers/LocalizationProvider';
 import moment from 'moment';
 import 'moment/locale/pt-br'
-import { Lembretes, Nota, Save, Name, Descricao, Datetime, Delete } from './styles';
+import { Lembretes, Nota, Save, Name, Descricao, Datetime, Delete, Container } from './styles';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -181,36 +181,37 @@ function Reminders() {
                     </Save >
                 </Stack>
             </Form>
-            <Lembretes>
-                {lembretes.map(le => (
-                    <Nota key={le.le_id}>
-                        <div className='d-flex justify-content-end'>
-                        <Delete onClick={() => deleteReminder(le.le_id)}>
-                            <img src='assets/delete.svg'/>
-                        </Delete>
-                        </div>
-                        <div className='d-flex justify-content-between'>
-                            <div>
+            <Container>
+                <Lembretes>
+                    {lembretes.map(le => (
+                        <Nota key={le.le_id}>  
+                            <div className='d-flex justify-content-end'>
+                            <Delete onClick={() => deleteReminder(le.le_id)}/>
+                            </div>
+
+                            <div className='d-flex justify-content-between'>
+                                <div>
+                                    
+                                    <Name>
+                                        <img src='assets/pin.svg' />
+                                        {le.le_descricao}
+                                    </Name>
+                                    <Descricao></Descricao>
+                                </div>
+                                <div>
+                                    <Datetime>
+                                        <img src='assets/calendar.svg' />
+                                        {moment(le.le_data_lembrete)
+                                            .format('MMM Do YY')}
+                                    </Datetime>
+                                    <div><em>{moment(new Date(le.le_data_lembrete)).fromNow()}</em></div>
+                                </div>
+                            </div>
                             
-                                <Name>
-                                    <img src='assets/pin.svg' />
-                                    {le.le_descricao}
-                                </Name>
-                                <Descricao></Descricao>
-                            </div>
-                            <div>
-                                <Datetime>
-                                    <img src='assets/calendar.svg' />
-                                    {moment(le.le_data_lembrete)
-                                        .format('MMM Do YY')}
-                                </Datetime>
-                                <div><em>{moment(new Date(le.le_data_lembrete)).fromNow()}</em></div>
-                            </div>
-                        </div>
-                        
-                    </Nota>
-                ))}
-            </Lembretes>
+                        </Nota>
+                    ))}
+                </Lembretes>
+            </Container>
         </div>
 
     )
