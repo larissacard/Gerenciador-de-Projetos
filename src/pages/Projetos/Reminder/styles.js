@@ -64,13 +64,9 @@ export const Descricao = styled.div`
     opacity: 0.8;
 `;
 
-export const Lembretes = styled.div`
-    height: 300px;
-    width: 100%;
-    padding-top: 0px;
-    padding-right: 10px;
-    margin-top: 16px;
-
+export const Container = styled.div`
+    height: 320px;
+    
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -85,11 +81,30 @@ export const Lembretes = styled.div`
         width: 5px;
         border-radius: 10px;
     }
+
+    @media (max-width: 1380px) {
+        height: 260px;
+    }
+
+    @media (max-width: 767px) {
+        height: 180px;
+    }
+`;
+
+export const Lembretes = styled.div`
+    height: 300px;
+    width: 100%;
+    padding-top: 0px;
+    padding-right: 10px;
+    margin-top: 16px;
+
+    
+
 `;
 
 export const Datetime = styled.div`
     color: #280948;
-    margin-right: 45px;
+    margin-right: 55px;
     margin-top: 6px;
 
     img{
@@ -98,10 +113,18 @@ export const Datetime = styled.div`
 
 `;
 
-export const Delete = styled.button`
-    background-color: transparent;
-    margin-right: 10px;
-    margin-bottom: -14px;
-    margin-top: 4px;
+export const Delete = styled.div`
+    margin-top: 7px;
+    margin-right: 9px;
+    margin-bottom: -10px;
+
+    width: 15px;
+    height: 15px;
+    background-image: url('assets/cancel.svg');
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+    
+    :hover {
+        transform: rotate(360deg);
+    }
 `;
-   

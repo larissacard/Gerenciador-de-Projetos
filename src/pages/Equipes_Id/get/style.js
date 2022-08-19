@@ -5,6 +5,8 @@ export const Container = styled.div`
     max-width: 34.313rem;
     max-height: 53.25rem;
     background-color: white;
+
+ 
 `
 
 export const ColunaUm = styled.div`

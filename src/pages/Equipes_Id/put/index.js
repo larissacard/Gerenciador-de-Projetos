@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles'
@@ -6,6 +6,7 @@ import { Cadastrar, Cancelar, ButtonCancel, Editar } from './styles'
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
 import "rsuite/dist/rsuite.min.css";
+import GetEquipe from '../get';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -48,8 +49,8 @@ const CssTextField = styled(TextField)({
 })
 
 function PutEquipes(Props) {
-     const [pessoaEscolhida, setPessoaEscolhida] = useState(Props.dados.pessoas)
-     const childToParent = (childdata) => {
+    const [pessoaEscolhida, setPessoaEscolhida] = useState(Props.dados.pessoas)
+    const childToParent = (childdata) => {
          setPessoaEscolhida(childdata);
          console.log(childdata)
      }
@@ -86,7 +87,6 @@ function PutEquipes(Props) {
             setTimeout(() => setOpenAlert(true), 150)
         }
     }
-    
 
     function update(e){
         e.preventDefault();
@@ -97,12 +97,12 @@ function PutEquipes(Props) {
         .then(res=>{
             setMensagem('Equipe Editado com Sucesso!')
             setOpenDrawer(false)
-            Props.update()
         })
         .catch(e => { 
             console.log(e)
         })
     }
+
 
     return (
         <>
@@ -150,7 +150,7 @@ function PutEquipes(Props) {
                             <Cancelar onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar onClick={(e)=> {update(e); handleClickEdit()}} type='submit'>
+                            <Cadastrar onClick={(e)=> {update(e); handleClickEdit()}}type='submit'>
                                 Cadastrar
                             </Cadastrar >
                         </Box>

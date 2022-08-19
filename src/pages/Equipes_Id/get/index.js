@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useReducer, useState } from 'react';
 import api from '../../../api';
 import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, Container, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont } from './style';
 import { render } from '@testing-library/react';
@@ -21,20 +21,34 @@ function GetEquipe() {
   const path = window.location.pathname;
   let navigate = useNavigate()
 
+
+
   useEffect(() => {
-    api.get(path)
+     api.get(path)
       .then((response) => {
         setEquipe(response.data)
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+        updateScreen();
+       })
+       .catch((e) => {
+         console.log(e)
+       })
   }, [])
 
   const deletarEquipe = (eq_id) => {
     api.delete(path)
     setTimeout(() => navigate('/equipes'), 1500);
   };
+
+  function updateScreen() {
+    api.get(path)
+    .then((response) => {
+      setEquipe(response.data)
+      updateScreen();
+     })
+     .catch((e) => {
+       console.log(e)
+     })
+}
 
   // console.log(qtBack)
 
@@ -95,11 +109,9 @@ function GetEquipe() {
         <p>Sem Informações</p>
       )
     }
-
-
-
   }
 
+  
   return (
     <>
       {equipe ?
@@ -108,7 +120,7 @@ function GetEquipe() {
             <div className='d-flex'>
               <Title>{equipe.eq_nome}</Title>
               <Editar>
-                  <PutEquipes dados={equipe}/> 
+                  <PutEquipes dados={equipe} /> 
               </Editar>
               <Delete onClick={deletarEquipe}>Deletar</Delete>
             </div>

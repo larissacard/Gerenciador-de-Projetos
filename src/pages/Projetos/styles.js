@@ -11,6 +11,11 @@ export const Container = styled.div`
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 32px;
+
+    @media (max-width: 480px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 `;
 
 export const ColunaUm = styled.div`
@@ -49,6 +54,12 @@ export const ColunaDois = styled.div`
     
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 1280px) {
+        height: 823px;
+    }
+
+
 `;
 
 export const CardCalendar = styled.div`
@@ -115,6 +126,14 @@ export const CabecalhoProjetos = styled.div`
         font-size: 1.25rem;
         line-height: 1.87rem;
         width: 11.18rem;
+    }
+
+    @media (max-width: 767px) {
+        h2{
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+        }
     }
 `;
 
@@ -184,6 +203,17 @@ export const ContTabela = styled.div`
         background-color: #F5F5F7;
         width: 5px;
         border-radius: 10px;
+    }
+
+    @media (max-width: 767px) {
+        height: 280px;
+        overflow-y: hidden;
+
+        p,a{
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 15px;
+        }
     }
 `;
 
