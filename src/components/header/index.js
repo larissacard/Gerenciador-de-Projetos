@@ -21,7 +21,7 @@ function Header() {
     let url = useLocation().pathname;
 
     return (
-        <div>
+        <>
         <Container>
             {/* Logo da Brisanet, que está sendo carregado por um svg em 'src/styles/Icons.js' */}
             <ContLogo>
@@ -94,8 +94,7 @@ function Header() {
                 </a> */}
             </NavMenu>
         </HeaderTwo>
-
-        </div>
+        </>
     );
 }
 
