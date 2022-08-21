@@ -175,6 +175,7 @@ export const SearchIcon = styled(Lupa)`
 export const ContTabela = styled.div`
     width: 100%;
     margin-top: 10px;
+    overflow-y: hidden;
 
     a {
         color: white;
@@ -190,7 +191,26 @@ export const ContTabela = styled.div`
         padding: 0px 10px;
         overflow-y: scroll;
         overflow-x: hidden;
-        height: calc(min(355px, 35vh));
+        height: 16.5%;
+        transition-duration: .2s;
+        
+        @media (min-height: 750px) {
+            height: 240px;
+        }
+
+        @media (min-height: 850px) {
+            height: 280px;
+        }
+
+        @media (min-height: 920px) {
+            height: 330px;
+        }
+
+
+        @media (min-height: 1000px) {
+            height: 380px;
+        }
+
     }
     
     ul::-webkit-scrollbar-thumb{
