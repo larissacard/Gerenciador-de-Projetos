@@ -53,7 +53,6 @@ export const ColunaDois = styled.div`
     height: calc(100% - 48px);
     margin: 24px 10px;
     background-color: #fff;
-    padding: 0 10px;
     border-radius: 20px;
     
     display: flex;
