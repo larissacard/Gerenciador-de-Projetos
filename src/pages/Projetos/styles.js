@@ -16,6 +16,7 @@ export const Container = styled.div`
         display: flex;
         flex-wrap: wrap;
     }
+    overflow: hidden;
 `;
 
 export const ColunaUm = styled.div`
@@ -51,15 +52,14 @@ export const ColunaDois = styled.div`
     width: 33%;
     height: calc(100% - 48px);
     margin: 24px 10px;
+    background-color: #fff;
+    padding: 0 10px;
+    border-radius: 20px;
     
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 1280px) {
-        height: 823px;
-    }
-
-
+    position: relative;
 `;
 
 export const CardCalendar = styled.div`

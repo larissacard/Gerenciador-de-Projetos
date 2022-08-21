@@ -1,55 +1,14 @@
 import { useState, useEffect } from 'react';
 import api from '../../../api';
 import { Form } from 'react-bootstrap';
-import { styled } from '@mui/material/styles';
 import { Stack, TextField } from '@mui/material';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider,  } from '@mui/x-date-pickers/LocalizationProvider';
 import moment from 'moment';
 import 'moment/locale/pt-br'
-import { Lembretes, Nota, Save, Name, Descricao, Datetime, Delete, Container } from './styles';
+import { Lembretes, Nota, Save, Name, Descricao, Datetime, Delete, Container, CssTextField } from './styles';
 
-const CssTextField = styled(TextField)({
-    '&:hover .MuiInputLabel-outlined': {
-        color: '#6956E5',
-        transition: '0.5s',
-    },
-    '& .MuiOutlinedInput-root': {
-        color: '#764BA2',
-        transition: '0.5s',
-        '&:hover' :{
-            color: '#6956E5',
-            transition: '0.5s',
-        },
-        '&.Mui-focused': {
-            borderColor: '#764BA2',
-            color: '#280948',
-            transition: '0.5s',
-        },
-        '& fieldset': {
-            borderRadius: 20,
-            border: '2px solid #764BA2',
-            transition: '0.5s',
-        },
-          '&:hover fieldset': {
-            border: '2px solid #6956E5',
-            transition: '0.5s',
-          },
-        '&.Mui-focused fieldset': {
-            borderColor: '#280948',
-            transition: '0.5s',
-        },
-    },
-    '.MuiInputLabel-outlined': {
-        color: '#764BA2',
-        transition: '0.5s',
-        '&.Mui-focused': {
-            color: '#280948',
-            transition: '0.5s',
-        },
-    },
-})
 
 function Reminders() {
     const [data, setData] = useState(new Date().toISOString())
@@ -176,9 +135,7 @@ function Reminders() {
                         />
                     </LocalizationProvider>
                     
-                    <Save>
-                        Salvar
-                    </Save >
+                    <Save>Salvar</Save >
                 </Stack>
             </Form>
             <Container>
@@ -186,16 +143,12 @@ function Reminders() {
                     {lembretes.map(le => (
                         <Nota key={le.le_id}>  
                             <div className='d-flex justify-content-end'>
-                            <Delete onClick={() => deleteReminder(le.le_id)}/>
+                                <Delete onClick={() => deleteReminder(le.le_id)}/>
                             </div>
 
                             <div className='d-flex justify-content-between'>
-                                <div>
-                                    
-                                    <Name>
-                                        <img src='assets/pin.svg' />
-                                        {le.le_descricao}
-                                    </Name>
+                                <div>                   
+                                    <Name><img src='assets/pin.svg'/>{le.le_descricao}</Name>
                                     <Descricao></Descricao>
                                 </div>
                                 <div>
@@ -206,8 +159,7 @@ function Reminders() {
                                     </Datetime>
                                     <div><em>{moment(new Date(le.le_data_lembrete)).fromNow()}</em></div>
                                 </div>
-                            </div>
-                            
+                            </div>                         
                         </Nota>
                     ))}
                 </Lembretes>

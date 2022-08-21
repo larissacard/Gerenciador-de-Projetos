@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { TextField } from '@mui/material';
 
 export const Nota = styled.div`
     background: rgba(226, 228, 233, 0.1);
@@ -91,15 +92,19 @@ export const Container = styled.div`
     }
 `;
 
-export const Lembretes = styled.div`
-    height: 300px;
+export const Lembretes = styled.div`   
     width: 100%;
     padding-top: 0px;
     padding-right: 10px;
     margin-top: 16px;
 
-    
+    @media (min-width: 750px){
+        height: 100px;
+    }
 
+    @media (min-width: 100px){
+        height: 200px;
+    }
 `;
 
 export const Datetime = styled.div`
@@ -128,3 +133,44 @@ export const Delete = styled.div`
         transform: rotate(360deg);
     }
 `;
+
+export const CssTextField = styled(TextField)({
+    '&:hover .MuiInputLabel-outlined': {
+        color: '#6956E5',
+        transition: '0.5s',
+    },
+    '& .MuiOutlinedInput-root': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&:hover' :{
+            color: '#6956E5',
+            transition: '0.5s',
+        },
+        '&.Mui-focused': {
+            borderColor: '#764BA2',
+            color: '#280948',
+            transition: '0.5s',
+        },
+        '& fieldset': {
+            borderRadius: 20,
+            border: '2px solid #764BA2',
+            transition: '0.5s',
+        },
+          '&:hover fieldset': {
+            border: '2px solid #6956E5',
+            transition: '0.5s',
+          },
+        '&.Mui-focused fieldset': {
+            borderColor: '#280948',
+            transition: '0.5s',
+        },
+    },
+    '.MuiInputLabel-outlined': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&.Mui-focused': {
+            color: '#280948',
+            transition: '0.5s',
+        },
+    },
+})

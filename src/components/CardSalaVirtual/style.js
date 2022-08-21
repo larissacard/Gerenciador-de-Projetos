@@ -1,6 +1,23 @@
 import styled from "styled-components";
 
-export const Title = styled.div`
+export const Container = styled.div`
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    padding-left: 0;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 93%;
+`;
+
+export const Top = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const Title = styled.h3`
     color: #280948;
     font-weight: 600;
     font-size: 18px;
@@ -8,56 +25,41 @@ export const Title = styled.div`
     margin-left: 0.5rem;
 `;
 
-export const Discord = styled.div`
-    width: 100%;
-    min-height: 5rem;
-    border-radius: 20px;
-    background-image: url("assets/discord.svg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin-bottom: 10px;
-    margin-top: 10px;
+export const ContBox = styled.div`
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 20px;
-    button {
-        width: 10%;
-        height: 30%;
-        background-color: white;
-        border-radius: 10px;
-    }
-    a{
-        text-decoration: none;
-        color: #5765F2;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 27px;
+    flex-direction: column;
+    margin-top: 10px;
+
+    div + div {
+        margin-top: 5px;
     }
 `;
 
-export const Gather = styled.div`
+export const Box = styled.div`
     width: 100%;
-    min-height: 5rem;
+    height: 60px;
     border-radius: 20px;
-    background-image: url("assets/gather.svg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 20px;
-    button {
-        text-align: center;
-        width: 10%;
-        height: 30%;
+    
+    > div {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 20px;
+    }
+
+    a{
         background-color: white;
         border-radius: 10px;
-        
-    }
-    a{
+
+        padding: 3px 16px;
         text-decoration: none;
-        color: #7576D0;
+        color: #5765F2;
         font-weight: 600;
         font-size: 18px;
         line-height: 27px;
