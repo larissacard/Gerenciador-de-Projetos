@@ -53,7 +53,7 @@ export const Title = styled.div`
 
 export const Card = styled.a`
     min-height: 18.75rem;
-    min-width: 15.60rem;
+    min-width: 25%;
 
     display: flex;
     flex-direction: column;
