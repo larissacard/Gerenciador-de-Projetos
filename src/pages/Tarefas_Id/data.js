@@ -9,9 +9,17 @@ class ExibirDetalhesTarefas extends Component {
   };
 
   async componentDidMount() {
-    api.get("/" + tarefasPath).then((res) => {
+    api
+      .get("/" + tarefasPath)
+      .then((res) => {
       this.setState({ tarefas: res.data });
-    });
+      })
+      .catch((err) => {
+        if (err.response.status == 401) {
+          alert("Faça o Login para visualizar a página");
+          window.location.href = "/login";
+        } else alert(err.message);
+      });
   }
 
   deletarTarefa = (tr_id) => {

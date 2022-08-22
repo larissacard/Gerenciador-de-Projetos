@@ -37,8 +37,17 @@ export default function Index() {
     let navigate = useNavigate()
 
     const getDados = async () => {
-        const response = await api.get(path)
-        setDados(response.data);
+        api
+            .get(path)
+            .then(response => {
+                setDados(response.data);
+            })
+            .catch((err) => {
+                if (err.response.status == 401) {
+                  alert("Faça o Login para visualizar a página");
+                  window.location.href = "/login";
+                } else alert(err.message);
+            });
     };
 
     if (updateScreen) {

@@ -5,19 +5,24 @@ import { useEffect, useState } from "react";
 function Cards(Props) {
   const [initialPessoas, setInitialPessoas] = useState([]);
   const [pessoas, setPessoas] = useState([]);
-  const [pessoaSelecionada, setPessoaSelecionada] = useState(0)
-  const [search, setSearch] = useState(Props.search)
+  const [pessoaSelecionada, setPessoaSelecionada] = useState(0);
+  const [search, setSearch] = useState(Props.search);
 
   // buscando todas as pessoas na API
   useEffect(() => {
     const getPessoas = async () => {
-      try {
-        const response = await api.get("/pessoas");
-        setInitialPessoas(response.data);
-        setPessoas(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+      api
+        .get("/pessoas")
+        .then((response) => {
+          setInitialPessoas(response.data);
+          setPessoas(response.data);
+        })
+        .catch((err) => {
+          if (err.response.status == 401) {
+            alert("Faça o Login para visualizar a página");
+            window.location.href = "/login";
+          } else alert(err.message);
+        });
     };
     getPessoas();
   }, []);
@@ -36,22 +41,30 @@ function Cards(Props) {
 
   // Verifica se a barra de pesquisa teve alguma mudança
   if (Props.search !== search) {
-    setSearch(Props.search)
-    handleChange()
+    setSearch(Props.search);
+    handleChange();
   }
 
   // Envia as informações do card selecionado para o componente pai (index)
   const childToParent = (childdata) => {
-    setPessoaSelecionada(childdata.id)
-    Props.childToParent(childdata)
-  }
+    setPessoaSelecionada(childdata.id);
+    Props.childToParent(childdata);
+  };
 
   return (
-      <ul style={{overflowY:"scroll"}}>
-        {pessoas.map((p) => (
-          <CardPessoa key={p.pe_id} id={p.pe_id} nome={p.pe_nome} profissao={p.pe_cargo} foto={p.pe_foto} childToParent={childToParent} pessoaSelecionada={pessoaSelecionada}/>
-        ))}
-      </ul>
+    <ul style={{ overflowY: "scroll" }}>
+      {pessoas.map((p) => (
+        <CardPessoa
+          key={p.pe_id}
+          id={p.pe_id}
+          nome={p.pe_nome}
+          profissao={p.pe_cargo}
+          foto={p.pe_foto}
+          childToParent={childToParent}
+          pessoaSelecionada={pessoaSelecionada}
+        />
+      ))}
+    </ul>
   );
 }
 

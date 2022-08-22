@@ -21,17 +21,19 @@ function GetEquipe() {
   const path = window.location.pathname;
   let navigate = useNavigate()
 
-
-
   useEffect(() => {
      api.get(path)
       .then((response) => {
         setEquipe(response.data)
         updateScreen();
        })
-       .catch((e) => {
-         console.log(e)
-       })
+       .catch(err => {
+        if(err.response.status == 401) {
+            alert("Faça o Login para visualizar a página")
+            window.location.href = '/login'
+        }
+        else alert(err.message)
+    })
   }, [])
 
   const deletarEquipe = (eq_id) => {

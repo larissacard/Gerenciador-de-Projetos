@@ -11,8 +11,17 @@ function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()
 
     const getDetalhes = async () => {
-      const response = await api.get(`/pessoas/${Props.dados.id}`);
-      setDetalhes(response.data);
+      api
+        .get(`/pessoas/${Props.dados.id}`)
+        .then(response => {
+          setDetalhes(response.data);
+        })
+        .catch((err) => {
+          if (err.response.status == 401) {
+            alert("Faça o Login para visualizar a página");
+            window.location.href = "/login";
+          } else alert(err.message);
+        });
     };
 
     if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id) {

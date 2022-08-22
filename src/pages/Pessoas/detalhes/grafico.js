@@ -17,8 +17,17 @@ export function Grafico(Props) {
   const [dados, setDados] = useState(Props.dados)
 
   const getRelatorio = async () => {
-    const response = await api.get(`relatorios/pessoas/${Props.dados.dados.pe_id}`)
-    setRelatorio(response.data)
+    api
+      .get(`relatorios/pessoas/${Props.dados.dados.pe_id}`)
+      .then(response => {
+        setRelatorio(response.data)
+      })
+      .catch((err) => {
+        if (err.response.status == 401) {
+          alert("Faça o Login para visualizar a página");
+          window.location.href = "/login";
+        } else alert(err.message);
+      });
   }
 
   if (dados != Props.dados) {

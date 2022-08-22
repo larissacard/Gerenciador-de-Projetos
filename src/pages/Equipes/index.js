@@ -16,9 +16,19 @@ function Equipes() {
     const [foundEquipes, setFoundEquipes] = useState();
 
     const getEquipes = async () => {
-        const response = await api.get('/equipes');
-        setEquipes(response.data);
-        setFoundEquipes(response.data);
+        api
+            .get('/equipes')
+            .then(response => {
+                setEquipes(response.data);
+                setFoundEquipes(response.data);
+            })
+            .catch(err => {
+                if(err.response.status == 401) {
+                    alert("Faça o Login para visualizar a página")
+                    window.location.href = '/login'
+                }
+                else alert(err.message)
+            })
     };
 
     const filter = (e) => {

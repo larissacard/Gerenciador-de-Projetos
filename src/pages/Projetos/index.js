@@ -31,9 +31,18 @@ function Projetos() {
   const [foundProjetos, setFoundProjetos] = useState();
 
   const getProjetos = async () => {
-    const response = await api.get('/projetos');
-    setProjetos(response.data);
-    setFoundProjetos(response.data);
+    api
+      .get('/projetos')
+      .then(response => {
+        setProjetos(response.data);
+        setFoundProjetos(response.data);
+      })
+      .catch((err) => {
+        if (err.response.status == 401) {
+          alert("Faça o Login para visualizar a página");
+          window.location.href = "/login";
+        } else alert(err.message);
+      });
   };
   
   const filter = (e) => {

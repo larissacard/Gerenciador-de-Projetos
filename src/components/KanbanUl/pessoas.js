@@ -12,7 +12,7 @@ export default function PessoasTarefa(Props) {
         const response = await api.get('/pessoas');
         setPessoas(response.data);
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
     };
     getPessoas();

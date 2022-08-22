@@ -16,11 +16,17 @@ const options = {
 export function Grafico() {
   const [data2, setData2] = useState([]);
   useEffect(() => {
-    const getProjetos = async () => {
-      const response = await api.get('/relatorios/projetos');
-      setData2(response.data);
-    };
-    getProjetos();
+      api
+        .get('/relatorios/projetos')
+        .then(response => {
+          setData2(response.data)
+        })
+        .catch((err) => {
+          if (err.response.status == 401) {
+            alert("Faça o Login para visualizar a página");
+            window.location.href = "/login";
+          } else alert(err.message);
+        });
   }, []);
 
 
