@@ -108,74 +108,74 @@ export default function PostProjetos (Props) {
     } 
 
     return (
-    <>
-        <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
-            <Alert onClose={handleCloseAlert} severity={estado}>
-                {mensagem}
-            </Alert>
-        </Snackbar>
+        <>
+            <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+                <Alert onClose={handleCloseAlert} severity={estado}>
+                    {mensagem}
+                </Alert>
+            </Snackbar>
 
-        <Drawer 
-            anchor='right' 
-            open={openDrawer} 
-            onClose={handleClose} 
-            PaperProps={{sx: {width: '600px',
-                padding: '30px 60px'}
-            }}
-        >
-            <Box width='480px'
-                    paddingBottom='20px' 
-                    display='flex'
-                    alignItems='center'
-                    justifyContent='space-between'
-            >                  
-                <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
-                    Cadastro de um novo Projeto
-                </Typography>
-                <ButtonCancel onClick={handleClose}/>
-            </Box>
+            <Drawer 
+                anchor='right' 
+                open={openDrawer} 
+                onClose={handleClose} 
+                PaperProps={{sx: {width: '600px',
+                    padding: '30px 60px'}
+                }}
+            >
+                <Box width='480px'
+                        paddingBottom='20px' 
+                        display='flex'
+                        alignItems='center'
+                        justifyContent='space-between'
+                >                  
+                    <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
+                        Cadastro de um novo Projeto
+                    </Typography>
+                    <ButtonCancel onClick={handleClose}/>
+                </Box>
 
-            <form onSubmit={handleClose}>
-                <Stack spacing={2.5}>
-                    <CssTextField
-                        autoComplete='off'
-                        required
-                        onChange={(e) => setNomeProjeto(e.target.value)}
-                        fullWidth
-                        size='small'
-                        id='outlined-required'
-                        label='Nome'
-                        placeholder='Digite o nome do Projeto'
-                        value={nomeProjeto}
-                    />
+                <form onSubmit={handleClose}>
+                    <Stack spacing={2.5}>
+                        <CssTextField
+                            autoComplete='off'
+                            required
+                            onChange={(e) => setNomeProjeto(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Nome'
+                            placeholder='Digite o nome do Projeto'
+                            value={nomeProjeto}
+                        />
 
-                    <CssTextField
-                        autoComplete='off'
-                        onChange={(e) => setDescricaoProjeto(e.target.value)}
-                        fullWidth
-                        size='small'
-                        id='outlined-required'
-                        label='Descrição'
-                        placeholder='Digite a descrição do Projeto'
-                        value={descricaoProjeto}
-                    />
+                        <CssTextField
+                            autoComplete='off'
+                            onChange={(e) => setDescricaoProjeto(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Descrição'
+                            placeholder='Digite a descrição do Projeto'
+                            value={descricaoProjeto}
+                        />
 
-                    <EquipesProjeto dados={Props.dados} childToParent={childToParent}/>
+                        <EquipesProjeto dados={Props.dados} childToParent={childToParent}/>
 
-                    <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
-                        <Cancelar onClick={() => setOpenDrawer(false)}>
-                            Cancelar
-                        </Cancelar>
-                        <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
-                            Cadastrar
-                        </Cadastrar >
-                    </Box>
-                </Stack>
-            </form>
-        </Drawer>
-        <div>
-            <ButtonDrawer onClick={handleOpen}><img src='assets/btn_create.svg' /></ButtonDrawer>
-        </div>
-    </>
+                        <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
+                            <Cancelar onClick={() => setOpenDrawer(false)}>
+                                Cancelar
+                            </Cancelar>
+                            <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
+                                Cadastrar
+                            </Cadastrar >
+                        </Box>
+                    </Stack>
+                </form>
+            </Drawer>
+            <div>
+                <ButtonDrawer onClick={handleOpen}><img src='assets/btn_create.svg' /></ButtonDrawer>
+            </div>
+        </>
     )
 }

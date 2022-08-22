@@ -71,3 +71,40 @@ export const Prioridade = styled.div`
         color: #fff;
     }
 `;
+
+export const ButtonCancel = styled.div`
+    width: 15px;
+    height: 15px;
+    background-image: url('assets/cancel.svg');
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+    
+    :hover {
+        transform: rotate(360deg);
+    }
+`;
+
+export const StatusTarefa = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    font-weight: 600;
+    font-size: 16px;
+    background: #667EEA;
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 5px 10px;
+`;
+
+export const PrioridadeTarefa = styled.div`
+   
+`;
+
+export const Input = styled.input`
+    border: 0;
+    width: 100%;
+    background-color: transparent;
+
+    border: none;
+`;

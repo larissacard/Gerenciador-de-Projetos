@@ -83,7 +83,7 @@ export const Cadastrar = styled.button`
 export const ButtonCancel = styled.div`
   width: 15px;
   height: 15px;
-  background-image: url('assets/cancel.svg');
+  background-image: url('./assets/cancel.svg');
   cursor: pointer;
   transition: transform .3s ease-in-out;
  
