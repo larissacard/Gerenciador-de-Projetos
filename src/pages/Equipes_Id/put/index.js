@@ -97,6 +97,7 @@ function PutEquipes(Props) {
         .then(res=>{
             setMensagem('Equipe Editado com Sucesso!')
             setOpenDrawer(false)
+            Props.update()
         })
         .catch(e => { 
             console.log(e)
@@ -158,7 +159,7 @@ function PutEquipes(Props) {
                 </form>
             </Drawer>
             <div>
-                <Editar onClick={handleOpen}>Editar</Editar>
+                <Editar onClick={handleOpen} >Editar</Editar>
             </div>
         </>
     );

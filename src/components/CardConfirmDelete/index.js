@@ -44,7 +44,7 @@ export default function AlertDeleteDialog(Props) {
     const deletarProjeto = () => {
         api.delete(path)
         handleClickDelete();
-        setTimeout(() => navigate('/projetos'), 1500);
+        setTimeout(() => navigate(Props.path), 1500);
     };
 
     return (

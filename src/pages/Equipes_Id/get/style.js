@@ -178,6 +178,25 @@ export const TotalTask = styled.div`
     margin-right: 33px;
 `;
 
+export const NoResults = styled.div`
+    margin-left: 65px;
+    background-image: url("../../../../assets/noresults.svg");
+    width: 21rem;
+    height: 18rem;
+    background-size: contain;
+`;
+
+export const TitleNoResults = styled.div`
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+
+    margin-top: 10px;
+    margin-left: 50px;
+
+    color: #764BA2;
+`;
+
 export const Card = styled.div`
     width: 9.9rem;
     height: 14.125rem;
@@ -329,4 +348,5 @@ export const CardTask = styled.div`
         color: rgba(118, 75, 162, 0.5);
     }
 `;
+
 
