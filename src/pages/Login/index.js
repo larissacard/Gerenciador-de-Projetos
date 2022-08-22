@@ -6,7 +6,8 @@ function Login() {
   const [usuario, setUsuario] = useState()
   const [senha, setSenha] = useState()
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault()
     await api.post('/login', {
       usuario: usuario,
       senha: senha
@@ -27,11 +28,11 @@ function Login() {
   return (
     <Container>
       <h1>Login</h1>
-      <form>
+      <form onSubmit={(e) => login(e)}>
           <input onChange={e => setUsuario(e.target.value)} type="text" placeholder='Usuario' value={usuario}/>
           <input onChange={e => setSenha(e.target.value)} type="password" placeholder='Senha' value={senha}/>
+          <input type="submit" value="Entrar"/>
       </form>
-      <button onClick={login}>Entrar</button>
       <a href="/registro">Ainda não tem Login? Registre-se</a>
     </Container>
   );
