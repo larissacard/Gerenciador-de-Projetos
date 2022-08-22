@@ -11,6 +11,7 @@ import {
     ImgProjetos,
     ImgEquipes,
     ImgPessoas,
+    Logout,
     HeaderTwo
 } from './styles';
 
@@ -57,6 +58,10 @@ function Header() {
                     </MenuButton> 
                 </a> */}
             </NavMenu>
+            <Logout onClick={() => {
+                localStorage.setItem('token', null)
+                window.location.href = '/login'
+            }}>Logout</Logout>
         </Container>
 
         <HeaderTwo>

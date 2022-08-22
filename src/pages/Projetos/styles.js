@@ -202,7 +202,7 @@ export const ContTabela = styled.div`
         }
 
         @media (min-height: 920px) {
-            height: 330px;
+            height: 350px;
         }
 
 

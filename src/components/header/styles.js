@@ -19,7 +19,10 @@ export const Container = styled.div `
 
     display: flex;
     flex-direction: column;
+    align-items: center;
     
+    position: relative;
+
     font-weight: 500;
 
     @media (max-width: 1280px) {
@@ -114,3 +117,10 @@ export const ImgTarefas = styled(Tarefas)`${iconCSS}`;
 export const ImgProjetos = styled(Projetos)`${iconCSS}`;
 export const ImgEquipes = styled(Equipes)`${iconCSS}`;
 export const ImgPessoas = styled(Pessoas)`${iconCSS}`;
+
+export const Logout = styled.button`
+    position: absolute;
+    bottom: 20px;
+
+    padding: 3px 15px;
+`;
