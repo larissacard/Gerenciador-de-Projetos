@@ -72,6 +72,7 @@ function KanbanLi(Props) {
         tr_prioridade: prioridade
       })
       .then(res => {
+        Props.update()
         setOpen(false);
       })
   };
