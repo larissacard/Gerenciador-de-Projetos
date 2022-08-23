@@ -36,47 +36,54 @@ function KanbanLi(Props) {
     }),
   })
 
-  // -=-=-=-=-=-=-=-=-=-=- Abrir e fechar dialog de detalhes -=-=-=-=-=-=-=-=-=-=-
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de subtarefas -=-=-=-=-=-=-=-=-=-=-
+  
+  // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
   const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
   const [titulo, setTitulo] = useState(Props.dados.tr_nome)
-
-  // -=-=-=-=-=-=-=-=-=-=- Checkbox das subtarefas -=-=-=-=-=-=-=-=-=-=-
-  const [checked, setChecked] = useState([1]);
-
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-
-  const [tarefas, setTarefas] = useState ([])
-
+  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
+  const [tarefas, setTarefas] = useState ()
+  
   const getSubtarefas = async () => {
-    api.get('/tarefas')
+    api.get(`/tarefas/${Props.dados.tr_id}`)
       .then(response => {
         setTarefas(response.data);
       })
       .catch((err) => {
         console.log(err)
       });
+  };
+
+  const changeStatus = async (e, id) => {
+    let newStatus = e.target.checked ? 1 : 0
+
+    api
+    .put(`/subtarefas/${id}/status/${newStatus}`)
+    .then(getSubtarefas)
+    .catch(e => {
+      console.log(e)
+    })
+  }
+  
+  // -=-=-=-=-=-=-=-=-=-=- Abrir e fechar dialog de detalhes -=-=-=-=-=-=-=-=-=-=-
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    getSubtarefas()
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    // Editar as infomações da tarefa
+    // api
+    //   .put(`/tarefas/${Props.dados.tr_id}`, {
+    //     tr_nome: titulo,
+    //     tr_descricao: descricao,
+    //     tr_prioridade: prioridade
+    //   })
+    //   .then(res => {
+    //   })
+      setOpen(false);
+
   };
 
   return (
@@ -117,7 +124,8 @@ function KanbanLi(Props) {
       </Container>
       <>
         {/* -=-=-=-=-=-=-=-=-=-=- Dialog de detalhamento de subtarefa -=-=-=-=-=-=-=-=-=-=- */}
-        <Dialog
+        { tarefas &&
+          <Dialog
           open={open}
           TransitionComponent={Transition}
           keepMounted
@@ -176,33 +184,18 @@ function KanbanLi(Props) {
                 Subtarefas
               </TituloSubtarefas>
                 {/* -=-=-=-=-=-=-=-=-=-=- Subtarefas dentro de uma lista -=-=-=-=-=-=-=-=-=-=- */}
-                <List dense sx={{ width: '100%', marginTop: '-24px'}}>
-                  {[0].map((value) => {
-                    const labelId = `checkbox-list-label-${value}`;
-
-                    return (
-                      <ListItem
-                        key={value}
-                        
-                      >
-                        {/* <ListItemButton onClick={handleToggle(value)} dense> */}
-                          
-                            <Checkbox
-                              edge="start"
-                              onClick={handleToggle(value)}
-                              checked={checked.indexOf(value) !== -1}
-                              tabIndex={-1}
-                              disableRipple
-                              inputProps={{ 'aria-labelledby': labelId }}
-                            />
-                          {tarefas.map(tarefa => (
-                            <ListItemText key={tarefa.subTarefas.id} primary={`tarefa.subTarefas.nome ${value + 1}`} />
-                          ))}
-                        {/* </ListItemButton> */}
-                      </ListItem>
-                    );
-                  })}
-                </List>
+                <form>
+                  {tarefas.subTarefas.map(tarefa => (
+                    <div>
+                        {tarefa.status == 1
+                          ? <input onChange={(e) => changeStatus(e, tarefa.id)} key={tarefa.id} type="checkbox" id={tarefa.nome} checked={true}/>
+                          : <input onChange={(e) => changeStatus(e, tarefa.id)} key={tarefa.id} type="checkbox" id={tarefa.nome} checked={false}/>
+                        }
+                        <label for={tarefa.nome}>{tarefa.nome}</label>
+                    </div>
+                  )
+                  )}
+                </form>
             </DialogContentText>
             <DialogContentText>
               Let Google help apps determine location. This means sending anonymous
@@ -213,7 +206,7 @@ function KanbanLi(Props) {
             <Button onClick={handleClose}>Disagree</Button>
             <Button onClick={handleClose}>Agree</Button>
           </DialogActions>
-        </Dialog>
+        </Dialog>}
       </>
     </>
   );
