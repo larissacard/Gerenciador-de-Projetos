@@ -65,16 +65,15 @@ function KanbanLi(Props) {
 
   const handleClose = () => {
     // Editar as infomações da tarefa
-    // api
-    //   .put(`/tarefas/${Props.dados.tr_id}`, {
-    //     tr_nome: titulo,
-    //     tr_descricao: descricao,
-    //     tr_prioridade: prioridade
-    //   })
-    //   .then(res => {
-    //   })
-      setOpen(false);
-
+    api
+      .put(`/tarefas/${Props.dados.tr_id}`, {
+        tr_nome: titulo,
+        tr_descricao: descricao,
+        tr_prioridade: prioridade
+      })
+      .then(res => {
+        setOpen(false);
+      })
   };
 
   return (
@@ -142,7 +141,10 @@ function KanbanLi(Props) {
           <DialogContent>
               <div style={{display: 'flex', alignItems: 'center'}}>
                 <StatusTarefa className='me-2'>{Props.dados.tr_status}</StatusTarefa>
-                <PrioridadeTarefa>
+                <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade == 1 ? 'Baixa' :
+                                                        Props.dados.tr_prioridade == 2 ? 'Media' :
+                                                        Props.dados.tr_prioridade == 3 ? 'Alta' :
+                                                        Props.dados.tr_prioridade}`}>
                   {
                     Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
                     Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
