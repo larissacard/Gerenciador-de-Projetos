@@ -13,15 +13,6 @@ import Slide from '@mui/material/Slide';
 import Divider from '@mui/material/Divider';
 import api from '../../api';
 
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
-
-import { Progress } from 'rsuite';
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
@@ -149,23 +140,17 @@ function KanbanLi(Props) {
           </DialogTitle>
           <Divider color="#764BA2" sx={{height: '1px'}}/>
           <DialogContent>
-            <DialogContentText sx={{
-              display: 'flex', 
-              alignItems: 'center',
-              gap: 1,
-            }}>
-              <StatusTarefa>
-                {Props.dados.tr_status}
-              </StatusTarefa>
-              <PrioridadeTarefa>
-                {
-                  Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
-                  Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
-                  Props.dados.tr_prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
-                  Props.dados.tr_prioridade
-                }
-              </PrioridadeTarefa>
-            </DialogContentText>
+              <div style={{display: 'flex', alignItems: 'center'}}>
+                <StatusTarefa className='me-2'>{Props.dados.tr_status}</StatusTarefa>
+                <PrioridadeTarefa>
+                  {
+                    Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
+                    Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
+                    Props.dados.tr_prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
+                    Props.dados.tr_prioridade
+                  }
+                </PrioridadeTarefa>
+              </div>
               <TextField
                 fullWidth
                 onChange={e => setDescricao(e.target.value)}
@@ -179,24 +164,24 @@ function KanbanLi(Props) {
                 multiline
                 rows={4}
               />
-            <DialogContentText>
               <TituloSubtarefas>
                 Subtarefas
               </TituloSubtarefas>
                 {/* -=-=-=-=-=-=-=-=-=-=- Subtarefas dentro de uma lista -=-=-=-=-=-=-=-=-=-=- */}
                 <form>
                   {tarefas.subTarefas.map(tarefa => (
-                    <div>
-                        {tarefa.status == 1
-                          ? <input onChange={(e) => changeStatus(e, tarefa.id)} key={tarefa.id} type="checkbox" id={tarefa.nome} checked={true}/>
-                          : <input onChange={(e) => changeStatus(e, tarefa.id)} key={tarefa.id} type="checkbox" id={tarefa.nome} checked={false}/>
-                        }
-                        <label for={tarefa.nome}>{tarefa.nome}</label>
+                    <div key={tarefa.id}>
+                        <input 
+                          id={tarefa.nome}
+                          type="checkbox"
+                          onChange={(e) => changeStatus(e, tarefa.id)}
+                          key={tarefa.id}
+                          checked={tarefa.status == 1 ? true : false}/>
+                        <label htmlFor={tarefa.nome}>{tarefa.nome}</label>
                     </div>
                   )
                   )}
                 </form>
-            </DialogContentText>
             <DialogContentText>
               Let Google help apps determine location. This means sending anonymous
               location data to Google, even when no apps are running.
