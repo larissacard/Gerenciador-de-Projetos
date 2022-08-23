@@ -108,3 +108,11 @@ export const Input = styled.input`
 
     border: none;
 `;
+
+export const TituloSubtarefas = styled.h1`
+    font-style: italic;
+    font-weight: 600;
+    font-size: 16px;
+    color: #280948;
+    margin-left: 2px;
+`;
