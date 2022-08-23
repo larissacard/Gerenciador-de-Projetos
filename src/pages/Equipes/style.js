@@ -8,6 +8,16 @@ export const ContainerUnico = styled.div`
     border-radius: 20px;
     overflow: hidden;
     padding: 0 25px;
+
+    @media (max-width:767px) {
+        margin-top: 1px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 0;
+
+    }
 `;
 
 export const CardAdicionar = styled.button`
@@ -40,6 +50,13 @@ export const AllCards = styled.div`
     border-radius: 10px;
   }
 
+  @media (max-width: 767px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+    padding: ;
+  }
+
 `;
 
 export const Title = styled.div`
@@ -53,7 +70,7 @@ export const Title = styled.div`
 
 export const Card = styled.a`
     min-height: 18.75rem;
-    min-width: 25%;
+    min-width: 250px;
 
     display: flex;
     flex-direction: column;

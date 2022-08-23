@@ -174,7 +174,6 @@ function Reminders() {
                     <img src="assets/pin.svg" />
                     {le.le_descricao}
                   </Name>
-                  <Descricao></Descricao>
                 </div>
                 <div>
                   <Datetime>

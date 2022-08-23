@@ -65,10 +65,6 @@ function Header() {
         </Container>
 
         <HeaderTwo>
-        <ContLogo>
-                <Logo/>
-            </ContLogo>
-
             <NavMenu>
                 <a href="/projetos"> 
                     <MenuButton>

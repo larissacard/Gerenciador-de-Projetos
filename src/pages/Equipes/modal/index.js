@@ -1,85 +1,188 @@
-import React, {useState} from "react";
-import { Form } from 'react-bootstrap';
-import { Drawer } from 'rsuite';
-import { Button, Name, ButtonForm, ContButtons } from './styles'
+import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
+import MuiAlert from '@mui/material/Alert';
+import React, { useState } from 'react'
+import { styled } from '@mui/material/styles';
+import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar, Name } from './styles'
+import { Retangulo } from './styles';
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
 
-import "rsuite/dist/rsuite.min.css";
+const CssTextField = styled(TextField)({
+    '&:hover .MuiInputLabel-outlined': {
+        color: '#6956E5',
+        transition: '0.5s',
+    },
+    '& .MuiOutlinedInput-root': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&:hover' :{
+            color: '#6956E5',
+            transition: '0.5s',
+        },
+        '&.Mui-focused': {
+            borderColor: '#764BA2',
+            color: '#280948',
+            transition: '0.5s',
+        },
+        '& fieldset': {
+            border: '2px solid #764BA2',
+            transition: '0.5s',
+        },
+          '&:hover fieldset': {
+            border: '2px solid #6956E5',
+            transition: '0.5s',
+          },
+        '&.Mui-focused fieldset': {
+            borderColor: '#280948',
+            transition: '0.5s',
+        },
+    },
+    '.MuiInputLabel-outlined': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&.Mui-focused': {
+            color: '#280948',
+            transition: '0.5s',
+        },
+    },
+})
+
 
 function PostEquipes(Props) {
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
+    const [imagem, setImagem] = useState()
     const childToParent = (childdata) => {
         setPessoaEscolhida(childdata);
     }
 
-    const [open, setOpen] = useState(false);
+    const [openDrawer, setOpenDrawer] = useState(false)
     
     const handleOpen = () => {
-        setOpen(true);
-    };
+        setOpenDrawer(true);
+    }
     const handleClose = () => {
-        setOpen(false);
+        setOpenDrawer(false);
     }
 
-    const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/equipes"
-    const [data, setData]= useState({
-        eq_nome: "",
-    })
+    const handleClickCad = () => {
+        if(nomeEquipe !== ''){
+            setTimeout(() => setOpenAlert(true), 150)
+        }
+    }
+
+    var [mensagem, setMensagem] = useState('')
+    const [estado, setEstado] = useState();
+    
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} severity={props.severity} variant='filled' {...props} />;
+      });
+
+    const [openAlert, setOpenAlert] = useState(false);
+    
+    const handleCloseAlert = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpenAlert(false);
+        setEstado()
+    };
+
+    const [nomeEquipe, setNomeEquipe] = useState('')
 
     function cadastrar(e){
         e.preventDefault();
-        api.post(url,{
-            eq_nome: data.eq_nome,
+        api.post('/equipes',{
+            eq_nome: nomeEquipe,
             pessoas: pessoaEscolhida
         })
-            .then(res=> {
-                Props.update()
-                if (res.data === 'Essa equipe já foi inserida!') {
-                    alert('Essa Equipe já foi inserida!')
-                }
-                else {
-                    alert('Equipe inserida com sucesso!')
-                }
-            })
-    }
-
-    function handle(e) {
-        const newdata = {...data}
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-    }
+        .then(res=>{
+            setMensagem('Equipe Inserida com Sucesso!')
+            setEstado('success');
+            setOpenDrawer(false)
+            Props.update()
+        })
+        .catch(e => { 
+            setMensagem(e.response.data);
+            setOpenDrawer(true);
+            setEstado('error');     
+        })
+    } 
 
     return (
         <>
-            <Drawer open={open} onClose={handleClose} size="sm">
-                <Drawer.Header>
-                    <Drawer.Title>Cadastro de uma nova Equipe</Drawer.Title>
-                </Drawer.Header>
+
+            <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+                <Alert onClose={handleCloseAlert} severity={estado}>
+                    {mensagem}
+                </Alert>
+            </Snackbar>
+
+            <Drawer 
+                anchor='right' 
+                open={openDrawer} 
+                onClose={handleClose} 
+                PaperProps={{sx: {width: '600px',
+                    padding: '30px 60px'}
+                }}
+            >
+                <Box width='480px'
+                        paddingBottom='20px' 
+                        display='flex'
+                        alignItems='center'
+                        justifyContent='space-between'
+                >                  
+
+                <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
+                        Cadastro de uma nova Equipe
+                    </Typography>
+                    <ButtonCancel onClick={handleClose}/>
+                </Box>
+
+                <form onSubmit={handleClose}>
+                    <Stack spacing={2.5}>
+                        <CssTextField
+                            autoComplete='off'
+                            required
+                            onChange={(e) => setNomeEquipe(e.target.value)}
+                            fullWidth
+                            size='small'
+                            id='outlined-required'
+                            label='Nome'
+                            placeholder='Digite o nome da Equipe'
+                            value={nomeEquipe}
+                        />
+
+                         <CssTextField
+                            type='file'
+                            required
+                            onChange={(e) => setImagem(e.target.value)}
+                            fullWidth
+                            size='Normal'       
+                        />
+
+
+                        
+
                 
-                <Drawer.Body>
-                    <Form onSubmit={(e)=> cadastrar(e)}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Nome</Form.Label>
-                            <Form.Control required onChange={(e)=>handle(e)} id="eq_nome" value={data.eq_nome} type="text" placeholder="Digite o nome da Equipe"/>
-                        </Form.Group>
-                        <PessoasEquipe childToParent={childToParent}/>
+                        <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>
 
-                        <Drawer.Actions>
-                            <ContButtons>
-                                <ButtonForm onClick={() => setOpen(false)} variant="primary" type="submit">Cadastrar</ButtonForm>
-                                <ButtonForm onClick={() => setOpen(false)}>Cancelar</ButtonForm>
-                            </ContButtons>
-                        </Drawer.Actions>
-
-                    </Form>
-                </Drawer.Body>
+                
+                        <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
+                            <Cancelar onClick={() => setOpenDrawer(false)}>
+                                Cancelar
+                            </Cancelar>
+                            <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
+                                Cadastrar
+                            </Cadastrar >
+                        </Box>
+                    </Stack>
+                </form>
             </Drawer>
             <div>
-                <Button onClick={handleOpen}>
-                    <img src="assets/Group.svg" alt="create icon"/>
+                <ButtonDrawer onClick={handleOpen}>
+                    <img src='assets/Group.svg'/>
                     <Name>Adicionar Equipe</Name>
-                </Button>
+                </ButtonDrawer>
             </div>
         </>
     );
