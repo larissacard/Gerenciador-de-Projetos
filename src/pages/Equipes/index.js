@@ -68,7 +68,8 @@ function Equipes() {
                                 <Retangulo/>
                                 {/* <Icon>a</Icon> */}
                                 <Elipse>
-                                    <SmallElipse></SmallElipse>
+                                {console.log(equipes)}
+                                    <SmallElipse src={equipes.eq_foto}/>
                                 </Elipse>
                                 <Name>{equipes.eq_nome}</Name>
                                 <TeamLength>Quantidade de integrantes: {equipes.pessoas.length}</TeamLength>

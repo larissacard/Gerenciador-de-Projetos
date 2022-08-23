@@ -7,7 +7,8 @@ export const Nota = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;    
 
-    height: 25%;
+
+    height: 32%;
 
     background-image: url("assets/fundo.svg");
     background-repeat: no-repeat;

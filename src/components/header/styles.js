@@ -36,13 +36,15 @@ export const Container = styled.div `
 
 export const HeaderTwo = styled.div`
     background-color: var(--roxo);
-    width: 360px;
-    height: 33px;
+    width: 100%;
+    height: 40px;
     display: none;
 
-    /* @media (max-width: 767px) {
+     @media (max-width: 767px) {
         display: flex;
-    } */
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 export const ContLogo = styled.div `
