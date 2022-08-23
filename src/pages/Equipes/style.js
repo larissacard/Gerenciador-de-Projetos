@@ -161,14 +161,15 @@ export const Elipse = styled.div`
     z-index: 1;
 `;
 
-export const SmallElipse = styled.div`
-    border-radius: 90%;
-    width: 108px;
-    height: 110px;
+export const SmallElipse = styled.img`
+    border-radius: 50%;
+    border: none;
+    width: 100%;
+    height: 100%;
     align-items: center;
     display: flex;
     justify-content: center;
-    background-image: url("assets/gatoruivo.svg");
     z-index: 1;
+    border: 1px solid white;
 `;
 

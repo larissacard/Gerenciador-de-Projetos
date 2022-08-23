@@ -34,7 +34,7 @@ function KanbanUl(Props) {
         </Top>
         <ContTarefas>
             {Props.elements.map((e, index) =>
-                <KanbanLi key={index} index={index} dados={e}/>
+                <KanbanLi key={index} index={index} dados={e} update={Props.func}/>
             )}
         </ContTarefas>
     </Container>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Top, Body, Prioridade, ButtonCancel, StatusTarefa, PrioridadeTarefa, Input } from './styles';
+import { Container, Top, Body, Prioridade, ButtonCancel, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas } from './styles';
 import { useDrag } from 'react-dnd'
-import DetalheTarefa from '../../pages/Projetos_Id/Components/Tarefas_Id';
 import { BsFlagFill } from 'react-icons/bs'
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -12,13 +11,14 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import Divider from '@mui/material/Divider';
-import { PropaneSharp } from '@mui/icons-material';
+import api from '../../api';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
 function KanbanLi(Props) {
+  // -=-=-=-=-=-=-=-=-=-=- Constante que permite o Drag -=-=-=-=-=-=-=-=-=-=-
   const [{isDragging}, dragRef] = useDrag({
     type: 'CARD',
     item: {'id': Props.dados.tr_id, 'status': Props.dados.tr_status},
@@ -27,18 +27,55 @@ function KanbanLi(Props) {
     }),
   })
 
+  
+  // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
+  const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
+  const [titulo, setTitulo] = useState(Props.dados.tr_nome)
+  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
+  const [tarefas, setTarefas] = useState ()
+  
+  const getSubtarefas = async () => {
+    api.get(`/tarefas/${Props.dados.tr_id}`)
+      .then(response => {
+        setTarefas(response.data);
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+  };
+
+  const changeStatus = async (e, id) => {
+    let newStatus = e.target.checked ? 1 : 0
+
+    api
+    .put(`/subtarefas/${id}/status/${newStatus}`)
+    .then(getSubtarefas)
+    .catch(e => {
+      console.log(e)
+    })
+  }
+  
+  // -=-=-=-=-=-=-=-=-=-=- Abrir e fechar dialog de detalhes -=-=-=-=-=-=-=-=-=-=-
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
+    getSubtarefas()
     setOpen(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    // Editar as infomações da tarefa
+    api
+      .put(`/tarefas/${Props.dados.tr_id}`, {
+        tr_nome: titulo,
+        tr_descricao: descricao,
+        tr_prioridade: prioridade
+      })
+      .then(res => {
+        Props.update()
+        setOpen(false);
+      })
   };
-
-  const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
-  const [titulo, setTitulo] = useState(Props.dados.tr_nome)
 
   return (
     <>
@@ -47,6 +84,7 @@ function KanbanLi(Props) {
           <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome}</h3>
         </Top>
         <Body>
+            {/* -=-=-=-=-=-=-=-=-=-=- Prioridade na tela de projetos/tarefas -=-=-=-=-=-=-=-=-=-=- */}
             <Prioridade>
               <span style={{ backgroundColor: Props.dados.tr_prioridade === 1 ? '#67CB65' :
                                               Props.dados.tr_prioridade === 2 ? '#FF9533' : 
@@ -75,8 +113,10 @@ function KanbanLi(Props) {
             </ul> */}
         </Body>
       </Container>
-      <div>
-        <Dialog
+      <>
+        {/* -=-=-=-=-=-=-=-=-=-=- Dialog de detalhamento de subtarefa -=-=-=-=-=-=-=-=-=-=- */}
+        { tarefas &&
+          <Dialog
           open={open}
           TransitionComponent={Transition}
           keepMounted
@@ -100,23 +140,20 @@ function KanbanLi(Props) {
           </DialogTitle>
           <Divider color="#764BA2" sx={{height: '1px'}}/>
           <DialogContent>
-            <DialogContentText sx={{
-              display: 'flex', 
-              alignItems: 'center',
-              gap: 1,
-            }}>
-              <StatusTarefa>
-                {Props.dados.tr_status}
-              </StatusTarefa>
-              <PrioridadeTarefa>
-                {
-                  Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
-                  Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
-                  Props.dados.tr_prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
-                  Props.dados.tr_prioridade
-                }
-              </PrioridadeTarefa>
-            </DialogContentText>
+              <div style={{display: 'flex', alignItems: 'center'}}>
+                <StatusTarefa className='me-2'>{Props.dados.tr_status}</StatusTarefa>
+                <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade == 1 ? 'Baixa' :
+                                                        Props.dados.tr_prioridade == 2 ? 'Media' :
+                                                        Props.dados.tr_prioridade == 3 ? 'Alta' :
+                                                        Props.dados.tr_prioridade}`}>
+                  {
+                    Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
+                    Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
+                    Props.dados.tr_prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
+                    Props.dados.tr_prioridade
+                  }
+                </PrioridadeTarefa>
+              </div>
               <TextField
                 fullWidth
                 onChange={e => setDescricao(e.target.value)}
@@ -130,6 +167,24 @@ function KanbanLi(Props) {
                 multiline
                 rows={4}
               />
+              <TituloSubtarefas>
+                Subtarefas
+              </TituloSubtarefas>
+                {/* -=-=-=-=-=-=-=-=-=-=- Subtarefas dentro de uma lista -=-=-=-=-=-=-=-=-=-=- */}
+                <form>
+                  {tarefas.subTarefas.map(tarefa => (
+                    <div key={tarefa.id}>
+                        <input 
+                          id={tarefa.nome}
+                          type="checkbox"
+                          onChange={(e) => changeStatus(e, tarefa.id)}
+                          key={tarefa.id}
+                          checked={tarefa.status == 1 ? true : false}/>
+                        <label htmlFor={tarefa.nome}>{tarefa.nome}</label>
+                    </div>
+                  )
+                  )}
+                </form>
             <DialogContentText>
               Let Google help apps determine location. This means sending anonymous
               location data to Google, even when no apps are running.
@@ -139,8 +194,8 @@ function KanbanLi(Props) {
             <Button onClick={handleClose}>Disagree</Button>
             <Button onClick={handleClose}>Agree</Button>
           </DialogActions>
-        </Dialog>
-      </div>
+        </Dialog>}
+      </>
     </>
   );
 }
