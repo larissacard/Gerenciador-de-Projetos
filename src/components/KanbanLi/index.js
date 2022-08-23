@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Top, Body, Prioridade, ButtonCancel, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas } from './styles';
+import { Container, Top, Body, Prioridade, ButtonCancel, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox } from './styles';
 import { useDrag } from 'react-dnd'
 import { BsFlagFill } from 'react-icons/bs'
 import { TextField } from '@mui/material';
@@ -12,6 +12,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import Divider from '@mui/material/Divider';
 import api from '../../api';
+
+import { Progress } from 'rsuite';
+import { CenterFocusStrong } from '@mui/icons-material';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
@@ -161,30 +164,71 @@ function KanbanLi(Props) {
                 sx={{
                   '& legend': { display: 'none' },
                   '& fieldset': { top: 0 },
-                  marginTop: '24px'
+                '& .MuiOutlinedInput-root': {
+                    color: 'rgba(40, 9, 72, 0.6)',
+                    '&:hover' :{
+                        color: '#6956E5',
+                        transition: '0.5s',
+                    },
+                    '&.Mui-focused': {
+                        borderColor: '#764BA2',
+                        color: '#280948',
+                        transition: '0.5s',
+                    },
+                    '& fieldset': {
+                        border: '0.1px solid rgba(40, 9, 72, 0.6)',
+                        transition: '0.5s',
+                    },
+                      '&:hover fieldset': {
+                        border: '2px solid #6956E5',
+                        transition: '0.5s',
+                      },
+                    '&.Mui-focused fieldset': {
+                        borderColor: '#280948',
+                        transition: '0.5s',
+                    },
+                },
+                  marginTop: '24px',
                 }}  
                 placeholder='Descrição'
                 multiline
                 rows={4}
-              />
+                />
               <TituloSubtarefas>
                 Subtarefas
               </TituloSubtarefas>
-                {/* -=-=-=-=-=-=-=-=-=-=- Subtarefas dentro de uma lista -=-=-=-=-=-=-=-=-=-=- */}
-                <form>
+                {/* -=-=-=-=-=-=-=-=-=-=- Subtarefas dentro de um form -=-=-=-=-=-=-=-=-=-=- */}
+                  {/* {tarefas.subTarefas.map(tarefa => (
+                    <FormDiv key={tarefa.id}>
+                    <CheckboxSubtarefas
+                    id={tarefa.nome}
+                    type="checkbox"
+                    onChange={(e) => changeStatus(e, tarefa.id)}
+                    key={tarefa.id}
+                    checked={tarefa.status == 1 ? true : false}/>
+                    <label htmlFor={tarefa.nome}>{tarefa.nome}</label>
+                    </FormDiv>
+                    )
+                  )} */}
+
+                <FormSubtarefas>
                   {tarefas.subTarefas.map(tarefa => (
-                    <div key={tarefa.id}>
-                        <input 
-                          id={tarefa.nome}
-                          type="checkbox"
-                          onChange={(e) => changeStatus(e, tarefa.id)}
-                          key={tarefa.id}
-                          checked={tarefa.status == 1 ? true : false}/>
-                        <label htmlFor={tarefa.nome}>{tarefa.nome}</label>
-                    </div>
+                    <FormDiv key={tarefa.id}>
+                        <LabelCheckbox htmlFor={tarefa.nome}>
+                          <CheckboxSubtarefas
+                            id={tarefa.nome}
+                            type="checkbox"
+                            onChange={(e) => changeStatus(e, tarefa.id)}
+                            key={tarefa.id}
+                            checked={tarefa.status == 1 ? true : false}>
+                          </CheckboxSubtarefas>
+                          <SpanCheckbox/>
+                          {tarefa.nome}
+                        </LabelCheckbox>
+                    </FormDiv>
                   )
                   )}
-                </form>
+                </FormSubtarefas>
             <DialogContentText>
               Let Google help apps determine location. This means sending anonymous
               location data to Google, even when no apps are running.

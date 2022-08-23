@@ -5,7 +5,6 @@ import KanbanUl from '../../components/KanbanUl';
 import Header from '../../components/header'
 import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
 import Edit from './put';
-import { useNavigate } from 'react-router-dom'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import AlertDeleteDialog from '../../components/CardConfirmDelete';
@@ -34,8 +33,6 @@ export default function Index() {
     let string_equipes = ''
     let qtd_pessoas = 0
 
-    let navigate = useNavigate()
-
     const getDados = async () => {
         api
             .get(path)
@@ -53,12 +50,6 @@ export default function Index() {
     if (updateScreen) {
         getDados()
         setUpdateScreen(false)
-    };
-    
-    const deletarProjeto = (pr_id) => {
-        api.delete(path)
-        handleClickDelete();
-        setTimeout(() => navigate('/projetos'), 1500);
     };
 
     return (

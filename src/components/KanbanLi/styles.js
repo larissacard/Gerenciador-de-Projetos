@@ -116,3 +116,30 @@ export const TituloSubtarefas = styled.h1`
     color: #280948;
     margin-left: 2px;
 `;
+
+export const FormSubtarefas = styled.form`
+    margin-top: -10px;
+    `;
+
+export const FormDiv = styled.div`
+    display: flex;
+    `;
+
+export const LabelCheckbox = styled.label`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 6px;
+    padding-left: 12px;
+`;
+
+export const CheckboxSubtarefas = styled.input`
+    width: 18px;
+    height: 18px;
+    background-color: #280948;
+    cursor: pointer;
+`;
+
+export const SpanCheckbox = styled.span`
+
+`;
