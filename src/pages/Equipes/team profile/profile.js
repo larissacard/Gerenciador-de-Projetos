@@ -65,7 +65,9 @@ export default function TeamProfile(Props) {
     return (
         <>
 
-            <Avatar size={64} icon={fotoEscolhida} />
+            {/* <Avatar size={64} icon={fotoEscolhida} /> */}
+            {/* <img src={Props.dados.eq_foto} width="50px" height="50px"/> */}
+
             <div>Aoba</div>
 
             {/* Modal */}
@@ -86,15 +88,14 @@ export default function TeamProfile(Props) {
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleClose}>Disagree</Button>
-                        <Button onClick={handleClose}>Agree</Button>
+                        <Button onClick={handleClose}>Fechar</Button>
                     </DialogActions>
 
                     <div>
                             {fotos.map(i => (
                                 <div key={i.id} className='d-flex'>
                                     <button 
-                                    onClick={(e) => setFotoEscolhida(i.id)} 
+                                    onClick={(e) => setFotoEscolhida(i)} 
                                     style={{border: 'none'}}>
                                         <img src={i.link} style={{width: '30px', height: '30px'}} />
                                     </button>
