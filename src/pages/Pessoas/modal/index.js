@@ -1,19 +1,29 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Form } from 'react-bootstrap';
 import { Drawer } from 'rsuite';
 import { Button } from './styles'
-import CargosPessoa from "./cargos";
-
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import api from "../../../api";
 import "rsuite/dist/rsuite.min.css";
 
 
 function PostPessoas() {
-    const [cargoEscolhido, setCargoEscolhido] = useState()
-    const [imagem, setImagem] = useState()
-    const childToParent = (childdata) => {
-        setCargoEscolhido(childdata);
-      }
+    const [cargos, setCargos] = useState ([])
+    
+    useEffect(() => {
+        const getCargos = async () => {
+            try {
+                const response = await api.get('/cargos');
+                setCargos(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getCargos();
+    }, []);
 
     const [open, setOpen] = useState(false);
     
@@ -23,21 +33,32 @@ function PostPessoas() {
     const handleClose = () => {
         setOpen(false);
     }
-
+    
+    const [cargoEscolhido, setCargoEscolhido] = useState()
+    const [imagem, setImagem] = useState()
     const [data, setData]= useState({
         pe_nome: "",
         pe_data_nasc: "",
         pe_salario: "",
     })
 
+    const config = {
+        'Content-Type': 'multipart/form-data',
+    }
+
     function cadastrar(e){
         e.preventDefault();
-        api.post('/pessoas',{
-            pe_nome: data.pe_nome,
-            pe_data_nasc: data.pe_data_nasc,
-            pe_cargo: cargoEscolhido,
-            pe_salario: data.pe_salario
-        })
+
+        
+        const Form = new FormData();
+        Form.append("foto", imagem)
+        Form.append("pe_nome", data.pe_nome)
+        Form.append("pe_data_nasc", data.pe_data_nasc)
+        Form.append("pe_cargo", cargoEscolhido)
+        Form.append("pe_salario", data.pe_salario)
+        console.log(FormData)
+
+        api.post('/pessoas', Form, config)
             .then(res=>{
                 if (res.data === 'Essa pessoa já foi inserida!') {
                     alert('Essa Pessoa já foi inserida!')
@@ -79,16 +100,17 @@ function PostPessoas() {
 
                         <Form.Group className="mb-3">
                             <Form.Label>Foto de Perfil</Form.Label>
-                            <Form.Control onChange={(e)=>handle(e)} id="pe_foto" type="file" enctype="multipart/form-data"/>
+                            <Form.Control onChange={(e)=> setImagem(e.target.files[0])} id="pe_foto" type="file" encType="multipart/form-data"/>
                         </Form.Group>
 
-                        {/* <Form.Select>
-                            <option>Selecione o cargo</option>
-                            {cargos.map(({cargo, index}) => 
-                                <option value={cargo} key={index}> {cargo} </option>
-                            )}
-                        </Form.Select> */}
-                        <CargosPessoa childToParent={childToParent}/>
+                        <FormControl fullWidth>
+                            <InputLabel>Selecione o Cargo</InputLabel>
+                            <Select onChange={(e) => setCargoEscolhido(e.target.value)}>
+                                {cargos.map((cargos) =>   
+                                    <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem>
+                                )} 
+                            </Select>
+                        </FormControl>
                         
                         <Drawer.Actions>
                             <Button onClick={() => setOpen(false)} variant="primary" type="submit">
