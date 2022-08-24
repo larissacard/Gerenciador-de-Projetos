@@ -43,7 +43,8 @@ export const HeaderTwo = styled.div`
      @media (max-width: 767px) {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        height: 50px;
     }
 `;
 
@@ -74,6 +75,8 @@ export const NavMenu = styled.div `
     @media (max-width: 767px) {
         display: flex;
         flex-direction: row;
+        align-items: center;
+
     }
 `;
 
@@ -94,6 +97,7 @@ export const MenuButton = styled.div `
             display: none;
         }
     }
+
 
     :hover {
         transform: scale(1.05);

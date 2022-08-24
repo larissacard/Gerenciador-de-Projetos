@@ -54,7 +54,6 @@ export const AllCards = styled.div`
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 10px;
-    padding: ;
   }
 
 `;
