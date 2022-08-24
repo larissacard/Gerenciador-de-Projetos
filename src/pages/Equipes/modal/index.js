@@ -54,7 +54,10 @@ function PostEquipes(Props) {
     const [imagem, setImagem] = useState()
     const childToParent = (childdata) => {
         setPessoaEscolhida(childdata);
+        
     }
+
+
 
     const [openDrawer, setOpenDrawer] = useState(false)
     
@@ -140,6 +143,8 @@ function PostEquipes(Props) {
                 </Box>
 
                 <form onSubmit={handleClose}>
+                    {console.log(Props)}
+                 <TeamProfile foto={"fgsdfdf"}/> 
                     <Stack spacing={2.5}>
                         <CssTextField
                             autoComplete='off'

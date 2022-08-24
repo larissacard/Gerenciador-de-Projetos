@@ -53,7 +53,7 @@ function Equipes() {
         <Container>
             <Header />
             <ContainerUnico>
-                {/* <div className="d-flex justify-content-between mt-4">
+                <div className="d-flex justify-content-between mt-4">
                     <Title>Equipes</Title>
                     <Search>
                         <input type="search" placeholder="Pesquise..." onChange={filter} value={nome}></input>
@@ -66,7 +66,7 @@ function Equipes() {
                         foundEquipes.map((equipes) => (
                             <Card key={equipes.eq_id} href={"equipes/" + equipes.eq_id}>
                                 <Retangulo/>
-                                {/* <Icon>a</Icon> 
+    
                                 <Elipse>
                                     <SmallElipse src={equipes.eq_foto}/>
                                 </Elipse>
@@ -79,8 +79,7 @@ function Equipes() {
                             Nome não encontrado! ;-;
                         </div>
                     )}
-                </AllCards> */}
-                <TeamProfile/>
+                </AllCards>
 
             </ContainerUnico>
         </Container>
