@@ -6,7 +6,9 @@ export const Container = styled.ul`
     border-radius: 15px;
     list-style: none;
     padding: 15px 10px;
-    overflow-y: scroll;
+    overflow-y: hidden;
+ 
+    width: 50px;
 
     strong {
         font-weight: 600;

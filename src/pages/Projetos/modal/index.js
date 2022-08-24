@@ -158,6 +158,9 @@ export default function PostProjetos (Props) {
                             label='Descrição'
                             placeholder='Digite a descrição do Projeto'
                             value={descricaoProjeto}
+                            inputProps={{
+                                maxLength: 400,
+                              }}
                         />
 
                         <EquipesProjeto dados={Props.dados} childToParent={childToParent}/>
