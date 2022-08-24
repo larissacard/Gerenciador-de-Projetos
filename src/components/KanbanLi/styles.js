@@ -143,3 +143,21 @@ export const CheckboxSubtarefas = styled.input`
 export const SpanCheckbox = styled.span`
 
 `;
+
+export const Save = styled.button`
+    background-color: #6956E5;
+    color: white;
+
+    width: 82px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 20px ;
+    text-align: center;
+
+    :hover{
+        background-color: white;
+        color: #6956E5;
+        border: solid 1px #6956E5;
+    }
+`;

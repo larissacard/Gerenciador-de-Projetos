@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "../../components/header";
-import App from "./filter";
 import PostEquipes from "./modal"
 import { Container, Search, SearchIcon } from "../Projetos/styles";
-import { CardAdicionar, ContainerUnico } from "./style";
+import {  ContainerUnico } from "./style";
 import { useState } from "react";
 import api from "../../api";
 import { AllCards, Card, FooterCard, Name, Title, Icon, Retangulo, TeamLength, Elipse, SmallElipse } from "./style";
@@ -24,7 +23,7 @@ function Equipes() {
                 setFoundEquipes(response.data);
             })
             .catch(err => {
-                if(err.response.status == 401) {
+                if(err.response.status === 401) {
                     alert("Faça o Login para visualizar a página")
                     window.location.href = '/login'
                 }
@@ -69,7 +68,6 @@ function Equipes() {
                                 <Retangulo/>
                                 {/* <Icon>a</Icon> 
                                 <Elipse>
-                                {console.log(equipes)}
                                     <SmallElipse src={equipes.eq_foto}/>
                                 </Elipse>
                                 <Name>{equipes.eq_nome}</Name>

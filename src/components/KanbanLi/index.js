@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Top, Body, Prioridade, ButtonCancel, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox } from './styles';
+import { Container, Top, Body, Prioridade, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox, Save } from './styles';
 import { useDrag } from 'react-dnd'
 import { BsFlagFill } from 'react-icons/bs'
 import { TextField } from '@mui/material';
@@ -12,13 +12,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import Divider from '@mui/material/Divider';
 import api from '../../api';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
 
-import { Progress } from 'rsuite';
-import { CenterFocusStrong } from '@mui/icons-material';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
+
 
 function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Constante que permite o Drag -=-=-=-=-=-=-=-=-=-=-
@@ -34,7 +35,7 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
   const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
   const [titulo, setTitulo] = useState(Props.dados.tr_nome)
-  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
+  const [prioridade,] = useState(Props.dados.tr_prioridade)
   const [tarefas, setTarefas] = useState ()
   
   const getSubtarefas = async () => {
@@ -57,6 +58,21 @@ function KanbanLi(Props) {
       console.log(e)
     })
   }
+
+  const [subtarefa, setSubtarefa] = useState('' )
+
+  function PostSubtarefa (e) {
+    e.preventDefault()
+    api
+      .post(`/subtarefas/${Props.dados.tr_id}`, {
+        nome: subtarefa,
+        prioridade: 3
+      })
+      .then(getSubtarefas)
+      .catch(e => {
+        console.log(e)
+      })
+  }
   
   // -=-=-=-=-=-=-=-=-=-=- Abrir e fechar dialog de detalhes -=-=-=-=-=-=-=-=-=-=-
   const [open, setOpen] = useState(false);
@@ -75,10 +91,13 @@ function KanbanLi(Props) {
         tr_prioridade: prioridade
       })
       .then(res => {
-        Props.update()
+        Props.update();
         setOpen(false);
+        setSubtarefa('');
       })
   };
+
+  const [visible, setVisible] = useState ('none') 
 
   return (
     <>
@@ -145,9 +164,9 @@ function KanbanLi(Props) {
           <DialogContent>
               <div style={{display: 'flex', alignItems: 'center'}}>
                 <StatusTarefa className='me-2'>{Props.dados.tr_status}</StatusTarefa>
-                <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade == 1 ? 'Baixa' :
-                                                        Props.dados.tr_prioridade == 2 ? 'Media' :
-                                                        Props.dados.tr_prioridade == 3 ? 'Alta' :
+                <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade === 1 ? 'Baixa' :
+                                                        Props.dados.tr_prioridade === 2 ? 'Media' :
+                                                        Props.dados.tr_prioridade === 3 ? 'Alta' :
                                                         Props.dados.tr_prioridade}`}>
                   {
                     Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
@@ -164,7 +183,7 @@ function KanbanLi(Props) {
                 sx={{
                   '& legend': { display: 'none' },
                   '& fieldset': { top: 0 },
-                '& .MuiOutlinedInput-root': {
+                  '& .MuiOutlinedInput-root': {
                     color: 'rgba(40, 9, 72, 0.6)',
                     '&:hover' :{
                         color: '#6956E5',
@@ -220,7 +239,7 @@ function KanbanLi(Props) {
                             type="checkbox"
                             onChange={(e) => changeStatus(e, tarefa.id)}
                             key={tarefa.id}
-                            checked={tarefa.status == 1 ? true : false}>
+                            checked={tarefa.status === 1 ? true : false}>
                           </CheckboxSubtarefas>
                           <SpanCheckbox/>
                           {tarefa.nome}
@@ -229,6 +248,28 @@ function KanbanLi(Props) {
                   )
                   )}
                 </FormSubtarefas>
+
+                <form onSubmit={(e) => PostSubtarefa(e)}>
+                  <OutlinedInput
+                    autoComplete='off'
+                    required
+                    onChange={(e) => {setSubtarefa(e.target.value);
+                      if (setSubtarefa !== '') {
+                        setVisible('block')
+                      }
+                    }}
+                    fullWidth
+                    size='small'
+                    placeholder='Digite o nome da Subtarefa'
+                    value={subtarefa}
+                    sx={{
+                      '& legend': { display: 'none' },
+                      '& fieldset': { top: 0 },
+                    }}
+                   
+                    endAdornment={<InputAdornment position="end"><Save style={{display: visible}}>Salvar</Save></InputAdornment>}
+                  />
+                </form>
             <DialogContentText>
               Let Google help apps determine location. This means sending anonymous
               location data to Google, even when no apps are running.
@@ -236,7 +277,7 @@ function KanbanLi(Props) {
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Disagree</Button>
-            <Button onClick={handleClose}>Agree</Button>
+            <Button>Agree</Button>
           </DialogActions>
         </Dialog>}
       </>

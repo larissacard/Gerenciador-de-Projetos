@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from 'react';
+import React, { useState } from 'react';
 import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles'
@@ -6,7 +6,6 @@ import { Cadastrar, Cancelar, ButtonCancel, Editar } from './styles'
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
 import "rsuite/dist/rsuite.min.css";
-import GetEquipe from '../get';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -52,7 +51,6 @@ function PutEquipes(Props) {
     const [pessoaEscolhida, setPessoaEscolhida] = useState(Props.dados.pessoas)
     const childToParent = (childdata) => {
          setPessoaEscolhida(childdata);
-         console.log(childdata)
      }
 
     const [openDrawer, setOpenDrawer] = useState(false)
