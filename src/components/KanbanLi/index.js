@@ -33,7 +33,6 @@ function KanbanLi(Props) {
     }),
   })
 
-  
   // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
   const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
   const [titulo, setTitulo] = useState(Props.dados.tr_nome)
@@ -61,7 +60,7 @@ function KanbanLi(Props) {
     })
   }
 
-  const [subtarefa, setSubtarefa] = useState('' )
+  const [subtarefa, setSubtarefa] = useState('')
 
   function PostSubtarefa (e) {
     e.preventDefault()
@@ -70,7 +69,11 @@ function KanbanLi(Props) {
         nome: subtarefa,
         prioridade: 3
       })
-      .then(getSubtarefas)
+      .then(res=> {
+        getSubtarefas()
+        setSubtarefa('')
+      }
+        )
       .catch(e => {
         console.log(e)
       })
@@ -99,12 +102,15 @@ function KanbanLi(Props) {
       })
   };
 
-  const [visible, setVisible] = useState ('none') 
-    // if (setSubtarefa !== null) {
-    //   setVisible('block')
-    // }
-  const handledigit = () => {
-    
+  const [visible, setVisible] = useState('none') 
+  const handledigit = (e) => {
+    e.preventDefault()
+    if (e.target.value !== '') {
+      setVisible('block')
+    }
+    else {
+      setVisible('none')
+    }
   } 
 
 
@@ -221,6 +227,11 @@ function KanbanLi(Props) {
                 placeholder='Descrição'
                 multiline
                 rows={4}
+                // InputProps={{
+                //   endAdornment: (<InputAdornment position='end' sx={{root: {
+                //     alignItems: 'flex-end'
+                //   }}}><Save style={{marginTop: '85px'}}>Salvar</Save></InputAdornment>),
+                // }}
                 />
               <TituloSubtarefas>
                 Subtarefas
@@ -262,11 +273,7 @@ function KanbanLi(Props) {
                   <OutlinedInput
                     autoComplete='off'
                     required
-                    onChange={(e) => {setSubtarefa(e.target.value);
-                      if (setSubtarefa !== '') {
-                        setVisible('block')
-                      }
-                    }}
+                    onChange={(e) => {setSubtarefa(e.target.value); handledigit(e)}}
                     fullWidth
                     size='small'
                     placeholder='Digite o nome da Subtarefa'
@@ -275,7 +282,7 @@ function KanbanLi(Props) {
                       '& legend': { display: 'none' },
                       '& fieldset': { top: 0 },
                     }}
-                   
+                  
                     endAdornment={<InputAdornment position="end"><Save style={{display: visible}}>Salvar</Save></InputAdornment>}
                   />
                 </form>
