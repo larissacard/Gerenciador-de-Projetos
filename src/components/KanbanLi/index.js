@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Top, Body, Prioridade, ButtonCancel, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox, Save } from './styles';
+import { Container, Top, Body, Prioridade, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox, Save } from './styles';
 import { useDrag } from 'react-dnd'
 import { BsFlagFill } from 'react-icons/bs'
 import { TextField } from '@mui/material';
@@ -15,8 +15,6 @@ import api from '../../api';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
-import { Progress } from 'rsuite';
-import { CenterFocusStrong } from '@mui/icons-material';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
@@ -37,7 +35,7 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
   const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
   const [titulo, setTitulo] = useState(Props.dados.tr_nome)
-  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
+  const [prioridade,] = useState(Props.dados.tr_prioridade)
   const [tarefas, setTarefas] = useState ()
   
   const getSubtarefas = async () => {
@@ -100,13 +98,6 @@ function KanbanLi(Props) {
   };
 
   const [visible, setVisible] = useState ('none') 
-    // if (setSubtarefa !== null) {
-    //   setVisible('block')
-    // }
-  const handledigit = () => {
-    
-  } 
-
 
   return (
     <>
@@ -173,9 +164,9 @@ function KanbanLi(Props) {
           <DialogContent>
               <div style={{display: 'flex', alignItems: 'center'}}>
                 <StatusTarefa className='me-2'>{Props.dados.tr_status}</StatusTarefa>
-                <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade == 1 ? 'Baixa' :
-                                                        Props.dados.tr_prioridade == 2 ? 'Media' :
-                                                        Props.dados.tr_prioridade == 3 ? 'Alta' :
+                <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade === 1 ? 'Baixa' :
+                                                        Props.dados.tr_prioridade === 2 ? 'Media' :
+                                                        Props.dados.tr_prioridade === 3 ? 'Alta' :
                                                         Props.dados.tr_prioridade}`}>
                   {
                     Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
@@ -248,7 +239,7 @@ function KanbanLi(Props) {
                             type="checkbox"
                             onChange={(e) => changeStatus(e, tarefa.id)}
                             key={tarefa.id}
-                            checked={tarefa.status == 1 ? true : false}>
+                            checked={tarefa.status === 1 ? true : false}>
                           </CheckboxSubtarefas>
                           <SpanCheckbox/>
                           {tarefa.nome}

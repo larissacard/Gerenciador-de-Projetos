@@ -12,7 +12,6 @@ import {
   Nota,
   Save,
   Name,
-  Descricao,
   Datetime,
   Delete,
   Container,
@@ -35,7 +34,7 @@ function Reminders() {
         setLembretes(response.data);
       })
       .catch((err) => {
-        if (err.response.status == 401) {
+        if (err.response.status === 401) {
           alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
         } else alert(err.message);
@@ -48,8 +47,8 @@ function Reminders() {
       .then((response) => {
         setLembretes(response.data);
       })
-      .catch(() => {
-        console.log("Errrrrooouuu");
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -77,10 +76,10 @@ function Reminders() {
       .delete(`/lembretes/${le_id}`)
       .then((res) => {
         update();
-        console.log("Deu certo");
+        console.log(res.response);
       })
       .catch((e) => {
-        console.log(Error);
+        console.log(e);
       });
   }
 
@@ -171,13 +170,13 @@ function Reminders() {
               <div className="d-flex justify-content-between">
                 <div>
                   <Name>
-                    <img src="assets/pin.svg" />
+                    <img src="assets/pin.svg" alt="pin icon"/>
                     {le.le_descricao}
                   </Name>
                 </div>
                 <div>
                   <Datetime>
-                    <img src="assets/calendar.svg" />
+                    <img src="assets/calendar.svg" alt="calendar icon"/>
                     {moment(le.le_data_lembrete).format("MMM Do YY")}
                   </Datetime>
                   <div>
