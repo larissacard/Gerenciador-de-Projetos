@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Top, Body, Prioridade, ButtonCancel, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox } from './styles';
+import { Container, Top, Body, Prioridade, ButtonCancel, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox, Save } from './styles';
 import { useDrag } from 'react-dnd'
 import { BsFlagFill } from 'react-icons/bs'
 import { TextField } from '@mui/material';
@@ -12,6 +12,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import Divider from '@mui/material/Divider';
 import api from '../../api';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
 
 import { Progress } from 'rsuite';
 import { CenterFocusStrong } from '@mui/icons-material';
@@ -19,6 +21,7 @@ import { CenterFocusStrong } from '@mui/icons-material';
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
+
 
 function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Constante que permite o Drag -=-=-=-=-=-=-=-=-=-=-
@@ -57,6 +60,21 @@ function KanbanLi(Props) {
       console.log(e)
     })
   }
+
+  const [subtarefa, setSubtarefa] = useState('' )
+
+  function PostSubtarefa (e) {
+    e.preventDefault()
+    api
+      .post(`/subtarefas/${Props.dados.tr_id}`, {
+        nome: subtarefa,
+        prioridade: 3
+      })
+      .then(getSubtarefas)
+      .catch(e => {
+        console.log(e)
+      })
+  }
   
   // -=-=-=-=-=-=-=-=-=-=- Abrir e fechar dialog de detalhes -=-=-=-=-=-=-=-=-=-=-
   const [open, setOpen] = useState(false);
@@ -75,10 +93,20 @@ function KanbanLi(Props) {
         tr_prioridade: prioridade
       })
       .then(res => {
-        Props.update()
+        Props.update();
         setOpen(false);
+        setSubtarefa('');
       })
   };
+
+  const [visible, setVisible] = useState ('none') 
+    // if (setSubtarefa !== null) {
+    //   setVisible('block')
+    // }
+  const handledigit = () => {
+    
+  } 
+
 
   return (
     <>
@@ -164,7 +192,7 @@ function KanbanLi(Props) {
                 sx={{
                   '& legend': { display: 'none' },
                   '& fieldset': { top: 0 },
-                '& .MuiOutlinedInput-root': {
+                  '& .MuiOutlinedInput-root': {
                     color: 'rgba(40, 9, 72, 0.6)',
                     '&:hover' :{
                         color: '#6956E5',
@@ -229,6 +257,28 @@ function KanbanLi(Props) {
                   )
                   )}
                 </FormSubtarefas>
+
+                <form onSubmit={(e) => PostSubtarefa(e)}>
+                  <OutlinedInput
+                    autoComplete='off'
+                    required
+                    onChange={(e) => {setSubtarefa(e.target.value);
+                      if (setSubtarefa !== '') {
+                        setVisible('block')
+                      }
+                    }}
+                    fullWidth
+                    size='small'
+                    placeholder='Digite o nome da Subtarefa'
+                    value={subtarefa}
+                    sx={{
+                      '& legend': { display: 'none' },
+                      '& fieldset': { top: 0 },
+                    }}
+                   
+                    endAdornment={<InputAdornment position="end"><Save style={{display: visible}}>Salvar</Save></InputAdornment>}
+                  />
+                </form>
             <DialogContentText>
               Let Google help apps determine location. This means sending anonymous
               location data to Google, even when no apps are running.
@@ -236,7 +286,7 @@ function KanbanLi(Props) {
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Disagree</Button>
-            <Button onClick={handleClose}>Agree</Button>
+            <Button>Agree</Button>
           </DialogActions>
         </Dialog>}
       </>
