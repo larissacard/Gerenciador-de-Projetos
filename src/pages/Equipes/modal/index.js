@@ -6,6 +6,7 @@ import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar, Name } from './styles'
 import { Retangulo } from './styles';
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
+import TeamProfile from '../team profile/profile';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -165,7 +166,6 @@ function PostEquipes(Props) {
 
                 
                         <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>
-
                 
                         <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
                             <Cancelar onClick={() => setOpenDrawer(false)}>

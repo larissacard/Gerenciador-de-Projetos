@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../../components/header";
-import App from "./filter";
 import PostEquipes from "./modal"
 import { Container, Search, SearchIcon } from "../Projetos/styles";
-import { CardAdicionar, ContainerUnico } from "./style";
+import {  ContainerUnico } from "./style";
 import { useState } from "react";
 import api from "../../api";
 import { AllCards, Card, FooterCard, Name, Title, Icon, Retangulo, TeamLength, Elipse, SmallElipse } from "./style";
+import TeamProfile from "./team profile/profile";
 
 
 function Equipes() {
@@ -23,7 +23,7 @@ function Equipes() {
                 setFoundEquipes(response.data);
             })
             .catch(err => {
-                if(err.response.status == 401) {
+                if(err.response.status === 401) {
                     alert("Faça o Login para visualizar a página")
                     window.location.href = '/login'
                 }
@@ -53,7 +53,7 @@ function Equipes() {
         <Container>
             <Header />
             <ContainerUnico>
-                <div className="d-flex justify-content-between mt-4">
+                {/* <div className="d-flex justify-content-between mt-4">
                     <Title>Equipes</Title>
                     <Search>
                         <input type="search" placeholder="Pesquise..." onChange={filter} value={nome}></input>
@@ -66,9 +66,8 @@ function Equipes() {
                         foundEquipes.map((equipes) => (
                             <Card key={equipes.eq_id} href={"equipes/" + equipes.eq_id}>
                                 <Retangulo/>
-                                {/* <Icon>a</Icon> */}
+                                {/* <Icon>a</Icon> 
                                 <Elipse>
-                                {console.log(equipes)}
                                     <SmallElipse src={equipes.eq_foto}/>
                                 </Elipse>
                                 <Name>{equipes.eq_nome}</Name>
@@ -80,7 +79,8 @@ function Equipes() {
                             Nome não encontrado! ;-;
                         </div>
                     )}
-                </AllCards>
+                </AllCards> */}
+                <TeamProfile/>
 
             </ContainerUnico>
         </Container>

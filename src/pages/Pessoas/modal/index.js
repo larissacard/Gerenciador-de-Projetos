@@ -56,7 +56,6 @@ function PostPessoas() {
         Form.append("pe_data_nasc", data.pe_data_nasc)
         Form.append("pe_cargo", cargoEscolhido)
         Form.append("pe_salario", data.pe_salario)
-        console.log(FormData)
 
         api.post('/pessoas', Form, config)
             .then(res=>{

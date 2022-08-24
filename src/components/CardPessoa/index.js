@@ -3,7 +3,6 @@ import React from "react";
 import { Container, InfoPessoa, FotoPerfil } from "./styles";
 
 function CardPessoa(Props) {
-  // console.log(Props)
   return (
     <Container
       style={{ backgroundColor: Props.pessoaSelecionada === Props.id ? "rgba(118, 75, 162, 0.4)" : "#f5f5f5"}}
