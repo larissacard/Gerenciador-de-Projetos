@@ -1,13 +1,10 @@
-import { width } from "@mui/system";
 import styled from "styled-components";
 
 export const Container = styled.div`
     max-width: 34.313rem;
     max-height: 53.25rem;
     background-color: white;
-
- 
-`
+`;
 
 export const ColunaUm = styled.div`
     width: 37%;
@@ -19,7 +16,7 @@ export const ColunaUm = styled.div`
     background-color: white;
     display: flex;
     flex-direction: column;
-`
+`;
 
 export const ColunaDois = styled.div`
     width: 45%;
@@ -30,7 +27,7 @@ export const ColunaDois = styled.div`
     flex-direction: column;
     background-color: white;
     border-radius: 20px;
-`
+`;
 
 export const Title = styled.div`
     font-weight: 700;
@@ -56,7 +53,7 @@ export const Editar = styled.button`
 
     background-color: #FF9533;
     border-radius: 14px;
-`
+`;
 
 export const Delete = styled.button`
     width: 82px;
@@ -69,7 +66,7 @@ export const Delete = styled.button`
     color: white;
     background-color: #E74444;
     border-radius: 14px;
-`
+`;
 
 export const SubTitle = styled.div`
     font-weight: 600;
@@ -138,7 +135,7 @@ export const Ellipse = styled.div`
     justify-content: center;
 `;
 
-export const Icon = styled.div`
+export const Icon = styled.img`
     border: 0.5px solid #280948;
     width: 1.9rem;
     height: 1.9rem;

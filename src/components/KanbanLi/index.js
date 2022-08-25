@@ -15,13 +15,28 @@ import api from '../../api';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
+import { ConstructionOutlined } from '@mui/icons-material';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
-
 function KanbanLi(Props) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const openMenu = Boolean(anchorEl);
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+  const handleCloseMenu = (e) => {
+    setAnchorEl('');
+    if (e.target.value) {
+      setPrioridade(e.target.value)
+    }
+  };
+
   // -=-=-=-=-=-=-=-=-=-=- Constante que permite o Drag -=-=-=-=-=-=-=-=-=-=-
   const [{isDragging}, dragRef] = useDrag({
     type: 'CARD',
@@ -34,9 +49,9 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
   const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
   const [titulo, setTitulo] = useState(Props.dados.tr_nome)
-  const [prioridade,] = useState(Props.dados.tr_prioridade)
-  const [tarefas, setTarefas] = useState ()
-  
+  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
+  const [tarefas, setTarefas] = useState()
+
   const getSubtarefas = async () => {
     api.get(`/tarefas/${Props.dados.tr_id}`)
       .then(response => {
@@ -51,11 +66,9 @@ function KanbanLi(Props) {
     let newStatus = e.target.checked ? 1 : 0
 
     api
-    .put(`/subtarefas/${id}/status/${newStatus}`)
-    .then(getSubtarefas)
-    .catch(e => {
-      console.log(e)
-    })
+      .put(`/subtarefas/${id}/status/${newStatus}`)
+      .then(() => getSubtarefas)
+      .catch(e => { console.log(e) })
   }
 
   const [subtarefa, setSubtarefa] = useState('')
@@ -80,24 +93,28 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Abrir e fechar dialog de detalhes -=-=-=-=-=-=-=-=-=-=-
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = async () => {
     getSubtarefas()
     setOpen(true);
   };
 
   const handleClose = () => {
     // Editar as infomações da tarefa
-    api
-      .put(`/tarefas/${Props.dados.tr_id}`, {
-        tr_nome: titulo,
-        tr_descricao: descricao,
-        tr_prioridade: prioridade
-      })
-      .then(res => {
-        Props.update();
-        setOpen(false);
-        setSubtarefa('');
-      })
+    if (titulo != Props.dados.tr_nome || descricao != Props.dados.tr_descricao || prioridade != Props.dados.tr_prioridade) {
+      api
+        .put(`/tarefas/${Props.dados.tr_id}`, {
+          tr_nome: titulo,
+          tr_descricao: descricao,
+          tr_prioridade: prioridade
+        })
+        .then(res => {
+          Props.dados.tr_nome = titulo
+          Props.dados.tr_descricao = descricao
+          Props.dados.tr_prioridade = prioridade
+          Props.update();
+        })
+    }
+    setOpen(false);
   };
 
   const [visible, setVisible] = useState('none') 
@@ -130,7 +147,8 @@ function KanbanLi(Props) {
                   Props.dados.tr_prioridade
                 }
               </span>
-            </Prioridade>
+            </Prioridade>   
+
             {/* <ul>
               <li>
                 {Props.dados.tr_descricao.length > 100 ?
@@ -176,17 +194,46 @@ function KanbanLi(Props) {
           <DialogContent>
               <div style={{display: 'flex', alignItems: 'center'}}>
                 <StatusTarefa className='me-2'>{Props.dados.tr_status}</StatusTarefa>
-                <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade === 1 ? 'Baixa' :
-                                                        Props.dados.tr_prioridade === 2 ? 'Media' :
-                                                        Props.dados.tr_prioridade === 3 ? 'Alta' :
-                                                        Props.dados.tr_prioridade}`}>
-                  {
-                    Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
-                    Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
-                    Props.dados.tr_prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
-                    Props.dados.tr_prioridade
-                  }
-                </PrioridadeTarefa>
+
+                <div>
+                  <Button
+                    id="fade-button"
+                    aria-controls={openMenu ? 'fade-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={openMenu ? 'true' : undefined}
+                    onClick={handleClick}
+                  >
+                    <PrioridadeTarefa title={`Prioridade: ${prioridade === 1 ? 'Baixa' :
+                                                            prioridade === 2 ? 'Media' :
+                                                            prioridade === 3 ? 'Alta' :
+                                                            prioridade}`}>
+                      {
+                        prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
+                        prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
+                        prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
+                        prioridade
+                      }
+                    </PrioridadeTarefa>
+                  </Button>
+                  <Menu
+                    onChange={(e)=> console.log(e)}
+                    id="fade-menu"
+                    MenuListProps={{
+                      'aria-labelledby': 'fade-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={openMenu}
+                    onClose={handleCloseMenu}
+                    TransitionComponent={Fade}
+                    
+                    onClick={handleCloseMenu}
+                  >
+                    <MenuItem value={1}>Baixa</MenuItem>
+                    <MenuItem value={2}>Média</MenuItem>
+                    <MenuItem value={3}>Alta</MenuItem>
+                  </Menu>
+                </div>
+
               </div>
               <TextField
                 fullWidth

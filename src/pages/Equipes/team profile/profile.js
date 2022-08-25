@@ -1,8 +1,6 @@
 import api from "../../../api";
 import { useState, useEffect } from "react";
 import 'antd/dist/antd.css';
-import { Avatar } from "antd";
-import { UserOutlined } from '@ant-design/icons';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';

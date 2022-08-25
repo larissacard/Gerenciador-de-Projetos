@@ -1,24 +1,6 @@
 import styled from 'styled-components';
 import { Lupa } from '../../styles/Icons';
 
-export const Container = styled.div`
-    width: min(1440px, 90vw);
-    height: min(900px, 90vh);
-    margin: 24px;
-
-    background-color: #F5F5F7;
-    display: flex;
-
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 32px;
-
-    @media (max-width: 480px) {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    overflow: hidden;
-`;
-
 export const ColunaUm = styled.div`
     width: 46%;
     height: calc(100% - 48px);

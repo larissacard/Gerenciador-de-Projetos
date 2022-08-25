@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useReducer, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, Container, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem } from './style';
+import { Title, Person, Icon, Name, Job, TotalTask, Ellipse,  SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem } from './style';
 import { render } from '@testing-library/react';
 import { Equipes } from '../../../styles/Icons';
 import { Progress } from 'rsuite';
@@ -113,7 +113,7 @@ function GetEquipe() {
       {equipe ?
         <>
           <ColunaUm>
-            <div className='d-flex mt-2' >
+            <div className='d-flex mt-2 ml-4' >
               <Imagem><img src={equipe.eq_foto}/></Imagem>
             <div style={{border: '1px solid black', marginLeft:'20px', }}>
                 <Title>{equipe.eq_nome}</Title>

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-
-import Header from "../../components/header";
 import Detalhes from "./detalhes";
 import Cards from "./cards";
 import PostPessoas from "./modal";
 
-import { Container, ColunaDois, ContFiltros } from "./styles";
+import Container from "../../components/Container";
+import { ColunaDois, ContFiltros } from "./styles";
 import CardCriar from "../../components/CardCriar";
 import SearchBar from "../../components/SearchBar";
 
@@ -23,7 +22,6 @@ function Pessoas() {
 
   return (
     <Container>
-      <Header />
       <Detalhes dados={data}/>
       <ColunaDois>
         <CardCriar titulo="Adicionar Pessoa" descricao="Cadastre uma nova pessoa" button={<PostPessoas/>}/>

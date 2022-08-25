@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import api from '../../api';
-import Header from '../../components/header';
 import Grafico from './grafico';
 import CardCriar from '../../components/CardCriar';
 import SalaVirtual from '../../components/CardSalaVirtual';
 import PostProjetos from './modal';
 import Alert from '@mui/material/Alert';
+import Container from "../../components/Container";
 
 import {
-  Container,
   ColunaUm,
   ContGrafico,
   TopGrafico,
@@ -38,7 +37,7 @@ function Projetos() {
         setFoundProjetos(response.data);
       })
       .catch((err) => {
-        if (err.response.status == 401) {
+        if (err.response.status === 401) {
           alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
         } else alert(err.message);
@@ -65,7 +64,6 @@ function Projetos() {
 
   return (
     <Container>
-      <Header />
       <ColunaUm>
         <TopGrafico>
           <h1>Projetos</h1>
