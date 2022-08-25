@@ -1,12 +1,10 @@
 import React, {useState} from "react";
-import Header from "../../components/header";
 import SearchBar from "../../components/SearchBar"
 import CardCriar from "../../components/CardCriar"
-
-import CardAgenda from "../../components/CardAgenda";
 import PostTarefas from "./modal";
 import Cards from "./cards";
-import { Container, ColunaUm, ColunaDois } from "./styles";
+import { ColunaUm, ColunaDois } from "./styles";
+import Container from "../../components/Container";
 
 
 function Tarefas() {
@@ -18,7 +16,6 @@ function Tarefas() {
 
   return (
     <Container>
-      <Header/>
       <ColunaUm>
         <h1>Tarefas</h1>
         <SearchBar placeholder="Pesquise uma tarefa aqui..." handleChange={handleChange}/>

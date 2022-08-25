@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import api from '../../api'
 import CardDetalhesList from '../../components/CardDetalhesList';
 import KanbanUl from '../../components/KanbanUl';
-import Header from '../../components/header'
-import { Container, ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
+import Container from "../../components/Container";
+import { ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
 import Edit from './put';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
@@ -60,7 +60,6 @@ export default function Index() {
                 </Alert>
             </Snackbar>
             <Container>
-                <Header />
 
                 {dados ?
                     <ContDados>

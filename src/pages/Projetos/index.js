@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import api from '../../api';
-import Header from '../../components/header';
 import Grafico from './grafico';
 import CardCriar from '../../components/CardCriar';
 import SalaVirtual from '../../components/CardSalaVirtual';
 import PostProjetos from './modal';
 import Alert from '@mui/material/Alert';
+import Container from "../../components/Container";
 
 import {
-  Container,
   ColunaUm,
   ContGrafico,
   TopGrafico,
@@ -65,7 +64,6 @@ function Projetos() {
 
   return (
     <Container>
-      <Header />
       <ColunaUm>
         <TopGrafico>
           <h1>Projetos</h1>

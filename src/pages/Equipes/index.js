@@ -1,12 +1,11 @@
 import React from "react";
-import Header from "../../components/header";
 import PostEquipes from "./modal"
-import { Container, Search, SearchIcon } from "../Projetos/styles";
+import { Search, SearchIcon } from "../Projetos/styles";
 import {  ContainerUnico } from "./style";
 import { useState } from "react";
 import api from "../../api";
-import { AllCards, Card, FooterCard, Name, Title, Icon, Retangulo, TeamLength, Elipse, SmallElipse } from "./style";
-import TeamProfile from "./team profile/profile";
+import { AllCards, Card, Name, Title, Retangulo, TeamLength, Elipse, SmallElipse } from "./style";
+import Container from "../../components/Container";
 
 
 function Equipes() {
@@ -51,7 +50,6 @@ function Equipes() {
     
     return (
         <Container>
-            <Header />
             <ContainerUnico>
                 <div className="d-flex justify-content-between mt-4">
                     <Title>Equipes</Title>
