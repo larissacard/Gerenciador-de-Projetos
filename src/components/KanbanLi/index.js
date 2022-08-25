@@ -30,8 +30,11 @@ function KanbanLi(Props) {
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
   };
-  const handleCloseMenu = () => {
+  const handleCloseMenu = (e) => {
     setAnchorEl('');
+    if (e.target.value) {
+      setPrioridade(e.target.value)
+    }
   };
 
   // -=-=-=-=-=-=-=-=-=-=- Constante que permite o Drag -=-=-=-=-=-=-=-=-=-=-
@@ -48,7 +51,6 @@ function KanbanLi(Props) {
   const [titulo, setTitulo] = useState(Props.dados.tr_nome)
   const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
   const [tarefas, setTarefas] = useState ()
-  console.log(prioridade)
 
   const getSubtarefas = async () => {
     api.get(`/tarefas/${Props.dados.tr_id}`)
@@ -123,11 +125,6 @@ function KanbanLi(Props) {
       setVisible('none')
     }
   } 
-
-  const handleChange = (e) => {
-    setPrioridade(e.target.value);
-};
-
 
   return (
     <>
@@ -204,15 +201,15 @@ function KanbanLi(Props) {
                     aria-expanded={openMenu ? 'true' : undefined}
                     onClick={handleClick}
                   >
-                    <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade === 1 ? 'Baixa' :
-                                                            Props.dados.tr_prioridade === 2 ? 'Media' :
-                                                            Props.dados.tr_prioridade === 3 ? 'Alta' :
-                                                            Props.dados.tr_prioridade}`}>
+                    <PrioridadeTarefa title={`Prioridade: ${prioridade === 1 ? 'Baixa' :
+                                                            prioridade === 2 ? 'Media' :
+                                                            prioridade === 3 ? 'Alta' :
+                                                            prioridade}`}>
                       {
-                        Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
-                        Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
-                        Props.dados.tr_prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
-                        Props.dados.tr_prioridade
+                        prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
+                        prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
+                        prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
+                        prioridade
                       }
                     </PrioridadeTarefa>
                   </Button>
