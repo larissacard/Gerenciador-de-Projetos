@@ -140,7 +140,7 @@ export const Ellipse = styled.div`
     justify-content: center;
 `;
 
-export const Icon = styled.div`
+export const Icon = styled.img`
     border: 0.5px solid #280948;
     width: 1.9rem;
     height: 1.9rem;

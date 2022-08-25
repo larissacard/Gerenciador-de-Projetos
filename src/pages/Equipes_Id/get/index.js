@@ -134,7 +134,7 @@ function GetEquipe() {
                 equipe.pessoas.map((e) =>
                   <Person key={e.pe_id}>
                     <Ellipse>
-                      <Icon>{e.pe_foto}</Icon>
+                      <Icon src={e.pe_foto}/>
                     </Ellipse>
                     <Name>{e.pe_nome}</Name>
                     <Job>{e.pe_cargo}</Job>
