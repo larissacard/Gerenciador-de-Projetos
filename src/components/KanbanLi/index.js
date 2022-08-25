@@ -47,10 +47,10 @@ function KanbanLi(Props) {
   })
 
   // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
-  const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
-  const [titulo, setTitulo] = useState(Props.dados.tr_nome)
-  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
-  const [tarefas, setTarefas] = useState ()
+  const [descricao, setDescricao] = useState()
+  const [titulo, setTitulo] = useState()
+  const [prioridade, setPrioridade] = useState()
+  const [tarefas, setTarefas] = useState()
 
   const getSubtarefas = async () => {
     api.get(`/tarefas/${Props.dados.tr_id}`)
@@ -66,11 +66,9 @@ function KanbanLi(Props) {
     let newStatus = e.target.checked ? 1 : 0
 
     api
-    .put(`/subtarefas/${id}/status/${newStatus}`)
-    .then(getSubtarefas)
-    .catch(e => {
-      console.log(e)
-    })
+      .put(`/subtarefas/${id}/status/${newStatus}`)
+      .then(() => getSubtarefas)
+      .catch(e => { console.log(e) })
   }
 
   const [subtarefa, setSubtarefa] = useState('')
@@ -95,24 +93,32 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Abrir e fechar dialog de detalhes -=-=-=-=-=-=-=-=-=-=-
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = async () => {
+    await api
+          .get(`/tarefas/${Props.dados.tr_id}`)
+          .then(res => {
+            setTitulo(res.data.tr_nome)
+            setDescricao(res.data.tr_descricao)
+            setPrioridade(res.data.tr_prioridade)
+          })
     getSubtarefas()
     setOpen(true);
   };
 
   const handleClose = () => {
     // Editar as infomações da tarefa
-    api
-      .put(`/tarefas/${Props.dados.tr_id}`, {
-        tr_nome: titulo,
-        tr_descricao: descricao,
-        tr_prioridade: prioridade
-      })
-      .then(res => {
-        Props.update();
-        setOpen(false);
-        setSubtarefa('');
-      })
+    if (titulo != Props.dados.tr_nome || descricao != Props.dados.tr_descricao || prioridade != Props.dados.tr_prioridade) {
+      api
+        .put(`/tarefas/${Props.dados.tr_id}`, {
+          tr_nome: titulo,
+          tr_descricao: descricao,
+          tr_prioridade: prioridade
+        })
+        .then(res => {
+          Props.update();
+        })
+    }
+    setOpen(false);
   };
 
   const [visible, setVisible] = useState('none') 
