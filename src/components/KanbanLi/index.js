@@ -47,9 +47,9 @@ function KanbanLi(Props) {
   })
 
   // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
-  const [descricao, setDescricao] = useState()
-  const [titulo, setTitulo] = useState()
-  const [prioridade, setPrioridade] = useState()
+  const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
+  const [titulo, setTitulo] = useState(Props.dados.tr_nome)
+  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
   const [tarefas, setTarefas] = useState()
 
   const getSubtarefas = async () => {
@@ -94,13 +94,6 @@ function KanbanLi(Props) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = async () => {
-    await api
-          .get(`/tarefas/${Props.dados.tr_id}`)
-          .then(res => {
-            setTitulo(res.data.tr_nome)
-            setDescricao(res.data.tr_descricao)
-            setPrioridade(res.data.tr_prioridade)
-          })
     getSubtarefas()
     setOpen(true);
   };
@@ -115,6 +108,9 @@ function KanbanLi(Props) {
           tr_prioridade: prioridade
         })
         .then(res => {
+          Props.dados.tr_nome = titulo
+          Props.dados.tr_descricao = descricao
+          Props.dados.tr_prioridade = prioridade
           Props.update();
         })
     }
