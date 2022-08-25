@@ -56,7 +56,7 @@ export default function AlertDeleteDialog(Props) {
             </Snackbar>
             
             <div>
-                <Deletar onClick={handleClick}>
+                <Deletar onClick={handleClick} >
                     Excluir
                 </Deletar>
                 <Dialog

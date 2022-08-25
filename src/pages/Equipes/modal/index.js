@@ -50,12 +50,14 @@ const CssTextField = styled(TextField)({
 
 function PostEquipes(Props) {
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
-    const [imagem, setImagem] = useState()
+    const [fotoEscolhida, setFotoEscolhida] = useState()
     const childToParent = (childdata) => {
         setPessoaEscolhida(childdata);
-        
     }
-
+    
+    const childToParentPhoto = (childdata) => {
+        setFotoEscolhida(childdata);
+    }
 
 
     const [openDrawer, setOpenDrawer] = useState(false)
@@ -95,6 +97,7 @@ function PostEquipes(Props) {
     function cadastrar(e){
         e.preventDefault();
         api.post('/equipes',{
+            eq_foto: fotoEscolhida,
             eq_nome: nomeEquipe,
             pessoas: pessoaEscolhida
         })
@@ -142,8 +145,9 @@ function PostEquipes(Props) {
                 </Box>
 
                 <form onSubmit={handleClose}>
-                    {console.log(Props)}
-                 <TeamProfile foto={"fgsdfdf"}/> 
+
+                 <TeamProfile childToParent={childToParentPhoto}/>  
+
                     <Stack spacing={2.5}>
                         <CssTextField
                             autoComplete='off'
@@ -155,15 +159,8 @@ function PostEquipes(Props) {
                             label='Nome'
                             placeholder='Digite o nome da Equipe'
                             value={nomeEquipe}
-                        />
+                        />    
 
-                         <CssTextField
-                            type='file'
-                            required
-                            onChange={(e) => setImagem(e.target.value)}
-                            fullWidth
-                            size='Normal'       
-                        />
                 
                         <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>
                 

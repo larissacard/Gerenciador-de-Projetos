@@ -8,6 +8,24 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Catalogo, Close, Container, Icon, Open, Pic, Text } from "./style";
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'white',
+    border: 'none',
+    borderRadius: '20px',
+    boxShadow: 24,
+    p: 4,
+    width: '30%',
+    height: '30%',
+};
+
+
 
 export default function TeamProfile(Props) {
     const [fotos, setFotos] = useState([]);
@@ -44,75 +62,52 @@ export default function TeamProfile(Props) {
     return (
         <>
 
-            {/* <Avatar size={64} icon={fotoEscolhida} /> */}
-            {/* <img src={Props.dados.eq_foto} width="50px" height="50px"/> */}
-
-            <div>Aoba</div>
+            {/* <Avatar size={64} icon={Props.dados.eq_foto} /> */}
+            {
+                fotoEscolhida &&
+                <Icon>
+                    <img src={fotoEscolhida.link}/>
+                </Icon>
+            }
 
             {/* Modal */}
             <div>
-                <Button variant="outlined" onClick={handleClickOpen}>
-                    Slide in alert dialog
-                </Button>
+
+                <Open className="d-flex" variant="outlined" onClick={handleClickOpen}>
+                    <Text>Escolher Icon</Text>
+                </Open>
+
                 <Dialog
                     open={open}
                     keepMounted
                     onClose={handleClose}
                     aria-describedby="alert-dialog-slide-description"
-                >
-                    <DialogTitle>{"Team Pic Changer"}</DialogTitle>
+                    fullWidth
+                    >
+                    <DialogTitle style={{color: '#7C6A8F'}}>{"Escolha uma foto para sua equipe!!"}</DialogTitle>
                     <DialogContent>
-                        <DialogContentText id="alert-dialog-slide-description">
-                        Escolha uma foto para sua equipe!!
-                        </DialogContentText>
                     </DialogContent>
+
+                    <Catalogo>
+                            {fotos.map(i => (
+                                <div key={i.id}>
+                                    <Pic 
+                                    onClick={(e) => {
+                                        Props.childToParent(i.id)
+                                        setFotoEscolhida(i)
+                                        handleClose()
+                                    }} 
+
+                                    style={{border: 'none'}}>
+                                        <img src={i.link}    />
+                                    </Pic>
+                                </div>
+                            ))}
+                    </Catalogo>
                     <DialogActions>
-                        <Button onClick={handleClose}>Fechar</Button>
+                        <Close onClick={handleClose}>Fechar</Close>
                     </DialogActions>
-
-                    <div>
-                            {fotos.map(i => (
-                                <div key={i.id} className='d-flex'>
-                                    <button 
-                                    onClick={(e) => setFotoEscolhida(i)} 
-                                    style={{border: 'none'}}>
-                                        <img src={i.link} style={{width: '30px', height: '30px'}} alt="profile"/>
-                                    </button>
-                                </div>
-                            ))}
-                    </div>
                 </Dialog>
-
-                {/* <Button onClick={handleOpen}>Open modal</Button>
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
-                    <Box sx={style}>
-                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                            Team Pic Changer
-                        </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            Escolha uma foto para sua equipe!!
-                        </Typography>
-                        <div>
-                            <div>
-                            {fotos.map(i => (
-                                <div key={i.id} className='d-flex'>
-                                    <button 
-                                    onClick={(e) => setFotoEscolhida(i.id)} 
-                                    style={{border: 'none'}}>
-                                        <img src={i.link} style={{width: '30px', height: '30px'}} />
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                        </div>
-                
-                    </Box>
-                </Modal> */}
             </div>
         </>
     )

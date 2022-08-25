@@ -1,34 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect, useReducer, useState } from 'react';
 import api from '../../../api';
+import { Title, Person, Icon, Name, Job, TotalTask, Ellipse,  SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem } from './style';
+import { render } from '@testing-library/react';
+import { Equipes } from '../../../styles/Icons';
 import { Progress } from 'rsuite';
+import { Deletar } from '../../Projetos_Id/styles';
+import { useNavigate } from 'react-router-dom'
+import { Ranking } from '../grafico';
 import PutEquipes from '../put';
+import App from '../grafico';
 import RANKING from '../grafico';
 import AlertDeleteDialog from '../../../components/CardConfirmDelete';
-
-import { 
-    Title,
-    Person,
-    Icon,
-    Name,
-    Job,
-    TotalTask,
-    Ellipse,
-    SubTitle,
-    Card,
-    CardIcon,
-    ColunaUm,
-    ColunaDois,
-    Pontos,
-    BigTaskCard,
-    CardTask,
-    Tasks,
-    Editar,
-    SmallInfo,
-    SmallIcon,
-    SmallCont,
-    NoResults,
-    TitleNoResults
-} from './style';
 
 const style = {
   width: 125,
@@ -38,6 +20,7 @@ const style = {
 function GetEquipe() {
   const [equipe, setEquipe] = useState()
   const path = window.location.pathname;
+  let navigate = useNavigate()
 
   useEffect(() => {
      api.get(path)
@@ -45,13 +28,13 @@ function GetEquipe() {
         setEquipe(response.data)
        })
        .catch(err => {
-        if(err.response.status === 401) {
+        if(err.response.status == 401) {
             alert("Faça o Login para visualizar a página")
             window.location.href = '/login'
         }
         else alert(err.message)
     })
-  })
+  }, [])
 
   function updateScreen() {
     api.get(path)
@@ -130,18 +113,22 @@ function GetEquipe() {
       {equipe ?
         <>
           <ColunaUm>
-            <div className='d-flex'>
-              <Title>{equipe.eq_nome}</Title>
-              <Editar>
-                  <PutEquipes dados={equipe} update={updateScreen} /> 
-              </Editar>
-              <div style={{marginTop: "31px"}}>
-                <AlertDeleteDialog
-                  path = '/equipes'
-                  alert = 'Equipe excluida com sucesso!'
-                  titulo='Excluir Equipe Permanentemente?'
-                  descricao='Se você excluir esta equipe, não poderá recuperá-lo. Deseja excluí-lo?' />
+            <div className='d-flex mt-2 ml-4' >
+              <Imagem><img src={equipe.eq_foto}/></Imagem>
+            <div style={{border: '1px solid black', marginLeft:'20px', }}>
+                <Title>{equipe.eq_nome}</Title>
+                <div style={{display: 'flex', alignItems:'center', justifyContent: 'center'}}>
+                <Editar>
+                    <PutEquipes dados={equipe} update={updateScreen} /> 
+                </Editar>
+                  <AlertDeleteDialog
+                    path = '/equipes'
+                    alert = 'Equipe excluida com sucesso!'
+                    titulo='Excluir Equipe Permanentemente?'
+                    descricao='Se você excluir esta equipe, não poderá recuperá-lo. Deseja excluí-lo?' 
+                    />
 
+                </div>
               </div>
             </div>
             <SubTitle>Todos os membros</SubTitle>
@@ -151,7 +138,7 @@ function GetEquipe() {
                 equipe.pessoas.map((e) =>
                   <Person key={e.pe_id}>
                     <Ellipse>
-                      <Icon src={e.pe_foto}/>
+                      <Icon>{e.pe_foto}</Icon>
                     </Ellipse>
                     <Name>{e.pe_nome}</Name>
                     <Job>{e.pe_cargo}</Job>
@@ -172,7 +159,7 @@ function GetEquipe() {
             <div className='d-flex justify-content-between mt-3'>
                 <Card>
                 <CardIcon>
-                  <img src="../../../assets/cod.svg" alt="cod.svg"/>
+                  <img src="../../../assets/cod.svg" />
                 </CardIcon>
                 <Pontos>
                   <h6>
@@ -184,7 +171,7 @@ function GetEquipe() {
               </Card>
               <Card>
                 <CardIcon style={{backgroundColor: "#667EEA"}}>
-                  <img src='../../../assets/pincel.svg' alt="pincel icon"/>
+                  <img src='../../../assets/pincel.svg' />
                 </CardIcon>
                 <Pontos>
                   <h6><TotalJob funcao={'FrontEnd Junior'} /></h6>
@@ -194,7 +181,7 @@ function GetEquipe() {
 
               <Card>
                 <CardIcon style={{backgroundColor: "#E391EA"}}>
-                  <img src='../../../assets/sqa.svg' alt="sqa icon"/>
+                  <img src='../../../assets/sqa.svg' />
                 </CardIcon>
                 <Pontos>
                   <h6>
@@ -221,7 +208,7 @@ function GetEquipe() {
                 </div>
                 <SmallInfo>
                   <SmallIcon>
-                    <img src='../../../assets/check.svg' alt="check icon"/>
+                    <img src='../../../assets/check.svg' />
                   </SmallIcon>
                   <p>Total Tasks Concluidas: {equipe.tarefas.Concluidas}</p>
                 </SmallInfo>
