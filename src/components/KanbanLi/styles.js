@@ -119,6 +119,7 @@ export const TituloSubtarefas = styled.h1`
 
 export const FormSubtarefas = styled.form`
     margin-top: -10px;
+    margin-bottom: 6px;
     `;
 
 export const FormDiv = styled.div`
@@ -144,7 +145,7 @@ export const SpanCheckbox = styled.span`
 
 `;
 
-export const Save = styled.button`
+export const Save = styled.input`
     background-color: #6956E5;
     color: white;
 
