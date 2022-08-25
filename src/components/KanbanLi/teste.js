@@ -1,83 +1,50 @@
+
+
 import React, { useState } from 'react';
-import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Fade from '@mui/material/Fade';
 
-const options = [
-  'None',
-  'Atria',
-  'Callisto',
-  'Dione',
-  'Ganymede',
-  'Hangouts Call',
-  'Luna',
-  'Oberon',
-  'Phobos',
-  'Pyxis',
-  'Sedna',
-  'Titania',
-  'Triton',
-  'Umbriel',
-];
-
-const ITEM_HEIGHT = 48;
-
-export default function LongMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+export default function FadeMenu() {
+  const [anchorEl, setAnchorEl] = useState('');
+  const openMenu = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleCloseMenu = () => {
+    setAnchorEl('');
   };
-
-//   const [openDrawer, setOpenDrawer] = useState(false)
-    
-//     const handleOpenDrawer = () => {
-//         setOpenDrawer(true);
-//     }
-//     const handleCloseDrawer = () => {
-//         setOpenDrawer(false);
-//     }
 
   return (
     <div>
-      <IconButton
-        aria-label="more"
-        id="long-button"
-        aria-controls={open ? 'long-menu' : undefined}
-        aria-expanded={open ? 'true' : undefined}
+      <Button
+        id="fade-button"
+        aria-controls={openMenu ? 'fade-menu' : undefined}
         aria-haspopup="true"
+        aria-expanded={openMenu ? 'true' : undefined}
         onClick={handleClick}
       >
-        <MoreVertIcon />
-      </IconButton>
+        Dashboard
+      </Button>
       <Menu
-        id="long-menu"
+        id="fade-menu"
         MenuListProps={{
-          'aria-labelledby': 'long-button',
+          'aria-labelledby': 'fade-button',
         }}
         anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          style: {
-            maxHeight: ITEM_HEIGHT * 4.5,
-            width: '20ch',
-          },
-        }}
+        open={openMenu}
+        onClose={handleCloseMenu}
+        TransitionComponent={Fade}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-            {option}
-          </MenuItem>
-        ))}
+        <MenuItem onClick={handleCloseMenu} value={1}>Baixa</MenuItem>
+        <MenuItem onClick={handleCloseMenu} value={2}>Média</MenuItem>
+        <MenuItem onClick={handleCloseMenu} value={3}>Alta</MenuItem>
       </Menu>
     </div>
   );
 }
+
 
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

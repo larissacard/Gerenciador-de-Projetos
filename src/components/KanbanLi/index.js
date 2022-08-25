@@ -15,13 +15,25 @@ import api from '../../api';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
+import { ConstructionOutlined } from '@mui/icons-material';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
-
 function KanbanLi(Props) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const openMenu = Boolean(anchorEl);
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+  const handleCloseMenu = () => {
+    setAnchorEl('');
+  };
+
   // -=-=-=-=-=-=-=-=-=-=- Constante que permite o Drag -=-=-=-=-=-=-=-=-=-=-
   const [{isDragging}, dragRef] = useDrag({
     type: 'CARD',
@@ -34,9 +46,10 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Recebe os objetos de tarefas -=-=-=-=-=-=-=-=-=-=-
   const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
   const [titulo, setTitulo] = useState(Props.dados.tr_nome)
-  const [prioridade,] = useState(Props.dados.tr_prioridade)
+  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
   const [tarefas, setTarefas] = useState ()
-  
+  console.log(prioridade)
+
   const getSubtarefas = async () => {
     api.get(`/tarefas/${Props.dados.tr_id}`)
       .then(response => {
@@ -111,6 +124,11 @@ function KanbanLi(Props) {
     }
   } 
 
+  const handleChange = (e) => {
+    setPrioridade(e.target.value);
+};
+
+
   return (
     <>
       <Container ref={dragRef} isDragging={isDragging} onClick={handleClickOpen}>
@@ -130,7 +148,8 @@ function KanbanLi(Props) {
                   Props.dados.tr_prioridade
                 }
               </span>
-            </Prioridade>
+            </Prioridade>   
+
             {/* <ul>
               <li>
                 {Props.dados.tr_descricao.length > 100 ?
@@ -176,17 +195,46 @@ function KanbanLi(Props) {
           <DialogContent>
               <div style={{display: 'flex', alignItems: 'center'}}>
                 <StatusTarefa className='me-2'>{Props.dados.tr_status}</StatusTarefa>
-                <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade === 1 ? 'Baixa' :
-                                                        Props.dados.tr_prioridade === 2 ? 'Media' :
-                                                        Props.dados.tr_prioridade === 3 ? 'Alta' :
-                                                        Props.dados.tr_prioridade}`}>
-                  {
-                    Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
-                    Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
-                    Props.dados.tr_prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
-                    Props.dados.tr_prioridade
-                  }
-                </PrioridadeTarefa>
+
+                <div>
+                  <Button
+                    id="fade-button"
+                    aria-controls={openMenu ? 'fade-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={openMenu ? 'true' : undefined}
+                    onClick={handleClick}
+                  >
+                    <PrioridadeTarefa title={`Prioridade: ${Props.dados.tr_prioridade === 1 ? 'Baixa' :
+                                                            Props.dados.tr_prioridade === 2 ? 'Media' :
+                                                            Props.dados.tr_prioridade === 3 ? 'Alta' :
+                                                            Props.dados.tr_prioridade}`}>
+                      {
+                        Props.dados.tr_prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
+                        Props.dados.tr_prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
+                        Props.dados.tr_prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
+                        Props.dados.tr_prioridade
+                      }
+                    </PrioridadeTarefa>
+                  </Button>
+                  <Menu
+                    onChange={(e)=> console.log(e)}
+                    id="fade-menu"
+                    MenuListProps={{
+                      'aria-labelledby': 'fade-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={openMenu}
+                    onClose={handleCloseMenu}
+                    TransitionComponent={Fade}
+                    
+                    onClick={handleCloseMenu}
+                  >
+                    <MenuItem value={1}>Baixa</MenuItem>
+                    <MenuItem value={2}>Média</MenuItem>
+                    <MenuItem value={3}>Alta</MenuItem>
+                  </Menu>
+                </div>
+
               </div>
               <TextField
                 fullWidth

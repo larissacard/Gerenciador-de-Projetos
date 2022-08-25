@@ -5,7 +5,6 @@ import { styled } from '@mui/material/styles'
 import { Cadastrar, Cancelar, ButtonCancel, Editar } from './styles'
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
-import "rsuite/dist/rsuite.min.css";
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {

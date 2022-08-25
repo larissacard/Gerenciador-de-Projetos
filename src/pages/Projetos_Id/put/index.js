@@ -48,7 +48,7 @@ const CssTextField = styled(TextField)({
 })
 
 function Edit(Props) {
-    const [equipeEditEscolhida, setEquipeEditEscolhida] = useState(Props.dados.dados.equipes)
+    const [equipeEditEscolhida, setEquipeEditEscolhida] = useState(Props.dados.equipes)
     const childToParent = (childdata) => {
         setEquipeEditEscolhida(childdata);
     }
