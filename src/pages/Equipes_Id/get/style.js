@@ -16,6 +16,8 @@ export const ColunaUm = styled.div`
     background-color: white;
     display: flex;
     flex-direction: column;
+
+    padding-left: 17px;
 `;
 
 export const ColunaDois = styled.div`
@@ -37,7 +39,7 @@ export const Title = styled.div`
     color: #280948;
 
     margin-top: 16px;
-    margin-left: 17px;
+
 
 `;
 
@@ -77,7 +79,7 @@ export const SubTitle = styled.div`
 
     margin-top: 18px;
     margin-bottom: 11px;
-    margin-left: 17px;
+
 `;
 
 export const SmallCont = styled.div`
@@ -105,7 +107,7 @@ export const Members = styled.div`
     line-height: 30px;
 
     margin-top: 18px;
-    margin-left: 17px;
+
 `;
 
 export const Person = styled.div`
@@ -117,7 +119,7 @@ export const Person = styled.div`
     display:flex;
     justify-content: space-between;
 
-    margin-left: 17px; 
+
     margin-bottom: 21px;
     border-radius: 20px;
 
@@ -244,7 +246,7 @@ export const Pontos = styled.div`
 export const Tasks = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-left: 17px;
+
 `;
 
 export const BigTaskCard = styled.div`

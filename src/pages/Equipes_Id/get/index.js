@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useReducer, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse,  SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem } from './style';
+import { Title, Person, Icon, Name, Job, TotalTask, Ellipse,  SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem } from './style';
 import { render } from '@testing-library/react';
 import { Equipes } from '../../../styles/Icons';
 import { Progress } from 'rsuite';
