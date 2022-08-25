@@ -1,16 +1,34 @@
-import React, { Component, useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, Container, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults } from './style';
-import { render } from '@testing-library/react';
-import { Equipes } from '../../../styles/Icons';
 import { Progress } from 'rsuite';
-import { Deletar } from '../../Projetos_Id/styles';
-import { useNavigate } from 'react-router-dom'
-import { Ranking } from '../grafico';
 import PutEquipes from '../put';
-import App from '../grafico';
 import RANKING from '../grafico';
 import AlertDeleteDialog from '../../../components/CardConfirmDelete';
+
+import { 
+    Title,
+    Person,
+    Icon,
+    Name,
+    Job,
+    TotalTask,
+    Ellipse,
+    SubTitle,
+    Card,
+    CardIcon,
+    ColunaUm,
+    ColunaDois,
+    Pontos,
+    BigTaskCard,
+    CardTask,
+    Tasks,
+    Editar,
+    SmallInfo,
+    SmallIcon,
+    SmallCont,
+    NoResults,
+    TitleNoResults
+} from './style';
 
 const style = {
   width: 125,
@@ -20,7 +38,6 @@ const style = {
 function GetEquipe() {
   const [equipe, setEquipe] = useState()
   const path = window.location.pathname;
-  let navigate = useNavigate()
 
   useEffect(() => {
      api.get(path)
@@ -28,13 +45,13 @@ function GetEquipe() {
         setEquipe(response.data)
        })
        .catch(err => {
-        if(err.response.status == 401) {
+        if(err.response.status === 401) {
             alert("Faça o Login para visualizar a página")
             window.location.href = '/login'
         }
         else alert(err.message)
     })
-  }, [])
+  })
 
   function updateScreen() {
     api.get(path)
@@ -155,7 +172,7 @@ function GetEquipe() {
             <div className='d-flex justify-content-between mt-3'>
                 <Card>
                 <CardIcon>
-                  <img src="../../../assets/cod.svg" />
+                  <img src="../../../assets/cod.svg" alt="cod.svg"/>
                 </CardIcon>
                 <Pontos>
                   <h6>
@@ -167,7 +184,7 @@ function GetEquipe() {
               </Card>
               <Card>
                 <CardIcon style={{backgroundColor: "#667EEA"}}>
-                  <img src='../../../assets/pincel.svg' />
+                  <img src='../../../assets/pincel.svg' alt="pincel icon"/>
                 </CardIcon>
                 <Pontos>
                   <h6><TotalJob funcao={'FrontEnd Junior'} /></h6>
@@ -177,7 +194,7 @@ function GetEquipe() {
 
               <Card>
                 <CardIcon style={{backgroundColor: "#E391EA"}}>
-                  <img src='../../../assets/sqa.svg' />
+                  <img src='../../../assets/sqa.svg' alt="sqa icon"/>
                 </CardIcon>
                 <Pontos>
                   <h6>
@@ -204,7 +221,7 @@ function GetEquipe() {
                 </div>
                 <SmallInfo>
                   <SmallIcon>
-                    <img src='../../../assets/check.svg' />
+                    <img src='../../../assets/check.svg' alt="check icon"/>
                   </SmallIcon>
                   <p>Total Tasks Concluidas: {equipe.tarefas.Concluidas}</p>
                 </SmallInfo>

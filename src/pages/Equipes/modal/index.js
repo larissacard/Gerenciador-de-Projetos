@@ -1,9 +1,8 @@
+import React, { useState } from 'react'
 import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
-import React, { useState } from 'react'
 import { styled } from '@mui/material/styles';
 import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar, Name } from './styles'
-import { Retangulo } from './styles';
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
 import TeamProfile from '../team profile/profile';
@@ -165,10 +164,6 @@ function PostEquipes(Props) {
                             fullWidth
                             size='Normal'       
                         />
-
-
-                        
-
                 
                         <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>
                 
@@ -185,7 +180,7 @@ function PostEquipes(Props) {
             </Drawer>
             <div>
                 <ButtonDrawer onClick={handleOpen}>
-                    <img src='assets/Group.svg'/>
+                    <img src='assets/Group.svg' alt="group icon"/>
                     <Name>Adicionar Equipe</Name>
                 </ButtonDrawer>
             </div>

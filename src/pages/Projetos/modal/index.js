@@ -177,7 +177,7 @@ export default function PostProjetos (Props) {
                 </form>
             </Drawer>
             <div>
-                <ButtonDrawer onClick={handleOpen}><img src='assets/btn_create.svg' /></ButtonDrawer>
+                <ButtonDrawer onClick={handleOpen}><img src='assets/btn_create.svg' alt="create"/></ButtonDrawer>
             </div>
         </>
     )

@@ -1,8 +1,6 @@
 import api from "../../../api";
 import { useState, useEffect } from "react";
 import 'antd/dist/antd.css';
-import { Avatar } from "antd";
-import { UserOutlined } from '@ant-design/icons';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -10,24 +8,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'white',
-    border: 'none',
-    borderRadius: '20px',
-    boxShadow: 24,
-    p: 4,
-    width: '30%',
-    height: '30%',
-};
-
-
 
 export default function TeamProfile(Props) {
     const [fotos, setFotos] = useState([]);
@@ -37,7 +17,6 @@ export default function TeamProfile(Props) {
     const childToParent = (childdata) => {
         setFotoEscolhida(childdata);
     }
-
 
     //Modal
     const [open, setOpen] = React.useState(false);
@@ -97,7 +76,7 @@ export default function TeamProfile(Props) {
                                     <button 
                                     onClick={(e) => setFotoEscolhida(i)} 
                                     style={{border: 'none'}}>
-                                        <img src={i.link} style={{width: '30px', height: '30px'}} />
+                                        <img src={i.link} style={{width: '30px', height: '30px'}} alt="profile"/>
                                     </button>
                                 </div>
                             ))}
