@@ -53,7 +53,7 @@ export default function PessoasEquipe(Props) {
         >
           
           {pessoas.map((p) => 
-            <MenuItem key={p.pe_nome} value={p.pe_nome}>
+            <MenuItem key={p.pe_id} value={p.pe_nome}>
               <Checkbox checked={pessoaNome.indexOf(p.pe_nome) > -1} />
               {p.pe_nome}
             </MenuItem>

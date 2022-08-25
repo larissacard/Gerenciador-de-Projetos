@@ -52,8 +52,6 @@ export const Editar = styled.button`
 
     text-align: center;
 
-    margin-top: 31px;
-    margin-left: 80px;
     margin-right: 5px;
 
     background-color: #FF9533;
@@ -349,4 +347,11 @@ export const CardTask = styled.div`
     }
 `;
 
+export const Imagem = styled.div`
+    img{
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+    }
+`;
 

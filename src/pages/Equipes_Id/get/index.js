@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useReducer, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, Container, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults } from './style';
+import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, Container, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem } from './style';
 import { render } from '@testing-library/react';
 import { Equipes } from '../../../styles/Icons';
 import { Progress } from 'rsuite';
@@ -113,18 +113,22 @@ function GetEquipe() {
       {equipe ?
         <>
           <ColunaUm>
-            <div className='d-flex'>
-              <Title>{equipe.eq_nome}</Title>
-              <Editar>
-                  <PutEquipes dados={equipe} update={updateScreen} /> 
-              </Editar>
-              <div style={{marginTop: "31px"}}>
-                <AlertDeleteDialog
-                  path = '/equipes'
-                  alert = 'Equipe excluida com sucesso!'
-                  titulo='Excluir Equipe Permanentemente?'
-                  descricao='Se você excluir esta equipe, não poderá recuperá-lo. Deseja excluí-lo?' />
+            <div className='d-flex mt-2' >
+              <Imagem><img src={equipe.eq_foto}/></Imagem>
+            <div style={{border: '1px solid black', marginLeft:'20px', }}>
+                <Title>{equipe.eq_nome}</Title>
+                <div style={{display: 'flex', alignItems:'center', justifyContent: 'center'}}>
+                <Editar>
+                    <PutEquipes dados={equipe} update={updateScreen} /> 
+                </Editar>
+                  <AlertDeleteDialog
+                    path = '/equipes'
+                    alert = 'Equipe excluida com sucesso!'
+                    titulo='Excluir Equipe Permanentemente?'
+                    descricao='Se você excluir esta equipe, não poderá recuperá-lo. Deseja excluí-lo?' 
+                    />
 
+                </div>
               </div>
             </div>
             <SubTitle>Todos os membros</SubTitle>
