@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useReducer, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse,  SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem } from './style';
+import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem, OrganizeTasks, OrganizeTeam } from './style';
 import { render } from '@testing-library/react';
 import { Equipes } from '../../../styles/Icons';
 import { Progress } from 'rsuite';
@@ -11,6 +11,7 @@ import PutEquipes from '../put';
 import App from '../grafico';
 import RANKING from '../grafico';
 import AlertDeleteDialog from '../../../components/CardConfirmDelete';
+import { Cont } from '../../../components/Container/styles';
 
 const style = {
   width: 125,
@@ -23,27 +24,27 @@ function GetEquipe() {
   let navigate = useNavigate()
 
   useEffect(() => {
-     api.get(path)
+    api.get(path)
       .then((response) => {
         setEquipe(response.data)
-       })
-       .catch(err => {
-        if(err.response.status == 401) {
-            alert("Faça o Login para visualizar a página")
-            window.location.href = '/login'
+      })
+      .catch(err => {
+        if (err.response.status == 401) {
+          alert("Faça o Login para visualizar a página")
+          window.location.href = '/login'
         }
         else alert(err.message)
-    })
+      })
   }, [])
 
   function updateScreen() {
     api.get(path)
-    .then((response) => {
-      setEquipe(response.data)
-     })
-     .catch((e) => {
-       console.log(e)
-     })
+      .then((response) => {
+        setEquipe(response.data)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
   }
 
   // console.log(qtBack)
@@ -55,19 +56,19 @@ function GetEquipe() {
     )
   }
 
-  function Calculo (status) {
+  function Calculo(status) {
     var result = 0
     var total = equipe.tarefas.total;
 
-    if(equipe.tarefas !== null){
+    if (equipe.tarefas !== null) {
       if (status === `Concluidos`) {
         var concluidos = equipe.tarefas.Concluidas;
-        result = Math.round(( concluidos* 100) / total)
+        result = Math.round((concluidos * 100) / total)
         return (
           result
         )
       }
-  
+
       else if (status === `Não Iniciado`) {
         var NaoIniciadas = equipe.tarefas.NaoIniciadas;
         result = Math.round((NaoIniciadas * 100) / total)
@@ -75,7 +76,7 @@ function GetEquipe() {
           result
         )
       }
-  
+
       else if (status === `Em Andamento`) {
         var EmAndamento = equipe.tarefas.EmAndamento;
         result = Math.round((EmAndamento * 100) / total)
@@ -83,8 +84,8 @@ function GetEquipe() {
           result
         )
       }
-  
-      else if ( status === 'Em Teste') {
+
+      else if (status === 'Em Teste') {
         var EmTeste = equipe.tarefas.EmTestes;
         result = Math.round((EmTeste * 100) / total)
         return (
@@ -92,85 +93,84 @@ function GetEquipe() {
         )
       }
 
-      else{
-        return(
+      else {
+        return (
           result
         )
       }
 
-      
+
     }
-    else{
-      return(
+    else {
+      return (
         <p>Sem Informações</p>
       )
     }
   }
 
-  
+
   return (
     <>
       {equipe ?
         <>
           <ColunaUm>
             <div className='d-flex mt-2 ml-4' >
-              <Imagem><img src={equipe.eq_foto}/></Imagem>
-            <div style={{border: '1px solid black', marginLeft:'20px', }}>
+              <Imagem><img src={equipe.eq_foto} /></Imagem>
+              <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
                 <Title>{equipe.eq_nome}</Title>
-                <div style={{display: 'flex', alignItems:'center', justifyContent: 'center'}}>
-                <Editar>
-                    <PutEquipes dados={equipe} update={updateScreen} /> 
-                </Editar>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                  <Editar>
+                    <PutEquipes dados={equipe} update={updateScreen} />
+                  </Editar>
                   <AlertDeleteDialog
-                    path = '/equipes'
-                    alert = 'Equipe excluida com sucesso!'
+                    path='/equipes'
+                    alert='Equipe excluida com sucesso!'
                     titulo='Excluir Equipe Permanentemente?'
-                    descricao='Se você excluir esta equipe, não poderá recuperá-lo. Deseja excluí-lo?' 
-                    />
+                    descricao='Se você excluir esta equipe, não poderá recuperá-lo. Deseja excluí-lo?'
+                  />
 
                 </div>
               </div>
             </div>
             <SubTitle>Todos os membros</SubTitle>
             <SmallCont>
-              
+
               {equipe.pessoas.length > 0 ? (
                 equipe.pessoas.map((e) =>
                   <Person key={e.pe_id}>
                     <Ellipse>
-                      <Icon>{e.pe_foto}</Icon>
+                      <Icon src={e.pe_foto} />
                     </Ellipse>
                     <Name>{e.pe_nome}</Name>
                     <Job>{e.pe_cargo}</Job>
-  
+
                     <TotalTask>{e.tarefas.qtd} tasks</TotalTask>
                   </Person>
                 )
 
-                ) : (
+              ) : (
                 <>
-                <NoResults/>
-                <TitleNoResults>Não há membros nessa equipe</TitleNoResults>
+                  <NoResults />
+                  <TitleNoResults>Não há membros nessa equipe</TitleNoResults>
                 </>
               )}
             </SmallCont>
 
             <SubTitle>Estrutura da Equipe</SubTitle>
-            <div className='d-flex justify-content-between mt-3'>
-                <Card>
+            <OrganizeTeam>
+              <Card>
                 <CardIcon>
                   <img src="../../../assets/cod.svg" />
                 </CardIcon>
                 <Pontos>
                   <h6>
                     <TotalJob funcao={'BackEnd Pleno'} />
-
                   </h6>
                   BackEnd
                 </Pontos>
               </Card>
               <Card>
-                <CardIcon style={{backgroundColor: "#667EEA"}}>
+                <CardIcon style={{ backgroundColor: "#667EEA" }}>
                   <img src='../../../assets/pincel.svg' />
                 </CardIcon>
                 <Pontos>
@@ -180,7 +180,7 @@ function GetEquipe() {
               </Card>
 
               <Card>
-                <CardIcon style={{backgroundColor: "#E391EA"}}>
+                <CardIcon style={{ backgroundColor: "#E391EA" }}>
                   <img src='../../../assets/sqa.svg' />
                 </CardIcon>
                 <Pontos>
@@ -190,12 +190,12 @@ function GetEquipe() {
                   SqA
                 </Pontos>
               </Card>
-            </div>
+            </OrganizeTeam>
           </ColunaUm>
 
           <ColunaDois>
             <SubTitle>RANKING</SubTitle>
-             <RANKING/>
+            <RANKING />
 
             <SubTitle>Tarefas da Equipe</SubTitle>
             <Tasks>
@@ -214,7 +214,7 @@ function GetEquipe() {
                 </SmallInfo>
 
               </BigTaskCard>
-              <div style={{ marginTop: "-30px" }}>
+              <OrganizeTasks>
                 <CardTask>
                   <h5>Tarefas Não Iniciadas</h5>
                   <h6>{equipe.tarefas.NaoIniciadas}</h6>
@@ -239,7 +239,7 @@ function GetEquipe() {
                     <Progress.Line percent={Calculo("Em Teste")} strokeColor="#E391EA" trailColor="white" />
                   </div>
                 </CardTask>
-              </div>
+              </OrganizeTasks>
             </Tasks>
 
 
@@ -247,11 +247,11 @@ function GetEquipe() {
           </ColunaDois>
         </>
 
-        : 
+        :
         <>
-        <p>Sem Informações</p>
+          <p>Sem Informações</p>
         </>
-        }
+      }
     </>
   )
 

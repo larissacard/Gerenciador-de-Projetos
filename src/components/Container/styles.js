@@ -13,8 +13,13 @@ export const Cont = styled.div`
 
     @media (max-width: 480px) {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        margin: 0;
     }
-    overflow: hidden;
+
+    overflow: scroll;
 `;
 
