@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Top, Body, Prioridade, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox, Save, ButtonPrioridade } from './styles';
 import { useDrag } from 'react-dnd'
 import { BsFlagFill, BsFlag } from 'react-icons/bs'
-import { TextField } from '@mui/material';
+import { FormControlLabel, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -17,7 +17,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 
 import { styled } from '@mui/material/styles';
 import Checkbox from '@mui/material/Checkbox';
-
+import FormLabel from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
@@ -45,6 +45,18 @@ function KanbanLi(Props) {
     setAnchorEl('');
     if (e.target.value) {
       setPrioridade(e.target.value)
+    }
+  };
+
+  const [anchorElSubtarefa, setAnchorElSubtarefa] = useState(null);
+  const openMenuSubtarefa = Boolean(anchorElSubtarefa);
+  const handleClickSubtarefa = (e) => {
+    setAnchorElSubtarefa(e.currentTarget);
+  };
+  const handleCloseMenuSubtarefa = (e) => {
+    setAnchorElSubtarefa('');
+    if (e.target.value) {
+      setprioridadeSubtarefa(e.target.value)
     }
   };
 
@@ -127,7 +139,10 @@ function KanbanLi(Props) {
           Props.dados.tr_prioridade = prioridade
           Props.update();
         })
-    }
+      }
+    setSubtarefa('')
+    setprioridadeSubtarefa('')
+    setVisible('none')
     setOpen(false);
   };
 
@@ -143,6 +158,8 @@ function KanbanLi(Props) {
       setVisible('none')
     }
   } 
+
+  const [inputVisible, setInputVisible] = useState(false)
 
   return (
     <>
@@ -214,7 +231,7 @@ function KanbanLi(Props) {
             color="#764BA2" 
             sx={{height: '1px'}}
           />
-          <DialogContent>
+          <DialogContent style={{marginTop: '-6px'}}>
             {/* -=-=-=-=-=-=-=-=-=-=- Status da Tarefa e Prioridade -=-=-=-=-=-=-=-=-=-=- */}
             <div style={{
               display: 'flex', 
@@ -293,7 +310,7 @@ function KanbanLi(Props) {
                       transition: '0.5s',
                   },
               },
-                marginTop: '24px',
+                marginTop: '16px',
               }}  
               placeholder='Descrição'
               multiline
@@ -304,13 +321,15 @@ function KanbanLi(Props) {
               //   }}}><Save style={{marginTop: '85px'}}>Salvar</Save></InputAdornment>),
               // }}
               />
-            <TituloSubtarefas>
-              Subtarefas
-            </TituloSubtarefas>
+            <DialogContentText>
+              <TituloSubtarefas>
+                Subtarefas
+              </TituloSubtarefas>
+            </DialogContentText>
               {/* -=-=-=-=-=-=-=-=-=-=- Lista de Subtarefas com Checkbox -=-=-=-=-=-=-=-=-=-=- */}
               <FormSubtarefas>
                 {tarefas.subTarefas.map(tarefa => (
-                  <FormDiv key={tarefa.id}>
+                  <FormDiv key={tarefa.id} onClick={() => console.log(tarefa.id)}>
                       <LabelCheckbox htmlFor={tarefa.nome}>
                         <CheckboxSubtarefas
                           id={tarefa.nome}
@@ -319,8 +338,17 @@ function KanbanLi(Props) {
                           key={tarefa.id}
                           checked={tarefa.status === 1 ? true : false}>
                         </CheckboxSubtarefas>
-                        <SpanCheckbox/>
-                        {tarefa.nome}
+                        {/* <FormControlLabel 
+                          checked={tarefa.status === 1 ? true : false} 
+                          onChange={(e) => changeStatus(e, tarefa.id)} 
+                          // id={tarefa.nome} 
+                          // key={tarefa.id}
+                          value={tarefa.nome}
+                          control={<CheckboxStyles size='small'/>}/> */}
+                       
+
+                        <SpanCheckbox value={tarefa.nome} />
+                        <button type='button' onClick={() => setInputVisible(true)}>Editar</button>
                       </LabelCheckbox>
                   </FormDiv>
                 )
@@ -344,7 +372,14 @@ function KanbanLi(Props) {
                 
                   endAdornment={
                   <InputAdornment position="end">
-                    <button type="button" style={{ 
+                    <button type="button" 
+                      id="fade-button"
+                      aria-controls={openMenuSubtarefa ? 'fade-menu' : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={openMenuSubtarefa ? 'true' : undefined}
+                      onClick={handleClickSubtarefa}
+                      sx={{marginLeft: '-10px'}}
+                      style={{ 
                         borderRadius: '50%',
                         width: '26px',
                         height: '26px',
@@ -352,16 +387,38 @@ function KanbanLi(Props) {
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginRight: '4px',
+                        background: 'transparent',
                         display: visible}}>
-                      <BsFlag 
-                        size={14} 
-                        style={{
-                          color: 'rgba(40, 9, 72, 0.5)', 
-                          display: visible,
-                          marginLeft: '6px'
-
-                          }}/>
+                      <PrioridadeTarefa title={`PrioridadeSubtarefa: ${prioridadeSubtarefa === 1 ? 'Baixa' :
+                                                              prioridadeSubtarefa === 2 ? 'Media' :
+                                                              prioridadeSubtarefa === 3 ? 'Alta'  :
+                                                              prioridadeSubtarefa}`}>
+                        {
+                          prioridadeSubtarefa === 1 ? <BsFlagFill size={14} style={{color: '#67CB65'}}/> :
+                          prioridadeSubtarefa === 2 ? <BsFlagFill size={14} style={{color: '#FF9533'}}/> :
+                          prioridadeSubtarefa === 3 ? <BsFlagFill size={14} style={{color: '#E74444'}}/> :             
+                          <BsFlag size={14} style={{color: 'rgba(40, 9, 72, 0.5)', display: visible,marginLeft: '6px'}}/>
+                        }
+                      </PrioridadeTarefa>
                     </button>
+                    <Menu
+                      onChange={(e)=> setprioridadeSubtarefa(e)}
+                      id="fade-menu"
+                      MenuListProps={{
+                        'aria-labelledby': 'fade-button',
+                      }}
+                      anchorEl={anchorElSubtarefa}
+                      open={openMenuSubtarefa}
+                      onClose={handleCloseMenuSubtarefa}
+                      TransitionComponent={Fade}
+                      
+                      onClick={handleCloseMenuSubtarefa}
+                    >
+                      <MenuItem value={1}>Baixa</MenuItem>
+                      <MenuItem value={2}>Média</MenuItem>
+                      <MenuItem value={3}>Alta</MenuItem>
+                    </Menu>
+                    
                     <Save type="submit" style={{display: visible}} value="Salvar"/>
                   </InputAdornment>
                   }
@@ -379,45 +436,3 @@ function KanbanLi(Props) {
 }
 
 export default KanbanLi;
-
-
-{/* <div>
-                <Button
-                  id="fade-button"
-                  aria-controls={openMenu ? 'fade-menu' : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={openMenu ? 'true' : undefined}
-                  onClick={handleClick}
-                  sx={{marginLeft: '-10px'}}
-                >
-                  <PrioridadeTarefa title={`Prioridade: ${prioridade === 1 ? 'Baixa' :
-                                                          prioridade === 2 ? 'Media' :
-                                                          prioridade === 3 ? 'Alta' :
-                                                          prioridade}`}>
-                    {
-                      prioridade === 1 ? <BsFlagFill size={22} style={{color: '#67CB65'}}/> :
-                      prioridade === 2 ? <BsFlagFill size={22} style={{color: '#FF9533'}}/> :
-                      prioridade === 3 ? <BsFlagFill size={22} style={{color: '#E74444'}}/> :
-                      prioridade
-                    }
-                  </PrioridadeTarefa>
-                </Button>
-                <Menu
-                  onChange={(e)=> setprioridadeSubtarefa(e)}
-                  id="fade-menu"
-                  MenuListProps={{
-                    'aria-labelledby': 'fade-button',
-                  }}
-                  anchorEl={anchorEl}
-                  open={openMenuSubtarefa}
-                  onClose={handleCloseMenuSubtarefa}
-                  TransitionComponent={Fade}
-                  
-                  onClick={handleCloseMenuSubtarefa}
-                >
-                  <MenuItem value={1}>Baixa</MenuItem>
-                  <MenuItem value={2}>Média</MenuItem>
-                  <MenuItem value={3}>Alta</MenuItem>
-                </Menu>
-              </div>
-            </div> */}
