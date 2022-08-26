@@ -96,7 +96,7 @@ function KanbanLi(Props) {
 
     api
       .put(`/subtarefas/${id}/status/${newStatus}`)
-      .then(() => getTarefas)
+      .then(() => getTarefas())
       .catch(e => { console.log(e)})
   }
 
