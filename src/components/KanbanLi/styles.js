@@ -186,3 +186,9 @@ export const Save = styled.input`
         border: solid 1px #6956E5;
     }
 `;
+
+export const ProgressBar = styled.div`
+    width: 580px;
+    margin-left: -10px;
+    margin-top: 8px;
+`;

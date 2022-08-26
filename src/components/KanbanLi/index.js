@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Top, Body, Prioridade, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox, Save, ButtonPrioridade } from './styles';
+import { Container, Top, Body, Prioridade, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox, Save, ProgressBar, ButtonPrioridade } from './styles';
 import { useDrag } from 'react-dnd'
 import { BsFlagFill, BsFlag } from 'react-icons/bs'
 import { FormControlLabel, TextField } from '@mui/material';
@@ -14,8 +14,7 @@ import Divider from '@mui/material/Divider';
 import api from '../../api';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
-
-import { styled } from '@mui/material/styles';
+import { Progress } from 'rsuite';import { styled } from '@mui/material/styles';
 import Checkbox from '@mui/material/Checkbox';
 import FormLabel from '@mui/material';
 import Menu from '@mui/material/Menu';
@@ -33,6 +32,11 @@ const CheckboxStyles = styled(Checkbox)({
     color: '#280948',
   }
 })
+
+const style = {
+  width: 200, 
+
+};
 
 function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Constantes para o Menu de Prioridades -=-=-=-=-=-=-=-=-=-=-
@@ -93,7 +97,13 @@ function KanbanLi(Props) {
     api
       .put(`/subtarefas/${id}/status/${newStatus}`)
       .then(() => getTarefas)
-      .catch(e => { console.log(e) })
+      .catch(e => { console.log(e)})
+  }
+
+  // -=-=-=-=-=-=-=-=-=-=- Calculo da ProgressBar -=-=-=-=-=-=-=-=-=-=-
+  const calculo = () => {
+    if (tarefas.subTarefas.length === 0) return 0
+    return Math.round(tarefas.subTarefas.filter(t => t.status === 1).length / tarefas.subTarefas.length * 100)
   }
 
   // -=-=-=-=-=-=-=-=-=-=- Post em Subtarefas -=-=-=-=-=-=-=-=-=-=-
@@ -237,7 +247,7 @@ function KanbanLi(Props) {
             color="#764BA2" 
             sx={{height: '1px'}}
           />
-          <DialogContent style={{marginTop: '-6px'}}>
+          <DialogContent style={{marginTop: '-6px', overflowX: 'hidden'}}>
             {/* -=-=-=-=-=-=-=-=-=-=- Status da Tarefa e Prioridade -=-=-=-=-=-=-=-=-=-=- */}
             <div style={{
               display: 'flex', 
@@ -327,6 +337,9 @@ function KanbanLi(Props) {
               //   }}}><Save style={{marginTop: '85px'}}>Salvar</Save></InputAdornment>),
               // }}
               />
+            <ProgressBar>
+              <Progress.Line percent={calculo()} strokeColor="#667EEA" trailColor="white" />
+            </ProgressBar>
             <DialogContentText>
               <TituloSubtarefas>
                 Subtarefas
