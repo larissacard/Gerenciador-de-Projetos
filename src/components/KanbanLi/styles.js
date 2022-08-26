@@ -109,28 +109,43 @@ export const Input = styled.input`
     border: none;
 `;
 
-export const TituloSubtarefas = styled.h1`
+export const TituloSubtarefas = styled.h5`
     font-style: italic;
     font-weight: 600;
     font-size: 16px;
     color: #280948;
     margin-left: 2px;
+    margin-top: 12px;
+    margin-bottom: 16px;
 `;
 
-export const FormSubtarefas = styled.form`
+export const FormSubtarefas = styled.div`
     margin-top: -10px;
     margin-bottom: 6px;
-    `;
+`;
 
 export const FormDiv = styled.div`
     display: flex;
+    width: 100%;
+    padding: 3px 0;
+
+    button {
+            display: none;
+    }
+
+    &:hover {
+        background-color: #ddd;
+
+        button {
+            display: block;
+        }
+    }
     `;
 
 export const LabelCheckbox = styled.label`
     display: flex;
     align-items: center;
     gap: 4px;
-    margin-bottom: 6px;
     padding-left: 12px;
 `;
 
@@ -141,8 +156,17 @@ export const CheckboxSubtarefas = styled.input`
     cursor: pointer;
 `;
 
-export const SpanCheckbox = styled.span`
+export const SpanCheckbox = styled.input`
+    border: none;
+    background-color: transparent;
+    cursor: text !important;
+    padding: 1px 4px;
+    border-radius: 3px;
 
+    &:enabled {
+        background-color: #fff9;
+        outline: 1px solid #555;
+    }
 `;
 
 export const Save = styled.input`
@@ -161,4 +185,10 @@ export const Save = styled.input`
         color: #6956E5;
         border: solid 1px #6956E5;
     }
+`;
+
+export const ProgressBar = styled.div`
+    width: 580px;
+    margin-left: -10px;
+    margin-top: 8px;
 `;

@@ -11,9 +11,12 @@ import {
     ImgProjetos,
     ImgEquipes,
     ImgPessoas,
+    ImgLogout,
     Logout,
     HeaderTwo
 } from './styles';
+
+import { HiOutlineLogout } from "react-icons/hi";
 
 function Header() {
 
@@ -61,7 +64,9 @@ function Header() {
             <Logout onClick={() => {
                 localStorage.setItem('token', null)
                 window.location.href = '/login'
-            }}>Logout</Logout>
+            }}>
+                < HiOutlineLogout size={28} color={'rgba(255, 255, 255, 0.6)'}/> <span>Sair</span>   
+            </Logout>
         </Container>
 
         <HeaderTwo>
