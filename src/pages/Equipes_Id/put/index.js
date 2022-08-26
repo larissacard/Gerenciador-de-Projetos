@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles'
 import { Cadastrar, Cancelar, ButtonCancel, Editar } from './styles'
 import api from "../../../api";
 import PessoasEquipe from "./pessoas";
+import TeamProfile from '../../Equipes/team profile/profile';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -48,9 +49,14 @@ const CssTextField = styled(TextField)({
 
 function PutEquipes(Props) {
     const [pessoaEscolhida, setPessoaEscolhida] = useState(Props.dados.pessoas)
+    const [fotoEscolhida, setFotoEscolhida] = useState()
     const childToParent = (childdata) => {
          setPessoaEscolhida(childdata);
      }
+
+     const childToParentPhoto = (childdata) => {
+        setFotoEscolhida(childdata);
+    }
 
     const [openDrawer, setOpenDrawer] = useState(false)
     
@@ -88,6 +94,7 @@ function PutEquipes(Props) {
     function update(e){
         e.preventDefault();
         api.put(path,{
+            eq_foto: fotoEscolhida,
             eq_nome: nomeEditEquipe,
             pessoas: pessoaEscolhida
         })
@@ -130,6 +137,9 @@ function PutEquipes(Props) {
                     
                 </Box>
                 <form onSubmit={handleClose}>
+
+                <TeamProfile childToParent={childToParentPhoto}/> 
+
                     <Stack spacing={2.5}>
                         <CssTextField
                             required

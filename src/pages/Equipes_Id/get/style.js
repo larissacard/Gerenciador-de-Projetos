@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    max-width: 34.313rem;
-    max-height: 53.25rem;
-    background-color: white;
-`;
-
 export const ColunaUm = styled.div`
     width: 37%;
     height: calc(100% - 48px);
@@ -18,17 +12,34 @@ export const ColunaUm = styled.div`
     flex-direction: column;
 
     padding-left: 17px;
+    
+    @media (max-width: 480px) {
+        width: 100%;
+        margin: 0;
+        border-radius: 0px;
+        padding-top: 10px;
+    }
 `;
 
 export const ColunaDois = styled.div`
     width: 45%;
     height: calc(100% - 48px);
-    margin: 24px 10px;
+    margin: 24px 8px;
+
+    padding-left: 17px;
   
     display: flex;
     flex-direction: column;
     background-color: white;
+
     border-radius: 20px;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        margin: 0;
+        border-radius: 0px;
+        padding-top: 20px;
+    }
 `;
 
 export const Title = styled.div`
@@ -39,6 +50,7 @@ export const Title = styled.div`
     color: #280948;
 
     margin-top: 16px;
+    
 
 
 `;
@@ -78,13 +90,14 @@ export const SubTitle = styled.div`
     color: #280948;
 
     margin-top: 18px;
-    margin-bottom: 11px;
+    margin-bottom: 15px;
 
 `;
 
 export const SmallCont = styled.div`
-    height: 43%;
-    margin-bottom: 30px;
+    height: 20rem;
+    margin-bottom: 15px;
+    
 
     overflow-y: scroll;
     ::-webkit-scrollbar-thumb{
@@ -98,6 +111,7 @@ export const SmallCont = styled.div`
         width: 5px;
         border-radius: 10px;
     }
+
 `;
 export const Members = styled.div`
     color: #280948;
@@ -122,6 +136,10 @@ export const Person = styled.div`
 
     margin-bottom: 21px;
     border-radius: 20px;
+
+    @media (max-width: 480px) {
+        width: 100%;
+    }
 
 `;
 
@@ -198,12 +216,25 @@ export const Card = styled.div`
     width: 9.9rem;
     height: 14.125rem;
     background-color: white;
+    
 
     margin-left: -5px;
     margin-right: 10px;
 
-    box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 10px;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        height: 60px;
+        margin-bottom: 10px;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        
+    }
 `;
 
 export const CardIcon = styled.div`
@@ -219,6 +250,11 @@ export const CardIcon = styled.div`
 
     margin-top: 24px;
     margin-left: 13px;
+
+    @media (max-width: 480px) {
+       margin-top: 0;
+
+    }
     
 `;
 
@@ -240,12 +276,25 @@ export const Pontos = styled.div`
         color: #280948;
         font-weight: 400;
     }
+
+    @media (max-width: 480px) {
+        margin: 0;
+    }
     
 `;
 
 export const Tasks = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        
+    }
 
 `;
 
@@ -256,9 +305,10 @@ export const BigTaskCard = styled.div`
     background: rgba(150, 178, 253, 0.3);
     border-radius: 10px;
     
+    
     padding-top: 19px;
     padding-left: 22px;
-    margin-top: 30px;
+    margin-top: 35px;
 
     display: flex;
     flex-direction: column;
@@ -276,6 +326,12 @@ export const BigTaskCard = styled.div`
 
         align-self: flex-start;
         color: #280948;
+    }
+
+    @media (max-width: 480px) {
+        margin: 0;
+
+        
     }
 `;
 
@@ -344,6 +400,8 @@ export const CardTask = styled.div`
 
         color: rgba(118, 75, 162, 0.5);
     }
+
+
 `;
 
 export const Imagem = styled.div`
@@ -354,3 +412,23 @@ export const Imagem = styled.div`
     }
 `;
 
+export const OrganizeTasks = styled.div`
+    margin-top: -40px;
+    margin-bottom: 40px;
+
+    @media (max-width: 480px){
+        margin-top: 10px;
+        margin-bottom: 0;
+
+    }
+`;
+
+export const OrganizeTeam = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 480px){
+      display: flex;
+      flex-direction: column;
+    }
+`;
