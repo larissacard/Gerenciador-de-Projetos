@@ -119,7 +119,7 @@ export const TituloSubtarefas = styled.h5`
     margin-bottom: 16px;
 `;
 
-export const FormSubtarefas = styled.form`
+export const FormSubtarefas = styled.div`
     margin-top: -10px;
     margin-bottom: 6px;
 `;
@@ -129,8 +129,16 @@ export const FormDiv = styled.div`
     width: 100%;
     padding: 3px 0;
 
+    button {
+            display: none;
+    }
+
     &:hover {
         background-color: #ddd;
+
+        button {
+            display: block;
+        }
     }
     `;
 
@@ -151,7 +159,14 @@ export const CheckboxSubtarefas = styled.input`
 export const SpanCheckbox = styled.input`
     border: none;
     background-color: transparent;
-    width: ;
+    cursor: text !important;
+    padding: 1px 4px;
+    border-radius: 3px;
+
+    &:enabled {
+        background-color: #fff9;
+        outline: 1px solid #555;
+    }
 `;
 
 export const Save = styled.input`

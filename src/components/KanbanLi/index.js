@@ -142,6 +142,7 @@ function KanbanLi(Props) {
       }
     setSubtarefa('')
     setprioridadeSubtarefa('')
+    setInputDisabled(false)
     setVisible('none')
     setOpen(false);
   };
@@ -159,7 +160,27 @@ function KanbanLi(Props) {
     }
   } 
 
-  const [inputVisible, setInputVisible] = useState(false)
+  const [inputDisabled, setInputDisabled] = useState()
+  const [editSubtarefaNome, setEditSubtarefaNome] = useState()
+  const [editSubtarefaPrioridade, setEditSubtarefaPrioridade] = useState()
+
+  const updateSubtarefa = (e, id) => {
+    e.preventDefault()
+
+    api.put(`/subtarefas/${id}`, {
+      nome: editSubtarefaNome,
+      prioridade: 2
+    })
+    .then(() => {
+      setInputDisabled()
+      setEditSubtarefaNome()
+      setEditSubtarefaPrioridade()
+      getTarefas()
+    })
+    .catch(e => {
+      alert(e)
+    })
+  }
 
   return (
     <>
@@ -183,21 +204,6 @@ function KanbanLi(Props) {
                 }
               </span>
             </Prioridade>   
-
-            {/* <ul>
-              <li>
-                {Props.dados.tr_descricao.length > 100 ?
-                <span><strong>Descricao:</strong> {`${Props.dados.tr_descricao.substring(0, 100)}...`}</span>
-                : <span><strong>Descricao:</strong> {Props.dados.tr_descricao}</span>}
-              </li>
-              {Props.dados.tr_data_criacao &&
-                <li>
-                  <p>Data de Criação:</p> 
-                  <span>{Props.dados.tr_datProps.dados.tr_nome
-
-              }
-              <li> <strong>Data de Entrega:</strong> {Props.dados.tr_data_entrega}</li>
-            </ul> */}
         </Body>
       </Container>
       <>
@@ -327,9 +333,9 @@ function KanbanLi(Props) {
               </TituloSubtarefas>
             </DialogContentText>
               {/* -=-=-=-=-=-=-=-=-=-=- Lista de Subtarefas com Checkbox -=-=-=-=-=-=-=-=-=-=- */}
-              <FormSubtarefas>
-                {tarefas.subTarefas.map(tarefa => (
-                  <FormDiv key={tarefa.id} onClick={() => console.log(tarefa.id)}>
+              <FormSubtarefas onSubmit={(e) => e.preventDefault()}>
+                {tarefas.subTarefas.map((tarefa, index) => (
+                  <FormDiv key={tarefa.id}>
                       <LabelCheckbox htmlFor={tarefa.nome}>
                         <CheckboxSubtarefas
                           id={tarefa.nome}
@@ -347,8 +353,24 @@ function KanbanLi(Props) {
                           control={<CheckboxStyles size='small'/>}/> */}
                        
 
-                        <SpanCheckbox value={tarefa.nome} />
-                        <button type='button' onClick={() => setInputVisible(true)}>Editar</button>
+                        <SpanCheckbox
+                          onChange={(e) => setEditSubtarefaNome(e.target.value)}
+                          value={inputDisabled !== tarefa.id ? tarefa.nome : editSubtarefaNome}
+                          disabled={inputDisabled !== tarefa.id}
+                        />
+
+                        <button
+                          type='button'
+                          onClick={() => {
+                            setInputDisabled(tarefa.id);
+                            setEditSubtarefaNome(tarefa.nome)
+                          }}>Editar</button>
+
+                        <button
+                          type="submit"
+                          onClick={(e) => updateSubtarefa(e, tarefa.id)}
+                          style={{display: (tarefa.nome !== editSubtarefaNome && inputDisabled === tarefa.id)? "block" : "none" }}
+                          >Salvar</button>
                       </LabelCheckbox>
                   </FormDiv>
                 )
