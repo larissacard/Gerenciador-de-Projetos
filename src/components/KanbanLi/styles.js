@@ -147,6 +147,7 @@ export const LabelCheckbox = styled.label`
     align-items: center;
     gap: 4px;
     padding-left: 12px;
+    height: 20px;
 `;
 
 export const CheckboxSubtarefas = styled.input`

@@ -350,20 +350,21 @@ function KanbanLi(Props) {
                 {tarefas.subTarefas.map((tarefa, index) => (
                   <FormDiv key={tarefa.id}>
                       <LabelCheckbox htmlFor={tarefa.nome}>
-                        <CheckboxSubtarefas
+                        {/* <CheckboxSubtarefas
                           id={tarefa.nome}
                           type="checkbox"
                           onChange={(e) => changeStatus(e, tarefa.id)}
                           key={tarefa.id}
                           checked={tarefa.status === 1 ? true : false}>
-                        </CheckboxSubtarefas>
-                        {/* <FormControlLabel 
+                        </CheckboxSubtarefas> */}
+                        <FormControlLabel 
                           checked={tarefa.status === 1 ? true : false} 
                           onChange={(e) => changeStatus(e, tarefa.id)} 
-                          // id={tarefa.nome} 
-                          // key={tarefa.id}
+                          id={tarefa.nome} 
+                          key={tarefa.id}
                           value={tarefa.nome}
-                          control={<CheckboxStyles size='small'/>}/> */}
+                          control={<CheckboxStyles size='small'/>}/>
+
                        
 
                         <SpanCheckbox
