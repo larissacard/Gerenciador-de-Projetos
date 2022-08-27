@@ -20,6 +20,6 @@ export const Cont = styled.div`
         margin: 0;
     }
 
-    overflow: scroll;
+    overflow: hidden;
 `;
 
