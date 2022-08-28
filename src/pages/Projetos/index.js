@@ -72,7 +72,7 @@ function Projetos() {
         case "Concluidos": setFoundProjetos(valorAntigo => 
           valorAntigo.filter(pr => pr.pr_status !== "Concluido"));
           break;
-        default:break;
+        default: break;
       }
     })
   };
@@ -85,8 +85,7 @@ function Projetos() {
   const [filtros, setFiltros] = useState({
     NaoIniciados: true,
     EmAndamento: true,
-    Concluidos: true,
-    A_Z: true
+    Concluidos: true
   })
 
   const changeFiltro = async (e) => {
