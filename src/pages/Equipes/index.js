@@ -36,9 +36,10 @@ function Equipes() {
         let keyword = ''
         if (e) keyword = e.target.value;
         if (keyword !== '') {
-            setFoundEquipes(valorAntigo => valorAntigo.filter((equipes) => {
-                equipes.eq_nome.toLowerCase().includes(keyword.toLowerCase());
-            }));
+            const results = equipes.filter((equipes) => {
+                return equipes.eq_nome.toLowerCase().includes(keyword.toLowerCase());
+            });
+            setFoundEquipes(results);
         } else {
             setFoundEquipes(equipes);
         }
