@@ -82,21 +82,3 @@ export const AllButtons = styled.div`
   width: 171px;
   margin: 5px 0px;
 `;
-
-const cssButtons = css`
-  width: 82px;
-  height: 20px;
-  border-radius: 14px;
-  color: white;
-  font-size: 14px;
-`;
-
-export const EditButton = styled.button`
-  background-color: #FF9533;
-  ${cssButtons}
-`;
-
-export const DeleteButton = styled.button`
-  background-color: #E74444;
-  ${cssButtons}
-`;

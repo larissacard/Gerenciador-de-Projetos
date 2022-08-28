@@ -3,8 +3,8 @@ import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/materi
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles'
 import { Cadastrar, Cancelar, ButtonCancel, Editar } from './styles'
-import api from "../../../api";
-import PessoasEquipe from "./pessoas";
+import api from '../../../api';
+import PessoasEquipe from './pessoas';
 import TeamProfile from '../../Equipes/team profile/profile';
 
 const CssTextField = styled(TextField)({
@@ -99,7 +99,7 @@ function PutEquipes(Props) {
             pessoas: pessoaEscolhida
         })
         .then(res=>{
-            setMensagem('Equipe Editado com Sucesso!')
+            setMensagem('Equipe Editada com Sucesso!')
             setOpenDrawer(false)
             Props.update()
         })
@@ -159,7 +159,7 @@ function PutEquipes(Props) {
                                 Cancelar
                             </Cancelar>
                             <Cadastrar onClick={(e)=> {update(e); handleClickEdit()}}type='submit'>
-                                Cadastrar
+                                Salvar
                             </Cadastrar >
                         </Box>
                     </Stack>

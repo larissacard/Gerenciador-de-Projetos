@@ -1,12 +1,12 @@
 import React from 'react';
+import AlertDeleteDialog from '../CardConfirmDelete';
+import EditarPessoa from '../../pages/Pessoas/Put';
 
 import { 
     Container,
     InfoPessoa,
     FotoPerfil,
     DadosTarefas,
-    EditButton,
-    DeleteButton,
     AllButtons,
 } from './styles';
 
@@ -18,8 +18,11 @@ function CardPessoa(Props) {
             <h2>{Props.dados.dados.pe_nome}</h2>
             <p>{Props.dados.dados.pe_cargo}</p>
             <AllButtons>
-              <EditButton>Editar</EditButton>
-              <DeleteButton>Deletar</DeleteButton>
+              <EditarPessoa />
+              <AlertDeleteDialog path = '/pessoas'
+                alert='Pessoa apagada com Sucesso!'
+                titulo='Excluir Pessoa Permanentemente?'
+                descricao='Se você excluir esta Pessoa, não poderá recuperar os dados dela novamente. Deseja excluí-la?' />
             </AllButtons>
             <DadosTarefas>
               <li>

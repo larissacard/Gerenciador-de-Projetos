@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import Detalhes from "./detalhes";
-import Cards from "./cards";
-import PostPessoas from "./modal";
+import React, { useState } from 'react';
+import Detalhes from './detalhes';
+import Cards from './cards';
+import PostPessoas from './modal';
 
-import Container from "../../components/Container";
-import { ColunaDois, ContFiltros } from "./styles";
-import CardCriar from "../../components/CardCriar";
-import SearchBar from "../../components/SearchBar";
+import Container from '../../components/Container';
+import { ColunaDois, ContFiltros } from './styles';
+import CardCriar from '../../components/CardCriar';
+import SearchBar from '../../components/SearchBar';
 
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
-import api from "../../api";
+import api from '../../api';
 
 function Pessoas() {
-  const [data, setData] = useState({nome: "Ninguem selecionado"});
-  const [search, setSearch] = useState("")
+  const [data, setData] = useState({nome: 'Ninguem selecionado'});
+  const [search, setSearch] = useState('')
   const [cargos, setCargos] = useState()
   const [filtros, setFiltros] = useState()
 
@@ -53,22 +53,22 @@ function Pessoas() {
     <Container>
       <Detalhes dados={data}/>
       <ColunaDois>
-        <CardCriar titulo="Adicionar Pessoa" descricao="Cadastre uma nova pessoa" button={<PostPessoas/>}/>
+        <CardCriar titulo='Adicionar Pessoa' descricao='Cadastre uma nova pessoa' button={<PostPessoas/>}/>
         <ContFiltros>
-          <SearchBar placeholder="Pesquise Aqui..." handleChange={handleChange}/>
+          <SearchBar placeholder='Pesquise Aqui...' handleChange={handleChange}/>
           { cargos &&
-          <Dropdown style={{fontSize: "6px"}}>
-            <Dropdown.Toggle style={{background: "transparent", color: "#333", border: "0"}}>
+          <Dropdown style={{fontSize: '6px'}}>
+            <Dropdown.Toggle style={{background: 'transparent', color: '#333', border: '0'}}>
               Filtros
             </Dropdown.Toggle>
-            <Dropdown.Menu style={{padding: "10px"}}>
+            <Dropdown.Menu style={{padding: '10px'}}>
               <Dropdown.Header>Filtrar pela Profissão</Dropdown.Header>
               { cargos.map((c, index) => 
                 <Form.Check
                   key={index}
                   name={c.cargo}
                   label={c.cargo}
-                  type="checkbox" 
+                  type='checkbox' 
                   checked={filtros[c.cargo]}
                   onChange={e => changeFiltro(e)}
                 />

@@ -6,45 +6,45 @@ import { styled } from '@mui/material/styles';
 import api from '../../../api';
 
 const CssTextField = styled(TextField)({
-    "&:hover .MuiInputLabel-outlined": {
-        color: "#6956E5",
-        transition: "0.5s",
+    '&:hover .MuiInputLabel-outlined': {
+        color: '#6956E5',
+        transition: '0.5s',
     },
-    "& .MuiOutlinedInput-root": {
-        color: "#764BA2",
-        transition: "0.5s",
-        svg: { color: "#764BA2" },
+    '& .MuiOutlinedInput-root': {
+        color: '#764BA2',
+        transition: '0.5s',
+        svg: { color: '#764BA2' },
 
-        "&:hover": {
-            color: "#6956E5",
-            transition: "0.5s",
-            svg: { color: "#6956E5" },
+        '&:hover': {
+            color: '#6956E5',
+            transition: '0.5s',
+            svg: { color: '#6956E5' },
         },
-        "&.Mui-focused": {
-            borderColor: "#764BA2",
-            color: "#280948",
-            transition: "0.5s",
-            svg: { color: "#280948" },
+        '&.Mui-focused': {
+            borderColor: '#764BA2',
+            color: '#280948',
+            transition: '0.5s',
+            svg: { color: '#280948' },
         },
-        "& fieldset": {
-            border: "2px solid #764BA2",
-            transition: "0.5s",
+        '& fieldset': {
+            border: '2px solid #764BA2',
+            transition: '0.5s',
         },
-        "&:hover fieldset": {
-            border: "2px solid #6956E5",
-            transition: "0.5s",
+        '&:hover fieldset': {
+            border: '2px solid #6956E5',
+            transition: '0.5s',
         },
-        "&.Mui-focused fieldset": {
-            borderColor: "#280948",
-            transition: "0.5s",
+        '&.Mui-focused fieldset': {
+            borderColor: '#280948',
+            transition: '0.5s',
         },
     },
-    ".MuiInputLabel-outlined": {
-        color: "#764BA2",
-        transition: "0.5s",
-        "&.Mui-focused": {
-            color: "#280948",
-            transition: "0.5s",
+    '.MuiInputLabel-outlined': {
+        color: '#764BA2',
+        transition: '0.5s',
+        '&.Mui-focused': {
+            color: '#280948',
+            transition: '0.5s',
         },
     },
 })
@@ -186,7 +186,7 @@ function PostPessoas(Props) {
                             value={salario}
                             InputProps={{
                                 startAdornment: (
-                                    <InputAdornment position="start" >
+                                    <InputAdornment position='start' >
                                         <Salario className='teste12'>R$</Salario>  
                                     </InputAdornment>
                                 ),
@@ -200,7 +200,7 @@ function PostPessoas(Props) {
                             fullWidth
                             size='small'
                             id='outlined-required'
-                            label='Data'
+                            label='Data de Nascimento'
                             value={datanasc}
                             type='date'
                             InputLabelProps={{
