@@ -6,6 +6,8 @@ import SalaVirtual from '../../components/CardSalaVirtual';
 import PostProjetos from './modal';
 import Alert from '@mui/material/Alert';
 import Container from "../../components/Container";
+import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form';
 
 import {
   ColunaUm,
@@ -44,8 +46,9 @@ function Projetos() {
       });
   };
   
-  const filter = (e) => {
-    const keyword = e.target.value;
+  const filter = (e, filtrosAtualizados) => {
+    let keyword = ""
+    if (e) keyword = e.target.value;
     if (keyword !== '') {
       const results = projetos.filter((projeto) => {
         return projeto.pr_nome.toLowerCase().includes(keyword.toLowerCase());
@@ -55,11 +58,45 @@ function Projetos() {
       setFoundProjetos(projetos);
     }
     setName(keyword);
+
+    const filtrosUsados = filtrosAtualizados ? filtrosAtualizados : filtros
+    const filt = Object.entries(filtrosUsados).filter(filtro => !filtro[1])
+    filt.forEach(f => {
+      switch (f[0]) {
+        case "NaoIniciados": setFoundProjetos(valorAntigo =>
+          valorAntigo.filter(pr => pr.pr_status !== "Não Iniciado"));
+          break;
+        case "EmAndamento": setFoundProjetos(valorAntigo => 
+          valorAntigo.filter(pr => pr.pr_status !== "Em Andamento"));
+          break;
+        case "Concluidos": setFoundProjetos(valorAntigo => 
+          valorAntigo.filter(pr => pr.pr_status !== "Concluido"));
+          break;
+        default:break;
+      }
+    })
   };
 
   if (updateScreen) {
     getProjetos()
     setUpdate(false)
+  }
+
+  const [filtros, setFiltros] = useState({
+    NaoIniciados: true,
+    EmAndamento: true,
+    Concluidos: true,
+    A_Z: true
+  })
+
+  const changeFiltro = async (e) => {
+    const { name, checked } = e.target;
+    const newFilter = {
+        ...filtros,
+        [name]: checked,
+    }
+    setFiltros(newFilter)
+    filter(false, newFilter)
   }
 
   return (
@@ -75,10 +112,60 @@ function Projetos() {
           <CabecalhoProjetos>
             <h2>Todos os Projetos</h2>
             <ContMais>
-                <Search>
-                  <input type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
-                  <SearchIcon/>
-                </Search>
+              <Dropdown style={{fontSize: "6px"}}>
+                <Dropdown.Toggle style={{background: "transparent", color: "#333", border: "0"}}>
+                  Filtros
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu style={{padding: "10px"}}>
+
+                <Dropdown.Header>Filtrar pelo Status</Dropdown.Header>
+                  <Form.Check 
+                    name="NaoIniciados"
+                    label="Não Iniciados" 
+                    type="checkbox" 
+                    checked={filtros.NaoIniciados}
+                    onChange={e => changeFiltro(e)}
+                  />
+                  <Form.Check 
+                    name="EmAndamento"
+                    label="Em Andamento" 
+                    type="checkbox" 
+                    checked={filtros.EmAndamento}
+                    onChange={e => changeFiltro(e)}
+                  />
+                  <Form.Check 
+                    name="Concluidos"
+                    label="Concluidos" 
+                    type="checkbox" 
+                    checked={filtros.Concluidos}
+                    onChange={e => changeFiltro(e)}
+                  />
+
+                {/* <Dropdown.Divider />
+
+                <Dropdown.Header>Ordenar por</Dropdown.Header>
+                  <Form.Check
+                    name="A_Z"
+                    label="Ordem Alfabética(A-Z)" 
+                    type="radio" 
+                    checked={filtros.A_Z}
+                    onChange={e => changeFiltro(e)}
+                  />
+                  
+                  <Form.Check
+                    label="Ordem Alfabética(Z-A)" 
+                    type="radio" 
+                    checked={!filtros.A_Z}
+                    onChange={e => changeFiltro(e)}
+                  />  */}
+
+                </Dropdown.Menu>
+              </Dropdown>
+              <Search>
+                <input type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
+                <SearchIcon/>
+              </Search>
             </ContMais>
           </CabecalhoProjetos>
 
@@ -93,7 +180,7 @@ function Projetos() {
                 ))
                 ) : (
                   <Alert variant='outlined' severity='warning'>
-                    Projeto não encontrado! ;-;
+                    Projeto não encontrado!
                   </Alert>
                 )}
             </ul>

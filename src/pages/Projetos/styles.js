@@ -174,6 +174,8 @@ export const ContTabela = styled.div`
         overflow-x: hidden;
         height: 16.5%;
         transition-duration: .2s;
+
+        height: 200px;
         
         @media (min-height: 750px) {
             height: 240px;
