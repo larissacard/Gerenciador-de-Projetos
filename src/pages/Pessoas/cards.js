@@ -7,6 +7,7 @@ function Cards(Props) {
   const [pessoas, setPessoas] = useState([]);
   const [pessoaSelecionada, setPessoaSelecionada] = useState(0);
   const [search, setSearch] = useState(Props.search);
+  const [filtros, setFiltros] = useState(Props.filtros)
 
   // buscando todas as pessoas na API
   useEffect(() => {
@@ -29,19 +30,25 @@ function Cards(Props) {
 
   // Filtrando as pessoas de acordo com a barra de pesquisa
   const handleChange = () => {
-    if (!Props.search) {
-      setPessoas(initialPessoas);
-      return;
-    }
-    const filterPessoas = pessoas.filter((pessoas) =>
+    setPessoas(initialPessoas);
+    if (Props.search) {
+      const filterPessoas = pessoas.filter((pessoas) =>
       pessoas.pe_nome.toUpperCase().includes(Props.search.toUpperCase())
-    );
-    setPessoas(filterPessoas);
+      );
+      setPessoas(filterPessoas);
+    }
+
+    const filt = Object.entries(Props.filtros).filter(f => !f[1])
+    filt.forEach(f => {
+      setPessoas(valorAntigo => valorAntigo.filter(p => p.pe_cargo !== f[0]))
+    })
+
   };
 
   // Verifica se a barra de pesquisa teve alguma mudança
-  if (Props.search !== search) {
+  if (Props.search !== search || Props.filtros !== filtros) {
     setSearch(Props.search);
+    setFiltros(Props.filtros)
     handleChange();
   }
 

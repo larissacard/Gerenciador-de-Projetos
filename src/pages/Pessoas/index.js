@@ -8,9 +8,29 @@ import { ColunaDois, ContFiltros } from "./styles";
 import CardCriar from "../../components/CardCriar";
 import SearchBar from "../../components/SearchBar";
 
+import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form';
+import api from "../../api";
+
 function Pessoas() {
   const [data, setData] = useState({nome: "Ninguem selecionado"});
   const [search, setSearch] = useState("")
+  const [cargos, setCargos] = useState()
+  const [filtros, setFiltros] = useState()
+
+  const getCargos = () => {
+    api
+      .get('/cargos')
+      .then((response) => {
+        setCargos(response.data)
+        let objFilter = {}
+        response.data.forEach(c => objFilter[c.cargo] = true)
+        setFiltros(objFilter)
+      })
+      .catch((error) => alert(error))
+  }
+
+  if (!cargos) getCargos()
 
   const childToParent = (childdata) => {
     setData(childdata);
@@ -20,6 +40,15 @@ function Pessoas() {
     setSearch(e);
   }
 
+  const changeFiltro = async (e) => {
+    const { name, checked } = e.target;
+    const newFilter = {
+        ...filtros,
+        [name]: checked,
+    }
+    setFiltros(newFilter)
+  }
+
   return (
     <Container>
       <Detalhes dados={data}/>
@@ -27,16 +56,28 @@ function Pessoas() {
         <CardCriar titulo="Adicionar Pessoa" descricao="Cadastre uma nova pessoa" button={<PostPessoas/>}/>
         <ContFiltros>
           <SearchBar placeholder="Pesquise Aqui..." handleChange={handleChange}/>
-          <div className="dropdown">
-            <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Filtros</button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a className="dropdown-item" href="/pessoas">Ordem Alfabetica A-Z</a></li>
-              <li><a className="dropdown-item" href="/pessoas">Mais Antigos</a></li>
-              <li><a className="dropdown-item" href="/pessoas">Mais Recentes</a></li>
-            </ul>
-          </div>
+          { cargos &&
+          <Dropdown style={{fontSize: "6px"}}>
+            <Dropdown.Toggle style={{background: "transparent", color: "#333", border: "0"}}>
+              Filtros
+            </Dropdown.Toggle>
+            <Dropdown.Menu style={{padding: "10px"}}>
+              <Dropdown.Header>Filtrar pela Profissão</Dropdown.Header>
+              { cargos.map((c, index) => 
+                <Form.Check
+                  key={index}
+                  name={c.cargo}
+                  label={c.cargo}
+                  type="checkbox" 
+                  checked={filtros[c.cargo]}
+                  onChange={e => changeFiltro(e)}
+                />
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+          }
         </ContFiltros>
-        <Cards childToParent={childToParent} search={search}/>
+        <Cards childToParent={childToParent} search={search} filtros={filtros}/>
       </ColunaDois>
     </Container>
   );

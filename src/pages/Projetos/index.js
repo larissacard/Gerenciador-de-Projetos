@@ -111,13 +111,12 @@ function Projetos() {
           <CabecalhoProjetos>
             <h2>Todos os Projetos</h2>
             <ContMais>
+
               <Dropdown style={{fontSize: "6px"}}>
                 <Dropdown.Toggle style={{background: "transparent", color: "#333", border: "0"}}>
                   Filtros
                 </Dropdown.Toggle>
-
                 <Dropdown.Menu style={{padding: "10px"}}>
-
                 <Dropdown.Header>Filtrar pelo Status</Dropdown.Header>
                   <Form.Check 
                     name="NaoIniciados"
@@ -140,27 +139,9 @@ function Projetos() {
                     checked={filtros.Concluidos}
                     onChange={e => changeFiltro(e)}
                   />
-
-                {/* <Dropdown.Divider />
-
-                <Dropdown.Header>Ordenar por</Dropdown.Header>
-                  <Form.Check
-                    name="A_Z"
-                    label="Ordem Alfabética(A-Z)" 
-                    type="radio" 
-                    checked={filtros.A_Z}
-                    onChange={e => changeFiltro(e)}
-                  />
-                  
-                  <Form.Check
-                    label="Ordem Alfabética(Z-A)" 
-                    type="radio" 
-                    checked={!filtros.A_Z}
-                    onChange={e => changeFiltro(e)}
-                  />  */}
-
                 </Dropdown.Menu>
               </Dropdown>
+              
               <Search>
                 <input type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
                 <SearchIcon/>
