@@ -70,7 +70,7 @@ export default function Index() {
                                 <span>{dados.dados.pr_status}</span>
                             </Main>
                             <Buttons>
-                                <Edit dados={dados} atualizar={getDados}/>
+                                <Edit dados={dados} update={getDados}/>
                                 <AlertDeleteDialog path = '/projetos'
                                 alert="Projeto apagado com Sucesso!"
                                 titulo='Excluir Projeto Permanentemente?'

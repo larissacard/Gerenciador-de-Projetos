@@ -96,8 +96,8 @@ function Edit(Props) {
         })
         .then(res=>{
             setMensagem('Projeto Editado com Sucesso!')
-            setOpenDrawer(false)
             Props.update()
+            setOpenDrawer(false)
         })
         .catch(e => { 
             console.log(e)
