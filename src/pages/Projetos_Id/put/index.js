@@ -79,6 +79,7 @@ function Edit(Props) {
     
     const projetoPath = window.location.pathname;
     const [nomeEditProjeto, setNomeEditProjeto] = useState(Props.dados.dados.pr_nome)
+    console.log(Props.dados.dados)
     const [descricaoEditProjeto, setDescricaoEditProjeto] = useState(Props.dados.dados.pr_descricao)
     
     const handleClickEdit = () => {
@@ -89,6 +90,7 @@ function Edit(Props) {
     
     function update(e){
         e.preventDefault();
+        console.log(nomeEditProjeto)
         api.put(projetoPath, {
             pr_nome: nomeEditProjeto,
             pr_descricao: descricaoEditProjeto,
@@ -96,8 +98,8 @@ function Edit(Props) {
         })
         .then(res=>{
             setMensagem('Projeto Editado com Sucesso!')
-            Props.update()
             setOpenDrawer(false)
+            Props.update()
         })
         .catch(e => { 
             console.log(e)

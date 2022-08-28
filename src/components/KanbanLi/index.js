@@ -285,7 +285,6 @@ function KanbanLi(Props) {
                   open={openMenu}
                   onClose={handleCloseMenu}
                   TransitionComponent={Fade}
-                  
                   onClick={handleCloseMenu}
                 >
                   <MenuItem value={1}>Baixa</MenuItem>
@@ -364,9 +363,6 @@ function KanbanLi(Props) {
                           key={tarefa.id}
                           value={tarefa.nome}
                           control={<CheckboxStyles size='small'/>}/>
-
-                       
-
                         <SpanCheckbox
                           onChange={(e) => setEditSubtarefaNome(e.target.value)}
                           value={inputDisabled !== tarefa.id ? tarefa.nome : editSubtarefaNome}

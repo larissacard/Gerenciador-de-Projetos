@@ -1,8 +1,8 @@
+import React, { useState } from 'react'
+import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
 import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
-import React, { useState } from 'react'
 import { styled } from '@mui/material/styles';
-import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
 import api from '../../../api'
 import EquipesProjeto from './equipes';
 
@@ -95,7 +95,7 @@ export default function PostProjetos (Props) {
             equipes: equipeEscolhida
         })
         .then(res=>{
-            setMensagem('Projeto Inserido com Sucesso!')
+            setMensagem('Projeto Cadastrado com Sucesso!')
             setEstado('success');
             setOpenDrawer(false)
             Props.update()
@@ -119,15 +119,18 @@ export default function PostProjetos (Props) {
                 anchor='right' 
                 open={openDrawer} 
                 onClose={handleClose} 
-                PaperProps={{sx: {width: '600px',
-                    padding: '30px 60px'}
+                PaperProps={{
+                    sx: {
+                        width: '600px',
+                        padding: '30px 60px'
+                    }
                 }}
             >
                 <Box width='480px'
-                        paddingBottom='20px' 
-                        display='flex'
-                        alignItems='center'
-                        justifyContent='space-between'
+                    paddingBottom='20px' 
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='space-between'
                 >                  
                     <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
                         Cadastro de um novo Projeto
@@ -145,7 +148,7 @@ export default function PostProjetos (Props) {
                             size='small'
                             id='outlined-required'
                             label='Nome'
-                            placeholder='Digite o nome do Projeto'
+                            placeholder='Digite o Nome do Projeto'
                             value={nomeProjeto}
                         />
 

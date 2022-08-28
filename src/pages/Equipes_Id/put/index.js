@@ -152,7 +152,7 @@ function PutEquipes(Props) {
                             value={nomeEditEquipe}
                         />
 
-                         <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>
+                        <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>
 
                         <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
                             <Cancelar onClick={() => setOpenDrawer(false)}>
