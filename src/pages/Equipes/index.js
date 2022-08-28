@@ -6,13 +6,15 @@ import { useState } from "react";
 import api from "../../api";
 import { AllCards, Card, Name, Title, Retangulo, TeamLength, Elipse, SmallElipse } from "./style";
 import Container from "../../components/Container";
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form';
 
 function Equipes() {
     const [updateScreen, setUpdate] = useState(true);
     const [equipes, setEquipes] = useState([]);
     const [nome, setNome] = useState('');
     const [foundEquipes, setFoundEquipes] = useState();
+    const [filtros, setFiltros] = useState()
 
     const getEquipes = async () => {
         api
@@ -30,17 +32,49 @@ function Equipes() {
             })
     };
 
-    const filter = (e) => {
-        const keyword = e.target.value;
+    const filter = (e, filt) => {
+        let keyword = ''
+        if (e) keyword = e.target.value;
         if (keyword !== '') {
-            const results = equipes.filter((equipes) => {
-                return equipes.eq_nome.toLowerCase().includes(keyword.toLowerCase());
-            });
-            setFoundEquipes(results);
+            setFoundEquipes(valorAntigo => valorAntigo.filter((equipes) => {
+                equipes.eq_nome.toLowerCase().includes(keyword.toLowerCase());
+            }));
         } else {
             setFoundEquipes(equipes);
         }
         setNome(keyword);
+
+        switch (filt) {
+            case 1:
+                // Ordem Alfabética (A-Z)
+                setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
+                    return a.eq_nome.toLowerCase() < b.eq_nome.toLowerCase() ? -1 : a.eq_nome.toLowerCase() > b.eq_nome.toLowerCase() ? 1 : 0;
+                }))
+                break;
+            
+            case 2:
+                // Ordem Alfabética (Z-A)
+                setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
+                    return a.eq_nome.toLowerCase() > b.eq_nome.toLowerCase() ? -1 : a.eq_nome.toLowerCase() < b.eq_nome.toLowerCase() ? 1 : 0;
+                }))
+                break;
+                
+                case 3:
+                    // Mais Recentes
+                    setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
+                        return a.eq_id > b.eq_id ? -1 : a.eq_id < b.eq_id ? 1 : 0;
+                    }))
+                    break;
+                    
+                case 4:
+                    // Mais Antigos
+                    setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
+                        return a.eq_id < b.eq_id ? -1 : a.eq_id > b.eq_id ? 1 : 0;
+                    }))
+                    break;
+            default:
+                break;
+        }
     };
 
     if (updateScreen) {
@@ -48,15 +82,54 @@ function Equipes() {
         setUpdate(false)
     }
     
+    if (!filtros && foundEquipes){
+        setFiltros(1)
+        filter(null, 1)
+    } 
     return (
         <Container>
             <ContainerUnico>
                 <div className="d-flex justify-content-between mt-4">
                     <Title>Equipes</Title>
-                    <Search>
-                        <input type="search" placeholder="Pesquise..." onChange={filter} value={nome}></input>
-                        <SearchIcon/>   
-                    </Search>
+
+                    <div className="d-flex">
+                        <Dropdown>
+                            <Dropdown.Toggle style={{background: "transparent", color: "#333", border: "0"}}>
+                            Filtros
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu style={{padding: "10px", fontSize: "14px"}}>
+                            <Dropdown.Header>Ordenar por:</Dropdown.Header>
+                            <Form.Check
+                                label="Ordem Alfabética (A-Z)"
+                                type="radio"
+                                checked={1 === filtros} 
+                                onChange={() => {setFiltros(1); filter(null, 1)}}
+                            />
+                            <Form.Check
+                                label="Ordem Alfabética (Z-A)"
+                                type="radio"
+                                checked={2 === filtros}
+                                onChange={() => {setFiltros(2); filter(null, 2)}}
+                            />
+                            <Form.Check
+                                label="Mais Recentes"
+                                type="radio"
+                                checked={3 === filtros}
+                                onChange={() => {setFiltros(3); filter(null, 3)}}
+                            />
+                            <Form.Check
+                                label="Mais Antigas"
+                                type="radio"
+                                checked={4 === filtros}
+                                onChange={() => {setFiltros(4); filter(null, 4)}}
+                            />
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Search>
+                            <input type="search" placeholder="Pesquise..." onChange={filter} value={nome}></input>
+                            <SearchIcon/>
+                        </Search>
+                    </div>
                 </div>
                 <AllCards>
                     <PostEquipes update={getEquipes}/>
