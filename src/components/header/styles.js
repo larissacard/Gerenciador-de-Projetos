@@ -30,9 +30,9 @@ export const Container = styled.div `
         min-width: 65px;
     }
     
-    @media (max-width: 767px) {
+     @media (max-width: 480px) {
         display: none;
-    }
+    } 
     `;
 
 export const HeaderTwo = styled.div`
@@ -41,7 +41,7 @@ export const HeaderTwo = styled.div`
     height: 40px;
     display: none;
     
-    @media (max-width: 767px) {
+    @media (max-width: 480px) {
         display: flex;
         align-items: center;
         justify-content: space-between;

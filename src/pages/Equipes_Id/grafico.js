@@ -29,27 +29,32 @@ function RANKING() {
       })
     }, [])
     
-     const label = [];
-     const dataum = [];
-    //  for (var i of graf) {
-    //     label.push(i.pe_nome);
-    //    dataum.push(i.count)
-    //   }
-    //  setDados(
-    //    {
-    //      datasets: [{
-    //        label: 'Tarefas Concluidas',
-    //        borderRadius: '10px',
-    //       data: dataum,
-    //        backgroundColor: [
-    //          'rgba(40, 12, 235, 0.5)',
-    //        ]
-    //      },
-    //    ],
-    //    labels: label,
-    //  }
-    //  )
+    const label = [];
+    const dataum = [];    
     
+    useEffect(() => {
+      graf.forEach((element) => {
+        dataum.push([`${element.count}`])
+        label.push([`${element.pe_nome}`])
+      })
+      setDados(
+            {
+              datasets: [{
+                label: 'Tarefas Concluidas',
+                borderRadius: '10px',
+               data: dataum,
+                backgroundColor: [
+                  'rgba(40, 12, 235, 0.5)',
+                ]
+              },
+            ],
+            labels: label,
+          }
+          )
+    }, [graf])
+    
+
+  
     
     return (
       <div className="App" style={{ width: '95%', height: '90%' }}>
