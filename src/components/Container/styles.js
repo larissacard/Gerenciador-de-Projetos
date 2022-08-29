@@ -14,12 +14,27 @@ export const Cont = styled.div`
     @media (max-width: 480px) {
         display: flex;
         flex-direction: column;
+
         width: 100vw;
-        height: 100vh;
+        height: 100%;
+        
         border-radius: 0;
         margin: 0;
+        
+        overflow: hidden;
+        overflow-y: scroll;
+        ::-webkit-scrollbar-thumb{
+            background: #764BA2;
+            border-radius: 10px;
+            width: 5px;
+        }
+        
+        ::-webkit-scrollbar{
+            background-color: #F5F5F7;
+            width: 5px;
+            border-radius: 10px;
+        }
     }
 
-    overflow: hidden;
 `;
 
