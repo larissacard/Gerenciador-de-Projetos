@@ -4,7 +4,7 @@ function SalaVirtual() {
     return (
         <Container>
             <Top>
-                <img img-fluid src="assets/house.svg"></img>
+                <img  src="assets/house.svg"></img>
                 <Title>Salas Virtuais</Title>
             </Top>
 

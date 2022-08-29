@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide  } from '@mui/material';
 import { DeletarPermanente, Cancelar, Deletar } from './styles';
-import { useNavigate } from 'react-router-dom'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import api from '../../api';
@@ -27,8 +26,7 @@ export default function AlertDeleteDialog(Props) {
         }
         setOpenAlert(false);
     } 
-    const path = window.location.pathname;
-
+    
     const [open, setOpen] = useState(false);
 
     const handleClick = () => {
@@ -39,12 +37,10 @@ export default function AlertDeleteDialog(Props) {
         setOpen(false);
     };
 
-    let navigate = useNavigate()
-
     const deletarProjeto = () => {
-        api.delete(path)
+        api.delete(Props.path)
         handleClickDelete();
-        setTimeout(() => navigate(Props.path), 1500);
+        setTimeout(() => window.location.pathname = Props.pathFinal, 1500);
     };
 
     return (

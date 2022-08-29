@@ -116,7 +116,7 @@ function EditarPessoa(Props) {
         Form.append('pe_cargo', cargoEditEscolhido)
         Form.append('pe_salario', salarioEdit)
 
-        api.put(path, Form, config)
+        api.put(`/pessoas/${Props.dados.dados.pe_id}`, Form, config)
         .then(res => {
             setMensagem('Pessoa Editada com Sucesso!')
             setEstado('success');

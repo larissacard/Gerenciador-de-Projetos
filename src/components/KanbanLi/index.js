@@ -339,11 +339,11 @@ function KanbanLi(Props) {
             <ProgressBar>
               <Progress.Line percent={calculo()} strokeColor="#667EEA" trailColor="white" />
             </ProgressBar>
-            <DialogContentText>
+          
               <TituloSubtarefas>
                 Subtarefas
               </TituloSubtarefas>
-            </DialogContentText>
+          
               {/* -=-=-=-=-=-=-=-=-=-=- Lista de Subtarefas com Checkbox -=-=-=-=-=-=-=-=-=-=- */}
               <FormSubtarefas onSubmit={(e) => e.preventDefault()}>
                 {tarefas.subTarefas.map((tarefa, index) => (
@@ -400,6 +400,7 @@ function KanbanLi(Props) {
                   sx={{
                     '& legend': { display: 'none' },
                     '& fieldset': { top: 0 },
+                    marginTop: '4px'
                   }}
                 
                   endAdornment={

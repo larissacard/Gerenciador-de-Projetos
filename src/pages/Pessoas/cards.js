@@ -29,27 +29,27 @@ function Cards(Props) {
   }, []);
 
   // Filtrando as pessoas de acordo com a barra de pesquisa
-  const handleChange = () => {
+  const filter = () => {
     setPessoas(initialPessoas);
-    if (Props.search) {
-      const filterPessoas = pessoas.filter((pessoas) =>
-      pessoas.pe_nome.toUpperCase().includes(Props.search.toUpperCase())
-      );
-      setPessoas(filterPessoas);
+    let keyword = ''
+    if (Props.search) keyword = Props.search;
+    if (keyword !== '') {
+      const results = initialPessoas.filter((pessoa) => {
+        return pessoa.pe_nome.toUpperCase().includes(keyword.toUpperCase());
+      });
+      setPessoas(results);
+    } else {
+      setPessoas(initialPessoas);
     }
-
-    const filt = Object.entries(Props.filtros).filter(f => !f[1])
-    filt.forEach(f => {
-      setPessoas(valorAntigo => valorAntigo.filter(p => p.pe_cargo !== f[0]))
-    })
-
-  };
+    // setNome(keyword);
+  }
 
   // Verifica se a barra de pesquisa teve alguma mudança
   if (Props.search !== search || Props.filtros !== filtros) {
     setSearch(Props.search);
     setFiltros(Props.filtros)
-    handleChange();
+    filter()
+    // handleChange();
   }
 
   // Envia as informações do card selecionado para o componente pai (index)

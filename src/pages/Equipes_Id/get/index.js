@@ -123,7 +123,8 @@ function GetEquipe() {
                     <PutEquipes dados={equipe} update={updateScreen} />
                   </Editar>
                   <AlertDeleteDialog
-                    path='/equipes'
+                    pathFinal='/equipes'
+                    path={window.location.pathname}
                     alert='Equipe excluida com sucesso!'
                     titulo='Excluir Equipe Permanentemente?'
                     descricao='Se você excluir esta equipe, não poderá recuperá-lo. Deseja excluí-lo?'

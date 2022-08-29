@@ -115,7 +115,6 @@ export const TituloSubtarefas = styled.h5`
     font-size: 16px;
     color: #280948;
     margin-left: 2px;
-    margin-top: 12px;
     margin-bottom: 16px;
 `;
 
@@ -163,6 +162,7 @@ export const SpanCheckbox = styled.input`
     cursor: text !important;
     padding: 1px 4px;
     border-radius: 3px;
+    width: fit-content;
 
     &:enabled {
         background-color: #fff9;

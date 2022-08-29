@@ -67,7 +67,8 @@ export default function Index() {
                             </Main>
                             <Buttons>
                                 <Edit dados={dados} update={getDados}/>
-                                <AlertDeleteDialog path = '/projetos'
+                                <AlertDeleteDialog path = {`/projetos/${dados.dados.pr_id}`}
+                                pathFinal="/projetos"
                                 alert="Projeto apagado com Sucesso!"
                                 titulo='Excluir Projeto Permanentemente?'
                                 descricao='Se você excluir este projeto, não poderá recuperá-lo. Deseja excluí-lo?' />
