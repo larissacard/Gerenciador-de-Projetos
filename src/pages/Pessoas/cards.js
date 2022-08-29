@@ -19,7 +19,7 @@ function Cards(Props) {
           setPessoas(response.data);
         })
         .catch((err) => {
-          if (err.response.status == 401) {
+          if (err.response.status === 401) {
             alert("Faça o Login para visualizar a página");
             window.location.href = "/login";
           } else alert(err.message);

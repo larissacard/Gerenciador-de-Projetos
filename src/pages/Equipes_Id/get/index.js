@@ -1,17 +1,18 @@
-import React, { Component, useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Delete, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem, OrganizeTasks, OrganizeTeam } from './style';
-import { render } from '@testing-library/react';
-import { Equipes } from '../../../styles/Icons';
+import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem, OrganizeTasks, OrganizeTeam } from './style';
 import { Progress } from 'rsuite';
-import { Deletar } from '../../Projetos_Id/styles';
-import { useNavigate } from 'react-router-dom'
-import { Ranking } from '../grafico';
 import PutEquipes from '../put';
-import App from '../grafico';
 import RANKING from '../grafico';
 import AlertDeleteDialog from '../../../components/CardConfirmDelete';
-import { Cont } from '../../../components/Container/styles';
+
+// import { render } from '@testing-library/react';
+// import { Equipes } from '../../../styles/Icons';
+// import { Deletar } from '../../Projetos_Id/styles';
+// import { useNavigate } from 'react-router-dom'
+// import { Ranking } from '../grafico';
+// import App from '../grafico';
+// import { Cont } from '../../../components/Container/styles';
 
 const style = {
   width: 125,
@@ -21,7 +22,6 @@ const style = {
 function GetEquipe() {
   const [equipe, setEquipe] = useState()
   const path = window.location.pathname;
-  let navigate = useNavigate()
 
   useEffect(() => {
     api.get(path)
@@ -29,10 +29,7 @@ function GetEquipe() {
         setEquipe(response.data)
       })
       .catch(err => {
-        if (err.response.status == 401) {
-          alert("Faça o Login para visualizar a página")
-          window.location.href = '/login'
-        }
+        if (err.response.status === 401) window.location.href = '/login'
         else alert(err.message)
       })
   }, [])
@@ -47,65 +44,23 @@ function GetEquipe() {
       })
   }
 
-  // console.log(qtBack)
-
   const TotalJob = (props) => {
-    var qtd = equipe.pessoas.filter(cargo => cargo.pe_cargo === `${props.funcao}`).length
-    return (
-      <>{qtd}</>
-    )
+    return equipe.pessoas.filter(cargo => cargo.pe_cargo === `${props.funcao}`).length
   }
 
   function Calculo(status) {
-    var result = 0
-    var total = equipe.tarefas.total;
+    let desejado = 0
 
-    if (equipe.tarefas !== null) {
-      if (status === `Concluidos`) {
-        var concluidos = equipe.tarefas.Concluidas;
-        result = Math.round((concluidos * 100) / total)
-        return (
-          result
-        )
-      }
+    if (equipe.tarefas) {
+      if (status === `Concluidos`) desejado = equipe.tarefas.Concluidas;
+      else if (status === `Não Iniciado`) desejado = equipe.tarefas.NaoIniciadas;
+      else if (status === `Em Andamento`) desejado = equipe.tarefas.EmAndamento;
+      else if (status === 'Em Teste') desejado = equipe.tarefas.EmTestes;
 
-      else if (status === `Não Iniciado`) {
-        var NaoIniciadas = equipe.tarefas.NaoIniciadas;
-        result = Math.round((NaoIniciadas * 100) / total)
-        return (
-          result
-        )
-      }
-
-      else if (status === `Em Andamento`) {
-        var EmAndamento = equipe.tarefas.EmAndamento;
-        result = Math.round((EmAndamento * 100) / total)
-        return (
-          result
-        )
-      }
-
-      else if (status === 'Em Teste') {
-        var EmTeste = equipe.tarefas.EmTestes;
-        result = Math.round((EmTeste * 100) / total)
-        return (
-          result
-        )
-      }
-
-      else {
-        return (
-          result
-        )
-      }
-
-
+      if (desejado === 0) return 0 
+      return Math.round((desejado * 100) / equipe.tarefas.total)
     }
-    else {
-      return (
-        <p>Sem Informações</p>
-      )
-    }
+    else return <p>Sem Informações</p>
   }
 
 
@@ -115,7 +70,7 @@ function GetEquipe() {
         <>
           <ColunaUm>
             <div className='d-flex mt-2 ml-4' >
-              <Imagem><img src={equipe.eq_foto} /></Imagem>
+              <Imagem><img src={equipe.eq_foto} alt="equipe" /></Imagem>
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
                 <Title>{equipe.eq_nome}</Title>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
@@ -161,7 +116,7 @@ function GetEquipe() {
             <OrganizeTeam>
               <Card>
                 <CardIcon>
-                  <img src="../../../assets/cod.svg" />
+                  <img src="../../../assets/cod.svg" alt="cod"/>
                 </CardIcon>
                 <Pontos>
                   <h6>
@@ -172,7 +127,7 @@ function GetEquipe() {
               </Card>
               <Card>
                 <CardIcon style={{ backgroundColor: "#667EEA" }}>
-                  <img src='../../../assets/pincel.svg' />
+                  <img src='../../../assets/pincel.svg' alt="pincel icon"/>
                 </CardIcon>
                 <Pontos>
                   <h6><TotalJob funcao={'FrontEnd Junior'} /></h6>
@@ -182,7 +137,7 @@ function GetEquipe() {
 
               <Card>
                 <CardIcon style={{ backgroundColor: "#E391EA" }}>
-                  <img src='../../../assets/sqa.svg' />
+                  <img src='../../../assets/sqa.svg' alt="sqa icon"/>
                 </CardIcon>
                 <Pontos>
                   <h6>
@@ -209,7 +164,7 @@ function GetEquipe() {
                 </div>
                 <SmallInfo>
                   <SmallIcon>
-                    <img src='../../../assets/check.svg' />
+                    <img src='../../../assets/check.svg' alt="check icon"/>
                   </SmallIcon>
                   <p>Total Tasks Concluidas: {equipe.tarefas.Concluidas}</p>
                 </SmallInfo>
