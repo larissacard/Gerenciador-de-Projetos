@@ -4,21 +4,18 @@ import api from '../../api';
 import { TextField, Autocomplete } from '@mui/material';
 
 export default function PessoasTarefa(Props) {
-  const [pessoas, setPessoas] = useState ([])
-
-  useEffect(() => {
-    const getPessoas = async () => {
-      try {
-        const response = await api.get('/pessoas');
-        setPessoas(response.data);
-      } catch (error) {
-        console.log(error)
-      }
-    };
-    getPessoas();
-  }, []);
-
+  const [pessoas, setPessoas] = useState ()
   const [nomePessoa, setNomePessoa] = useState(pessoas);
+
+  if (!pessoas) {
+    let pessoasList = []
+    Object.values(Props.dados.equipes).forEach(eq => {
+      Object.values(eq)[2].forEach(pe => pessoasList.push(pe))
+    })
+    setPessoas(pessoasList)
+
+    if (pessoasList.length === 0) alert("Xiii, num tem ninguem pra fazer essa tarefa aí")
+  }
 
   return (
     <Autocomplete

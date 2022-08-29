@@ -96,7 +96,7 @@ export default function Index() {
                                 ]} />
                         </Detalhamento>
                         <Trelo>
-                            <KanbanUl func={getDados} index={1} status='Não Iniciado' titulo='To Do' elements={dados.tarefas.NaoIniciadas} />
+                            <KanbanUl func={getDados} index={1} status='Não Iniciado' titulo='To Do' elements={dados.tarefas.NaoIniciadas} dados={dados}/>
                             <KanbanUl func={getDados} index={2} status='Em Desenvolvimento' titulo='In Progress' elements={dados.tarefas.EmDesenvolvimento} />
                             <KanbanUl func={getDados} index={3} status='Em Testes' titulo='Test' elements={dados.tarefas.Testes} />
                             <KanbanUl func={getDados} index={4} status='Concluido' titulo='Done' elements={dados.tarefas.Concluidas} />
