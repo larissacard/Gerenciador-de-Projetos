@@ -90,12 +90,15 @@ function EditarPessoa(Props) {
         setEstado()
     };
 
-    const path = window.location.pathname;
-    const [cargoEditEscolhido, setCargoEditEscolhido] = useState()
-    const [nomeEditPessoa, setNomeEditPessoa] = useState()
-    const [datanascEdit, setDatanascEdit] = useState()
-    const [salarioEdit, setEditSalario] = useState()
+    const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.dados.pe_cargo)
+    const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.dados.pe_nome)
+    const [datanascEdit, setDatanascEdit] = useState(Props.dados.dados.pe_data_nasc)
+    const [salarioEdit, setEditSalario] = useState(Props.dados.dados.pe_salario)
     // const [imagemEdit, setEditImagem] = useState()
+    
+    // let data = Date.parse(datanascEdit)
+    // let data_formatada = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear()
+    // console.log(data_formatada)
 
     const handleClickCad = () => {
         if(nomeEditPessoa !== ''){
@@ -116,7 +119,7 @@ function EditarPessoa(Props) {
         Form.append('pe_cargo', cargoEditEscolhido)
         Form.append('pe_salario', salarioEdit)
 
-        api.put(`/pessoas/${Props.dados.dados.pe_id}`, Form, config)
+        api.put(`/pessoas/${Props.dados.pe_id}`, Form, config)
         .then(res => {
             setMensagem('Pessoa Editada com Sucesso!')
             setEstado('success');
@@ -172,6 +175,7 @@ function EditarPessoa(Props) {
                             id='outlined-required'
                             label='Nome'
                             placeholder='Digite o Nome da Pessoa'
+                            value={nomeEditPessoa}
                         />
 
                         <CssTextField
@@ -182,7 +186,8 @@ function EditarPessoa(Props) {
                             size='small'
                             id='outlined-required'
                             label='Salário'
-                            placeholder='Digite o Novo Salário da Pessoa'
+                            placeholder='Digite o Novo Salário da Pessoa'   
+                            value={salarioEdit}
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position='start' >
@@ -201,6 +206,7 @@ function EditarPessoa(Props) {
                             id='outlined-required'
                             label='Data de Nascimento'
                             type='date'
+                            value={datanascEdit}
                             InputLabelProps={{
                                 shrink: true
                               }}
@@ -215,6 +221,7 @@ function EditarPessoa(Props) {
                             onChange={(e) => setCargoEditEscolhido(e.target.value)}
                             placeholder='Selecione o Cargo'
                             defaultValue=''
+                            value={cargoEditEscolhido}
                         >
                             {cargos.map((cargos) =>
                                 <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem>

@@ -54,7 +54,7 @@ function PutEquipes(Props) {
          setPessoaEscolhida(childdata);
      }
 
-     const childToParentPhoto = (childdata) => {
+    const childToParentPhoto = (childdata) => {
         setFotoEscolhida(childdata);
     }
 

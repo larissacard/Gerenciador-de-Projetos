@@ -18,7 +18,7 @@ function CardPessoa(Props) {
             <h2>{Props.dados.dados.pe_nome}</h2>
             <p>{Props.dados.dados.pe_cargo}</p>
             <AllButtons>
-              <EditarPessoa />
+              <EditarPessoa dados={Props.dados}/>
               <AlertDeleteDialog 
                 path = {`/pessoas/${Props.dados.dados.pe_id}`}
                 pathFinal = {`/pessoas`}

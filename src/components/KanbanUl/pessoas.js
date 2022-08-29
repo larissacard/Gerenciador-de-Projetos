@@ -22,7 +22,6 @@ export default function PessoasTarefa(Props) {
       onChange={(event, newValue) => {
         setNomePessoa(newValue); (Props.childToParent(newValue))
       }}
-      value={nomePessoa}
       multiple
       options={pessoas}
       getOptionLabel={(pessoa) => pessoa.pe_nome}

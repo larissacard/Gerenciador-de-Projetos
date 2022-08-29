@@ -42,6 +42,10 @@ function Cards(Props) {
       setPessoas(initialPessoas);
     }
     // setNome(keyword);
+    const filt = Object.entries(Props.filtros).filter(f => !f[1])
+    filt.forEach(f => {
+      setPessoas(valorAntigo => valorAntigo.filter(p => p.pe_cargo !== f[0]))
+    })
   }
 
   // Verifica se a barra de pesquisa teve alguma mudança
