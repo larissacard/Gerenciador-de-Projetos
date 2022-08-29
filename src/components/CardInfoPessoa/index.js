@@ -19,10 +19,12 @@ function CardPessoa(Props) {
             <p>{Props.dados.dados.pe_cargo}</p>
             <AllButtons>
               <EditarPessoa />
-              <AlertDeleteDialog path = '/pessoas'
-                alert='Pessoa apagada com Sucesso!'
-                titulo='Excluir Pessoa Permanentemente?'
-                descricao='Se você excluir esta Pessoa, não poderá recuperar os dados dela novamente. Deseja excluí-la?' />
+              <AlertDeleteDialog 
+                // path = {`${Props.dados.dados.pe_id}`}
+                // path = {`/pessoas/${Props.pe_id}`}
+                alert= 'Pessoa apagada com Sucesso!'
+                titulo= 'Excluir Pessoa Permanentemente?'
+                descricao= 'Se você excluir esta Pessoa, não poderá recuperar os dados dela novamente. Deseja excluí-la?' />
             </AllButtons>
             <DadosTarefas>
               <li>

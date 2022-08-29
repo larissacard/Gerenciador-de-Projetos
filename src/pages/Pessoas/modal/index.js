@@ -123,7 +123,7 @@ function PostPessoas(Props) {
             Props.update()
         })
         .catch(e => { 
-            setMensagem(e.response.data);
+            // setMensagem(e.response.data);
             setOpenDrawer(true);
             setEstado('error');     
         })  
@@ -171,7 +171,6 @@ function PostPessoas(Props) {
                             id='outlined-required'
                             label='Nome'
                             placeholder='Digite o Nome da Pessoa'
-                            value={nomePessoa}
                         />
 
                         <CssTextField
@@ -183,11 +182,10 @@ function PostPessoas(Props) {
                             id='outlined-required'
                             label='Salário'
                             placeholder='Digite o Salário da Pessoa'
-                            value={salario}
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position='start' >
-                                        <Salario className='teste12'>R$</Salario>  
+                                        <Salario>R$</Salario>  
                                     </InputAdornment>
                                 ),
                             }}
@@ -201,7 +199,6 @@ function PostPessoas(Props) {
                             size='small'
                             id='outlined-required'
                             label='Data de Nascimento'
-                            value={datanasc}
                             type='date'
                             InputLabelProps={{
                                 shrink: true

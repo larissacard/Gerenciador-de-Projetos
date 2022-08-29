@@ -16,10 +16,6 @@ export default function Index() {
     
     const [openAlert, setOpenAlert] = useState(false);
     
-    const handleClickDelete = () => {
-        setOpenAlert(true);
-    };
-    
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
         return;

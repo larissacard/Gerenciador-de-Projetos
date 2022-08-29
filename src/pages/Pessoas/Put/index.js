@@ -172,7 +172,6 @@ function EditarPessoa(Props) {
                             id='outlined-required'
                             label='Nome'
                             placeholder='Digite o Nome da Pessoa'
-                            value={nomeEditPessoa}
                         />
 
                         <CssTextField
@@ -183,8 +182,7 @@ function EditarPessoa(Props) {
                             size='small'
                             id='outlined-required'
                             label='Salário'
-                            placeholder='Digite o Salário da Pessoa'
-                            value={salarioEdit}
+                            placeholder='Digite o Novo Salário da Pessoa'
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position='start' >
@@ -202,28 +200,12 @@ function EditarPessoa(Props) {
                             size='small'
                             id='outlined-required'
                             label='Data de Nascimento'
-                            value={datanascEdit}
                             type='date'
                             InputLabelProps={{
                                 shrink: true
                               }}
                         />
-
-                        {/* <CssTextField
-                            autoComplete='off'
-                            required
-                            onChange={(e) => setEditImagem(e.target.files[0])}
-                            fullWidth
-                            size='small'
-                            id='outlined-required'
-                            type='file'
-                            encType='multipart/form-data'
-                            sx={{
-                                '& legend': { display: 'none' },
-                                '& fieldset': { top: 0 },
-                            }}
-                        /> */}
-
+                        
                         <CssTextField
                             select
                             required
