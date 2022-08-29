@@ -224,7 +224,7 @@ export const Card = styled.div`
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 10px;
 
-    @media (max-width: 480px) {
+    @media (max-width: 1280px) {
         width: 100%;
         height: 60px;
         margin-bottom: 10px;
@@ -287,19 +287,35 @@ export const Tasks = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
+    border: 1px solid black;
+    
+
     @media (max-width: 480px) {
         display: flex;
         flex-direction: column;
 
         align-items: center;
-
-        
     }
 
+    @media (max-width: 1280px){
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        overflow-y: scroll;
+        ::-webkit-scrollbar-thumb{
+        display: none;
+        }
+        
+        ::-webkit-scrollbar{
+        display:none;
+        }
+    }
 `;
 
 export const BigTaskCard = styled.div`
-    width: 16.813rem;
+    width: 95%;
     height: 20.563rem;
 
     background: rgba(150, 178, 253, 0.3);
@@ -329,9 +345,12 @@ export const BigTaskCard = styled.div`
     }
 
     @media (max-width: 480px) {
-        margin: 0;
+        margin: 0;  
+    }
 
-        
+    @media (max-width: 1280px) {
+        margin: 0;  
+        width: 16.813rem;
     }
 `;
 
@@ -365,7 +384,7 @@ export const SmallIcon = styled.div`
 `;
 
 export const CardTask = styled.div`
-    width: 16.813rem;
+    width: 95%;
     height: 7.75rem;
 
     background: rgba(150, 178, 253, 0.3);
@@ -401,6 +420,11 @@ export const CardTask = styled.div`
         color: rgba(118, 75, 162, 0.5);
     }
 
+    @media (max-width: 1280px) {
+        width: 16.813rem;
+    }
+
+
 
 `;
 
@@ -421,14 +445,29 @@ export const OrganizeTasks = styled.div`
         margin-bottom: 0;
 
     }
+    @media (max-width: 1280px){
+        margin-top: 10px;
+        margin-bottom: 0;
+
+    }
 `;
 
 export const OrganizeTeam = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media (max-width: 480px){
+    @media (max-width: 1280px){
       display: flex;
       flex-direction: column;
+      align-items: center;
+
+      overflow-x: scroll;
+      ::-webkit-scrollbar-thumb{
+      display: none;
+      }
+      
+      ::-webkit-scrollbar{
+      display:none;
+      }
     }
 `;
