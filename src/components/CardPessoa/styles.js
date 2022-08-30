@@ -17,6 +17,13 @@ export const Container = styled.button`
 
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
   transition-duration: .2s;
+
+  @media (max-width: 480px) {
+    margin-left: 20px;
+
+    width: 110%;
+    height: fit-content;  
+  }
 `;
 
 export const InfoPessoa = styled.div`
@@ -31,6 +38,14 @@ export const InfoPessoa = styled.div`
     font-weight: 400;
     font-size: 10px;
     color: #764ba2;
+  }
+
+  @media (max-width: 480px) {
+    h3 {
+      word-wrap: break-word;
+      width: 120px;
+    }
+    
   }
 `;
 

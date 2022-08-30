@@ -9,6 +9,15 @@ export const Container = styled.div`
   background: white;
   margin-bottom: 20px;
   border-radius: 20px;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    
+  }
 `;
 
 export const InfoPessoa = styled.div`
@@ -32,6 +41,11 @@ export const InfoPessoa = styled.div`
     font-weight: 400;
     font-size: 16px;
     color: #764BA2;
+  }
+
+  @media (max-width: 480px) {
+    align-items: center;
+    
   }
 `;
 
@@ -81,4 +95,10 @@ export const AllButtons = styled.div`
   justify-content: space-between;
   width: 171px;
   margin: 5px 0px;
+
+  @media (max-width: 480px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+  }
 `;

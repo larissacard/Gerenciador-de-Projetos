@@ -15,6 +15,10 @@ export const Container = styled.div`
     background-size: cover;
     transition-duration: .3s;
 
+    @media (max-width: 480px) {
+      height: 70px;
+    }
+
 `;
 
 export const Titulo = styled.div`

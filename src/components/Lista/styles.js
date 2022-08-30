@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 50%;
-  height: auto;
+  width: 49%;
+  height: 260px;
   background-color: #f5f5f7;
   border-radius: 17px;
   padding: 15px;
@@ -13,6 +13,13 @@ export const Container = styled.div`
     color: #000000;
     height: 45px;
   }
+
+  @media (max-width: 480px) {
+      margin-top: 10px;
+      
+      width: 100%;
+    }
+
 `;
 
 export const List = styled.ul`
@@ -22,5 +29,7 @@ export const List = styled.ul`
 
     padding: 0;
     margin: 0;
+
+    
 `;
 
