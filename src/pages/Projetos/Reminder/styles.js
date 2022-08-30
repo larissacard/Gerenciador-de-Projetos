@@ -107,6 +107,7 @@ export const Container = styled.div`
 
     @media (max-width: 480px) {
         height: 200px;
+        margin-top: 10px;
     }
 `;
 
