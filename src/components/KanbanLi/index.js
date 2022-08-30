@@ -15,11 +15,9 @@ import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { Progress } from 'rsuite'; import { styled } from '@mui/material/styles';
 import Checkbox from '@mui/material/Checkbox';
-import FormLabel from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
-import { ConstructionOutlined } from '@mui/icons-material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -34,13 +32,9 @@ const CheckboxStyles = styled(Checkbox)({
   }
 })
 
-const style = {
-  width: 200,
-
-};
-
 function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Constantes para o Menu de Prioridades -=-=-=-=-=-=-=-=-=-=-
+
   // -=-=-=-=-=-=-=-=-=-=- Edita a prioridade da Tarefa -=-=-=-=-=-=-=-=-=-=-
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
@@ -59,12 +53,34 @@ function KanbanLi(Props) {
   const openMenuSubtarefa = Boolean(anchorElSubtarefa);
   const handleClickSubtarefa = (e) => {
     setAnchorElSubtarefa(e.currentTarget);
+    
   };
   const handleCloseMenuSubtarefa = (e) => {
     setAnchorElSubtarefa('');
     if (e.target.value) {
       setprioridadeSubtarefa(e.target.value)
     }
+  };
+  
+  // -=-=-=-=-=-=-=-=-=-=- Edita a Prioridade da Subtarefa -=-=-=-=-=-=-=-=-=-=-
+  const [anchorElEditSubtarefa, setAnchorElEditSubtarefa] = useState(null);
+  const [anchorElEditSubtarefaId, setAnchorElEditSubtarefaId] = useState(null);
+  const openMenuEditSubtarefa = Boolean(anchorElEditSubtarefa);
+  const handleClickEditSubtarefa = (e, id) => {
+    setAnchorElEditSubtarefa(e.currentTarget);
+    setAnchorElEditSubtarefaId(id)
+  };
+  const handleCloseMenuEditSubtarefa = (e, nome, prioridade) => {
+    
+    api.put(`/subtarefas/${anchorElEditSubtarefaId}`, {
+      nome: nome,
+      prioridade: prioridade
+    })
+    .then(res => {
+      setAnchorElEditSubtarefa('');
+      setAnchorElEditSubtarefaId()
+      getTarefas()
+    })
   };
 
   // -=-=-=-=-=-=-=-=-=-=- Constante que Permite o Drag -=-=-=-=-=-=-=-=-=-=-
@@ -112,6 +128,7 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Post em Subtarefas -=-=-=-=-=-=-=-=-=-=-
   const [subtarefa, setSubtarefa] = useState('')
   const [prioridadeSubtarefa, setprioridadeSubtarefa] = useState('')
+  const [prioridadeEditSubtarefa, setprioridadeEditSubtarefa] = useState('')
 
   function PostSubtarefa(e) {
     e.preventDefault()
@@ -175,23 +192,61 @@ function KanbanLi(Props) {
 
   const [inputDisabled, setInputDisabled] = useState()
   const [editSubtarefaNome, setEditSubtarefaNome] = useState()
-  const [editSubtarefaPrioridade, setEditSubtarefaPrioridade] = useState()
+  // const [editSubtarefaPrioridade, setEditSubtarefaPrioridade] = useState()
 
+  // -=-=-=-=-=-=-=-=-=-=- Método Put da Subtarefa -=-=-=-=-=-=-=-=-=-=-
   const updateSubtarefa = (e, id) => {
     e.preventDefault()
 
+    console.log(editSubtarefaNome, prioridadeEditSubtarefa)
     api.put(`/subtarefas/${id}`, {
       nome: editSubtarefaNome,
-      prioridade: 2
+      prioridade: prioridadeEditSubtarefa
     })
       .then(() => {
         setInputDisabled()
         setEditSubtarefaNome()
-        setEditSubtarefaPrioridade()
+        setprioridadeEditSubtarefa()
+        verificaStatus()
         getTarefas()
       })
       .catch(e => {
-        alert(e)
+        console.log(e)
+      })
+  }
+
+  // -=-=-=-=-=-=-=-=-=-=- Método Delete da Subtarefa -=-=-=-=-=-=-=-=-=-=-
+  function deletarSubtarefa(e, id) {
+    api
+      .delete(`/subtarefas/${id}`)
+      .then((res) => {
+        getTarefas()
+        console.log(res);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  // -=-=-=-=-=-=-=-=-=-=- Método put de Todas as Subtarefas -=-=-=-=-=-=-=-=-=-=-
+  const [checkedAll, setCheckedAll] = useState(true)
+
+  const verificaStatus = () => {
+    setCheckedAll(true)
+    tarefas.subTarefas.forEach((subtarefa) => {
+      if (subtarefa.status !== 0) setCheckedAll(false)
+    })
+  }
+
+  function ConcluirSubtarefas (e, id) {''
+    e.preventDefault()
+
+    let marcar = e.target.checked ? 1 : 0
+    api
+      .put(`/tarefas/${Props.dados.tr_id}/check/${marcar}`)
+      .then(() => {
+        setCheckedAll(marcar == 1 ? true : false)
+        getTarefas()
       })
   }
 
@@ -246,6 +301,7 @@ function KanbanLi(Props) {
               color: '#280948',
             }}>
               <Input type='text' value={titulo} onChange={e => setTitulo(e.target.value)} />
+              <p style={{fontSize: "12px"}} title="Identificador da Tarefa">{`(#${Props.dados.tr_id})`}</p>
               {/* <ButtonCancel onClick={handleClose}/> */}
             </DialogTitle>
             <Divider
@@ -345,8 +401,16 @@ function KanbanLi(Props) {
                 <Progress.Line percent={calculo()} strokeColor='#667EEA' trailColor='white' />
               </ProgressBar>
 
-              <TituloSubtarefas>
+              <TituloSubtarefas sx={{
+                display: 'flex', 
+                alignItems: 'center'}}
+              >
                 Subtarefas
+                <Checkbox
+                  checked={checkedAll}
+                  onChange={(e) => ConcluirSubtarefas(e)}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                />
               </TituloSubtarefas>
 
               {/* -=-=-=-=-=-=-=-=-=-=- Lista de Subtarefas com Checkbox -=-=-=-=-=-=-=-=-=-=- */}
@@ -354,13 +418,6 @@ function KanbanLi(Props) {
                 {tarefas.subTarefas.map((tarefa, index) => (
                   <FormDiv key={tarefa.id}>
                     <LabelCheckbox htmlFor={tarefa.nome}>
-                      {/* <CheckboxSubtarefas
-                          id={tarefa.nome}
-                          type='checkbox'
-                          onChange={(e) => changeStatus(e, tarefa.id)}
-                          key={tarefa.id}
-                          checked={tarefa.status === 1 ? true : false}>
-                        </CheckboxSubtarefas> */}
                       <FormControlLabel
                         checked={tarefa.status === 1 ? true : false}
                         onChange={(e) => changeStatus(e, tarefa.id)}
@@ -369,7 +426,10 @@ function KanbanLi(Props) {
                         value={tarefa.nome}
                         control={<CheckboxStyles size='small' />} />
                       <SpanCheckbox
-                        onChange={(e) => setEditSubtarefaNome(e.target.value)}
+                        onChange={(e) => {
+                          setEditSubtarefaNome(e.target.value);
+                          setprioridadeEditSubtarefa(tarefa.prioridade)
+                        }}
                         value={inputDisabled !== tarefa.id ? tarefa.nome : editSubtarefaNome}
                         disabled={inputDisabled !== tarefa.id}
                       />
@@ -385,33 +445,64 @@ function KanbanLi(Props) {
                         <EditIcon style={{ fontSize: '18px' }} />
                       </button>
 
-                      <button type='button'
-                        id='fade-button'
-                        // aria-controls={openMenuSubtarefa ? 'fade-menu' : undefined}
-                        aria-haspopup='true'
-                        // onClick={handleClickSubtarefa}
-                        // aria-expanded={openMenuSubtarefa ? 'true' : undefined}
-                        style={{
-                          background: 'transparent',
-                        }}>
-                        <PrioridadeTarefa title={`Prioridade Subtarefa ${prioridadeSubtarefa === 1 ? 'Baixa' :
-                                                                         prioridadeSubtarefa === 2 ? 'Media' :
-                                                                         prioridadeSubtarefa === 3 ? 'Alta' :
-                                                                         prioridadeSubtarefa}`}>
-                          {
-                            prioridadeSubtarefa === 1 ? <BsFlagFill style={{ color: '#67CB65', fontSize: '16px' }} /> :
-                            prioridadeSubtarefa === 2 ? <BsFlagFill style={{ color: '#FF9533', fontSize: '16px' }} /> :
-                            prioridadeSubtarefa === 3 ? <BsFlagFill style={{ color: '#E74444', fontSize: '16px' }} /> :
-                            <BsFlag style={{ color: 'rgba(40, 9, 72, 0.5)', fontSize: '16px' }} />
-                            // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- Criar as funçoes para receber o editar + rota put -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-                          }
-                        </PrioridadeTarefa>
-                      </button>
+                      <div>
+                        <button type='button'
+                          id='fade-button'
+                          aria-controls={openMenuEditSubtarefa ? 'fade-menu' : undefined}
+                          aria-haspopup='true'
+                          onClick={(e) => handleClickEditSubtarefa(e, tarefa.id)}
+                          aria-expanded={openMenuEditSubtarefa ? 'true' : undefined}
+                          style={{
+                            background: 'transparent',
+                          }}>
+                            {
+                              anchorElEditSubtarefaId === tarefa.id ?
+                              <>
+                                <PrioridadeTarefa title={`Prioridade Subtarefa ${prioridadeEditSubtarefa === 1 ? 'Baixa' :
+                                prioridadeEditSubtarefa === 2 ? 'Media' :
+                                prioridadeEditSubtarefa === 3 ? 'Alta' :
+                                prioridadeEditSubtarefa}`}>
+                                {
+                                prioridadeEditSubtarefa === 1 ? <BsFlagFill style={{ color: '#67CB65', fontSize: '16px' }} /> :
+                                prioridadeEditSubtarefa === 2 ? <BsFlagFill style={{ color: '#FF9533', fontSize: '16px' }} /> :
+                                prioridadeEditSubtarefa === 3 ? <BsFlagFill style={{ color: '#E74444', fontSize: '16px' }} /> :
+                                <BsFlag size={14} style={{ color: 'rgba(40, 9, 72, 0.5)', marginLeft: '6px' }} />
+                                }
+                                {/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- Criar as funçoes para receber o editar + rota put -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */}
+                                </PrioridadeTarefa>
+                              </> : <>
+                              {
+                                tarefa.prioridade === 1 ? <BsFlagFill style={{ color: '#67CB65', fontSize: '16px' }} /> :
+                                tarefa.prioridade === 2 ? <BsFlagFill style={{ color: '#FF9533', fontSize: '16px' }} /> :
+                                tarefa.prioridade === 3 ? <BsFlagFill style={{ color: '#E74444', fontSize: '16px' }} /> :
+                                <BsFlag size={14} style={{ color: 'rgba(40, 9, 72, 0.5)', marginLeft: '6px' }} />
+                                }
+                              </>
+                          } 
+                        </button>
+                        <Menu
+                          onChange={(e) => setprioridadeEditSubtarefa(e)}
+                          id='fade-menu'
+                          MenuListProps={{
+                            'aria-labelledby': 'fade-button',
+                          }}
+                          anchorEl={anchorElEditSubtarefa}
+                          open={openMenuEditSubtarefa}
+                          onClose={(e) => handleCloseMenuEditSubtarefa(e, tarefa.nome, e.target.value)}
+                          TransitionComponent={Fade}
+
+                          onClick={(e) => handleCloseMenuEditSubtarefa(e, tarefa.nome, e.target.value)}
+                        >
+                          <MenuItem value={1}>Baixa</MenuItem>
+                          <MenuItem value={2}>Média</MenuItem>
+                          <MenuItem value={3}>Alta</MenuItem>
+                        </Menu>
+                      </div>
 
                       <button
                         style={{ background: 'transparent' }}
                       >
-                        <DeleteIcon style={{ fontSize: '18px' }} />
+                        <DeleteIcon style={{ fontSize: '18px' }} onClick={(e) => deletarSubtarefa(e, tarefa.id)}/>
                       </button>
                       {/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- Criar função pro delete + rota delete -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */}
 
@@ -432,7 +523,7 @@ function KanbanLi(Props) {
                 <OutlinedInput
                   autoComplete='off'
                   required
-                  onChange={(e) => { setSubtarefa(e.target.value); handledigit(e) }}
+                  onChange={(e) => {setSubtarefa(e.target.value); handledigit(e)}}
                   fullWidth
                   size='small'
                   placeholder='Digite o nome da Subtarefa'

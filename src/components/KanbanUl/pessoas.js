@@ -27,10 +27,11 @@ export default function PessoasTarefa(Props) {
       getOptionLabel={(pessoa) => pessoa.pe_nome}
       filterSelectedOptions
       isOptionEqualToValue={(option, value) => option.pe_id === value.pe_id}
+      value={nomePessoa}
       renderInput={(params) => (
         <TextField
-          {...params}
           required
+          {...params}
           label='Pessoas'
           placeholder='Selecione as Pessoas'
           size='small'

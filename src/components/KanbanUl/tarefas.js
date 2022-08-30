@@ -181,6 +181,7 @@ export default function TarefasProjeto(Props) {
                             size='small'
                             onChange={(e)=> handleChange(e)}
                             placeholder='Selecione a Prioridade'
+                            required
                             defaultValue=''
                             >
                             <MenuItem value={1}>Baixa</MenuItem>

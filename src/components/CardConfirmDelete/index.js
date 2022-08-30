@@ -37,7 +37,7 @@ export default function AlertDeleteDialog(Props) {
         setOpen(false);
     };
 
-    const deletarProjeto = () => {
+    const deletarObjeto = () => {
         api.delete(Props.path)
         handleClickDelete();
         setTimeout(() => window.location.pathname = Props.pathFinal, 1500);
@@ -76,7 +76,7 @@ export default function AlertDeleteDialog(Props) {
                     </DialogContent>
                     <DialogActions sx={{marginRight: '8px', marginBottom: '4px'}}>
                     <Cancelar onClick={handleClose}> Cancelar </Cancelar>
-                    <DeletarPermanente onClick={() => {handleClose(); deletarProjeto()}}>Excluir</DeletarPermanente>
+                    <DeletarPermanente onClick={() => {handleClose(); deletarObjeto()}}>Excluir</DeletarPermanente>
                     </DialogActions>
                 </Dialog>
             </div>
