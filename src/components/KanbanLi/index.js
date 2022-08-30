@@ -241,6 +241,7 @@ function KanbanLi(Props) {
             color: '#280948',
           }}>
             <Input type="text" value={titulo} onChange={e => setTitulo(e.target.value)}/>
+            <p style={{fontSize: "12px"}} title="Identificador da Tarefa">{`(#${Props.dados.tr_id})`}</p>
             {/* <ButtonCancel onClick={handleClose}/> */}
           </DialogTitle>
           <Divider 
