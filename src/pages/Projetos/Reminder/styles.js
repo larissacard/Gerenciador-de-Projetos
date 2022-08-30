@@ -3,12 +3,15 @@ import { TextField } from '@mui/material';
 
 export const Nota = styled.div`
     background: rgba(226, 228, 233, 0.1);
+
     border: 1px solid rgba(118, 75, 162, 0.5);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;    
 
 
-    height: 32%;
+    height: fit-content;
+
+    position: relative;
 
     background-image: url("assets/fundo.svg");
     background-repeat: no-repeat;
@@ -28,10 +31,13 @@ export const Save = styled.button`
 
     width: 82px;
     height: 20px;
+
     font-size: 14px;
     line-height: 20px;
-    border-radius: 20px ;
+
     text-align: center;
+    
+    border-radius: 20px ;
 
     :hover{
         background-color: white;
@@ -43,14 +49,17 @@ export const Save = styled.button`
 export const Name = styled.div`
     color: #280948;
 
+    
+
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
 
-    margin-top: 12px;
+    margin-top: 5px;
 
     img{
-        margin-left: 17px;
+        margin-top: 0;
+        margin-left: 10px;
         margin-right: 6px;
     }
 `;
@@ -58,7 +67,11 @@ export const Name = styled.div`
 export const Descricao = styled.div`
     color: #280948;
 
-    margin-left: 40px;
+    word-wrap: break-word;
+    width: 180px;
+
+    margin-left: 25px;
+    margin-right: 10px;
 
     font-weight: 400;
     font-size: 14px;
@@ -91,6 +104,10 @@ export const Container = styled.div`
     @media (max-width: 767px) {
         height: 180px;
     }
+
+    @media (max-width: 480px) {
+        height: 200px;
+    }
 `;
 
 export const Lembretes = styled.div`   
@@ -106,12 +123,13 @@ export const Lembretes = styled.div`
     @media (min-width: 100px){
         height: 200px;
     }
+
 `;
 
 export const Datetime = styled.div`
     color: #280948;
-    margin-right: 55px;
-    margin-top: 6px;
+    margin-right: 27px;
+    margin-top: 10px;
 
     img{
         margin-right: 3px;
@@ -120,14 +138,15 @@ export const Datetime = styled.div`
 `;
 
 export const Delete = styled.div`
-    margin-top: 7px;
-    margin-right: 9px;
-    margin-bottom: -10px;
+    margin-top: 6px;
+    margin-right: 6px;
 
-    width: 15px;
-    height: 15px;
-    background-image: url('assets/cancel.svg');
+    width: 20px;
+    height: 20px;
+    background-image: url('assets/deletar.svg');
+
     cursor: pointer;
+
     transition: transform .3s ease-in-out;
     
     :hover {
@@ -174,4 +193,15 @@ export const CssTextField = styled(TextField)({
             transition: '0.5s',
         },
     },
-})
+});
+
+export const Organize = styled.div`
+    display: flex;
+    position: absolute;
+    right: 0;
+`;
+
+export const Icon = styled.div`
+    width: 20px;
+    height: 20px;
+`;

@@ -9,14 +9,16 @@ export const ContainerUnico = styled.div`
     overflow: hidden;
     padding: 0 25px;
 
-    @media (max-width:767px) {
-        margin-top: 1px;
-        height: 100%;
-        width: 100%;
+    @media (max-width:480px) {
         display: flex;
         flex-wrap: wrap;
-        border-radius: 0;
 
+        height: 100%;
+        width: 100%;
+
+        margin-top: 1px;
+
+        border-radius: 0;
     }
 `;
 
@@ -65,6 +67,12 @@ export const Title = styled.div`
     color: #280948;
     margin-bottom: 31px;
     margin-top: none;
+
+    @media (max-width: 480px) {
+        margin-right: 10px;
+        margin-left: -10px ;
+        margin-top: -6px;
+    }
 `;
 
 export const Card = styled.a`

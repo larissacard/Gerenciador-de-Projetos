@@ -45,6 +45,12 @@ export const ButtonDrawer = styled.button`
     transform: scale(1.1);
     transition-duration: .2s;
   }
+
+
+  @media (max-width: 480px) {
+    height: 40px;
+    width: 40px;
+  }
 `;
 
 export const Cancelar = styled.button`
@@ -89,5 +95,5 @@ export const ButtonCancel = styled.div`
  
   :hover {
     transform: rotate(360deg);
-  }
-`;
+  }`;
+

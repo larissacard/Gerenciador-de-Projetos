@@ -1,6 +1,7 @@
 import CardPessoa from "../../components/CardPessoa";
 import api from "../../api";
 import { useEffect, useState } from "react";
+import { Organizer } from "./styles";
 
 function Cards(Props) {
   const [initialPessoas, setInitialPessoas] = useState([]);
@@ -63,7 +64,7 @@ function Cards(Props) {
   };
 
   return (
-    <ul style={{ overflowY: "scroll" }}>
+    <Organizer style={{ overflowY: "scroll" }}>
       {pessoas.map((p) => (
         <CardPessoa
           key={p.pe_id}
@@ -75,7 +76,7 @@ function Cards(Props) {
           pessoaSelecionada={pessoaSelecionada}
         />
       ))}
-    </ul>
+    </Organizer>
   );
 }
 

@@ -46,6 +46,7 @@ const CssTextField = styled(TextField)({
     },
 })
 
+
 export default function PostProjetos (Props) {
     const [equipeEscolhida, setEquipeEscolhida] = useState()
     const childToParent = (childdata) => {
@@ -123,6 +124,8 @@ export default function PostProjetos (Props) {
                     sx: {
                         width: '600px',
                         padding: '30px 60px'
+
+                
                     }
                 }}
             >

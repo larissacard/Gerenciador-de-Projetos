@@ -1,17 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    background-color: white;
-    padding: 20px;
-    border-radius: 20px;
-    padding-left: 0;
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    width: 93%;
-`;
-
 export const Top = styled.div`
     display: flex;
     align-items: center;

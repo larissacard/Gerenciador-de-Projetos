@@ -16,6 +16,8 @@ import {
   Delete,
   Container,
   CssTextField,
+  Organize,
+  Descricao,
 } from "./styles";
 
 function Reminders() {
@@ -163,16 +165,19 @@ function Reminders() {
         <Lembretes>
           {lembretes.map((le) => (
             <Nota key={le.le_id}>
-              <div className="d-flex justify-content-end">
+              <Organize>
                 <Delete onClick={() => deleteReminder(le.le_id)} />
-              </div>
+              </Organize>
 
               <div className="d-flex justify-content-between">
                 <div>
                   <Name>
                     <img src="assets/pin.svg" alt="pin icon"/>
-                    {le.le_descricao}
+                    Lembretes
                   </Name>
+                  <Descricao>
+                    {le.le_descricao}
+                  </Descricao>
                 </div>
                 <div>
                   <Datetime>

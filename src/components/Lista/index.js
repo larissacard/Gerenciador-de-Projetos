@@ -20,7 +20,7 @@ function Lista(Props) {
     }
   })
   return (
-    <Container style={{width: Props.width, height: Props.height}} ref={dropRef}>
+    <Container ref={dropRef}>
       <h3>{Props.titulo}</h3>
       <List>{Props.children}</List>
     </Container>  
