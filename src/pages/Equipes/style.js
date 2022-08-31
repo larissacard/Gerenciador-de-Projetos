@@ -16,8 +16,10 @@ export const ContainerUnico = styled.div`
         width: 100%;
         height: 100%;
 
-        margin-top: 1px;
-        margin-bottom: 0;
+        margin: 0;
+        padding: 0;
+
+
 
         border-radius: 0;
     }
@@ -181,3 +183,10 @@ export const SmallElipse = styled.img`
     border: 1px solid white;
 `;
 
+export const Footer = styled.div`
+    height: 30px;
+    width: 100%;
+
+    position: sticky;
+    
+`;
