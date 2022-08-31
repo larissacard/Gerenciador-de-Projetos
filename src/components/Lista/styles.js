@@ -23,13 +23,11 @@ export const Container = styled.div`
 `;
 
 export const List = styled.ul`
-    height: calc(100% - 45px);
-    overflow-y: scroll;
-    width: 100%;
+  height: calc(100% - 45px);
+  overflow-y: scroll;
+  width: 100%;
 
-    padding: 0;
-    margin: 0;
-
-    
+  padding: 0;
+  margin: 0;
 `;
 

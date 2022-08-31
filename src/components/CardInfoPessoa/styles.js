@@ -30,7 +30,7 @@ export const InfoPessoa = styled.div`
   > h2 {
     font-weight: 500;
     font-size: 28px;
-    color: #280948;
+    color: var(--roxo);
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis; 
@@ -78,7 +78,7 @@ export const DadosTarefas = styled.ul`
     > p {
       font-weight: 500;
       font-size: 16px;
-      color: #280948;
+      color: var(--roxo );
     }
 
     > span {

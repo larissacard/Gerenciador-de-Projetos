@@ -15,7 +15,7 @@ export const ColunaUm = styled.div`
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
-    color: #280948;
+    color: var(--roxo);
     margin-bottom: 5px;
   }
 `;

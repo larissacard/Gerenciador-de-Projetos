@@ -119,9 +119,9 @@ function GetEquipe() {
                   <img src="../../../assets/cod.svg" alt="cod"/>
                 </CardIcon>
                 <Pontos>
-                  <h6>
+                  <h4>
                     <TotalJob funcao={'BackEnd Pleno'} />
-                  </h6>
+                  </h4>
                   BackEnd
                 </Pontos>
               </Card>
@@ -130,7 +130,7 @@ function GetEquipe() {
                   <img src='../../../assets/pincel.svg' alt="pincel icon"/>
                 </CardIcon>
                 <Pontos>
-                  <h6><TotalJob funcao={'FrontEnd Junior'} /></h6>
+                  <h4><TotalJob funcao={'FrontEnd Junior'} /></h4>
                   FrontEnd
                 </Pontos>
               </Card>
@@ -140,9 +140,9 @@ function GetEquipe() {
                   <img src='../../../assets/sqa.svg' alt="sqa icon"/>
                 </CardIcon>
                 <Pontos>
-                  <h6>
+                  <h4>
                     <TotalJob funcao={'SqA'} />
-                  </h6>
+                  </h4>
                   SqA
                 </Pontos>
               </Card>

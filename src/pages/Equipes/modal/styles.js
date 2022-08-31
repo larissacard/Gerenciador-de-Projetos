@@ -56,7 +56,7 @@ export const Name = styled.div`
     font-weight: 400;
     font-size: 23.8953px;
     line-height: 32px;
-    color: #280948; 
+    color: var(--roxo); 
     text-align: center;
     padding: 5px 20px;
 `

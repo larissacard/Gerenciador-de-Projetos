@@ -12,6 +12,10 @@ export const Container = styled.ul`
     font-weight: 600;
     font-size: 20px;
     color: #280948;
+
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--roxo);
   }
 `;
 

@@ -31,7 +31,7 @@ export const InfoPessoa = styled.div`
   > h3 {
     font-weight: 500;
     font-size: 20px;
-    color: #280948;
+    color: var(--roxo);
   }
 
   > p {

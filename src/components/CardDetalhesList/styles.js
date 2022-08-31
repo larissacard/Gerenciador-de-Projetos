@@ -13,7 +13,7 @@ export const Container = styled.ul`
     strong {
         font-weight: 600;
         font-size: 14px;
-        color: #280948;
+        color: var(--roxo);
     }
 
     li {

@@ -11,12 +11,15 @@ export const ContainerUnico = styled.div`
 
     @media (max-width:480px) {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
 
-        height: 100%;
         width: 100%;
+        height: 100%;
 
-        margin-top: 1px;
+        margin: 0;
+        padding: 0;
+
+
 
         border-radius: 0;
     }
@@ -64,7 +67,7 @@ export const Title = styled.div`
     font-weight: 500;
     font-size: 32px;
     line-height: 48px;
-    color: #280948;
+    color: var(--roxo);
     margin-bottom: 31px;
     margin-top: none;
 
@@ -104,7 +107,7 @@ export const Name = styled.div`
     font-weight: 400;
     font-size: 20px;
     line-height: 30px; 
-    color: #280948;
+    color: var(--roxo);
     text-align: center;
 `;
 
@@ -112,10 +115,10 @@ export const FooterCard = styled.div`
 
     a{
         text-decoration: none;
-        color: #280948;
+        color: var(--roxo);
     }
     &:hover{
-        background-color: #280948;
+        background-color: var(--roxo);
         border-radius: 7px;
         width: 57%;
         text-align: center;
@@ -159,7 +162,7 @@ export const TeamLength = styled.div`
 
 export const Elipse = styled.div`
     border-radius: 90%;
-    border: 3px solid #280948;
+    border: 3px solid var(--roxo);
     width: 118px;
     height: 119px;
     align-items: center;
@@ -180,3 +183,10 @@ export const SmallElipse = styled.img`
     border: 1px solid white;
 `;
 
+export const Footer = styled.div`
+    height: 30px;
+    width: 100%;
+
+    position: sticky;
+    
+`;

@@ -15,7 +15,7 @@ export const Titulo = styled.h1`
     padding: 0;
     font-weight: 600;
     font-size: 32px;
-    color: #280948;
+    color: var(--roxo);
 `;
 
 export const Buttons = styled.div`

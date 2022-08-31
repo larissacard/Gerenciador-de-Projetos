@@ -6,7 +6,7 @@ export const Top = styled.div`
 `;
 
 export const Title = styled.h3`
-    color: #280948;
+    color: var(--roxo);
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;

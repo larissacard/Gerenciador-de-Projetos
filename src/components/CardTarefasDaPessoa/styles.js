@@ -27,6 +27,13 @@ export const Container = styled.li`
             opacity: 0;
         }
     `}
+
+    @media (max-width: 480px) {
+      height: fit-content;
+      width: 100%;
+
+      border: 1px solid black;
+    }
 `;
 
 export const Top = styled.div`
@@ -37,7 +44,7 @@ export const Top = styled.div`
   > h3 {
     font-weight: 600;
     font-size: 16px;
-    color: #280948;
+    color: var(--roxo);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -51,6 +58,7 @@ export const Prioridade = styled.div`
     padding: 0px 10px;
     font-size: 14px;
     color: #fff;
+
 `;
 
 export const Bottom = styled.div`
@@ -66,7 +74,7 @@ export const Bottom = styled.div`
     > p {
       font-weight: 600;
       font-size: 14px;
-      color: #280948;
+      color: var(--roxo);
       width: 200px;
     }
     
