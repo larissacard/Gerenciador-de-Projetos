@@ -47,7 +47,7 @@ export const Title = styled.div`
     font-size: 30px;
     line-height: 48px;
 
-    color: #280948;
+    color: var(--roxo);
 
     margin-top: 16px;
     
@@ -87,7 +87,7 @@ export const SubTitle = styled.div`
     font-size: 20px;
     line-height: 30px;
 
-    color: #280948;
+    color: var(--roxo);
 
     margin-top: 18px;
     margin-bottom: 15px;
@@ -114,7 +114,7 @@ export const SmallCont = styled.div`
 
 `;
 export const Members = styled.div`
-    color: #280948;
+    color: var(--roxo);
 
     font-weight: 600;
     font-size: 20px;
@@ -125,9 +125,9 @@ export const Members = styled.div`
 `;
 
 export const Person = styled.div`
-    border: solid 1px #280948;
+    border: solid 1px var(--roxo);
     width: 90%;
-    height: 2.813rem;
+    height: fit-content;
     
     align-items: center;
     display:flex;
@@ -144,7 +144,7 @@ export const Person = styled.div`
 `;
 
 export const Ellipse = styled.div`
-    border: solid 1px #280948;
+    border: solid 1px var(--roxo);
     height: 2.25rem;
     width: 2.25rem;
     border-radius: 20px;
@@ -156,7 +156,7 @@ export const Ellipse = styled.div`
 `;
 
 export const Icon = styled.img`
-    border: 0.5px solid #280948;
+    border: 0.5px solid var(--roxo);
     width: 1.9rem;
     height: 1.9rem;
 
@@ -175,7 +175,7 @@ export const Name = styled.div`
 `;
 
 export const Job = styled.div`
-    color: #280948;
+    color: var(--roxo);
 
     font-weight: 400;
     font-size: 14px;
@@ -184,7 +184,7 @@ export const Job = styled.div`
 `;
 
 export const TotalTask = styled.div`
-    color: #280948;
+    color: var(--roxo);
 
     font-weight: 400;
     font-size: 14px;
@@ -225,7 +225,7 @@ export const Card = styled.div`
     border-radius: 10px;
 
     @media (max-width: 1280px) {
-        width: 100%;
+        width: 98%;
         height: 60px;
         margin-bottom: 10px;
 
@@ -233,7 +233,10 @@ export const Card = styled.div`
         justify-content: flex-start;
         align-items: center;
         text-align: center;
-        
+
+        h4 {
+            margin-left: 10px;
+        }
     }
 `;
 
@@ -268,12 +271,12 @@ export const Pontos = styled.div`
     margin-top: 33px;
     margin-left: 13px;
     
-    color: #280948;
+    color: var(--roxo);
     
     h6{ 
         font-size: 20px;
         line-height: 28px;
-        color: #280948;
+        color: var(--roxo);
         font-weight: 400;
     }
 
@@ -287,8 +290,6 @@ export const Tasks = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    border: 1px solid black;
-    
 
     @media (max-width: 480px) {
         display: flex;
@@ -298,7 +299,10 @@ export const Tasks = styled.div`
     }
 
     @media (max-width: 1280px){
+        width:100%;
         display: flex;
+        align-items: flex-start;
+        /* display: flex;
         flex-direction: column;
 
         align-items: center;
@@ -310,12 +314,12 @@ export const Tasks = styled.div`
         
         ::-webkit-scrollbar{
         display:none;
-        }
+        } */
     }
 `;
 
 export const BigTaskCard = styled.div`
-    width: 95%;
+    width: 90%;
     height: 20.563rem;
 
     background: rgba(150, 178, 253, 0.3);
@@ -341,7 +345,7 @@ export const BigTaskCard = styled.div`
         line-height: 26px;
 
         align-self: flex-start;
-        color: #280948;
+        color: var(--roxo);
     }
 
     @media (max-width: 480px) {
@@ -350,7 +354,10 @@ export const BigTaskCard = styled.div`
 
     @media (max-width: 1280px) {
         margin: 0;  
-        width: 16.813rem;
+        width: 14.813rem;
+
+        display: flex;
+        align-self: center;
     }
 `;
 
@@ -365,7 +372,7 @@ export const SmallInfo = styled.div`
         font-size: 13px;
         line-height: 15px;
 
-        color: #280948;
+        color: var(--roxo);
     }
 `;
 
@@ -384,7 +391,7 @@ export const SmallIcon = styled.div`
 `;
 
 export const CardTask = styled.div`
-    width: 95%;
+    width: 90%;
     height: 7.75rem;
 
     background: rgba(150, 178, 253, 0.3);
@@ -401,7 +408,7 @@ export const CardTask = styled.div`
         font-size: 13px;
         line-height: 20px;
 
-        color: #280948;
+        color: var(--roxo);
     }
 
     h6{
@@ -409,7 +416,7 @@ export const CardTask = styled.div`
         font-size: 20px;
         line-height: 30px;
 
-        color: #280948;
+        color: var(--roxo);
     }
 
     p{
@@ -421,10 +428,10 @@ export const CardTask = styled.div`
     }
 
     @media (max-width: 1280px) {
-        width: 16.813rem;
+        margin-left: 20px;
+        margin-right: 10px;
+        width: 85%;
     }
-
-
 
 `;
 
@@ -448,6 +455,11 @@ export const OrganizeTasks = styled.div`
     @media (max-width: 1280px){
         margin-top: 10px;
         margin-bottom: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+
 
     }
 `;

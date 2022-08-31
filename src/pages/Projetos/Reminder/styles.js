@@ -15,7 +15,7 @@ export const Nota = styled.div`
 
     background-image: url("assets/fundo.svg");
     background-repeat: no-repeat;
-    background-position-x: right;
+    background-size: cover;
 
     margin-bottom: 12px;
 
@@ -47,7 +47,7 @@ export const Save = styled.button`
 `;
 
 export const Name = styled.div`
-    color: #280948;
+    color: var(--roxo);
 
     
 
@@ -128,7 +128,7 @@ export const Lembretes = styled.div`
 `;
 
 export const Datetime = styled.div`
-    color: #280948;
+    color: var(--roxo);
     margin-right: 27px;
     margin-top: 10px;
 

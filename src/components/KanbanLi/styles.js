@@ -33,7 +33,7 @@ export const Top = styled.div`
     h3 {
         font-weight: 600;
         font-size: 16px;
-        color: #280948;
+        color: var(--roxo);
         width:100%;
         line-height: 22px;
         text-overflow: ellipsis;
@@ -58,7 +58,7 @@ export const Body = styled.div`
     p, strong {
         font-size: 12px;
         font-weight: 600;
-        color: #280948;
+        color: var(--roxo);
     }
 `;
 
@@ -113,7 +113,7 @@ export const TituloSubtarefas = styled.h5`
     font-style: italic;
     font-weight: 600;
     font-size: 16px;
-    color: #280948;
+    color: var(--roxo);
     margin-left: 2px;
     margin-bottom: 16px;
 `;

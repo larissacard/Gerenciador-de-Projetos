@@ -17,7 +17,7 @@ export const Container = styled.li`
 export const Titulo = styled.h2`
   font-weight: 500;
   font-size: 20px;
-  color: #280948;
+  color: var(--roxo);
   line-height: 25px;
 `;
 
@@ -59,7 +59,7 @@ export const ProgressDesc = styled.div`
   p {
     font-weight: 300;
     font-size: 15px;
-    color: #280948;
+    color: var(--roxo);
   }
 
   span {

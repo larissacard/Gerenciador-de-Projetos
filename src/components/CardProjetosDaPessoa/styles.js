@@ -20,6 +20,6 @@ export const Container = styled.li`
   > h3 {
     font-weight: 600;
     font-size: 18px;
-    color: #280948;
+    color: var(--roxo);
   }
 `;

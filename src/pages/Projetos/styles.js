@@ -120,7 +120,7 @@ export const CabecalhoProjetos = styled.div`
     padding-bottom: 10px;
 
     > h2 {
-        color: #280948;
+        color: var(--roxo);
         font-weight: 600;
         font-size: 1.25rem;
         line-height: 1.87rem;
@@ -143,7 +143,7 @@ export const CabecalhoProjetos = styled.div`
 `;
 
 export const Search = styled.div`
-    border: 2px solid #280948;
+    border: 2px solid var(--roxo);
     border-radius: 20px;
     height: 36px;
     display: flex;

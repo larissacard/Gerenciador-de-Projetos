@@ -77,7 +77,7 @@ export const Salario = styled.h6`
     } 
     
     &:focus {
-        color: #280948;
+        color: var(--roxo);
     }
 `;
 
