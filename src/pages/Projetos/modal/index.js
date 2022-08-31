@@ -153,6 +153,9 @@ export default function PostProjetos (Props) {
                             label='Nome'
                             placeholder='Digite o Nome do Projeto'
                             value={nomeProjeto}
+                            inputProps={{
+                                maxLength: 50,
+                              }}
                         />
 
                         <CssTextField

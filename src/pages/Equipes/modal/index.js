@@ -116,7 +116,6 @@ function PostEquipes(Props) {
 
     return (
         <>
-
             <Snackbar open={openAlert} autoHideDuration={2200} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
                 <Alert onClose={handleCloseAlert} severity={estado}>
                     {mensagem}
@@ -159,6 +158,9 @@ function PostEquipes(Props) {
                             label='Nome'
                             placeholder='Digite o nome da Equipe'
                             value={nomeEquipe}
+                            inputProps={{
+                                maxLength: 50,
+                              }}
                         />    
 
                 

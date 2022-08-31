@@ -150,6 +150,9 @@ function PutEquipes(Props) {
                             label='Nome'
                             placeholder='Digite o novo Nome da Equipe'
                             value={nomeEditEquipe}
+                            inputProps={{
+                                maxLength: 50,
+                              }}
                         />
 
                         <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>

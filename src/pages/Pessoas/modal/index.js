@@ -171,6 +171,9 @@ function PostPessoas(Props) {
                             id='outlined-required'
                             label='Nome'
                             placeholder='Digite o Nome da Pessoa'
+                            inputProps={{
+                                maxLength: 50,
+                              }}
                         />
 
                         <CssTextField
@@ -189,6 +192,9 @@ function PostPessoas(Props) {
                                     </InputAdornment>
                                 ),
                             }}
+                            inputProps={{
+                                maxLength: 5,
+                              }}
                         />
 
                         <CssTextField

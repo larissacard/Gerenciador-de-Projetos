@@ -144,6 +144,9 @@ function Edit(Props) {
                             label='Nome'
                             placeholder='Digite o novo Nome do Projeto'
                             value={nomeEditProjeto}
+                            inputProps={{
+                                maxLength: 50,
+                              }}
                         />
 
                         <CssTextField
@@ -155,6 +158,9 @@ function Edit(Props) {
                             label='Descrição'
                             placeholder='Digite a nova Descrição do Projeto'
                             value={descricaoEditProjeto}
+                            inputProps={{
+                                maxLength: 400,
+                              }}
                         />
 
                         <EquipesProjetoEdit dados={Props.dados} childToParent={childToParent}/>

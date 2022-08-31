@@ -181,6 +181,9 @@ function EditarPessoa(Props) {
                             label='Nome'
                             placeholder='Digite o Nome da Pessoa'
                             value={nomeEditPessoa}
+                            inputProps={{
+                                maxLength: 50,
+                              }}
                         />
 
                         <CssTextField
@@ -200,6 +203,9 @@ function EditarPessoa(Props) {
                                     </InputAdornment>
                                 ),
                             }}
+                            inputProps={{
+                                maxLength: 5,
+                              }}
                         />
 
                         <CssTextField
