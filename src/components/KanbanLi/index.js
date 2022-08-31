@@ -110,29 +110,56 @@ function KanbanLi(Props) {
   };
 
   // -=-=-=-=-=-=-=-=-=-=- Mudar Status da Checkbox -=-=-=-=-=-=-=-=-=-=-
+  const [selected, setSelected] = useState()
+  const [checkedAll, setCheckedAll] = useState(false)
+
+  // Pega uma lista das subtarefas que estão inialmente marcadas
+  if (!selected && tarefas) { 
+    let tarefasIniciais = tarefas.subTarefas.filter(sub => sub.status === 1)
+    setSelected(tarefasIniciais)
+    if (tarefasIniciais.length === tarefas.subTarefas.length) setCheckedAll(true)
+  }
+  
   const changeStatus = async (e, id) => {
     let newStatus = e.target.checked ? 1 : 0
+    
+    if (selected.length === 1 && newStatus === 0) setCheckedAll(false)
+    else if (selected.length == tarefas.subTarefas.length - 1 && newStatus === 1) setCheckedAll(true)
+    else setCheckedAll(false)
+
+    if (e.target.checked) {
+      let selectedList = selected
+      selectedList.push({id})
+      setSelected(selectedList)
+    }
+    else {
+      setSelected(selected.filter(sub => sub.id !== id ))
+    }
+    
 
     api
       .put(`/subtarefas/${id}/status/${newStatus}`)
-      .then(() => getTarefas())
+      .then(() => {
+        getTarefas();
+      }) 
       .catch(e => { console.log(e) })
-  }
-
-  // -=-=-=-=-=-=-=-=-=-=- Calculo da ProgressBar -=-=-=-=-=-=-=-=-=-=-
-  const calculo = () => {
-    if (tarefas.subTarefas.length === 0) return 0
-    return Math.round(tarefas.subTarefas.filter(t => t.status === 1).length / tarefas.subTarefas.length * 100)
-  }
-
-  // -=-=-=-=-=-=-=-=-=-=- Post em Subtarefas -=-=-=-=-=-=-=-=-=-=-
-  const [subtarefa, setSubtarefa] = useState('')
-  const [prioridadeSubtarefa, setprioridadeSubtarefa] = useState('')
-  const [prioridadeEditSubtarefa, setprioridadeEditSubtarefa] = useState('')
-
-  function PostSubtarefa(e) {
-    e.preventDefault()
-    api
+      
+    }
+    
+    // -=-=-=-=-=-=-=-=-=-=- Calculo da ProgressBar -=-=-=-=-=-=-=-=-=-=-
+    const calculo = () => {
+      if (tarefas.subTarefas.length === 0) return 0
+      return Math.round(tarefas.subTarefas.filter(t => t.status === 1).length / tarefas.subTarefas.length * 100)
+    }
+    
+    // -=-=-=-=-=-=-=-=-=-=- Post em Subtarefas -=-=-=-=-=-=-=-=-=-=-
+    const [subtarefa, setSubtarefa] = useState()
+    const [prioridadeSubtarefa, setprioridadeSubtarefa] = useState()
+    const [prioridadeEditSubtarefa, setprioridadeEditSubtarefa] = useState()
+    
+    function PostSubtarefa(e) {
+      e.preventDefault()
+      api
       .post(`/subtarefas/${Props.dados.tr_id}`, {
         nome: subtarefa,
         prioridade: prioridadeSubtarefa,
@@ -140,25 +167,26 @@ function KanbanLi(Props) {
       .then(res => {
         getTarefas()
         setSubtarefa('')
+        setprioridadeSubtarefa('')
       }
       )
       .catch(e => {
         console.log(e)
       })
-  }
+    }
 
   // -=-=-=-=-=-=-=-=-=-=- Abrir e fechar dialog de detalhes -=-=-=-=-=-=-=-=-=-=-
   const [open, setOpen] = useState(false);
-
+  
   const handleClickOpen = async () => {
     getTarefas()
     setOpen(true);
   };
-
+  
   const handleClose = () => {
     if (titulo != Props.dados.tr_nome || descricao != Props.dados.tr_descricao || prioridade != Props.dados.tr_prioridade) {
       api
-        .put(`/tarefas/${Props.dados.tr_id}`, {
+      .put(`/tarefas/${Props.dados.tr_id}`, {
           tr_nome: titulo,
           tr_descricao: descricao,
           tr_prioridade: prioridade
@@ -169,17 +197,17 @@ function KanbanLi(Props) {
           Props.dados.tr_prioridade = prioridade
           Props.update();
         })
-    }
-    setSubtarefa('')
-    setprioridadeSubtarefa('')
+      }
+      setSubtarefa('')
+      setprioridadeSubtarefa('')
     setInputDisabled(false)
     setVisible('none')
     setOpen(false);
   };
-
+  
   // -=-=-=-=-=-=-=-=-=-=- Constante para mudar o Estado do Botão -=-=-=-=-=-=-=-=-=-=-
   const [visible, setVisible] = useState('none')
-
+  
   const handledigit = (e) => {
     e.preventDefault()
     if (e.target.value !== '') {
@@ -197,27 +225,27 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Método Put da Subtarefa -=-=-=-=-=-=-=-=-=-=-
   const updateSubtarefa = (e, id) => {
     e.preventDefault()
-
+    
     console.log(editSubtarefaNome, prioridadeEditSubtarefa)
     api.put(`/subtarefas/${id}`, {
       nome: editSubtarefaNome,
       prioridade: prioridadeEditSubtarefa
     })
-      .then(() => {
-        setInputDisabled()
-        setEditSubtarefaNome()
-        setprioridadeEditSubtarefa()
-        verificaStatus()
-        getTarefas()
+    .then(() => {
+      setInputDisabled()
+      setEditSubtarefaNome()
+      setprioridadeEditSubtarefa()
+      // verificaStatus()
+      getTarefas()
       })
       .catch(e => {
         console.log(e)
       })
-  }
-
-  // -=-=-=-=-=-=-=-=-=-=- Método Delete da Subtarefa -=-=-=-=-=-=-=-=-=-=-
-  function deletarSubtarefa(e, id) {
-    api
+    }
+    
+    // -=-=-=-=-=-=-=-=-=-=- Método Delete da Subtarefa -=-=-=-=-=-=-=-=-=-=-
+    function deletarSubtarefa(e, id) {
+      api
       .delete(`/subtarefas/${id}`)
       .then((res) => {
         getTarefas()
@@ -229,27 +257,50 @@ function KanbanLi(Props) {
   }
 
   // -=-=-=-=-=-=-=-=-=-=- Método put de Todas as Subtarefas -=-=-=-=-=-=-=-=-=-=-
-  const [checkedAll, setCheckedAll] = useState(true)
+  // const [checkedAll, setCheckedAll] = useState(true)
 
-  const verificaStatus = () => {
-    setCheckedAll(true)
-    tarefas.subTarefas.forEach((subtarefa) => {
-      if (subtarefa.status !== 0) setCheckedAll(false)
-    })
+  // const verificaStatus = () => {
+    //   setCheckedAll(true)
+    //   tarefas.subTarefas.forEach((subtarefa) => {
+      //     if (subtarefa.status !== 0) setCheckedAll(false)
+      //   })
+      // }
+      
+      function ConcluirSubtarefas (marcar) {    
+        api
+        .put(`/tarefas/${Props.dados.tr_id}/check/${marcar}`)
+        .then(() => {
+          getTarefas()
+        })
   }
 
-  function ConcluirSubtarefas (e, id) {''
-    e.preventDefault()
+  // if (tarefas) {
+  //     checkedAll = tarefas.subTarefas.length > 0 && selected.length === tarefas.subTarefas.length;
+  //     // ConcluirSubtarefas()
+  // }
 
-    let marcar = e.target.checked ? 1 : 0
-    api
-      .put(`/tarefas/${Props.dados.tr_id}/check/${marcar}`)
-      .then(() => {
-        setCheckedAll(marcar == 1 ? true : false)
-        getTarefas()
-      })
-  }
+  const handleChange = (e) => {
+    const value = e.target.checked;
+    if (value) {
+      setSelected(selected.length === tarefas.subTarefas.length ? [] : tarefas.subTarefas);
+      ConcluirSubtarefas(1)
+      setCheckedAll(true)
+      return;
+    }
+    else {
+      ConcluirSubtarefas(0)
+      setSelected([])
+      setCheckedAll(false)
+    } 
 
+    
+
+    // const list = [...selected];
+    // const index = list.indexOf(value);
+    // index === -1 ? list.push(value) : list.splice(index, 1);
+    // setSelected(list);
+  };
+    
   return (
     <>
       <Container ref={dragRef} isDragging={isDragging} onClick={handleClickOpen}>
@@ -408,8 +459,11 @@ function KanbanLi(Props) {
                 Subtarefas
                 <Checkbox
                   checked={checkedAll}
-                  onChange={(e) => ConcluirSubtarefas(e)}
+                  // onChange={(e) => ConcluirSubtarefas(e)}
+                  onChange={handleChange}
+                  value={1}
                   inputProps={{ 'aria-label': 'controlled' }}
+                  style={{display: tarefas.subTarefas.length > 0 ? 'inline-block' : 'none', width: "50px"}}
                 />
               </TituloSubtarefas>
 
@@ -459,9 +513,9 @@ function KanbanLi(Props) {
                               anchorElEditSubtarefaId === tarefa.id ?
                               <>
                                 <PrioridadeTarefa title={`Prioridade Subtarefa ${prioridadeEditSubtarefa === 1 ? 'Baixa' :
-                                prioridadeEditSubtarefa === 2 ? 'Media' :
-                                prioridadeEditSubtarefa === 3 ? 'Alta' :
-                                prioridadeEditSubtarefa}`}>
+                                                                                  prioridadeEditSubtarefa === 2 ? 'Media' :
+                                                                                  prioridadeEditSubtarefa === 3 ? 'Alta' :
+                                                                                  prioridadeEditSubtarefa}`}>
                                 {
                                 prioridadeEditSubtarefa === 1 ? <BsFlagFill style={{ color: '#67CB65', fontSize: '16px' }} /> :
                                 prioridadeEditSubtarefa === 2 ? <BsFlagFill style={{ color: '#FF9533', fontSize: '16px' }} /> :
@@ -526,8 +580,8 @@ function KanbanLi(Props) {
                   onChange={(e) => {setSubtarefa(e.target.value); handledigit(e)}}
                   fullWidth
                   size='small'
-                  placeholder='Digite o nome da Subtarefa'
                   value={subtarefa}
+                  placeholder='Digite o nome da Subtarefa'
                   sx={{
                     '& legend': { display: 'none' },
                     '& fieldset': { top: 0 },
@@ -608,7 +662,7 @@ function KanbanLi(Props) {
                         <MenuItem value={3}>Alta</MenuItem>
                       </Menu>
 
-                      <Save type='submit' style={{ display: visible }} value='Salvar' />
+                      <Save type='submit' style={{ display: visible }} value='Salvar' disabled={prioridadeSubtarefa && subtarefa ? false : true}/>
                     </InputAdornment>
                   }
                 />

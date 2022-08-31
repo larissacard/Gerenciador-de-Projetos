@@ -9,9 +9,9 @@ export const Container = styled.ul`
   padding: 15px;
 
   h2 {
-      font-weight: 600;
-      font-size: 20px;
-      color: #280948;
+    font-weight: 600;
+    font-size: 20px;
+    color: #280948;
   }
 `;
 
@@ -22,10 +22,22 @@ export const ContTarefas = styled.ul`
   height: calc(100% - 70px);
 
   li+li {
-      margin-top: 21px;
+    margin-top: 21px;
   }
 
-  overflow-y: scroll;
+  overflow-y: auto;
+  
+  ::-webkit-scrollbar-thumb{
+    background: #764BA2;
+    border-radius: 10px;
+    width: 5px;
+  }
+      
+  ::-webkit-scrollbar{
+    background-color: #F5F5F7;
+    width: 5px;
+    border-radius: 10px;
+  }
 `;
 
 export const Top = styled.div`
@@ -39,7 +51,7 @@ export const ContButtons = styled.div`
   margin-top: 10px;
 
   > button + button {
-      margin-left: 10px;
+    margin-left: 10px;
   }
 `;
 

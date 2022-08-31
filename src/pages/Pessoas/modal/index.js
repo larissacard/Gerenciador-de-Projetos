@@ -229,6 +229,18 @@ function PostPessoas(Props) {
                             onChange={(e) => setCargoEscolhido(e.target.value)}
                             placeholder='Selecione o Cargo'
                             defaultValue=''
+                           
+                                // <Stack spacing={2.5}>
+                                //     <input
+                                //         placeholder="Please enter item"
+                                //         // ref={inputRef}
+                                //         // value={name}
+                                //         // onChange={onNameChange}
+                                //     />
+                                //     <Button type="text" >
+                                //         Add item
+                                //     </Button>
+                                // </Stack>
                         >
                             {cargos.map((cargos) =>
                                 <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem>

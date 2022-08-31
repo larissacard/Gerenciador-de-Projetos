@@ -89,37 +89,42 @@ function EditarPessoa(Props) {
         setOpenAlert(false);
         setEstado()
     };
+    
+    // function adicionaZero(numero){
+    //     if (numero <= 9) 
+    //         return "0" + numero;
+    //     else
+    //         return numero; 
+    // }
 
-    const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.dados.pe_cargo)
-    const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.dados.pe_nome)
-    const [datanascEdit, setDatanascEdit] = useState(Props.dados.dados.pe_data_nasc)
-    const [salarioEdit, setEditSalario] = useState(Props.dados.dados.pe_salario)
-    // const [imagemEdit, setEditImagem] = useState()
+    // let dataAtual = new Date(Props.dados.dados.pe_data_nasc); 
+    // let dataAtualFormatada = (adicionaZero(dataAtual.getDate().toString()) + "/" + (adicionaZero(dataAtual.getMonth()+1).toString()) + "/" + dataAtual.getFullYear());
+    // console.log(dataAtualFormatada);
     
     // let data = Date.parse(datanascEdit)
     // let data_formatada = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear()
     // console.log(data_formatada)
-
+    
+    const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.dados.pe_cargo)
+    const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.dados.pe_nome)
+    const [datanascEdit, setDatanascEdit] = useState(Props.dados.dados.pe_data_nasc)
+    const [salarioEdit, setEditSalario] = useState(Props.dados.dados.pe_salario)
+    // const [imagemEdit, setEditImagem] = useState(Props.dados.dados.foto)
+    
     const handleClickCad = () => {
         if(nomeEditPessoa !== ''){
             setTimeout(() => setOpenAlert(true), 150)
         }
     }
-
-    const config = {
-        'Content-Type': 'multipart/form-data',
-    }
-
+    
     function update(e) {
         e.preventDefault();
-        const Form = new FormData();
-        // Form.append('foto', imagemEdit)
-        Form.append('pe_nome', nomeEditPessoa)
-        Form.append('pe_data_nasc', datanascEdit)
-        Form.append('pe_cargo', cargoEditEscolhido)
-        Form.append('pe_salario', salarioEdit)
-
-        api.put(`/pessoas/${Props.dados.pe_id}`, Form, config)
+        api.put(`/pessoas/${Props.dados.dados.pe_id}`, {
+            pe_cargo :cargoEditEscolhido,
+            pe_nome :nomeEditPessoa,
+            pe_data_nasc :datanascEdit,
+            pe_salario :salarioEdit
+        })
         .then(res => {
             setMensagem('Pessoa Editada com Sucesso!')
             setEstado('success');

@@ -120,14 +120,15 @@ function Edit(Props) {
                 }}
             >
                 <Box width='480px'
-                        paddingBottom='20px' 
-                        display='flex'
-                        alignItems='center'
-                        justifyContent='space-between'
+                     paddingBottom='20px' 
+                     display='flex'
+                     alignItems='center'
+                     justifyContent='space-between'
                 >                  
                     <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
                         Editar Projeto
                     </Typography>
+                    
                     <ButtonCancel onClick={handleClose}/>
                     
                 </Box>

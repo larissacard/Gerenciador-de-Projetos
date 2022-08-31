@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import api from '../../api'
+import AlertDeleteDialog from '../../components/CardConfirmDelete';
 import CardDetalhesList from '../../components/CardDetalhesList';
 import KanbanUl from '../../components/KanbanUl';
 import Container from "../../components/Container";
-import { ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
 import Edit from './put';
+import { ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import AlertDeleteDialog from '../../components/CardConfirmDelete';
 
 export default function Index() {
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -83,7 +83,9 @@ export default function Index() {
                                 }
                             })}
 
-                            <CardDetalhesList width='23.29%' height='143px' keys={[
+                            <CardDetalhesList width='23.29%' 
+                                height='143px' 
+                                keys={[
                                 'Data de Criação', 'Data de Finalização', 'Equipes'
                             ]} values={[dados.dados.pr_data_criacao.substring(0,10), dados.dados.pr_data_finalizacao, string_equipes]} />
 

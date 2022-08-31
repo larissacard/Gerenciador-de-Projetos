@@ -10,7 +10,7 @@ export const Container = styled.li`
     padding: 10px;
     overflow-x: hidden;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-right: 6px;
     
     ${props => props.isDragging && css`
     border: 2px dashed rgba(0,0,0,.2);
@@ -21,8 +21,7 @@ export const Container = styled.li`
         opacity: 0;
     }
     `}
-    `;
-
+`;
 
 export const Top = styled.div`
     display: flex;
@@ -34,12 +33,12 @@ export const Top = styled.div`
         font-weight: 600;
         font-size: 16px;
         color: #280948;
-        width:100%;
+        width: 100%;
         line-height: 22px;
         text-overflow: ellipsis;
         overflow: hidden;
     }
-    `;
+`;
 
 export const Body = styled.div`
     ul {

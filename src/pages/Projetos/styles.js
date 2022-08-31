@@ -94,7 +94,7 @@ export const Agenda = styled.div`
         background-color: #F5F5F7;
         width: 5px;
         border-radius: 10px;
-  }
+    }
 `;
 
 export const ContProjetos = styled.div`

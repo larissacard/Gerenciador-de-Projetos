@@ -36,10 +36,10 @@ export const Buttons = styled.div`
 `;
 
 export const Top = styled.div`
- display: flex;
- justify-content: space-between;
- width: 100%;
- align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
 `;
 
 export const Detalhamento = styled.div`
@@ -52,8 +52,8 @@ export const Detalhamento = styled.div`
 export const Trelo = styled.div`
     display: flex;
     justify-content: space-between;
-    height: calc(100% - 245px);
-    margin-top: 15px;
+    height: calc(100% - 240px);
+    margin-top: 10px;
 `; 
 
 export const Main = styled.div`
