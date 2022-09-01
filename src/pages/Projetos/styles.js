@@ -36,8 +36,6 @@ export const TopGrafico = styled.div`
         color: var(--roxo);
         padding-left: 15px;
         }
-
-
 `;
 
 export const ColunaDois = styled.div`
@@ -195,6 +193,22 @@ export const ContTabela = styled.div`
         line-height: 1.7rem;
     }
 
+    overflow-y: scroll;
+    /* scrollbar-color: var(--roxo1) var(--branco); 
+    scrollbar-width: thin; */
+    
+    ul::-webkit-scrollbar-thumb{
+        background: #764BA2;
+        border-radius: 10px;
+        width: 5px;
+    }
+    
+    ul::-webkit-scrollbar{
+        background-color: #F5F5F7;
+        width: 5px;
+        border-radius: 10px;
+    }
+
     ul {
         list-style-type: none;
         padding: 0px 10px;
@@ -231,21 +245,6 @@ export const ContTabela = styled.div`
 
     }
     
-    overflow-y: scroll;
-    scrollbar-color: var(--roxo1) var(--branco); 
-    scrollbar-width: thin;
-    
-    ul::-webkit-scrollbar-thumb{
-        background: #764BA2;
-        border-radius: 10px;
-        width: 5px;
-    }
-    
-    ul::-webkit-scrollbar{
-        background-color: #F5F5F7;
-        width: 5px;
-        border-radius: 10px;
-    }
 
     @media (max-width: 767px) {
         height: 280px;

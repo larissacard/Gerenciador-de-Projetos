@@ -30,8 +30,18 @@ export const ContFiltros = styled.div`
 export const Organizer = styled.div`
   display: flex;
   flex-direction: column;
-
-  overflow: scroll;
+  padding-right: 10px;
+  ::-webkit-scrollbar-thumb{
+    background: #764BA2;
+    border-radius: 10px;
+    width: 5px;
+  }
+        
+  ::-webkit-scrollbar{
+    background-color: #F5F5F7;
+    width: 5px;
+    border-radius: 10px;
+  }
 
   @media (max-width: 480px) {
     display: flex;

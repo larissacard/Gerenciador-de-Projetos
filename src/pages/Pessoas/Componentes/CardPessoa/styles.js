@@ -2,18 +2,24 @@ import styled from "styled-components";
 
 export const Container = styled.button`
   height: 120px;
-  width: 90%;
+  width: 100%;
+  
 
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 20px;
-
+  
   cursor: pointer;
   z-index: 1;
+  
+  &:nth-last-child(1) {
+      margin-bottom: 2px;
+  }
 
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
   transition-duration: .2s;

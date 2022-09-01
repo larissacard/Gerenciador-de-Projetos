@@ -3,7 +3,6 @@ import Detalhes from './Componentes/detalhes';
 import Cards from './Componentes/cards';
 import PostPessoas from './Componentes/modal';
 
-
 import Container from '../../Components/Container';
 import { ColunaDois, ContFiltros } from './styles';
 import CardCriar from '../../Components/CardCriar';

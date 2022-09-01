@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDrop } from 'react-dnd'
 import { Container, List } from './styles';
-import api from '../../api';
+import api from '../../../../api';
 
 function Lista(Props) {
   const [, dropRef] = useDrop({

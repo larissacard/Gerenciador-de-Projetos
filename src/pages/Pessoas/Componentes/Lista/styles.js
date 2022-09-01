@@ -19,15 +19,27 @@ export const Container = styled.div`
       
       width: 100%;
     }
-
 `;
 
 export const List = styled.ul`
   height: calc(100% - 45px);
-  overflow-y: scroll;
+  overflow-y: auto;
+  padding-right: 10px;
+
+  ::-webkit-scrollbar-thumb{
+    background: #764BA2;
+    border-radius: 10px;
+    width: 5px;
+  }
+        
+  ::-webkit-scrollbar{
+    background-color: #F5F5F7;
+    width: 5px;
+    border-radius: 10px;
+  }
+
   width: 100%;
 
-  padding: 0;
+  
   margin: 0;
 `;
-
