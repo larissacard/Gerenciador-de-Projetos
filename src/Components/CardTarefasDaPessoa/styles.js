@@ -32,7 +32,6 @@ export const Container = styled.li`
       height: fit-content;
       width: 100%;
 
-      border: 1px solid black;
     }
 `;
 
