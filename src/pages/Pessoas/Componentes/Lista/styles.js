@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 49%;
   height: 260px;
   background-color: #f5f5f7;
-  border-radius: 17px;
+  border-radius: 20px;
   padding: 15px;
 
   > h3 {
@@ -15,16 +15,15 @@ export const Container = styled.div`
   }
 
   @media (max-width: 480px) {
-      margin-top: 10px;
-      
-      width: 100%;
-    }
+    margin-top: 10px;
+    
+    width: 100%;
+  }
 `;
 
 export const List = styled.ul`
   height: calc(100% - 45px);
   overflow-y: auto;
-  padding-right: 10px;
 
   ::-webkit-scrollbar-thumb{
     background: #764BA2;
@@ -39,7 +38,6 @@ export const List = styled.ul`
   }
 
   width: 100%;
-
-  
   margin: 0;
+  padding: 0px 10px 0px 0px;
 `;

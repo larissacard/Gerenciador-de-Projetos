@@ -82,7 +82,7 @@ function Detalhes(Props) {
             </Tarefas>
             
             {/* Lista de Projetos que a pessoa está*/}
-            <Lista titulo="Projetos">
+            <Lista titulo="Projetos" >
               {detalhes.projetos.map((e) =>
                 <CardProjetosDaPessoa key={e.pr_id} titulo={e.pr_nome}/>
                 )}
