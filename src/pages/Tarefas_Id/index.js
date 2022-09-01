@@ -1,6 +1,6 @@
 import React from "react";
 import ExibirDetalhesTarefas from "./data";
-import Container from "../../components/Container";
+import Container from "../../Components/Container";
 
 
 function TarefasId(){

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api";
-import CardTarefa from "../../components/CardTarefa";
+import CardTarefa from "../../Components/CardTarefa";
 
 function Cards(Props) {
   const [initialTarefas, setInitialTarefas] = useState([]);

@@ -6,7 +6,7 @@ import Lista from "../../../../Components/Lista";
 import api from "../../../../api";
 import { Container, Body, Tarefas } from "./styles";
 import { Grafico } from "../grafico";
-import { TitleNoResults } from "../../Equipes_Id/get/style";
+import { TitleNoResults } from "../../../Equipes_Id/get/style";
 
 function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()

@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import SearchBar from "../../components/SearchBar"
-import CardCriar from "../../components/CardCriar"
+import SearchBar from "../../Components/SearchBar"
+import CardCriar from "../../Components/CardCriar"
 import PostTarefas from "./modal";
 import Cards from "./cards";
 import { ColunaUm, ColunaDois } from "./styles";
-import Container from "../../components/Container";
+import Container from "../../Components/Container";
 
 
 function Tarefas() {

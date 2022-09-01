@@ -1,11 +1,11 @@
 import React from "react";
 import PostEquipes from "./modal"
 import { Search, SearchIcon } from "../Projetos/styles";
-import {  ContainerUnico, Footer } from "./style";
+import { ContainerUnico, Footer } from "./style";
 import { useState } from "react";
 import api from "../../api";
 import { AllCards, Card, Name, Title, Retangulo, TeamLength, Elipse, SmallElipse } from "./style";
-import Container from "../../components/Container";
+import Container from "../../Components/Container";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 
@@ -152,7 +152,7 @@ function Equipes() {
                         </div>
                     )}
                 </AllCards>
-                <Footer></Footer>
+                <Footer>a</Footer>
             </ContainerUnico>
         </Container>
     );

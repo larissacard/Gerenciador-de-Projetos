@@ -4,8 +4,7 @@ import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, SubTitle, Card, Car
 import { Progress } from 'rsuite';
 import PutEquipes from '../put';
 import RANKING from '../grafico';
-import AlertDeleteDialog from '../../../components/CardConfirmDelete';
-import { Footer } from '../../Equipes/style';
+import AlertDeleteDialog from '../../../Components/CardConfirmDelete';
 
 // import { render } from '@testing-library/react';
 // import { Equipes } from '../../../styles/Icons';
