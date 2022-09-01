@@ -197,7 +197,7 @@ export const TotalTask = styled.div`
 
 export const NoResults = styled.div`
     margin-left: 65px;
-    background-image: url("../../../../assets/noresults.svg");
+    background-image: url("../../../../assets/semmembros.svg");
     width: 19rem;
     height: 16rem;
     background-size: cover;
