@@ -105,6 +105,8 @@ export const ContProjetos = styled.div`
 export const ContMais = styled.div`
     display: flex;
     align-items: center;
+
+    
 `;
 
 export const CabecalhoProjetos = styled.div`
@@ -136,6 +138,8 @@ export const CabecalhoProjetos = styled.div`
     }
 
     @media (max-width: 480px) {
+
+        position: relative;
         h2 {
             font-size: 20px;
         }        
@@ -226,6 +230,10 @@ export const ContTabela = styled.div`
         }
 
     }
+    
+    overflow-y: scroll;
+    scrollbar-color: var(--roxo1) var(--branco); 
+    scrollbar-width: thin;
     
     ul::-webkit-scrollbar-thumb{
         background: #764BA2;

@@ -83,15 +83,14 @@ export default function Index() {
                                 }
                             })}
 
-                            <CardDetalhesList width='23.29%' 
-                                height='143px' 
+                            <CardDetalhesList
                                 keys={[
                                 'Data de Criação', 'Data de Finalização', 'Equipes'
                             ]} values={[dados.dados.pr_data_criacao.substring(0,10), dados.dados.pr_data_finalizacao, string_equipes]} />
 
-                            <CardDetalhesList width='58.32%' height='143px' keys={['Descrição']} values={[dados.dados.pr_descricao]} />
+                            <CardDetalhesList keys={['Descrição']} values={[dados.dados.pr_descricao]} />
 
-                            <CardDetalhesList width='15.32%' height='143px' keys={[
+                            <CardDetalhesList keys={[
                                 'Total de Tarefas', 'Total de Pessoas'
                                 ]} values={[
                                     dados.tarefas.EmDesenvolvimento.length + dados.tarefas.Concluidas.length + dados.tarefas.NaoIniciadas.length + dados.tarefas.Testes.length, qtd_pessoas

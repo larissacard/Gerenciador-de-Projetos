@@ -17,6 +17,11 @@ export const Container = styled.ul`
     font-size: 20px;
     color: var(--roxo);
   }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 450px;
+  }
 `;
 
 export const ContTarefas = styled.ul`

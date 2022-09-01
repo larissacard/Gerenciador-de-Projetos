@@ -6,6 +6,7 @@ import Lista from "../../../../Components/Lista";
 import api from "../../../../api";
 import { Container, Body, Tarefas } from "./styles";
 import { Grafico } from "../grafico";
+import { TitleNoResults } from "../../Equipes_Id/get/style";
 
 function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()
@@ -35,7 +36,8 @@ function Detalhes(Props) {
 
         // Quando não tem pessoas para serem exibidas
         <>
-          Nenhuma pessoa selecionada  
+          <img src="./assets/ninguem.svg" style={{height: '21rem', width: '18rem', display: 'flex', alignSelf: 'center'}}/>
+          <TitleNoResults>Ninguém selecionado :(</TitleNoResults>
         </>
 
         // Quando tem uma pessoa selecionada

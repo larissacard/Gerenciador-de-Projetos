@@ -7,6 +7,10 @@ export const ContDados = styled.div`
     padding: 0 10px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 480px) {
+        height: fit-content;
+    }
 `;
 
 export const Titulo = styled.h1`
@@ -40,6 +44,13 @@ export const Top = styled.div`
     justify-content: space-between;
     width: 100%;
     align-items: flex-end;
+
+     @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+
+        margin-left: 67px;
+    } 
 `;
 
 export const Detalhamento = styled.div`
@@ -47,6 +58,12 @@ export const Detalhamento = styled.div`
     width: 100%;
     justify-content: space-between;
     margin-top: 10px;
+
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+
+    }
 `;
 
 export const Trelo = styled.div`
@@ -54,6 +71,17 @@ export const Trelo = styled.div`
     justify-content: space-between;
     height: calc(100% - 240px);
     margin-top: 10px;
+
+    @media (max-width: 480px) {
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        margin: 0;
+
+        width: 125%;
+        gap: 15px;
+
+    }
 `; 
 
 export const Main = styled.div`

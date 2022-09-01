@@ -5,6 +5,7 @@ import { Progress } from 'rsuite';
 import PutEquipes from '../put';
 import RANKING from '../grafico';
 import AlertDeleteDialog from '../../../components/CardConfirmDelete';
+import { Footer } from '../../Equipes/style';
 
 // import { render } from '@testing-library/react';
 // import { Equipes } from '../../../styles/Icons';

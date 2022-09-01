@@ -15,6 +15,7 @@ export const ColunaUm = styled.div`
     
     @media (max-width: 480px) {
         width: 100%;
+        
         margin: 0;
         border-radius: 0px;
         padding-top: 10px;
@@ -37,6 +38,7 @@ export const ColunaDois = styled.div`
     @media (max-width: 480px) {
         width: 100%;
         margin: 0;
+        height: fit-content;
         border-radius: 0px;
         padding-top: 20px;
     }
@@ -196,9 +198,14 @@ export const TotalTask = styled.div`
 export const NoResults = styled.div`
     margin-left: 65px;
     background-image: url("../../../../assets/noresults.svg");
-    width: 21rem;
-    height: 18rem;
-    background-size: contain;
+    width: 19rem;
+    height: 16rem;
+    background-size: cover;
+    
+    @media (max-width: 480px) {
+        width: 16rem;
+        height: 14rem;
+    }
 `;
 
 export const TitleNoResults = styled.div`
@@ -207,9 +214,15 @@ export const TitleNoResults = styled.div`
     line-height: 36px;
 
     margin-top: 10px;
-    margin-left: 50px;
+    text-align: center;
 
     color: #764BA2;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
 `;
 
 export const Card = styled.div`
@@ -430,7 +443,9 @@ export const CardTask = styled.div`
     @media (max-width: 1280px) {
         margin-left: 20px;
         margin-right: 10px;
+        
         width: 85%;
+        height: fit-content;
     }
 
 `;

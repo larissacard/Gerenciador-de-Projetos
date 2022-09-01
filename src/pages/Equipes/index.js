@@ -152,7 +152,7 @@ function Equipes() {
                         </div>
                     )}
                 </AllCards>
-                <Footer>a</Footer>
+                <Footer></Footer>
             </ContainerUnico>
         </Container>
     );

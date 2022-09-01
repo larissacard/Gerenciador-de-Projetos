@@ -17,9 +17,7 @@ export const ContainerUnico = styled.div`
         height: 100%;
 
         margin: 0;
-        padding: 0;
-
-
+        padding: 0 17px;
 
         border-radius: 0;
     }

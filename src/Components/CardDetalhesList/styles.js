@@ -7,8 +7,12 @@ export const Container = styled.ul`
     list-style: none;
     padding: 15px 10px;
     overflow-y: auto;
- 
-    width: 50px;
+    
+    word-wrap: break-word;
+    height: 130px;
+    width: fit-content;
+
+    margin-right: 10px;
 
     strong {
         font-weight: 600;
@@ -20,5 +24,10 @@ export const Container = styled.ul`
         font-weight: 600;
         font-size: 14px;
         color: rgba(40, 9, 72, 0.5);
+    }
+
+    @media (max-width: 480px) {
+        width: 125%;
+        height: 50%;
     }
 `;
