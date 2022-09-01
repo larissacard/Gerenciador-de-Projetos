@@ -46,7 +46,6 @@ export const ButtonDrawer = styled.button`
     transition-duration: .2s;
   }
 
-
   @media (max-width: 480px) {
     height: 40px;
     width: 40px;

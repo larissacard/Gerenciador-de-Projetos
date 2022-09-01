@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Top = styled.div`
     display: flex;
     align-items: center;
+    margin-top: 20px;
 `;
 
 export const Title = styled.h3`
@@ -16,7 +17,7 @@ export const Title = styled.h3`
 export const ContBox = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 12px;
 
     div + div {
         margin-top: 5px;

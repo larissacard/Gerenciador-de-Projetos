@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import CardInfoPessoa from "../CardInfoPessoa";
 import CardProjetosDaPessoa from "../CardProjetosDaPessoa";
-import CardTarefasDaPessoa from "../../../../components/CardTarefasDaPessoa";
-import Lista from "../../../../components/Lista";
+import CardTarefasDaPessoa from "../../../../Components/CardTarefasDaPessoa";
+import Lista from "../../../../Components/Lista";
 import api from "../../../../api";
 import { Container, Body, Tarefas } from "./styles";
 import { Grafico } from "../grafico";

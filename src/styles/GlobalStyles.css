@@ -118,3 +118,37 @@ body{
 .teste .rs-drawer-header-close {
     transition: transform .3s ease-in-out;
 }
+
+@media (max-width: 1380px) {
+    .css-35bc7v-MuiPaper-root-MuiDrawer-paper {
+        width: 600px !important;
+        min-height: fit-content!important;
+    }
+}
+
+@media (max-width: 767px) {
+    .css-35bc7v-MuiPaper-root-MuiDrawer-paper {
+        width: 480px !important;
+        min-height: fit-content!important;
+    }
+
+    .css-9g6h1g {
+        width: 358px!important;
+    } 
+}
+
+@media (max-width: 480px) {
+    .css-35bc7v-MuiPaper-root-MuiDrawer-paper {
+        width: 420px !important;
+        min-height: fit-content!important;
+    }
+
+    .css-1mdgmxk-MuiTypography-root {
+        font-size: 1.1rem!important;
+    }
+
+    .css-9g6h1g {
+        width: 300px!important;
+    } 
+
+}

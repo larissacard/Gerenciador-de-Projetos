@@ -31,10 +31,10 @@ export const Save = styled.button`
 
     width: 82px;
     height: 20px;
-
+    
     font-size: 14px;
     line-height: 20px;
-
+    
     text-align: center;
     
     border-radius: 20px ;
@@ -48,8 +48,6 @@ export const Save = styled.button`
 
 export const Name = styled.div`
     color: var(--roxo);
-
-    
 
     font-weight: 600;
     font-size: 16px;
@@ -70,7 +68,7 @@ export const Descricao = styled.div`
     word-wrap: break-word;
     width: 180px;
 
-    margin-left: 25px;
+    margin-left: 34px;
     margin-right: 10px;
 
     font-weight: 400;
@@ -80,8 +78,9 @@ export const Descricao = styled.div`
 `;
 
 export const Container = styled.div`
-    height: 320px;
-    
+    height: 335px;
+    margin-top: 12px;
+
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -115,7 +114,6 @@ export const Lembretes = styled.div`
     width: 100%;
     padding-top: 0px;
     padding-right: 10px;
-    margin-top: 16px;
 
     @media (min-width: 750px){
         height: 100px;
@@ -124,23 +122,23 @@ export const Lembretes = styled.div`
     @media (min-width: 100px){
         height: 200px;
     }
-
 `;
 
 export const Datetime = styled.div`
     color: var(--roxo);
-    margin-right: 27px;
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
     margin-top: 10px;
 
     img{
         margin-right: 3px;
     }
-
 `;
 
 export const Delete = styled.div`
-    margin-top: 6px;
-    margin-right: 6px;
+    margin-top: 4px;
+    margin-right: 12px;
 
     width: 20px;
     height: 20px;

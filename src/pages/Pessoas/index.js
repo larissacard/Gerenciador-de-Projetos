@@ -4,10 +4,10 @@ import Cards from './Componentes/cards';
 import PostPessoas from './Componentes/modal';
 
 
-import Container from '../../components/Container';
+import Container from '../../Components/Container';
 import { ColunaDois, ContFiltros } from './styles';
-import CardCriar from '../../components/CardCriar';
-import SearchBar from '../../components/SearchBar';
+import CardCriar from '../../Components/CardCriar';
+import SearchBar from '../../Components/SearchBar';
 
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';

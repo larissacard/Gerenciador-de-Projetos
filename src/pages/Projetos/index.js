@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import api from '../../api';
 import Grafico from './Componentes/grafico';
-import CardCriar from '../../components/CardCriar';
+import CardCriar from '../../Components/CardCriar';
 import SalaVirtual from './Componentes/CardSalaVirtual';
 import PostProjetos from './Componentes/modal';
 import Alert from '@mui/material/Alert';
-import Container from "../../components/Container";
+import Container from "../../Components/Container";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import Reminders from './Componentes/Reminder';

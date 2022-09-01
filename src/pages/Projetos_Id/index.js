@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import api from '../../api'
-import AlertDeleteDialog from '../../components/CardConfirmDelete';
-import CardDetalhesList from '../../components/CardDetalhesList';
+import AlertDeleteDialog from '../../Components/CardConfirmDelete';
+import CardDetalhesList from '../../Components/CardDetalhesList';
 import KanbanUl from './Componentes/KanbanUl';
-import Container from "../../components/Container";
+import Container from "../../Components/Container";
 import Edit from './Componentes/put';
 import { ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
 import Snackbar from '@mui/material/Snackbar';

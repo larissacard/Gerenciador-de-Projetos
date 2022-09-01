@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
 import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
+import useMediaQuery from '@mui/material/useMediaQuery';
 import MuiAlert from '@mui/material/Alert';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme  } from '@mui/material/styles';
 import api from '../../../../api';
 import EquipesProjeto from './equipes';
+
+const AppContainer = styled("div")(() => ({
+    minWidth: "340px",
+    border: "1px solid #777"
+  }));
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -60,6 +66,8 @@ export default function PostProjetos (Props) {
     }
     const handleClose = () => {
         setOpenDrawer(false);
+        setNomeProjeto('')
+        setDescricaoProjeto('') 
     }
 
     var [mensagem, setMensagem] = useState('')
@@ -96,6 +104,8 @@ export default function PostProjetos (Props) {
             equipes: equipeEscolhida
         })
         .then(res=>{
+            setNomeProjeto('')
+            setDescricaoProjeto('')    
             setMensagem('Projeto Cadastrado com Sucesso!')
             setEstado('success');
             setOpenDrawer(false)
@@ -104,7 +114,7 @@ export default function PostProjetos (Props) {
         .catch(e => { 
             setMensagem(e.response.data);
             setOpenDrawer(true);
-            setEstado('error');     
+            setEstado('error'); 
         })
     } 
 
@@ -115,7 +125,7 @@ export default function PostProjetos (Props) {
                     {mensagem}
                 </Alert>
             </Snackbar>
-
+        
             <Drawer 
                 anchor='right' 
                 open={openDrawer} 
@@ -124,8 +134,6 @@ export default function PostProjetos (Props) {
                     sx: {
                         width: '600px',
                         padding: '30px 60px'
-
-                
                     }
                 }}
             >
@@ -135,7 +143,7 @@ export default function PostProjetos (Props) {
                     alignItems='center'
                     justifyContent='space-between'
                 >                  
-                    <Typography variant='h6' component='div' color='#280948' fontWeight='500'>
+                    <Typography variant='h6' component='div' color='#280948' fontWeight='500' fontSize='1.25rem'>
                         Cadastro de um novo Projeto
                     </Typography>
                     <ButtonCancel onClick={handleClose}/>
