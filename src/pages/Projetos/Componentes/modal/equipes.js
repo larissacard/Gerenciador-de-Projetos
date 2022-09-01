@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import api from '../../../api';
+import api from '../../../../api';
 import { TextField, Autocomplete } from '@mui/material';
 
 export default function EquipesProjeto(Props) {

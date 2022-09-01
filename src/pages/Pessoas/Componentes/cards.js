@@ -1,7 +1,7 @@
-import CardPessoa from "../../components/CardPessoa";
-import api from "../../api";
+import CardPessoa from "./CardPessoa";
+import api from "../../../api";
 import { useEffect, useState } from "react";
-import { Organizer } from "./styles";
+import { Organizer } from "../styles";
 
 function Cards(Props) {
   const [initialPessoas, setInitialPessoas] = useState([]);

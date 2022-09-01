@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import api from '../../api'
 import AlertDeleteDialog from '../../components/CardConfirmDelete';
 import CardDetalhesList from '../../components/CardDetalhesList';
-import KanbanUl from '../../components/KanbanUl';
+import KanbanUl from './Componentes/KanbanUl';
 import Container from "../../components/Container";
-import Edit from './put';
+import Edit from './Componentes/put';
 import { ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';

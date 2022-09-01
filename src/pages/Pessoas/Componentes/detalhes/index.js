@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import CardInfoPessoa from "../../../components/CardInfoPessoa";
-import CardProjetosDaPessoa from "../../../components/CardProjetosDaPessoa";
-import CardTarefasDaPessoa from "../../../components/CardTarefasDaPessoa";
-import Lista from "../../../components/Lista";
-import api from "../../../api";
+import CardInfoPessoa from "../CardInfoPessoa";
+import CardProjetosDaPessoa from "../CardProjetosDaPessoa";
+import CardTarefasDaPessoa from "../../../../components/CardTarefasDaPessoa";
+import Lista from "../../../../components/Lista";
+import api from "../../../../api";
 import { Container, Body, Tarefas } from "./styles";
-import { Grafico } from "./grafico";
+import { Grafico } from "../grafico";
 
 function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()

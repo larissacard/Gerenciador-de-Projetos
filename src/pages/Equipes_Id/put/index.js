@@ -152,7 +152,7 @@ function PutEquipes(Props) {
                             value={nomeEditEquipe}
                             inputProps={{
                                 maxLength: 50,
-                              }}
+                            }}
                         />
 
                         <PessoasEquipe dados={Props.dados} childToParent={childToParent}/>

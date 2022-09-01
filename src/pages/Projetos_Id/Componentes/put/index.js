@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import { Cadastrar, Cancelar, ButtonCancel } from './styles'
 import { Editar } from './styles'
 import EquipesProjetoEdit from './equipesEdit';
-import api from '../../../api';
+import api from '../../../../api';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {

@@ -160,7 +160,7 @@ function PostEquipes(Props) {
                             value={nomeEquipe}
                             inputProps={{
                                 maxLength: 50,
-                              }}
+                            }}
                         />    
 
                 

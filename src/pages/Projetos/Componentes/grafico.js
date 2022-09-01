@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
-import api from '../../api';
-
+import api from '../../../api';
 
 // dados
 let data = []
@@ -36,7 +35,6 @@ export function Grafico() {
   data2.forEach((element) => {
     data.push([`${element.mes}-${element.ano}`, 0, parseInt(element.count)])
   })
-
 
   return (
     <Chart

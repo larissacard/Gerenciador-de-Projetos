@@ -3,7 +3,7 @@ import { ButtonCancel, Cancelar, Cadastrar, Salario, Editar } from './styles'
 import { Drawer, Box, Typography, TextField, Snackbar, Stack, MenuItem, InputAdornment } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
-import api from '../../../api';
+import api from '../../../../api';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {

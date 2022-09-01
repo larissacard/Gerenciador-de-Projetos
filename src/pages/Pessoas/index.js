@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Detalhes from './detalhes';
-import Cards from './cards';
-import PostPessoas from './modal';
+import Detalhes from './Componentes/detalhes';
+import Cards from './Componentes/cards';
+import PostPessoas from './Componentes/modal';
+
 
 import Container from '../../components/Container';
 import { ColunaDois, ContFiltros } from './styles';

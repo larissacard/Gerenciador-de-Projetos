@@ -5,7 +5,8 @@ import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
 import PessoasTarefa from './pessoas';
 import { Cadastrar, Cancelar, ButtonCancel } from './styles'
-import api from '../../api';
+
+import api from '../../../../api';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {

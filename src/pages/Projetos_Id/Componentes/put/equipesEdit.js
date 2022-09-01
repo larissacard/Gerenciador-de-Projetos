@@ -1,39 +1,42 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-import api from '../../api';
+import api from '../../../../api';
 import { TextField, Autocomplete } from '@mui/material';
 
-export default function PessoasTarefa(Props) {
-  const [pessoas, setPessoas] = useState ()
-  const [nomePessoa, setNomePessoa] = useState(pessoas);
+export default function EquipesProjetoEdit(Props) {
+  const [equipes, setEquipes] = useState ([])
 
-  if (!pessoas) {
-    let pessoasList = []
-    Object.values(Props.dados.equipes).forEach(eq => {
-      Object.values(eq)[2].forEach(pe => pessoasList.push(pe))
-    })
-    setPessoas(pessoasList)
-
-    if (pessoasList.length === 0) alert("Xiii, num tem ninguem pra fazer essa tarefa aí")
-  }
+  useEffect(() => {
+      const getEquipes = async () => {
+        try {
+            const response = await api.get('/equipes');
+            setEquipes(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+      };
+      getEquipes();
+  }, []);
+  
+  const [value, setValue] = useState(Props.dados.equipes)
 
   return (
     <Autocomplete
       onChange={(event, newValue) => {
-        setNomePessoa(newValue); (Props.childToParent(newValue))
+        setValue(newValue); (Props.childToParent(newValue))
       }}
+      value={value}
       multiple
-      options={pessoas}
-      getOptionLabel={(pessoa) => pessoa.pe_nome}
+      options={equipes}
+      getOptionLabel={(equipe) => equipe.eq_nome}
       filterSelectedOptions
-      isOptionEqualToValue={(option, value) => option.pe_id === value.pe_id}
-      value={nomePessoa}
+      isOptionEqualToValue={(option, value) => option.eq_id === value.eq_id}
       renderInput={(params) => (
         <TextField
-          required
           {...params}
-          label='Pessoas'
-          placeholder='Selecione as Pessoas'
+          required
+          label='Equipes'
+          placeholder='Selecione as Equipes'
           size='small'
           sx={{
             '&:hover .MuiInputLabel-outlined': {

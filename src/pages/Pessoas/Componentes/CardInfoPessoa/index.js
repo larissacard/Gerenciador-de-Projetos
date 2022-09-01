@@ -1,6 +1,6 @@
 import React from 'react';
-import AlertDeleteDialog from '../CardConfirmDelete';
-import EditarPessoa from '../../pages/Pessoas/Put';
+import AlertDeleteDialog from '../../../../components/CardConfirmDelete';
+import EditarPessoa from '../Put';
 
 import { 
     Container,

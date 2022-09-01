@@ -3,7 +3,7 @@ import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
 import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
-import api from '../../../api'
+import api from '../../../../api';
 import EquipesProjeto from './equipes';
 
 const CssTextField = styled(TextField)({

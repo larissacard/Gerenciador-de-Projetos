@@ -4,7 +4,9 @@ import { useDrop } from 'react-dnd'
 
 import TarefasProjeto from './tarefas';
 import { Container, ContTarefas, Top } from './styles';
-import api from '../../api';
+
+import api from '../../../../api';
+
 
 
 function KanbanUl(Props) {
