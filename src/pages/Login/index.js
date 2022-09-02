@@ -9,6 +9,7 @@ import {
   Imagem,
   Logo,
   Content,
+  Icon,
  } from './styles';
  
 function Login() {
