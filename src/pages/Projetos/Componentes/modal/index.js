@@ -1,16 +1,25 @@
 import React, { useState } from 'react'
-import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar } from './styles'
-import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
-import useMediaQuery from '@mui/material/useMediaQuery';
-import MuiAlert from '@mui/material/Alert';
-import { styled, useTheme  } from '@mui/material/styles';
 import api from '../../../../api';
-import EquipesProjeto from './equipes';
+import MuiAlert from '@mui/material/Alert';
 
-const AppContainer = styled("div")(() => ({
-    minWidth: "340px",
-    border: "1px solid #777"
-  }));
+import { 
+    ButtonDrawer, 
+    ButtonCancel, 
+    Cadastrar, 
+    Cancelar 
+} from './styles'
+
+import { 
+    Drawer, 
+    Box, 
+    Typography, 
+    TextField, 
+    Snackbar, 
+    Stack, 
+    styled 
+} from '@mui/material'
+
+import EquipesProjeto from './equipes';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -51,7 +60,6 @@ const CssTextField = styled(TextField)({
         },
     },
 })
-
 
 export default function PostProjetos (Props) {
     const [equipeEscolhida, setEquipeEscolhida] = useState()
@@ -152,8 +160,8 @@ export default function PostProjetos (Props) {
                 <form onSubmit={handleClose}>
                     <Stack spacing={2.5}>
                         <CssTextField
-                            autoComplete='off'
                             required
+                            autoComplete='off'
                             onChange={(e) => setNomeProjeto(e.target.value)}
                             fullWidth
                             size='small'
@@ -163,7 +171,7 @@ export default function PostProjetos (Props) {
                             value={nomeProjeto}
                             inputProps={{
                                 maxLength: 50,
-                              }}
+                            }}
                         />
 
                         <CssTextField
@@ -177,7 +185,7 @@ export default function PostProjetos (Props) {
                             value={descricaoProjeto}
                             inputProps={{
                                 maxLength: 400,
-                              }}
+                            }}
                         />
 
                         <EquipesProjeto dados={Props.dados} childToParent={childToParent}/>

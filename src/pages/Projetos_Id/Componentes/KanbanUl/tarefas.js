@@ -190,7 +190,7 @@ export default function TarefasProjeto(Props) {
                             value={descricaoTarefa}
                             inputProps={{
                                 maxLength: 400,
-                              }}
+                            }}
                         />
 
                         <CssTextField
