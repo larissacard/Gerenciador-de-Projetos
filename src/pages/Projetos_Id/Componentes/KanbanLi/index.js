@@ -1,25 +1,43 @@
 import React, { useState } from 'react';
-import { Container, Top, Body, Prioridade, StatusTarefa, PrioridadeTarefa, Input, TituloSubtarefas, FormSubtarefas, FormDiv, CheckboxSubtarefas, SpanCheckbox, LabelCheckbox, Save, ProgressBar, ButtonPrioridade } from './styles';
-import { useDrag } from 'react-dnd'
-import { BsFlagFill, BsFlag } from 'react-icons/bs'
-import { FormControlLabel, TextField } from '@mui/material';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
-import Divider from '@mui/material/Divider';
 import api from '../../../../api';
-import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import { Progress } from 'rsuite'; import { styled } from '@mui/material/styles';
-import Checkbox from '@mui/material/Checkbox';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Fade from '@mui/material/Fade';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { BsFlagFill, BsFlag } from 'react-icons/bs'
+import { useDrag } from 'react-dnd'
+import { Progress } from 'rsuite'; 
+import { 
+  Container, 
+  Top, 
+  Body, 
+  Prioridade, 
+  StatusTarefa, 
+  PrioridadeTarefa, 
+  Input, 
+  TituloSubtarefas, 
+  FormSubtarefas, 
+  FormDiv, 
+  SpanCheckbox, 
+  LabelCheckbox, 
+  Save, 
+  ProgressBar 
+} from './styles';
+import { 
+  FormControlLabel, 
+  TextField, 
+  Button, 
+  Dialog, 
+  DialogContent, 
+  DialogTitle, 
+  Slide, 
+  Divider, 
+  InputAdornment,
+  OutlinedInput,
+  styled, 
+  Checkbox,
+  Menu, 
+  MenuItem, 
+  Fade
+} from '@mui/material';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
@@ -136,15 +154,13 @@ function KanbanLi(Props) {
       setSelected(selected.filter(sub => sub.id !== id ))
     }
     
-
     api
       .put(`/subtarefas/${id}/status/${newStatus}`)
       .then(() => {
         getTarefas();
       }) 
-      .catch(e => { console.log(e) })
-      
-    }
+      .catch(e => { console.log(e) })    
+  }
     
     // -=-=-=-=-=-=-=-=-=-=- Calculo da ProgressBar -=-=-=-=-=-=-=-=-=-=-
     const calculo = () => {
@@ -168,6 +184,7 @@ function KanbanLi(Props) {
         getTarefas()
         setSubtarefa('')
         setprioridadeSubtarefa('')
+        setVisible('none')
       }
       )
       .catch(e => {
@@ -352,7 +369,7 @@ function KanbanLi(Props) {
               color: '#280948',
             }}>
               <Input type='text' value={titulo} onChange={e => setTitulo(e.target.value)} />
-              <p style={{fontSize: "12px"}} title="Identificador da Tarefa">{`(#${Props.dados.tr_id})`}</p>
+              <p style={{fontSize: '12px'}} title='Identificador da Tarefa'>{`(#${Props.dados.tr_id})`}</p>
               {/* <ButtonCancel onClick={handleClose}/> */}
             </DialogTitle>
             <Divider
@@ -459,11 +476,12 @@ function KanbanLi(Props) {
                 Subtarefas
                 <Checkbox
                   checked={checkedAll}
-                  // onChange={(e) => ConcluirSubtarefas(e)}
                   onChange={handleChange}
+                  defaultChecked={0}
                   value={1}
                   inputProps={{ 'aria-label': 'controlled' }}
-                  style={{display: tarefas.subTarefas.length > 0 ? 'inline-block' : 'none', width: "50px"}}
+                  style={{display: tarefas.subTarefas.length > 0 ? 'inline-block' 
+                    : 'none', width: '50px', justifyContent: 'center'}}
                 />
               </TituloSubtarefas>
 
@@ -482,7 +500,10 @@ function KanbanLi(Props) {
                       <SpanCheckbox
                         onChange={(e) => {
                           setEditSubtarefaNome(e.target.value);
-                          setprioridadeEditSubtarefa(tarefa.prioridade)
+                          setprioridadeEditSubtarefa(tarefa.prioridade) 
+                        }}
+                        inputProps={{
+                          maxLength: 100,
                         }}
                         value={inputDisabled !== tarefa.id ? tarefa.nome : editSubtarefaNome}
                         disabled={inputDisabled !== tarefa.id}
@@ -582,6 +603,10 @@ function KanbanLi(Props) {
                   size='small'
                   value={subtarefa}
                   placeholder='Digite o nome da Subtarefa'
+                  inputProps={{
+                    maxLength: 100,
+                  }}
+
                   sx={{
                     '& legend': { display: 'none' },
                     '& fieldset': { top: 0 },
@@ -640,7 +665,7 @@ function KanbanLi(Props) {
                             prioridadeSubtarefa === 1 ? <BsFlagFill size={14} style={{ color: '#67CB65' }} /> :
                             prioridadeSubtarefa === 2 ? <BsFlagFill size={14} style={{ color: '#FF9533' }} /> :
                             prioridadeSubtarefa === 3 ? <BsFlagFill size={14} style={{ color: '#E74444' }} /> :
-                            <BsFlag size={14} style={{ color: 'rgba(40, 9, 72, 0.5)', display: visible, marginLeft: '6px' }} />
+                            <BsFlag size={14} style={{ color: 'rgba(40, 9, 72, 0.5)', display: visible, marginLeft: '6px'}} />
                           }
                         </PrioridadeTarefa>
                       </button>
@@ -668,10 +693,6 @@ function KanbanLi(Props) {
                 />
               </form>
             </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>Disagree</Button>
-              <Button>Agree</Button>
-            </DialogActions>
           </Dialog>}
       </>
     </>

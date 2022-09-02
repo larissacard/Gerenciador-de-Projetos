@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide  } from '@mui/material';
-import { DeletarPermanente, Cancelar, Deletar } from './styles';
+import api from '../../api';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import api from '../../api';
+import { 
+    Dialog, 
+    DialogActions, 
+    DialogContent, 
+    DialogContentText, 
+    DialogTitle, 
+    Slide,
+    Divider
+} from '@mui/material';
+import { 
+    DeletarPermanente, 
+    Cancelar, 
+    Deletar 
+} from './styles';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -69,14 +81,15 @@ export default function AlertDeleteDialog(Props) {
                     <DialogTitle sx={{color: '#280948' }}>
                         {Props.titulo}
                     </DialogTitle>
+                    <Divider color='#ccc!important'/>
                     <DialogContent>
-                    <DialogContentText sx={{color: 'rgba(40, 9, 72, 0.5)'}}>
-                        {Props.descricao}
-                    </DialogContentText>
+                        <DialogContentText sx={{color: 'rgba(40, 9, 72, 0.5)'}}>
+                            {Props.descricao}
+                        </DialogContentText>
                     </DialogContent>
                     <DialogActions sx={{marginRight: '8px', marginBottom: '4px'}}>
-                    <Cancelar onClick={handleClose}> Cancelar </Cancelar>
-                    <DeletarPermanente onClick={() => {handleClose(); deletarObjeto()}}>Excluir</DeletarPermanente>
+                        <Cancelar onClick={handleClose}> Cancelar </Cancelar>
+                        <DeletarPermanente onClick={() => {handleClose(); deletarObjeto()}}>Excluir</DeletarPermanente>
                     </DialogActions>
                 </Dialog>
             </div>

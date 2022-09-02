@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
-import { Drawer, Box, Typography, TextField, Snackbar, Stack, MenuItem, Icon } from '@mui/material'
-import { blue } from '@mui/material/colors';
+import api from '../../../../api';
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
+import { blue } from '@mui/material/colors';
+import {
+    Drawer,
+    Box,
+    Typography, 
+    TextField, 
+    Snackbar, 
+    Stack, 
+    MenuItem, 
+    Icon 
+} from '@mui/material'
+import { 
+    Cadastrar, 
+    Cancelar, 
+    ButtonCancel 
+} from './styles'
 import PessoasTarefa from './pessoas';
-import { Cadastrar, Cancelar, ButtonCancel } from './styles'
-
-import api from '../../../../api';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -162,6 +174,9 @@ export default function TarefasProjeto(Props) {
                             label='Nome'
                             placeholder='Digite o nome da Tarefa'
                             value={nomeTarefa}
+                            inputProps={{
+                                maxLength: 50,
+                              }}
                         />
 
                         <CssTextField
@@ -173,6 +188,9 @@ export default function TarefasProjeto(Props) {
                             label='Descrição'
                             placeholder='Digite a descrição da Tarefa'
                             value={descricaoTarefa}
+                            inputProps={{
+                                maxLength: 400,
+                              }}
                         />
 
                         <CssTextField
