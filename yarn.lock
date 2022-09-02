@@ -8731,6 +8731,11 @@
   "resolved" "https://registry.npmjs.org/react-google-charts/-/react-google-charts-4.0.0.tgz"
   "version" "4.0.0"
 
+"react-hook-form@^7.34.2":
+  "integrity" "sha512-1lYWbEqr0GW7HHUjMScXMidGvV0BE2RJV3ap2BL7G0EJirkqpccTaawbsvBO8GZaB3JjCeFBEbnEWI1P8ZoLRQ=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.34.2.tgz"
+  "version" "7.34.2"
+
 "react-icons@^4.4.0":
   "integrity" "sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg=="
   "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-4.4.0.tgz"

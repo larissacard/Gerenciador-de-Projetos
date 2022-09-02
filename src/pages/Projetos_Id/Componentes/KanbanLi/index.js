@@ -4,7 +4,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { BsFlagFill, BsFlag } from 'react-icons/bs'
 import { useDrag } from 'react-dnd'
-import { Progress } from 'rsuite'; 
+import { Progress } from 'rsuite';
+
 import { 
   Container, 
   Top, 
@@ -21,6 +22,7 @@ import {
   Save, 
   ProgressBar 
 } from './styles';
+
 import { 
   FormControlLabel, 
   TextField, 
@@ -182,6 +184,7 @@ function KanbanLi(Props) {
       })
       .then(res => {
         getTarefas()
+        if (selected.length !== tarefas.subTarefas) setCheckedAll(false)
         setSubtarefa('')
         setprioridadeSubtarefa('')
         setVisible('none')
@@ -243,7 +246,6 @@ function KanbanLi(Props) {
   const updateSubtarefa = (e, id) => {
     e.preventDefault()
     
-    console.log(editSubtarefaNome, prioridadeEditSubtarefa)
     api.put(`/subtarefas/${id}`, {
       nome: editSubtarefaNome,
       prioridade: prioridadeEditSubtarefa
@@ -476,9 +478,8 @@ function KanbanLi(Props) {
                 Subtarefas
                 <Checkbox
                   checked={checkedAll}
+                  value={checkedAll}
                   onChange={handleChange}
-                  defaultChecked={0}
-                  value={1}
                   inputProps={{ 'aria-label': 'controlled' }}
                   style={{display: tarefas.subTarefas.length > 0 ? 'inline-block' 
                     : 'none', width: '50px', justifyContent: 'center'}}
