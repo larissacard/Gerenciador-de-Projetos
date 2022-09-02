@@ -99,6 +99,12 @@ function Header() {
                     </MenuButton> 
                 </a> */}
             </NavMenu>
+            <Logout onClick={() => {
+                localStorage.setItem('token', null)
+                window.location.href = '/login'
+            }}>
+                < HiOutlineLogout size={28} color={'rgba(255, 255, 255, 0.6)'}/> <span>Sair</span>   
+            </Logout>
         </HeaderTwo>
         </>
     );

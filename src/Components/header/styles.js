@@ -30,10 +30,20 @@ export const Container = styled.div `
         min-width: 65px;
     }
     
-     @media (max-width: 480px) {
-        display: none;
-    } 
-    `;
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: row-reverse;
+
+        width: 100%;
+        height: 50px;
+
+        border-radius: 0;
+
+        margin: 0;
+
+        align-items: center;
+    }
+`;
 
 export const HeaderTwo = styled.div`
     background-color: var(--roxo);
@@ -41,12 +51,12 @@ export const HeaderTwo = styled.div`
     height: 40px;
     display: none;
     
-    @media (max-width: 480px) {
+    /* @media (max-width: 480px) {
         display: flex;
         align-items: center;
         justify-content: space-between;
         height: 50px;
-    }
+    } */
     `;
 
 export const ContLogo = styled.div `
@@ -54,7 +64,11 @@ export const ContLogo = styled.div `
     height: 30%;
     display: flex;
     justify-content: center;
-    `;
+
+    @media (max-width: 480px) {
+        display:none;
+    }
+`;
 
 export const Logo = styled(Brisanet)`
     width: 90%;
@@ -140,6 +154,14 @@ const iconCSS = css`
             }
         }
 
+        @media (max-width: 480px) {
+            padding: 0;
+            bottom: 0;
+            position: relative;
+            margin-left: 30px;
+
+            
+        }
 
         :hover {
             transform: scale(1.05);
