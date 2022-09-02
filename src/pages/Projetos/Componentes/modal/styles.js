@@ -53,35 +53,31 @@ export const ButtonDrawer = styled.button`
 `;
 
 export const Cancelar = styled.button`
-  background: rgba(40, 9, 72, 0.5);
-  color: white;
-  width: 100px;
-  height: 35px;
-  font-size: 16px;
-  border-radius: 20px;
-  text-align: center;
+  background: #FFFFFF;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 14px;
+  color: rgba(40, 9, 72, 0.35);
+  border: 1px solid #ccc;
+  font-weight: 600;
 
   &:hover {
-    background-color: white;
+    background-color: rgba(204, 204, 204, 0.2); 
     color: rgba(40, 9, 72, 0.5);
-    border: solid 1px rgba(40, 9, 72, 0.5);
+    border: solid 1px rgba(40, 9, 72, 0.5);   
   }
 `;
 
 export const Cadastrar = styled.button`
   background-color: #6956E5;
-  color: white;
-
-  width: 100px;
-  height: 35px;
-  font-size: 16px;
-  border-radius: 20px;
-  text-align: center;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
 
   :hover{
-    background-color: white;
-    color: #6956E5;
-    border: solid 1px #6956E5;
+    background-color: rgba(105, 68, 229, 1);
   }
 `;
 

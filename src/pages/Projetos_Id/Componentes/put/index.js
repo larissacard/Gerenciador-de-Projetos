@@ -170,7 +170,7 @@ function Edit(Props) {
                                 Cancelar
                             </Cancelar>
                             <Cadastrar onClick={(e)=> {update(e); handleClickEdit()}} type='submit'>
-                                Cadastrar
+                                Salvar
                             </Cadastrar >
                         </Box>
                     </Stack>
