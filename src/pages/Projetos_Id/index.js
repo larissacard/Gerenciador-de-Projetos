@@ -1,13 +1,23 @@
 import React, { useState } from 'react'
 import api from '../../api'
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+import { 
+    ContDados, 
+    Top, 
+    Buttons, 
+    Titulo, 
+    Detalhamento, 
+    Trelo, 
+    Main 
+} from './styles'
+
 import AlertDeleteDialog from '../../Components/CardConfirmDelete';
 import CardDetalhesList from '../../Components/CardDetalhesList';
 import KanbanUl from './Componentes/KanbanUl';
 import Container from "../../Components/Container";
 import Edit from './Componentes/put';
-import { ContDados, Top, Buttons, Titulo, Detalhamento, Trelo, Main } from './styles'
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
 
 export default function Index() {
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -55,8 +65,8 @@ export default function Index() {
                     Projeto apagado com sucesso!
                 </Alert>
             </Snackbar>
+            
             <Container>
-
                 {dados ?
                     <ContDados>
                         <Top>

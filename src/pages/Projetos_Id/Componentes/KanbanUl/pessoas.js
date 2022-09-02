@@ -1,7 +1,9 @@
-import * as React from 'react';
-import {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import api from '../../../../api';
-import { TextField, Autocomplete } from '@mui/material';
+import { 
+  TextField,
+  Autocomplete 
+} from '@mui/material';
 
 export default function PessoasTarefa(Props) {
   const [pessoas, setPessoas] = useState ()

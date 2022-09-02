@@ -31,7 +31,7 @@ function Login() {
 
   const handleClickLogin = () => {
     if(usuario !== ''){
-      setTimeout(() => setOpenAlert(true), 150)
+      setTimeout(() => setOpenAlert(true), 200)
     }
   }
 
@@ -50,7 +50,7 @@ function Login() {
         setEstado('success')
         localStorage.setItem('token', JSON.stringify(res.data.token))
         api.defaults.headers.Authorization = `Bearer ${res.data.token}`
-        setTimeout(() => window.location.href = '/', 800)
+        setTimeout(() => window.location.href = '/', 500)
       }
     })
     .catch(error => {

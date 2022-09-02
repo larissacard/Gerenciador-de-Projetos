@@ -1,7 +1,10 @@
-import * as React from 'react';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import api from '../../../../api';
-import { TextField, Autocomplete } from '@mui/material';
+
+import { 
+  TextField,
+  Autocomplete 
+} from '@mui/material';
 
 export default function EquipesProjetoEdit(Props) {
   const [equipes, setEquipes] = useState ([])

@@ -1,11 +1,25 @@
 import React, {useState} from 'react';
-import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
-import MuiAlert from '@mui/material/Alert';
-import { styled } from '@mui/material/styles';
-import { Cadastrar, Cancelar, ButtonCancel } from './styles'
-import { Editar } from './styles'
-import EquipesProjetoEdit from './equipesEdit';
 import api from '../../../../api';
+import MuiAlert from '@mui/material/Alert';
+import { Editar } from './styles'
+
+import { 
+    Drawer, 
+    Box, 
+    Typography, 
+    TextField, 
+    Snackbar, 
+    Stack,
+    styled
+} from '@mui/material'
+
+import { 
+    Cadastrar, 
+    Cancelar, 
+    ButtonCancel 
+} from './styles'
+
+import EquipesProjetoEdit from './equipesEdit';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
