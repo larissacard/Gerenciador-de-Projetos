@@ -22,6 +22,8 @@ export const ContBox = styled.div`
     div + div {
         margin-top: 5px;
     }
+
+   
 `;
 
 export const Box = styled.div`

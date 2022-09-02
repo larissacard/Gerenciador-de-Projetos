@@ -5,6 +5,7 @@ import {
   Imagem,
   Logo,
   Content,
+  Icon,
  } from './styles';
 import api from '../../api'
 
@@ -39,7 +40,9 @@ function Login() {
           <h1>Login</h1>
           <form onSubmit={(e) => login(e)}>
               <h6>Nome</h6>
-              <input onChange={e => setUsuario(e.target.value)} type="text" placeholder='Digite seu nome' value={usuario}/>
+              <Icon style={{left: '260px', top: '29px'}}><img src='./assets/personlogin.svg'></img></Icon>
+              <Icon style={{left: '260px'}}><img src='./assets/cadlogin.svg'></img></Icon>
+              <input onChange={e => setUsuario(e.target.value)} type="text" placeholder='Digite seu nome' value={usuario}></input>
               <h6>Senha</h6>
               <input onChange={e => setSenha(e.target.value)} type="password" placeholder='Digite sua senha' value={senha}/>
               <input type="submit" value="Entrar" style={{background: '#280948', width: '60%', borderRadius: '32px', color: 'white', height: '45px', marginLeft: '50px'}}/>

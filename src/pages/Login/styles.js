@@ -12,6 +12,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 480px) {
+    overflow-y: scroll;
+  }
+
 `;
 
 export const Logo = styled.div`
@@ -22,6 +26,7 @@ export const Logo = styled.div`
 
   display: flex;
   justify-content: flex-end;
+
 `;
 
 export const Content = styled.div`
@@ -29,9 +34,28 @@ export const Content = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--roxo);
+  border: 3px solid var(--roxo);
   border-radius: 32px;
   width: fit-content;
+
+  @media (max-width: 1280px) {
+    max-width: 70%;
+    max-height: 70%;
+  }
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const Icon = styled.div`
+  width: 20px;
+  height: 20px;
+  
+  position: absolute;
+ 
+
 `;
 
 export const LoginInfo = styled.div`
@@ -67,6 +91,8 @@ export const LoginInfo = styled.div`
     flex-direction: column;
     justify-content: center;
 
+    position: relative;
+
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -80,8 +106,14 @@ export const LoginInfo = styled.div`
       border-color: #280948;
 
     }
+  }
 
-   
+  @media (max-width: 480px) {
+    width: 400px;
+
+    form{
+      width: 70%;
+    }
   }
 `;
 
@@ -92,4 +124,12 @@ export const Imagem = styled.div`
 
   background-image: url('../../assets/register.svg');
   background-position: center;
+
+  @media (max-width: 1280px) {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
