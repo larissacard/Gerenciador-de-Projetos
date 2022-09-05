@@ -10,7 +10,7 @@ import {
   Logo,
   Content,
   Icon,
- } from './styles';
+} from './styles';
  
 function Login() {
   const Alert = React.forwardRef(function Alert(props, ref) {
