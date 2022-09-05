@@ -66,7 +66,7 @@ function GetEquipe() {
 
   return (
     <>
-      {equipe ?
+      {equipe?.pessoas.length > 0 ?
         <>
           <ColunaUm>
             <div className='d-flex mt-2 ml-4' >
@@ -90,9 +90,7 @@ function GetEquipe() {
             </div>
             <SubTitle>Todos os membros</SubTitle>
             <SmallCont>
-
-              {equipe.pessoas.length > 0 ? (
-                equipe.pessoas.map((e) =>
+                {equipe.pessoas.map((e) =>
                   <Person key={e.pe_id}>
                     <Ellipse>
                       <Icon src={e.pe_foto} />
@@ -101,15 +99,7 @@ function GetEquipe() {
                     <Job>{e.pe_cargo}</Job>
 
                     <TotalTask>{e.tarefas.qtd} tasks</TotalTask>
-                  </Person>
-                )
-
-              ) : (
-                <>
-                  <NoResults />
-                  <TitleNoResults>Não há membros nessa equipe</TitleNoResults>
-                </>
-              )}
+                  </Person>)}
             </SmallCont>
 
             <SubTitle>Estrutura da Equipe</SubTitle>
@@ -197,16 +187,35 @@ function GetEquipe() {
                 </CardTask>
               </OrganizeTasks>
             </Tasks>
-
-
-
           </ColunaDois>
         </>
 
-        :
-        <>
-          <p>Sem Informações</p>
-        </>
+        : equipe &&
+        <div style={{display: 'flex', flexDirection: 'column', marginTop: '20px'}}>
+          <div className='d-flex mt-2 ml-4' >
+              <Imagem><img src={equipe?.eq_foto} alt="equipe" /></Imagem>
+              <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
+                <Title>{equipe?.eq_nome}</Title>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                  <Editar>
+                    <PutEquipes dados={equipe} update={updateScreen} />
+                  </Editar>
+                  <AlertDeleteDialog
+                    pathFinal='/equipes'
+                    path={window.location.pathname}
+                    alert='Equipe excluida com sucesso!'
+                    titulo='Excluir Equipe Permanentemente?'
+                    descricao='Se você excluir esta equipe, não poderá recuperá-lo. Deseja excluí-lo?'
+                  />
+                </div>
+              </div>
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+              <NoResults />
+              <TitleNoResults>Não há membros nessa equipe</TitleNoResults>
+            </div>
+          
+        </div>
       }
     </>
   )

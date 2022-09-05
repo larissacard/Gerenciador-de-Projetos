@@ -196,12 +196,12 @@ export const TotalTask = styled.div`
 `;
 
 export const NoResults = styled.div`
-    margin-left: 65px;
     background-image: url("../../../../assets/semmembros.svg");
-    width: 19rem;
-    height: 16rem;
+    width: 22rem;
+    height: 20rem;
     background-size: cover;
     
+    /* margin-left: 350px; */
     @media (max-width: 480px) {
         width: 16rem;
         height: 14rem;
