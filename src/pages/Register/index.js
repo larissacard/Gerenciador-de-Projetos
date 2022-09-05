@@ -40,8 +40,9 @@ function Register() {
   const [senha, setSenha] = useState('')
   const [confirmacao, setConfirmacao] = useState('')
 
-  const cadastrar = () => {
-    api.post('/registro', {
+  function Cadastrar (e) {
+    e.preventDefault()
+    api.post('/cadastro', {
       nome: nome,
       email: email,
       senha: senha,
@@ -82,7 +83,9 @@ function Register() {
                 <h6>Confirmar Senha</h6>
                 <input value={confirmacao} type='password' placeholder='Confime sua Senha' onChange={e => setConfirmacao(e.target.value)} required/>
             </form>
-            <button onClick={cadastrar} 
+            <button
+              onClick={(e) => {Cadastrar(e); handleClickCad()}}
+
               style={{
                 background: '#280948', 
                 width: '50%', 

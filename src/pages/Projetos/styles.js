@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Lupa } from '../../styles/Icons';
+// import searchbar from './assets/searchbar_emptystate.svg'
 
 export const ColunaUm = styled.div`
     width: 46%;
@@ -28,7 +29,6 @@ export const ContGrafico = styled.div`
     width: 100%;
     height: 40%;
 `;
-
 export const TopGrafico = styled.div`
     margin-top: 20px;
 
@@ -38,7 +38,7 @@ export const TopGrafico = styled.div`
         line-height: 48px;
         color: var(--roxo);
         padding-left: 15px;
-        }
+    }
 `;
 
 export const ColunaDois = styled.div`
@@ -60,6 +60,7 @@ export const ColunaDois = styled.div`
 
         border-radius: 0;
     }
+
     @media (max-width: 1280px) {
         overflow: scroll;
     }
@@ -109,8 +110,6 @@ export const ContProjetos = styled.div`
 export const ContMais = styled.div`
     display: flex;
     align-items: center;
-
-    
 `;
 
 export const CabecalhoProjetos = styled.div`
@@ -257,7 +256,7 @@ export const ContTabela = styled.div`
         height: 280px;
         overflow-y: hidden;
 
-        p,a{
+        p, a {
             font-weight: 600;
             font-size: 10px;
             line-height: 15px;
@@ -293,5 +292,8 @@ export const CardProjeto = styled.li`
     &:nth-last-child(1) {
         margin-bottom: 2px;
     }
-
 `; 
+
+export const EmptyState = styled.div`
+
+`;

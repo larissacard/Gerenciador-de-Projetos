@@ -22,7 +22,8 @@ import {
   Search,
   SearchIcon,
   CardProjeto,
-  ContMais
+  ContMais,
+  EmptyState
 } from './styles';
 
 function Projetos() {
@@ -158,11 +159,7 @@ function Projetos() {
                   <a href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
                 </CardProjeto> 
                 ))
-                ) : (
-                  <Alert variant='outlined' severity='warning'>
-                    Projeto não encontrado!
-                  </Alert>
-                )}
+                ) : <EmptyState><img src="./assets/searchbar_emptystate.svg" width="200" height="200"/></EmptyState>}
             </ul>
           </ContTabela>
         </ContProjetos>
