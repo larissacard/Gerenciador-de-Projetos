@@ -22,7 +22,7 @@ export const Container = styled.div`
     width: 100%;
 
     border-radius: 0;
-    overflow-y: visible;
+    overflow-y: auto;
   }
 `;
 

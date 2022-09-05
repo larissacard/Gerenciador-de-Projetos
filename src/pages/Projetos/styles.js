@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Lupa } from '../../styles/Icons';
-// import searchbar from './assets/searchbar_emptystate.svg'
 
 export const ColunaUm = styled.div`
     width: 46%;
@@ -245,7 +244,6 @@ export const ContTabela = styled.div`
 
     }
     
-
     @media (max-width: 767px) {
         height: 280px;
         overflow-y: hidden;
@@ -287,7 +285,3 @@ export const CardProjeto = styled.li`
         margin-bottom: 2px;
     }
 `; 
-
-export const EmptyState = styled.div`
-
-`;

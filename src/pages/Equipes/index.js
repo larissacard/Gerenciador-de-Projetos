@@ -1,13 +1,26 @@
-import React from "react";
-import PostEquipes from "./modal"
-import { Search, SearchIcon } from "../Projetos/styles";
-import { ContainerUnico, Footer } from "./style";
-import { useState } from "react";
-import api from "../../api";
-import { AllCards, Card, Name, Title, Retangulo, TeamLength, Elipse, SmallElipse } from "./style";
-import Container from "../../Components/Container";
+import React, { useState } from 'react';
+import api from '../../api';
+
+import Container from '../../Components/Container';
+import { Search, SearchIcon } from '../Projetos/styles';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
+
+import { 
+    AllCards, 
+    Card, 
+    Name, 
+    Title, 
+    Retangulo, 
+    TeamLength, 
+    Elipse, 
+    SmallElipse, 
+    ContainerUnico,
+    Footer
+} from './styles';
+
+import PostEquipes from './modal'
+import SearchEmptyState from '../../Components/EmptyState';
 
 function Equipes() {
     const [updateScreen, setUpdate] = useState(true);
@@ -25,7 +38,7 @@ function Equipes() {
             })
             .catch(err => {
                 if(err.response.status === 401) {
-                    alert("Faça o Login para visualizar a página")
+                    alert('Faça o Login para visualizar a página')
                     window.location.href = '/login'
                 }
                 else alert(err.message)
@@ -90,44 +103,44 @@ function Equipes() {
     return (
         <Container>
             <ContainerUnico>
-                <div className="d-flex justify-content-between mt-4">
+                <div className='d-flex justify-content-between mt-4'>
                     <Title>Equipes</Title>
 
-                    <div className="d-flex">
+                    <div className='d-flex'>
                         <Dropdown>
-                            <Dropdown.Toggle style={{background: "transparent", color: "#333", border: "0"}}>
+                            <Dropdown.Toggle style={{background: 'transparent', color: '#333', border: '0'}}>
                             Filtros
                             </Dropdown.Toggle>
-                            <Dropdown.Menu style={{padding: "10px", fontSize: "14px"}}>
+                            <Dropdown.Menu style={{padding: '10px', fontSize: '14px'}}>
                             <Dropdown.Header>Ordenar por:</Dropdown.Header>
                             <Form.Check
-                                label="Ordem Alfabética (A-Z)"
-                                type="radio"
+                                label='Ordem Alfabética (A-Z)'
+                                type='radio'
                                 checked={1 === filtros} 
                                 onChange={() => {setFiltros(1); filter(null, 1)}}
                             />
                             <Form.Check
-                                label="Ordem Alfabética (Z-A)"
-                                type="radio"
+                                label='Ordem Alfabética (Z-A)'
+                                type='radio'
                                 checked={2 === filtros}
                                 onChange={() => {setFiltros(2); filter(null, 2)}}
                             />
                             <Form.Check
-                                label="Mais Recentes"
-                                type="radio"
+                                label='Mais Recentes'
+                                type='radio'
                                 checked={3 === filtros}
                                 onChange={() => {setFiltros(3); filter(null, 3)}}
                             />
                             <Form.Check
-                                label="Mais Antigas"
-                                type="radio"
+                                label='Mais Antigas'
+                                type='radio'
                                 checked={4 === filtros}
                                 onChange={() => {setFiltros(4); filter(null, 4)}}
                             />
                             </Dropdown.Menu>
                         </Dropdown>
                         <Search>
-                            <input type="search" placeholder="Pesquise..." onChange={filter} value={nome}></input>
+                            <input type='search' placeholder='Pesquise...' onChange={filter} value={nome}></input>
                             <SearchIcon/>
                         </Search>
                     </div>
@@ -136,7 +149,7 @@ function Equipes() {
                     <PostEquipes update={getEquipes}/>
                     {foundEquipes && foundEquipes.length > 0 ? (
                         foundEquipes.map((equipes) => (
-                            <Card key={equipes.eq_id} href={"equipes/" + equipes.eq_id}>
+                            <Card key={equipes.eq_id} href={'equipes/' + equipes.eq_id}>
                                 <Retangulo/>
     
                                 <Elipse>
@@ -146,11 +159,9 @@ function Equipes() {
                                 <TeamLength>Quantidade de integrantes: {equipes.pessoas.length}</TeamLength>
                             </Card>
                         ))
-                    ) : (
-                        <div variant="outlined" severity="warning">
-                            Nome não encontrado! ;-;
-                        </div>
-                    )}
+                    ) : 
+                        <SearchEmptyState titulo='Equipe não Encontrada! ;-;'/>
+                    }
                 </AllCards>
                 <Footer/>
             </ContainerUnico>
