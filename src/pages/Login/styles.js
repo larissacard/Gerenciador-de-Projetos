@@ -71,6 +71,7 @@ export const LoginInfo = styled.div`
   h1 {
     margin-bottom: 20px;
     color: #280948;
+    margin-left: -30px
   }
 
   h6 {
@@ -83,7 +84,7 @@ export const LoginInfo = styled.div`
   a {
     text-decoration: none;
     color: #764BA2;
-    margin-top: 15px;
+    margin-top: 5px;
   }
 
   form {
@@ -102,17 +103,27 @@ export const LoginInfo = styled.div`
       margin-bottom: 30px;
       width: 90%;
       border-style:none none solid none;
-      /* border: 1px solid #280948; */
       border-color: #280948;
-
     }
   }
 
   @media (max-width: 480px) {
     width: 400px;
 
+    h1 {
+      margin-bottom: -80px;
+      margin-left: 6px;
+    }
+
+    a {
+      margin-left: 0px;
+      margin-top: -16px;
+    }
+
     form{
+      margin-left: 26px;
       width: 70%;
+      margin-top: 100px;
     }
   }
 `;
