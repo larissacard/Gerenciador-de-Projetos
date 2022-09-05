@@ -203,8 +203,8 @@ export const NoResults = styled.div`
     
     /* margin-left: 350px; */
     @media (max-width: 480px) {
-        width: 16rem;
-        height: 14rem;
+        width: 22rem;
+        height: 20rem;
     }
 `;
 
@@ -497,4 +497,29 @@ export const OrganizeTeam = styled.div`
       display:none;
       }
     }
+`;
+
+export const EmptyState = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 100px;
+    margin-left: 320px; 
+
+    @media (max-width: 1280px) {
+        margin-left: 95px;
+    }
+    @media (max-width: 480px) {
+        margin-left: 5px;
+    }
+`;
+
+export const TeamInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 5px;
+
+
 `;

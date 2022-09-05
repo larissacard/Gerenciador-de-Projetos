@@ -97,7 +97,7 @@ export const Container = styled.div`
     }
 
     @media (max-width: 1380px) {
-        height: 160px;
+        height: 360px;
     }
 
     @media (max-width: 767px) {
@@ -124,6 +124,17 @@ export const Lembretes = styled.div`
     }
 `;
 
+export const OrganizeReminder = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1280px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+`;
+
 export const Datetime = styled.div`
     color: var(--roxo);
     display: flex;
@@ -133,6 +144,10 @@ export const Datetime = styled.div`
 
     img{
         margin-right: 3px;
+    }
+
+    @media (max-width: 1280px) {
+       margin-left: 20px;
     }
 `;
 

@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 export const Top = styled.div`
     display: flex;
     align-items: center;
@@ -23,7 +28,6 @@ export const ContBox = styled.div`
         margin-top: 5px;
     }
 
-   
 `;
 
 export const Box = styled.div`
@@ -42,6 +46,7 @@ export const Box = styled.div`
         justify-content: flex-end;
         align-items: center;
         padding-right: 20px;
+        border-radius: 20px;
     }
 
     a{
@@ -55,4 +60,6 @@ export const Box = styled.div`
         font-size: 18px;
         line-height: 27px;
     }
+
+
 `;

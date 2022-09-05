@@ -1,8 +1,8 @@
-import { ContBox, Top, Box, Title } from "./styles";
+import { ContBox, Top, Box, Title, Container } from "./styles";
 
 function SalaVirtual() {
     return (
-        <>
+        <Container>
             <Top>
                 <img  src="assets/house.svg"></img>
                 <Title>Salas Virtuais</Title>
@@ -20,7 +20,7 @@ function SalaVirtual() {
                     </div>
                 </Box>
             </ContBox>
-        </>
+        </Container>
     )
 }
 

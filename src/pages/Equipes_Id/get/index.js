@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem, OrganizeTasks, OrganizeTeam } from './style';
+import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem, OrganizeTasks, OrganizeTeam, EmptyState, TeamInfo } from './style';
 import { Progress } from 'rsuite';
 import PutEquipes from '../put';
 import RANKING from '../grafico';
@@ -191,7 +191,7 @@ function GetEquipe() {
         </>
 
         : equipe &&
-        <div style={{display: 'flex', flexDirection: 'column', marginTop: '20px'}}>
+        <TeamInfo>
           <div className='d-flex mt-2 ml-4' >
               <Imagem><img src={equipe?.eq_foto} alt="equipe" /></Imagem>
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
@@ -210,12 +210,12 @@ function GetEquipe() {
                 </div>
               </div>
             </div>
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-              <NoResults />
-              <TitleNoResults>Não há membros nessa equipe</TitleNoResults>
-            </div>
+            <EmptyState>  
+                <NoResults />
+                <TitleNoResults>Não há membros nessa equipe</TitleNoResults>
+            </EmptyState>
           
-        </div>
+        </TeamInfo>
       }
     </>
   )

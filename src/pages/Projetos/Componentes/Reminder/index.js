@@ -18,6 +18,7 @@ import {
   CssTextField,
   Organize,
   Descricao,
+  OrganizeReminder,
 } from "./styles";
 
 function Reminders() {
@@ -169,7 +170,7 @@ function Reminders() {
                 <Delete onClick={() => deleteReminder(le.le_id)} />
               </Organize>
 
-              <div className="d-flex justify-content-between">
+              <OrganizeReminder>
                 <div>
                   <Name>
                     <img src="assets/pin.svg" alt="pin icon"/>
@@ -184,11 +185,11 @@ function Reminders() {
                     <img src="assets/calendar.svg" alt="calendar icon"/>
                     {moment(le.le_data_lembrete).format("MMM Do YY")}
                   </Datetime>
-                  <div>
+                  <div style={{marginLeft: '15px'}}>
                     <em>{moment(new Date(le.le_data_lembrete)).fromNow()}</em>
                   </div>
                 </div>
-              </div>
+              </OrganizeReminder>
             </Nota>
           ))}
         </Lembretes>

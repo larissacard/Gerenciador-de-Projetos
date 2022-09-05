@@ -20,9 +20,7 @@ export const ColunaUm = styled.div`
 
         border-radius: 0;
     }
-    @media (max-width: 1280px) {
-        overflow-y: scroll;
-    }
+    
 `;
 
 export const ContGrafico = styled.div`
@@ -59,10 +57,6 @@ export const ColunaDois = styled.div`
         margin: 0;
 
         border-radius: 0;
-    }
-
-    @media (max-width: 1280px) {
-        overflow: scroll;
     }
 `;
 
