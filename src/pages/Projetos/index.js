@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import api from '../../api';
+
 import Grafico from './Componentes/grafico';
 import CardCriar from '../../Components/CardCriar';
 import SalaVirtual from './Componentes/CardSalaVirtual';
 import PostProjetos from './Componentes/modal';
-import Alert from '@mui/material/Alert';
 import Container from "../../Components/Container";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import Reminders from './Componentes/Reminder';
+import SearchEmptyState from '../../Components/EmptyState';
 
 import {
   ColunaUm,
@@ -22,11 +23,10 @@ import {
   Search,
   SearchIcon,
   CardProjeto,
-  ContMais,
-  EmptyState
+  ContMais
 } from './styles';
 
-function Projetos() {
+function Projetos () {
   const [updateScreen, setUpdate] = useState(true)
   const [projetos, setProjetos] = useState([])
   const [name, setName] = useState('');
@@ -159,7 +159,9 @@ function Projetos() {
                   <a href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
                 </CardProjeto> 
                 ))
-                ) : <EmptyState><img src="./assets/searchbar_emptystate.svg" width="200" height="200"/></EmptyState>}
+                ) :
+                  <SearchEmptyState titulo='Projeto não Encontrado! ;-; '/>
+                }
             </ul>
           </ContTabela>
         </ContProjetos>

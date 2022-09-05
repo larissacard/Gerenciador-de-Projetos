@@ -31,6 +31,7 @@ export const Organizer = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: 10px;
+  
   ::-webkit-scrollbar-thumb{
     background: #764BA2;
     border-radius: 10px;
@@ -47,7 +48,6 @@ export const Organizer = styled.div`
     display: flex;
     flex-direction: row;
 
-    overflow-x: scroll;
-    
+    overflow-x: auto;
   }
 `;

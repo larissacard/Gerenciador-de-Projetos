@@ -1,7 +1,10 @@
-import CardPessoa from "./CardPessoa";
-import api from "../../../api";
-import { useEffect, useState } from "react";
-import { Organizer } from "../styles";
+import React, { useEffect, useState } from 'react';
+import api from '../../../api';
+
+import { Organizer } from '../styles';
+
+import CardPessoa from './CardPessoa';
+import SearchEmptyState from '../../../Components/EmptyState';
 
 function Cards(Props) {
   const [initialPessoas, setInitialPessoas] = useState([]);
@@ -14,15 +17,15 @@ function Cards(Props) {
   useEffect(() => {
     const getPessoas = async () => {
       api
-        .get("/pessoas")
+        .get('/pessoas')
         .then((response) => {
           setInitialPessoas(response.data);
           setPessoas(response.data);
         })
         .catch((err) => {
           if (err.response.status === 401) {
-            alert("Faça o Login para visualizar a página");
-            window.location.href = "/login";
+            alert('Faça o Login para visualizar a página');
+            window.location.href = '/login';
           } else alert(err.message);
         });
     };
@@ -64,7 +67,7 @@ function Cards(Props) {
   };
 
   return (
-    <Organizer style={{ overflowY: "scroll" }}>
+    <Organizer style={{ overflowY: 'scroll' }}>
       {pessoas.length > 0 ?
         pessoas.map((p) => (
           <CardPessoa
@@ -77,7 +80,7 @@ function Cards(Props) {
           pessoaSelecionada={pessoaSelecionada}
           />
         ))
-      : <>Nada encontrado</>}
+      : <SearchEmptyState titulo='Pessoa não Encontrada! ;-;' />}
     </Organizer>
   );
 }

@@ -22,15 +22,14 @@ export const Cont = styled.div`
         margin: 0;
         
         overflow: hidden;
+
         overflow-y: scroll;
-        ::-webkit-scrollbar-thumb{
-        display: none;
+            ::-webkit-scrollbar-thumb{
+            display: none;
         }
         
         ::-webkit-scrollbar{
-        display:none;
+            display:none;
         }
     }
-
 `;
-
