@@ -1,6 +1,5 @@
-# Getting Started with Create React App
+# Desafio Brisanet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Membros da equipe:
 - Larissa Kamily
@@ -8,9 +7,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Vinicius Guedes
 
 
-### INSTALAÇÕES NECESSARIAS:
+## Funcionalidades
+- [x] Gerencias Projetos
+- [x] Gerenciar Equipes
+- [x] Gerenciar Pessoas
+- [x] Acompanhar Andamento de projetos através de graficos
+- [x] Acompanhar produtividade de pessoas através de graficos
 
-- npm install --save react-google-charts
+
 
 
 
