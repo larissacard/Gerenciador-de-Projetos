@@ -65,8 +65,9 @@ function Cards(Props) {
 
   return (
     <Organizer style={{ overflowY: "scroll" }}>
-      {pessoas.map((p) => (
-        <CardPessoa
+      {pessoas.length > 0 ?
+        pessoas.map((p) => (
+          <CardPessoa
           key={p.pe_id}
           id={p.pe_id}
           nome={p.pe_nome}
@@ -74,8 +75,9 @@ function Cards(Props) {
           foto={p.pe_foto}
           childToParent={childToParent}
           pessoaSelecionada={pessoaSelecionada}
-        />
-      ))}
+          />
+        ))
+      : <>Nada encontrado</>}
     </Organizer>
   );
 }
