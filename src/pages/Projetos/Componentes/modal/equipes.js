@@ -28,6 +28,7 @@ export default function EquipesProjeto(Props) {
       onChange={(event, newValue) => {
         setNomeEquipe(newValue); (Props.childToParent(newValue))
       }}
+      data-cy="equipes"
       value={nomeEquipe}
       multiple
       options={equipes}

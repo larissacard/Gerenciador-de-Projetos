@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerUnico = styled.div`
     width: 80%;
-    height: calc(100% - 48px);
+    height: calc(100% - 46px);
     margin: 24px 0px;
     background-color: white;
     border-radius: 20px;
@@ -32,7 +32,7 @@ export const CardAdicionar = styled.button`
 `;
 
 export const AllCards = styled.div`
-    height: 46rem;
+    height: 40rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 21px;
@@ -77,7 +77,7 @@ export const Title = styled.div`
 `;
 
 export const Card = styled.a`
-    height: 18.75rem;
+    height: 17.75rem;
     width: 100%;
 
     display: flex;

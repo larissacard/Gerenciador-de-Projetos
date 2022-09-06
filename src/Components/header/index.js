@@ -60,7 +60,7 @@ function Header() {
                     </MenuButton> 
                 </a> */}
             </NavMenu>
-            <Logout onClick={() => {
+            <Logout data-cy="sair" onClick={() => {
                 localStorage.setItem('token', null)
                 window.location.href = '/login'
             }}>
@@ -68,43 +68,6 @@ function Header() {
             </Logout>
         </Container>
 
-        <HeaderTwo>
-            <NavMenu>
-                <a href="/projetos"> 
-                    <MenuButton>
-                        <ImgProjetos className={url.substring(0,9) === '/projetos' || url === '/' ? 'active' : ""}/>
-                        <span className={url.substring(0,9) === '/projetos' || url === '/' ? 'active' : ""}>Projetos</span>
-                    </MenuButton> 
-                </a>
-
-                <a href="/equipes">
-                    <MenuButton>
-                        <ImgEquipes className={url.substring(0,8) === '/equipes' ? 'active' : ""}/>
-                        <span className={url.substring(0,8) === '/equipes' ? 'active' : ""}>Equipes</span>
-                    </MenuButton> 
-                </a>
-
-                <a href="/pessoas">
-                    <MenuButton>
-                        <ImgPessoas className={url.substring(0,8) === '/pessoas' ? 'active' : ""}/>
-                        <span className={url.substring(0,8) === '/pessoas' ? 'active' : ""}>Pessoas</span>
-                    </MenuButton> 
-                </a>
-
-                {/* <a href="/tarefas">
-                    <MenuButton>
-                        <ImgTarefas className={url.substring(0,8) === '/tarefas' ? 'active' : ""}/>
-                        <span className={url.substring(0,8) === '/tarefas' ? 'active' : ""}>Tarefas</span>
-                    </MenuButton> 
-                </a> */}
-            </NavMenu>
-            <Logout onClick={() => {
-                localStorage.setItem('token', null)
-                window.location.href = '/login'
-            }}>
-                < HiOutlineLogout size={28} color={'rgba(255, 255, 255, 0.6)'}/> <span>Sair</span>   
-            </Logout>
-        </HeaderTwo>
         </>
     );
 }

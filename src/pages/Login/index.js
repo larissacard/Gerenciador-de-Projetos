@@ -74,10 +74,10 @@ function Login() {
             <h1>Login</h1>
             <form onSubmit={(e) => {login(e); handleClickLogin()}}>
                 <h6>Email</h6>
-                <input id='Email' onChange={e => setEmail(e.target.value)} type="text" placeholder='Digite seu Email' />
+                <input data-cy="Email" onChange={e => setEmail(e.target.value)} type="text" placeholder='Digite seu Email' />
                 <h6>Senha</h6>
-                <input id='Senha' onChange={e => setSenha(e.target.value)} type="password" placeholder='Digite sua Senha' />
-                <input id='Botao' type="submit" value="Entrar" style={{background: '#280948', width: '60%', borderRadius: '32px', color: 'white', height: '45px', marginLeft: '50px'}}/>
+                <input data-cy="Senha" onChange={e => setSenha(e.target.value)} type="password" placeholder='Digite sua Senha' />
+                <input type="submit" value="Entrar" style={{background: '#280948', width: '60%', borderRadius: '32px', color: 'white', height: '45px', marginLeft: '50px'}}/>
             </form>
             <a href="/registro">Ainda não tem Login? Registre-se</a>
           </LoginInfo>

@@ -182,7 +182,7 @@ export const SearchIcon = styled(Lupa)`
 
 export const ContTabela = styled.div`
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5   px;
     overflow-y: hidden;
 
     a {

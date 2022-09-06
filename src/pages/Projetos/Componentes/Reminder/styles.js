@@ -79,7 +79,7 @@ export const Descricao = styled.div`
 `;
 
 export const Container = styled.div`
-    height: 335px;
+    height: 300px;
     margin-top: 12px;
 
     overflow-y: auto;
@@ -97,14 +97,12 @@ export const Container = styled.div`
         border-radius: 10px;
     }
 
-    @media (max-width: 1380px) {
-        height: 360px;
+    @media (max-width: 900px) {
+        height: 260px;
     }
-
     @media (max-width: 767px) {
-        height: 180px;
+        height: 214px;
     }
-
     @media (max-width: 480px) {
         height: 200px;
         margin-top: 10px;
