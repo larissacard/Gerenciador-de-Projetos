@@ -12,10 +12,7 @@ align-self: center;
 
         margin-bottom: 20px;
     }
-
 `;
-
-
 
 export const Open = styled.button`
     background-color: transparent;
@@ -33,7 +30,6 @@ export const Open = styled.button`
 
     margin-left: 120px;
     margin-bottom: 20px;
-
 `;
 
 export const Close = styled.button`
@@ -58,18 +54,15 @@ export const Text = styled.div`
 `;
 
 export const Catalogo = styled.div`
-
     display: flex;
     justify-content: space-around;
 
     margin-left: 10px;
     margin-right: 10px;
-
 `;
 
 export const Pic = styled.button`
     background-color: transparent;
-
     img{
         width: 4.10rem;
         height: 4rem;

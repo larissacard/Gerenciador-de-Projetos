@@ -46,28 +46,6 @@ export const Prioridade = styled.span`
   border-radius: 10px;
 `;
 
-export const Bottom = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const ProgressDesc = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 3px;
-
-  p {
-    font-weight: 300;
-    font-size: 15px;
-    color: var(--roxo);
-  }
-
-  span {
-    font-size: 15px;
-    color: #764ba2;
-  }
-`;
-
 export const Body = styled.div`
   display: flex;
 

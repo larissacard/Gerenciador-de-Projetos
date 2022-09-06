@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-    display: flex;
-    width: 3.25rem;
-    height: 3.25rem;
-    justify-content: center;
-    background-color: white;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    transition-duration: .2s;
-    
-    img{
-        width: 1.5rem;
-        height: 1.5rem;
-        align-self: center;
-    }
+  display: flex;
+  width: 3.25rem;
+  height: 3.25rem;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition-duration: .2s;
+  
+  img{
+    width: 1.5rem;
+    height: 1.5rem;
+    align-self: center;
+  }
 
-    &:hover{
-        transform: scale(1.1);
-        transition-duration: .2s;
-    }
+  &:hover{
+    transform: scale(1.1);
+    transition-duration: .2s;
+  }
 `;
 
 export const Cancelar = styled.button`
@@ -47,7 +47,7 @@ export const Cadastrar = styled.button`
   font-weight: 600;
   color: #FFFFFF;
 
-  :hover{
+  :hover {
     background-color: rgba(105, 68, 229, 1);
   }
 `;
@@ -69,10 +69,10 @@ export const Salario = styled.h6`
     font-weight: 400;
     
     &:hover {
-        color: #6956E5;
+      color: #6956E5;
     } 
     
     &:focus {
-        color: var(--roxo);
+      color: var(--roxo);
     }
 `;

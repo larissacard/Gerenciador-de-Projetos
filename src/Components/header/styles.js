@@ -1,16 +1,16 @@
 import styled, { css } from 'styled-components';
+
 import { HiOutlineLogout } from "react-icons/hi";
 
 import {
     Brisanet,
     Projetos,
     Equipes,
-    Tarefas,
     Pessoas,
 } from '../../styles/Icons'
 
 
-export const Container = styled.div `
+export const Container = styled.div`
     background-color: var(--roxo);
     height: calc(100% - 48px);
     width: 16.67%;
@@ -57,9 +57,9 @@ export const HeaderTwo = styled.div`
         justify-content: space-between;
         height: 50px;
     } */
-    `;
+`;
 
-export const ContLogo = styled.div `
+export const ContLogo = styled.div`
     width: 100%;
     height: 30%;
     display: flex;
@@ -73,9 +73,9 @@ export const ContLogo = styled.div `
 export const Logo = styled(Brisanet)`
     width: 90%;
     height: auto;
-    `;
+`;
 
-export const NavMenu = styled.div `
+export const NavMenu = styled.div`
     width: 100%;
     height: 50%;
     display: flex;
@@ -93,9 +93,9 @@ export const NavMenu = styled.div `
         align-items: center;
         
     }
-    `;
+`;
 
-export const MenuButton = styled.div `
+export const MenuButton = styled.div`
     display: flex;
     align-items: center;
     font-size: 20px;
@@ -169,7 +169,7 @@ const iconCSS = css`
         }
     `;
 
-export const ImgTarefas = styled(Tarefas)`${iconCSS}`;
+// export const ImgTarefas = styled(Tarefas)`${iconCSS}`;
 export const ImgProjetos = styled(Projetos)`${iconCSS}`;
 export const ImgEquipes = styled(Equipes)`${iconCSS}`;
 export const ImgPessoas = styled(Pessoas)`${iconCSS}`;

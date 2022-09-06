@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import api from '../../api';
 
 import Container from '../../Components/Container';
-import { Search, SearchIcon } from '../Projetos/styles';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
+
+import { 
+    Search, 
+    SearchIcon 
+} from '../Projetos/styles';
 
 import { 
     AllCards, 

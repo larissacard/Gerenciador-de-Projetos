@@ -1,6 +1,8 @@
 import React from "react";
-import GetEquipe from "./get";
+
 import Container from "../../Components/Container";
+
+import GetEquipe from "./get";
 
 function EquipesId(){
     return (

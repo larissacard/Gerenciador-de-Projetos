@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import api from '../../api'
+
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import Container from "../../Components/Container";
 
 import { 
     ContDados, 
@@ -16,7 +18,6 @@ import {
 import AlertDeleteDialog from '../../Components/CardConfirmDelete';
 import CardDetalhesList from '../../Components/CardDetalhesList';
 import KanbanUl from './Componentes/KanbanUl';
-import Container from "../../Components/Container";
 import Edit from './Componentes/put';
 
 export default function Index() {

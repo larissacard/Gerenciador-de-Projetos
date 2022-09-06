@@ -1,14 +1,15 @@
 import React from 'react';
-import AlertDeleteDialog from '../../../../Components/CardConfirmDelete';
-import EditarPessoa from '../Put';
 
 import { 
-    Container,
-    InfoPessoa,
-    FotoPerfil,
-    DadosTarefas,
-    AllButtons,
+  Container,
+  InfoPessoa,
+  FotoPerfil,
+  DadosTarefas,
+  AllButtons,
 } from './styles';
+
+import AlertDeleteDialog from '../../../../Components/CardConfirmDelete';
+import EditarPessoa from '../Put';
 
 function CardPessoa(Props) {
   return (

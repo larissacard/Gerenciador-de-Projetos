@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { Lupa } from '../../styles/Icons';
 
 export const Container = styled.div`
@@ -19,17 +20,17 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchIcon = styled(Lupa)`
-    width: 25px;
-    height: 25px;
-    z-index: 2;
+  width: 25px;
+  height: 25px;
+  z-index: 2;
 
+  transition-duration: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    transform: rotate(-7deg);
     transition-duration: 0.3s;
 
-    &:hover {
-        transform: scale(1.05);
-        transform: rotate(-7deg);
-        transition-duration: 0.3s;
-
-        cursor: pointer;
-    }
+    cursor: pointer;
+  }
 `;

@@ -1,9 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Button, ButtonCancel, Cancelar, Cadastrar, Salario } from './styles'
-import { Drawer, Box, Typography, TextField, Snackbar, Stack, MenuItem, InputAdornment } from '@mui/material'
-import MuiAlert from '@mui/material/Alert';
-import { styled } from '@mui/material/styles';
 import api from '../../../../api';
+
+import { styled } from '@mui/material/styles';
+import MuiAlert from '@mui/material/Alert';
+
+import { 
+    Button, 
+    ButtonCancel, 
+    Cancelar, 
+    Cadastrar, 
+    Salario 
+} from './styles'
+
+import { 
+    Drawer, 
+    Box, 
+    Typography, 
+    TextField, 
+    Snackbar, 
+    Stack, 
+    MenuItem, 
+    InputAdornment 
+} from '@mui/material'
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -123,7 +141,6 @@ function PostPessoas(Props) {
             Props.update()
         })
         .catch(e => { 
-            // setMensagem(e.response.data);
             setOpenDrawer(true);
             setEstado('error');     
         })  
@@ -235,18 +252,6 @@ function PostPessoas(Props) {
                             onChange={(e) => setCargoEscolhido(e.target.value)}
                             placeholder='Selecione o Cargo'
                             defaultValue=''
-                           
-                                // <Stack spacing={2.5}>
-                                //     <input
-                                //         placeholder="Please enter item"
-                                //         // ref={inputRef}
-                                //         // value={name}
-                                //         // onChange={onNameChange}
-                                //     />
-                                //     <Button type="text" >
-                                //         Add item
-                                //     </Button>
-                                // </Stack>
                         >
                             {cargos.map((cargos) =>
                                 <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem>
@@ -264,7 +269,6 @@ function PostPessoas(Props) {
                     </Stack>
                 </form>
             </Drawer>
-
 
             <div>
                 <Button onClick={handleOpen}><img src='assets/btn_create.svg' alt='create icon' /></Button>

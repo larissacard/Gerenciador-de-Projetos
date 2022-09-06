@@ -35,13 +35,13 @@ export const ButtonDrawer = styled.button`
   border: none;
   transition-duration: .2s;
   
-  img{
+  img {
     width: 1.5rem;
     height: 1.5rem;
     align-self: center;
   }
 
-  &:hover{
+  &:hover {
     transform: scale(1.1);
     transition-duration: .2s;
   }
@@ -90,5 +90,5 @@ export const ButtonCancel = styled.div`
  
   :hover {
     transform: rotate(360deg);
-  }`;
-
+  }
+`;

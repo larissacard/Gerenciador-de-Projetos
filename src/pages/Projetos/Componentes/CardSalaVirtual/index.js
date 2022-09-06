@@ -1,4 +1,10 @@
-import { ContBox, Top, Box, Title, Container } from "./styles";
+import { 
+    ContBox, 
+    Top, 
+    Box, 
+    Title, 
+    Container 
+} from "./styles";
 
 function SalaVirtual() {
     return (

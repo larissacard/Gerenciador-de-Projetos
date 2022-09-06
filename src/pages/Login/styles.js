@@ -18,16 +18,16 @@ export const Container = styled.div`
 
 `;
 
-export const Logo = styled.div`
-  background-image: url('../../assets/logo.svg');
-  width: 217px;
-  height: 123px;
-  border: 1px solid black;
+// export const Logo = styled.div`
+//   background-image: url('../../assets/logo.svg');
+//   width: 217px;
+//   height: 123px;
+//   border: 1px solid black;
 
-  display: flex;
-  justify-content: flex-end;
+//   display: flex;
+//   justify-content: flex-end;
 
-`;
+// `;
 
 export const Content = styled.div`
   display: flex;
@@ -49,14 +49,12 @@ export const Content = styled.div`
   }
 `;
 
-export const Icon = styled.div`
-  width: 20px;
-  height: 20px;
+// export const Icon = styled.div`
+//   width: 20px;
+//   height: 20px;
   
-  position: absolute;
- 
-
-`;
+//   position: absolute;
+// `;
 
 export const LoginInfo = styled.div`
   border-radius: 32px;

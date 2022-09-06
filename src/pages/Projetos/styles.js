@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { Lupa } from '../../styles/Icons';
 
 export const ColunaUm = styled.div`
@@ -26,6 +27,7 @@ export const ContGrafico = styled.div`
     width: 100%;
     height: 40%;
 `;
+
 export const TopGrafico = styled.div`
     margin-top: 20px;
 
@@ -122,7 +124,8 @@ export const CabecalhoProjetos = styled.div`
         font-weight: 600;
         font-size: 1.25rem;
         line-height: 1.87rem;
-        width: 11.18rem;
+        width: 12.18rem;
+        margin-bottom: 0.5px;
     }
 
     @media (max-width: 767px) {
@@ -192,8 +195,6 @@ export const ContTabela = styled.div`
     }
 
     overflow-y: scroll;
-    /* scrollbar-color: var(--roxo1) var(--branco); 
-    scrollbar-width: thin; */
     
     ul::-webkit-scrollbar-thumb{
         background: #764BA2;
@@ -212,10 +213,8 @@ export const ContTabela = styled.div`
         padding: 0px 10px;
         overflow-y: scroll;
         overflow-x: hidden;
-        height: 16.5%;
         transition-duration: .2s;
 
-        height: 200px;
         
         @media (min-height: 750px) {
             height: 240px;
@@ -229,10 +228,8 @@ export const ContTabela = styled.div`
             height: 350px;
         }
 
-
         @media (min-height: 1280px) {
             height: 380px;
-
         }
 
         @media (max-width: 480px) {
@@ -241,7 +238,6 @@ export const ContTabela = styled.div`
             }  
             height: 270px;
         }
-
     }
     
     @media (max-width: 767px) {
@@ -264,7 +260,7 @@ export const Filtros = styled.div`
 export const CardProjeto = styled.li`
     background: linear-gradient(90.24deg, #764BA2 9.3%, #667EEA 99.93%);
 
-    height: 2.5rem;
+    height: 40px;
     width: 100%;
     border-radius: 16px;
 
@@ -273,15 +269,21 @@ export const CardProjeto = styled.li`
     
     color: white;
     font-weight: 600;
-    line-height: 100%;
+   
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+ 
 
     transition-duration: .3s;
     
     &:nth-last-child(1) {
         margin-bottom: 2px;
+    }
+    
+    p {
+        display: flex;
+        padding: 18px 0px 0px 0px;
     }
 `; 

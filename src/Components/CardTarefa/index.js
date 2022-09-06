@@ -1,6 +1,15 @@
 import React from 'react';
-import ProgressBar from '../ProgressBar';
-import { Container, Titulo, Descricao, Top, TopLeft, Prioridade, Body, Bottom, ProgressDesc, Avatar } from './styles';
+
+import { 
+  Container, 
+  Titulo, 
+  Descricao, 
+  Top, 
+  TopLeft, 
+  Prioridade, 
+  Body, 
+  Avatar 
+} from './styles';
 
 function CardTarefa(Props) {
   return (
@@ -12,12 +21,12 @@ function CardTarefa(Props) {
             </TopLeft>
 
               <Prioridade title="Prioridade" style={{ backgroundColor: Props.dados.tr_prioridade === 1 ? "#67CB65" :
-                                                    Props.dados.tr_prioridade === 2 ? "#FF9533" :
-                                                    Props.dados.tr_prioridade === 3 ? "#E74444" : "gray"}}>
+                                                                       Props.dados.tr_prioridade === 2 ? "#FF9533" :
+                                                                       Props.dados.tr_prioridade === 3 ? "#E74444" : "gray"}}>
               {
                 Props.dados.tr_prioridade === 1 ? "Baixa" :
                 Props.dados.tr_prioridade === 2 ? "Média" :
-                Props.dados.tr_prioridade === 3 ? "Alta" :
+                Props.dados.tr_prioridade === 3 ? "Alta"  :
                 Props.dados.tr_prioridade
               }
               </Prioridade>

@@ -1,6 +1,10 @@
 import React from "react";
 
-import { Container, InfoPessoa, FotoPerfil } from "./styles";
+import { 
+  Container, 
+  InfoPessoa, 
+  FotoPerfil 
+} from "./styles";
 
 function CardPessoa(Props) {
   return (

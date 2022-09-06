@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { HiOutlineLogout } from "react-icons/hi";
 import {useLocation} from 'react-router-dom';
 
 import {
@@ -7,16 +9,13 @@ import {
     Logo,
     NavMenu,
     MenuButton,
-    ImgTarefas,
     ImgProjetos,
     ImgEquipes,
     ImgPessoas,
-    ImgLogout,
     Logout,
     HeaderTwo
 } from './styles';
 
-import { HiOutlineLogout } from "react-icons/hi";
 
 function Header() {
 

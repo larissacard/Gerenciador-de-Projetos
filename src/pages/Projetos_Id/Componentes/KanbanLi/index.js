@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import api from '../../../../api';
+
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { BsFlagFill, BsFlag } from 'react-icons/bs'
 import { useDrag } from 'react-dnd'
 import { Progress } from 'rsuite';
+
+import { 
+  BsFlagFill, 
+  BsFlag 
+} from 'react-icons/bs'
 
 import { 
   Container, 

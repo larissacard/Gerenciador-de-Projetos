@@ -32,13 +32,13 @@ export const Organizer = styled.div`
   flex-direction: column;
   padding-right: 10px;
   
-  ::-webkit-scrollbar-thumb{
+  ::-webkit-scrollbar-thumb {
     background: #764BA2;
     border-radius: 10px;
     width: 5px;
   }
         
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     background-color: #F5F5F7;
     width: 5px;
     border-radius: 10px;

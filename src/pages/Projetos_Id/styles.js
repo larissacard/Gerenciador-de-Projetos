@@ -62,7 +62,6 @@ export const Detalhamento = styled.div`
     @media (max-width: 480px) {
         display: flex;
         flex-direction: column;
-
     }
 `;
 
@@ -80,7 +79,6 @@ export const Trelo = styled.div`
 
         width: 125%;
         gap: 15px;
-
     }
 `; 
 

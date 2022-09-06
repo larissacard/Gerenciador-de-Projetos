@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../api'
+
 import MuiAlert from '@mui/material/Alert';
 import { Snackbar } from '@mui/material';
 
@@ -7,9 +8,7 @@ import {
   Container,
   LoginInfo,
   Imagem,
-  Logo,
   Content,
-  Icon,
 } from './styles';
  
 function Login() {

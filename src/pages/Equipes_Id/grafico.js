@@ -1,7 +1,17 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import api from '../../api';
+
 import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJs, Tooltip, Title, Legend, LinearScale, BarElement, CategoryScale, } from 'chart.js';
+import { 
+  Chart as ChartJs, 
+  Tooltip, 
+  Title, 
+  Legend, 
+  LinearScale, 
+  BarElement, 
+  CategoryScale
+} from 'chart.js';
+
 ChartJs.register(
   LinearScale,
   BarElement, CategoryScale, Tooltip, Title, Legend
@@ -19,7 +29,6 @@ function RANKING() {
     labels: [],
   });
 
-  
   useEffect(() => {
     api.get('/relatorios' + path)
       .then((res) => {
@@ -38,23 +47,19 @@ function RANKING() {
         label.push([`${element.pe_nome}`])
       })
       setDados(
-            {
-              datasets: [{
-                label: 'Tarefas Concluidas',
-                borderRadius: '10px',
-               data: dataum,
-                backgroundColor: [
-                  'rgba(40, 12, 235, 0.5)',
-                ]
-              },
-            ],
-            labels: label,
-          }
-          )
+        {
+          datasets: [{
+            label: 'Tarefas Concluidas',
+            borderRadius: '10px',
+            data: dataum,
+            backgroundColor: [
+              'rgba(40, 12, 235, 0.5)',
+            ]
+          }],
+        labels: label,
+        }
+      )
     }, [graf])
-    
-
-  
     
     return (
       <div className="App" style={{ width: '95%', height: '90%' }}>

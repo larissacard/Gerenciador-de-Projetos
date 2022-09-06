@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Chart } from 'react-google-charts';
 import api from '../../../api';
+
+import { Chart } from 'react-google-charts';
 
 // dados
 let data = []
@@ -27,7 +28,6 @@ export function Grafico() {
           } else alert(err.message);
         });
   }, []);
-
 
   data = [
     ['Mês', 'Concluidos', 'Não Concluidos'],

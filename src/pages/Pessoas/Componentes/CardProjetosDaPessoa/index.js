@@ -5,7 +5,7 @@ import { Container} from './styles';
 function CardProjetosDaPessoa(Props) {
   return (
     <Container>
-        <h3>{Props.titulo}</h3>
+      <h3>{Props.titulo}</h3>
     </Container>
   );
 }

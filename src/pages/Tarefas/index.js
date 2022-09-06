@@ -1,11 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+
+import Container from "../../Components/Container";
+
+import { 
+  ColunaUm, 
+  ColunaDois 
+} from "./styles";
+
 import SearchBar from "../../Components/SearchBar"
 import CardCriar from "../../Components/CardCriar"
 import PostTarefas from "./modal";
 import Cards from "./cards";
-import { ColunaUm, ColunaDois } from "./styles";
-import Container from "../../Components/Container";
-
 
 function Tarefas() {
   const [search, setSearch] = useState("")
@@ -26,21 +31,7 @@ function Tarefas() {
         <CardCriar titulo="Criar Tarefa" descricao="Criar uma Nova Tarefa" button={<PostTarefas/>}/>
       </ColunaDois>
     </Container>
-
-    // <div
-    //       {/* -=-=-=-=-=-=-=-=-=-=-=-=Ajuste do calendario=-=-=-=-=-=-=-=-=-=-=-=-=  */}
-    //       <div className="calendario">
-    //         <img src="assets/calendario.svg" alt="calendario"/>
-    //       </div>
-    //       <Agenda>
-    //         <CardAgenda titulo="Gp Inovação" hora="9:00 AM" />
-    //         <CardAgenda titulo="Gerenciamento de Pousadas" hora="11:00 AM" />
-    //         <CardAgenda titulo="Evento Tal" hora="15:00 PM" />
-    //         <CardAgenda titulo="Bla Bla Bla" hora="22:00 PM" />
-    //       </Agenda>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
+
 export default Tarefas;

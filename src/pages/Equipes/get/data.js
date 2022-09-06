@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import api from '../../../api';
-import { CardAdicionar } from '../style';
-import { Card, AllCards, FooterCard, Name } from './syle';
-import PostEquipes from '../modal';
 
+import { CardAdicionar } from '../styles';
+import { 
+  Card, 
+  AllCards, 
+  FooterCard, 
+  Name 
+} from './styles';
+
+import PostEquipes from '../modal';
 
 class ExibirEquipes extends Component {
   state = {
@@ -11,8 +17,6 @@ class ExibirEquipes extends Component {
   }
 
   async componentDidMount() {
-
-
     const response = await api.get('/equipes');
 
     this.setState({ equipes: response.data })

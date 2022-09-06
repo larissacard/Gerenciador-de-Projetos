@@ -29,20 +29,19 @@ export const ContTarefas = styled.ul`
   list-style: none;
   padding: 0;
   height: calc(100% - 70px);
+  overflow-y: auto;
 
   li+li {
     margin-top: 21px;
   }
-
-  overflow-y: auto;
   
-  ::-webkit-scrollbar-thumb{
+  ::-webkit-scrollbar-thumb {
     background: #764BA2;
     border-radius: 10px;
     width: 5px;
   }
       
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     background-color: #F5F5F7;
     width: 5px;
     border-radius: 10px;

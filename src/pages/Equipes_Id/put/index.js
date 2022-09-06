@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
-import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
+import api from '../../../api';
+
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles'
-import { Cadastrar, Cancelar, ButtonCancel, Editar } from './styles'
-import api from '../../../api';
+
+import { 
+    Drawer, 
+    Box, 
+    Typography, 
+    TextField, 
+    Snackbar, 
+    Stack 
+} from '@mui/material'
+
+import { 
+    Cadastrar, 
+    Cancelar, 
+    ButtonCancel, 
+    Editar 
+} from './styles'
+
 import PessoasEquipe from './pessoas';
 import TeamProfile from '../../Equipes/team profile/profile';
 
@@ -107,7 +123,6 @@ function PutEquipes(Props) {
             console.log(e)
         })
     }
-
 
     return (
         <>

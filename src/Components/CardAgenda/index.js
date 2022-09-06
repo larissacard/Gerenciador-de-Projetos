@@ -1,6 +1,12 @@
 import React from "react";
 
-import { Container, TopInfo, Pessoas, BottomInfo, Button } from "./styles";
+import { 
+  Container, 
+  TopInfo, 
+  Pessoas, 
+  BottomInfo, 
+  Button 
+} from "./styles";
 
 function CardAgenda(props) {
   return (
@@ -12,10 +18,10 @@ function CardAgenda(props) {
 
       <BottomInfo>
         <Pessoas>
-            <img src="assets/people.svg" alt="member1"/>
-            <img src="assets/people.svg" alt="member2"/>
-            <img src="assets/people.svg" alt="member3"/>
-            <img src="assets/people.svg" alt="member4"/>
+          <img src="assets/people.svg" alt="member1"/>
+          <img src="assets/people.svg" alt="member2"/>
+          <img src="assets/people.svg" alt="member3"/>
+          <img src="assets/people.svg" alt="member4"/>
         </Pessoas>
 
         <Button>

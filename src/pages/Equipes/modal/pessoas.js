@@ -1,13 +1,14 @@
-import * as React from 'react';
-import {useEffect, useState} from "react";
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Checkbox from '@mui/material/Checkbox';
-
+import React, { useEffect, useState } from "react";
 import api from "../../../api";
+
+import { 
+  Checkbox,
+  Select, 
+  FormControl,
+  MenuItem, 
+  InputLabel, 
+  OutlinedInput 
+}from '@mui/material';
 
 const ITEM_HEIGHT = 50;
 const ITEM_PADDING_TOP = 8;
@@ -20,20 +21,20 @@ const MenuProps = {
 };
 
 export default function PessoasEquipe(Props) {
-    const [pessoas, setPessoas] = useState ([])
+  const [pessoas, setPessoas] = useState ([])
 
-    useEffect(() => {
-        const getPessoas = async () => {
-            try {
-                const response = await api.get('/pessoas');
-                setPessoas(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getPessoas();
-    }, []);
-    const [pessoaNome, setPessoaNome] = useState([]);
+  useEffect(() => {
+    const getPessoas = async () => {
+      try {
+        const response = await api.get('/pessoas');
+        setPessoas(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getPessoas();
+  }, []);
+  const [pessoaNome, setPessoaNome] = useState([]);
 
   const handleChange = (event) => {
     setPessoaNome(event.target.value)

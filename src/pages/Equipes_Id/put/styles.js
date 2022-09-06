@@ -11,14 +11,14 @@ export const Button = styled.button`
   transition-duration: .2s;
   
   img {
-      width: 1.5rem;
-      height: 1.5rem;
-      align-self: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-self: center;
   }
 
   &:hover {
-      transform: scale(1.1);
-      transition-duration: .2s;
+    transform: scale(1.1);
+    transition-duration: .2s;
   }
 `;
 

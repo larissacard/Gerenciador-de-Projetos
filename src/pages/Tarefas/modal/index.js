@@ -1,10 +1,15 @@
-import React, {useState} from "react";
-import { Drawer } from 'rsuite';
-import { Button } from './styles'
-import { TextField, MenuItem } from "@mui/material";
+import React, { useState } from "react";
+import api from "../../../api";
 
 import "rsuite/dist/rsuite.min.css";
-import api from "../../../api";
+import { Drawer } from 'rsuite';
+import { Button } from './styles'
+
+import { 
+    TextField, 
+    MenuItem 
+} from "@mui/material";
+
 
 function PostTarefas() {
     const [open, setOpen] = useState(false);
@@ -34,14 +39,14 @@ function PostTarefas() {
             tr_descricao: data.tr_descricao,
             tr_prioridade: prioridade
         })
-            .then(res=>{
-                if (res.data === 'Esse tarefa já foi inserido!') {
-                    alert('Esse tarefa já foi inserido!')
-                }
-                else {
-                    alert('Tarefa inserida com sucesso!')
-                }
-            })
+        .then(res=>{
+            if (res.data === 'Esse tarefa já foi inserido!') {
+                alert('Esse tarefa já foi inserido!')
+            }
+            else {
+                alert('Tarefa inserida com sucesso!')
+            }
+        })
     }
 
     function handle(e) {

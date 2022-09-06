@@ -49,7 +49,7 @@ export const Box = styled.div`
         border-radius: 20px;
     }
 
-    a{
+    a {
         background-color: white;
         border-radius: 10px;
 
@@ -60,6 +60,4 @@ export const Box = styled.div`
         font-size: 18px;
         line-height: 27px;
     }
-
-
 `;

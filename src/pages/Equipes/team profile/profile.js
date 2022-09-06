@@ -1,14 +1,20 @@
+import React, { useState, useEffect } from "react";
 import api from "../../../api";
-import { useState, useEffect } from "react";
-import 'antd/dist/antd.css';
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import { Catalogo, Close, Container, Icon, Open, Pic, Text } from "./style";
+
+import { Dialog, 
+    DialogActions, 
+    DialogContent, 
+    DialogTitle 
+} from '@mui/material';
+
+import { 
+    Catalogo, 
+    Close, 
+    Icon, 
+    Open, 
+    Pic, 
+    Text 
+} from "./styles";
 
 const style = {
     position: 'absolute',
@@ -24,8 +30,6 @@ const style = {
     width: '30%',
     height: '30%',
 };
-
-
 
 export default function TeamProfile(Props) {
     const [fotos, setFotos] = useState([]);
@@ -61,7 +65,6 @@ export default function TeamProfile(Props) {
 
     return (
         <>
-
             {/* <Avatar size={64} icon={Props.dados.eq_foto} /> */}
             {
                 fotoEscolhida &&
@@ -111,7 +114,4 @@ export default function TeamProfile(Props) {
             </div>
         </>
     )
-
-
-
 }

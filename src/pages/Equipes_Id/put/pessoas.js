@@ -1,24 +1,27 @@
-import * as React from 'react';
-import {useEffect, useState} from "react";
-import { TextField, Autocomplete } from '@mui/material';
+import React, { useEffect, useState } from "react";
 import api from "../../../api";
 
+import { 
+  TextField,
+   Autocomplete 
+} from '@mui/material';
+
 export default function PessoasEquipe(Props) {
-    const [pessoas, setPessoas] = useState ([])
+  const [pessoas, setPessoas] = useState ([])
 
-    useEffect(() => {
-      const getPessoas = async () => {
-        try {
-          const response = await api.get('/pessoas');
-          setPessoas(response.data);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getPessoas();
-    }, []);
+  useEffect(() => {
+    const getPessoas = async () => {
+      try {
+        const response = await api.get('/pessoas');
+        setPessoas(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getPessoas();
+  }, []);
 
-    const [value, setValue] = useState(Props.dados.pessoas);
+  const [value, setValue] = useState(Props.dados.pessoas);
 
   return (
     <Autocomplete

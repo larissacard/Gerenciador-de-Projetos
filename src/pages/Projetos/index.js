@@ -1,15 +1,9 @@
 import React, {useState} from 'react';
 import api from '../../api';
 
-import Grafico from './Componentes/grafico';
-import CardCriar from '../../Components/CardCriar';
-import SalaVirtual from './Componentes/CardSalaVirtual';
-import PostProjetos from './Componentes/modal';
 import Container from "../../Components/Container";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
-import Reminders from './Componentes/Reminder';
-import SearchEmptyState from '../../Components/EmptyState';
 
 import {
   ColunaUm,
@@ -25,6 +19,13 @@ import {
   CardProjeto,
   ContMais
 } from './styles';
+
+import Grafico from './Componentes/grafico';
+import CardCriar from '../../Components/CardCriar';
+import SalaVirtual from './Componentes/CardSalaVirtual';
+import PostProjetos from './Componentes/modal';
+import Reminders from './Componentes/Reminder';
+import SearchEmptyState from '../../Components/EmptyState';
 
 function Projetos () {
   const [updateScreen, setUpdate] = useState(true)

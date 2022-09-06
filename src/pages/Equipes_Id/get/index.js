@@ -1,10 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../../api';
-import { Title, Person, Icon, Name, Job, TotalTask, Ellipse, SubTitle, Card, CardIcon, ColunaUm, ColunaDois, Pontos, BigTaskCard, CardTask, Tasks, Editar, SmallInfo, SmallIcon, SmallCont, NoResults, TitleNoResults, Imagem, OrganizeTasks, OrganizeTeam, EmptyState, TeamInfo } from './style';
+
 import { Progress } from 'rsuite';
+import AlertDeleteDialog from '../../../Components/CardConfirmDelete';
+
+import { 
+  Title, 
+  Person, 
+  Icon, 
+  Name, 
+  Job,
+  TotalTask,
+  Ellipse, 
+  SubTitle, 
+  Card, 
+  CardIcon, 
+  ColunaUm, 
+  ColunaDois, 
+  Pontos, 
+  BigTaskCard, 
+  CardTask, 
+  Tasks, 
+  Editar, 
+  SmallInfo, 
+  SmallIcon, 
+  SmallCont, 
+  NoResults, 
+  TitleNoResults,
+  Imagem, 
+  OrganizeTasks, 
+  OrganizeTeam, 
+  EmptyState, 
+  TeamInfo 
+} from './styles';
+
 import PutEquipes from '../put';
 import RANKING from '../grafico';
-import AlertDeleteDialog from '../../../Components/CardConfirmDelete';
 
 // import { render } from '@testing-library/react';
 // import { Equipes } from '../../../styles/Icons';
@@ -147,8 +178,6 @@ function GetEquipe() {
             <Tasks>
               <BigTaskCard>
                 <h5>Tarefas Completas</h5>
-                {/* <h6>{equipe.tarefas.Concluidas}</h6>
-                <p>Tasks</p> */}
                 <div style={style}>
                   <Progress.Circle percent={Calculo("Concluidos")} strokeColor="#667EEA" strokeWidth="12" trailColor="white" trailWidth="10" />
                 </div>
@@ -219,7 +248,6 @@ function GetEquipe() {
       }
     </>
   )
-
 }
 
 export default GetEquipe;

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+
 import { TextField } from '@mui/material';
 
 export const Nota = styled.div`
@@ -84,7 +85,7 @@ export const Container = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
 
-    ::-webkit-scrollbar-thumb{
+    ::-webkit-scrollbar-thumb {
         background: #764BA2;
         border-radius: 10px;
         width: 5px;

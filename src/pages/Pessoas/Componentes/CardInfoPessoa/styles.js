@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   height: auto;
@@ -43,7 +43,6 @@ export const InfoPessoa = styled.div`
 
   @media (max-width: 480px) {
     align-items: center;
-    
   }
 `;
 
@@ -96,7 +95,6 @@ export const AllButtons = styled.div`
 
   @media (max-width: 480px) {
     margin-top: 10px;
-    margin-bottom: 10px;
-    
+    margin-bottom: 10px; 
   }
 `;

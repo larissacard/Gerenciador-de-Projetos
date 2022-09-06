@@ -1,33 +1,40 @@
 import React, { useState } from "react";
+import api from "../../../../api";
+
+import { TitleNoResults } from "../../../Equipes_Id/get/styles";
+
+import { 
+  Container, 
+  Body, 
+  Tarefas 
+} from "./styles";
+
 import CardInfoPessoa from "../CardInfoPessoa";
 import CardProjetosDaPessoa from "../CardProjetosDaPessoa";
 import CardTarefasDaPessoa from "../CardTarefasDaPessoa";
 import Lista from "../Lista";
-import api from "../../../../api";
-import { Container, Body, Tarefas } from "./styles";
 import { Grafico } from "../grafico";
-import { TitleNoResults } from "../../../Equipes_Id/get/style";
 
 function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()
 
-    const getDetalhes = async () => {
-      api
-        .get(`/pessoas/${Props.dados.id}`)
-        .then(response => {
-          setDetalhes(response.data);
-        })
-        .catch((err) => {
-          if (err.response.status == 401) {
-            alert("Faça o Login para visualizar a página");
-            window.location.href = "/login";
-          } else alert(err.message);
-        });
-    };
+  const getDetalhes = async () => {
+    api
+      .get(`/pessoas/${Props.dados.id}`)
+      .then(response => {
+        setDetalhes(response.data);
+      })
+      .catch((err) => {
+        if (err.response.status == 401) {
+          alert("Faça o Login para visualizar a página");
+          window.location.href = "/login";
+        } else alert(err.message);
+      });
+  };
 
-    if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id) {
-      getDetalhes()
-    }
+  if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id) {
+    getDetalhes()
+  }
 
   return (
     <>

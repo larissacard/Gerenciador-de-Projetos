@@ -1,4 +1,5 @@
 import React from "react";
+
 import Data from "./Titulo";
 
 function Menu1() {

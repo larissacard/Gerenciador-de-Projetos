@@ -26,39 +26,39 @@ export const ContButton = styled.div`
 `;
 
 export const ButtonDrawer = styled.button`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    border-radius: 10px;
-    border-radius: 24px;
-    border: 1px dashed rgba(40, 9, 72, 0.2);
-    
-    width: 100%;
-    height: 18.75rem;
-    
-    background: rgba(118, 75, 162, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 10px;
+  border-radius: 24px;
+  border: 1px dashed rgba(40, 9, 72, 0.2);
+  
+  width: 100%;
+  height: 18.75rem;
+  
+  background: rgba(118, 75, 162, 0.2);
+  transition-duration: .2s;
+  
+  img {
+    width: 2.5rem;
+    height: 2.5rem;
+    align-self: center;
+  }
+  &:hover {
+    transform: scale(1.04);
     transition-duration: .2s;
-    
-    img{
-        width: 2.5rem;
-        height: 2.5rem;
-        align-self: center;
-    }
-    &:hover{
-        transform: scale(1.04);
-        transition-duration: .2s;
-    }
+  }
 `;
 
 export const Name = styled.div`
-    font-weight: 400;
-    font-size: 23.8953px;
-    line-height: 32px;
-    color: var(--roxo); 
-    text-align: center;
-    padding: 5px 20px;
+  font-weight: 400;
+  font-size: 23.8953px;
+  line-height: 32px;
+  color: var(--roxo); 
+  text-align: center;
+  padding: 5px 20px;
 `
 
 export const Cancelar = styled.button`

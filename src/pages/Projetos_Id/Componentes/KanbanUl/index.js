@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../../../../api';
+
 import KanbanLi from '../KanbanLi';
 import { useDrop } from 'react-dnd'
 
@@ -29,18 +30,18 @@ function KanbanUl(Props) {
 
   return (
     <Container ref={dropRef}>
-        <Top>
-          <h2>{Props.titulo}</h2>
-          
-          {Props.index === 1 &&
-            <TarefasProjeto func={Props.func} dados={Props.dados}/>
-          }
-        </Top>
-        <ContTarefas>
-          {Props.elements.map((e, index) =>
-              <KanbanLi key={index} index={index} dados={e} update={Props.func}/>
-          )}
-        </ContTarefas>
+      <Top>
+        <h2>{Props.titulo}</h2>
+        
+        {Props.index === 1 &&
+          <TarefasProjeto func={Props.func} dados={Props.dados}/>
+        }
+      </Top>
+      <ContTarefas>
+        {Props.elements.map((e, index) =>
+            <KanbanLi key={index} index={index} dados={e} update={Props.func}/>
+        )}
+      </ContTarefas>
     </Container>
   );
 }

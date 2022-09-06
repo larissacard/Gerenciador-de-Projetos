@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import Detalhes from './Componentes/detalhes';
-import Cards from './Componentes/cards';
-import PostPessoas from './Componentes/modal';
-
-import Container from '../../Components/Container';
-import { ColunaDois, ContFiltros } from './styles';
-import CardCriar from '../../Components/CardCriar';
-import SearchBar from '../../Components/SearchBar';
+import api from '../../api';
 
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
-import api from '../../api';
+import Container from '../../Components/Container';
+
+import { 
+  ColunaDois, 
+  ContFiltros 
+} from './styles';
+
+import Detalhes from './Componentes/detalhes';
+import Cards from './Componentes/cards';
+import PostPessoas from './Componentes/modal';
+import CardCriar from '../../Components/CardCriar';
+import SearchBar from '../../Components/SearchBar';
 
 function Pessoas() {
   const [data, setData] = useState({nome: 'Ninguem selecionado'});

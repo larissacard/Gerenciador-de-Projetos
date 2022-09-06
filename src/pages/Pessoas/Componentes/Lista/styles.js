@@ -24,6 +24,10 @@ export const Container = styled.div`
 export const List = styled.ul`
   height: calc(100% - 45px);
   overflow-y: auto;
+  
+  width: 100%;
+  margin: 0;
+  padding: 0px 10px 0px 0px;
 
   ::-webkit-scrollbar-thumb{
     background: #764BA2;
@@ -36,8 +40,4 @@ export const List = styled.ul`
     width: 5px;
     border-radius: 10px;
   }
-
-  width: 100%;
-  margin: 0;
-  padding: 0px 10px 0px 0px;
 `;

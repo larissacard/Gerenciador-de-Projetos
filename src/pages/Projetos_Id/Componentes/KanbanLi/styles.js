@@ -141,7 +141,7 @@ export const FormDiv = styled.div`
             display: block;
         }
     }
-    `;
+`;
 
 export const LabelCheckbox = styled.label`
     display: flex;

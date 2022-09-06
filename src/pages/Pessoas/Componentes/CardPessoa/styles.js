@@ -4,8 +4,6 @@ export const Container = styled.button`
   height: 120px;
   width: 100%;
   
-
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +16,7 @@ export const Container = styled.button`
   z-index: 1;
   
   &:nth-last-child(1) {
-      margin-bottom: 2px;
+    margin-bottom: 2px;
   }
 
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
@@ -51,7 +49,6 @@ export const InfoPessoa = styled.div`
       word-wrap: break-word;
       width: 120px;
     }
-    
   }
 `;
 

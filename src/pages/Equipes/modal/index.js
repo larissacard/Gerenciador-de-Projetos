@@ -1,9 +1,27 @@
 import React, { useState } from 'react'
-import { Drawer, Box, Typography, TextField, Snackbar, Stack } from '@mui/material'
-import MuiAlert from '@mui/material/Alert';
-import { styled } from '@mui/material/styles';
-import {ButtonDrawer, ButtonCancel, Cadastrar, Cancelar, Name } from './styles'
 import api from "../../../api";
+
+import { styled } from '@mui/material/styles';
+import MuiAlert from '@mui/material/Alert';
+
+import { 
+    Drawer, 
+    Box, 
+    Typography, 
+    TextField, 
+    Snackbar, 
+    Stack 
+} from '@mui/material'
+
+
+import {
+    ButtonDrawer, 
+    ButtonCancel, 
+    Cadastrar, 
+    Cancelar, 
+    Name 
+} from './styles'
+
 import PessoasEquipe from "./pessoas";
 import TeamProfile from '../team profile/profile';
 
@@ -47,7 +65,6 @@ const CssTextField = styled(TextField)({
     },
 })
 
-
 function PostEquipes(Props) {
     const [pessoaEscolhida, setPessoaEscolhida] = useState()
     const [fotoEscolhida, setFotoEscolhida] = useState()
@@ -58,7 +75,6 @@ function PostEquipes(Props) {
     const childToParentPhoto = (childdata) => {
         setFotoEscolhida(childdata);
     }
-
 
     const [openDrawer, setOpenDrawer] = useState(false)
     
@@ -131,10 +147,10 @@ function PostEquipes(Props) {
                 }}
             >
                 <Box width='480px'
-                        paddingBottom='20px' 
-                        display='flex'
-                        alignItems='center'
-                        justifyContent='space-between'
+                     paddingBottom='20px' 
+                     display='flex'
+                     alignItems='center'
+                     justifyContent='space-between'
                 >                  
 
                 <Typography variant='h6' component='div' color='#280948' fontWeight='500'>

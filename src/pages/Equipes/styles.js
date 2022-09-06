@@ -41,23 +41,23 @@ export const AllCards = styled.div`
 
     padding: 10px 20px 40px 10px;
 
-  ::-webkit-scrollbar-thumb{
-    background: #764BA2;
-    border-radius: 10px;
-    width: 5px;
-  }
-    
-  ::-webkit-scrollbar{
-    background-color: #F5F5F7;
-    width: 5px;
-    border-radius: 10px;
-  }
+    ::-webkit-scrollbar-thumb{
+        background: #764BA2;
+        border-radius: 10px;
+        width: 5px;
+    }
+        
+    ::-webkit-scrollbar{
+        background-color: #F5F5F7;
+        width: 5px;
+        border-radius: 10px;
+    }
 
-  @media (max-width: 767px) {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 10px;
-  }
+    @media (max-width: 767px) {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+    }
 
 `;
 
@@ -111,11 +111,11 @@ export const Name = styled.div`
 
 export const FooterCard = styled.div`
 
-    a{
+    a {
         text-decoration: none;
         color: var(--roxo);
     }
-    &:hover{
+    &:hover {
         background-color: var(--roxo);
         border-radius: 7px;
         width: 57%;
@@ -186,5 +186,4 @@ export const Footer = styled.div`
     width: 100%;
 
     position: sticky;
-    
 `;

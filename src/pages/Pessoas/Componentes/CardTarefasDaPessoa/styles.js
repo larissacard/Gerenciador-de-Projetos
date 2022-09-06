@@ -19,20 +19,20 @@ export const Container = styled.li`
   }
 
   ${props => props.isDragging && css`
-        border: 2px dashed rgba(0,0,0,.2);
-        box-shadow: none;
-        background: transparent;
+    border: 2px dashed rgba(0,0,0,.2);
+    box-shadow: none;
+    background: transparent;
 
-        * {
-            opacity: 0;
-        }
-    `}
-
-    @media (max-width: 480px) {
-      height: fit-content;
-      width: 100%;
-
+    * {
+        opacity: 0;
     }
+  `}
+
+  @media (max-width: 480px) {
+    height: fit-content;
+    width: 100%;
+
+  }
 `;
 
 export const Top = styled.div`
@@ -52,12 +52,11 @@ export const Top = styled.div`
 `;
 
 export const Prioridade = styled.div`
-    border-radius: 14px;
-    height: 20px;
-    padding: 0px 10px;
-    font-size: 14px;
-    color: #fff;
-
+  border-radius: 14px;
+  height: 20px;
+  padding: 0px 10px;
+  font-size: 14px;
+  color: #fff;
 `;
 
 export const Bottom = styled.div`
@@ -89,5 +88,4 @@ export const Bottom = styled.div`
       right: 0;
     }
   }
-
 `;
