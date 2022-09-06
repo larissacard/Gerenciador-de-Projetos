@@ -284,6 +284,6 @@ export const CardProjeto = styled.li`
     
     p {
         display: flex;
-        padding: 18px 0px 0px 0px;
+        padding: 16.5px 0px 0px 0px;
     }
 `; 
