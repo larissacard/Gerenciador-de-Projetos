@@ -31,7 +31,8 @@ export const Editar = styled.button`
   color: rgba(40, 9, 72, 0.35);
   border: 1px solid #ccc;
   font-weight: 600;
-  margin-right: 8px;
+  margin-right: 7px;
+  margin-left: 4px;
   
   &:hover {
     background-color: rgba(204, 204, 204, 0.2); 

@@ -21,7 +21,6 @@ import {
   BigTaskCard, 
   CardTask, 
   Tasks, 
-  Editar, 
   SmallInfo, 
   SmallIcon, 
   SmallCont, 
@@ -105,9 +104,9 @@ function GetEquipe() {
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
                 <Title>{equipe.eq_nome}</Title>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-                  <Editar>
+                 
                     <PutEquipes dados={equipe} update={updateScreen} />
-                  </Editar>
+                  
                   <AlertDeleteDialog
                     pathFinal='/equipes'
                     path={window.location.pathname}
@@ -226,9 +225,7 @@ function GetEquipe() {
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
                 <Title>{equipe?.eq_nome}</Title>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-                  <Editar>
-                    <PutEquipes dados={equipe} update={updateScreen} />
-                  </Editar>
+                  <PutEquipes dados={equipe} update={updateScreen} />
                   <AlertDeleteDialog
                     pathFinal='/equipes'
                     path={window.location.pathname}

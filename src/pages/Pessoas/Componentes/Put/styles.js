@@ -85,7 +85,6 @@ export const Editar = styled.button`
   font-size: 14px;
   color: rgba(40, 9, 72, 0.35);
   border: 1px solid #ccc;
-  font-weight: 600;
   margin-right: 8px;
   
   &:hover {

@@ -57,19 +57,19 @@ export const Title = styled.div`
 
 `;
 
-export const Editar = styled.button`
-    width: 82px;
-    height: 20px;
+// export const Editar = styled.button`
+//     width: 82px;
+//     height: 20px;
 
-    color: white;
+//     color: white;
 
-    text-align: center;
+//     text-align: center;
 
-    margin-right: 5px;
+//     margin-right: 5px;
 
-    background-color: #FF9533;
-    border-radius: 14px;
-`;
+//     background-color: #FF9533;
+//     border-radius: 14px;
+// `;
 
 export const Delete = styled.button`
     width: 82px;

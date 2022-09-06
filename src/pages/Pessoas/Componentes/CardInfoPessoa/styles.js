@@ -58,10 +58,11 @@ export const FotoPerfil = styled.img`
 
 export const DadosTarefas = styled.ul`
   width: 100%;
-  height: 128px;
+  height: 135px;
   background: #F5F5F7;
   border-radius: 17px;
-  padding: 0;
+  padding-top: 15px;
+  padding-left: 0;
   margin: 0;
 
   display: flex;
@@ -74,14 +75,14 @@ export const DadosTarefas = styled.ul`
 
     > p {
       font-weight: 500;
-      font-size: 16px;
+      font-size: 14px;
       color: var(--roxo );
     }
 
     > span {
       font-style: italic;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 14px;
       color: #764BA2;
     }
   }
@@ -91,7 +92,7 @@ export const AllButtons = styled.div`
   display: flex;
   justify-content: space-between;
   width: 171px;
-  margin: 5px 0px;
+  margin-top: -25px;
 
   @media (max-width: 480px) {
     margin-top: 10px;
