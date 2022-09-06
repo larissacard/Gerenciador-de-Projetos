@@ -77,6 +77,7 @@ export default function PostProjetos (Props) {
         setOpenDrawer(false);
         setNomeProjeto('')
         setDescricaoProjeto('') 
+        // setError('')
     }
 
     var [mensagem, setMensagem] = useState('')
@@ -98,11 +99,16 @@ export default function PostProjetos (Props) {
 
     const [nomeProjeto, setNomeProjeto] = useState('')
     const [descricaoProjeto, setDescricaoProjeto] = useState('')
-
+    const [error, setError] = useState('')
+    
     const handleClickCad = () => {
         if(nomeProjeto !== ''){
             setTimeout(() => setOpenAlert(true), 150)
         }
+        // if (!nomeProjeto) {
+        //     setError('Digite um nome primeiro...');
+        //     return;
+        // }
     }
 
     function cadastrar(e) {
@@ -174,6 +180,7 @@ export default function PostProjetos (Props) {
                                 maxLength: 50,
                             }}
                         />
+                        {/* <span style={{color: 'black'}}>{error}</span> */}
 
                         <CssTextField
                             autoComplete='off'
