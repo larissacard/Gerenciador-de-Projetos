@@ -97,6 +97,7 @@ function Reminders() {
       <Form onSubmit={(e) => cadastrar(e)}>
         <Stack spacing={1.5}>
           <CssTextField
+            data-cy="descricao"
             autoComplete="off"
             fullWidth
             label="Lembrete"
@@ -108,6 +109,7 @@ function Reminders() {
           />
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DateTimePicker
+              
               renderInput={(props) => (
                 <TextField
                   size="small"

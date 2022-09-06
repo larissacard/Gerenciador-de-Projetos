@@ -167,6 +167,7 @@ export default function PostProjetos (Props) {
                 <form onSubmit={handleClose}>
                     <Stack spacing={2.5}>
                         <CssTextField
+                            data-cy="nome"
                             required
                             autoComplete='off'
                             onChange={(e) => setNomeProjeto(e.target.value)}
@@ -183,6 +184,7 @@ export default function PostProjetos (Props) {
                         {/* <span style={{color: 'black'}}>{error}</span> */}
 
                         <CssTextField
+                            data-cy="descricao"
                             autoComplete='off'
                             onChange={(e) => setDescricaoProjeto(e.target.value)}
                             fullWidth
@@ -210,7 +212,7 @@ export default function PostProjetos (Props) {
                 </form>
             </Drawer>
             <div>
-                <ButtonDrawer onClick={handleOpen}><img src='assets/btn_create.svg' alt="create"/></ButtonDrawer>
+                <ButtonDrawer data-cy="openDrawer" onClick={handleOpen}><img src='assets/btn_create.svg' alt="create"/></ButtonDrawer>
             </div>
         </>
     )
