@@ -30,15 +30,17 @@ export const Cancelar = styled.button`
 `;
 
 export const Deletar = styled.button`
-    background: #E74444;
+    background: #6956E5;
     border-radius: 14px;
     width: 82px;
     height: 20px;
     font-size: 14px;
+    font-weight: 600;
     color: #FFFFFF;
-
-    &:hover{
+    
+    &:hover {  
         transform: scale(1.1);
         transition-duration: .2s;
+        background-color: rgba(105, 68, 229, 1);
     }
 `;

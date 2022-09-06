@@ -10,28 +10,33 @@ export const Button = styled.button`
   border: none;
   transition-duration: .2s;
   
-  img{
+  img {
       width: 1.5rem;
       height: 1.5rem;
       align-self: center;
   }
 
-  &:hover{
+  &:hover {
       transform: scale(1.1);
       transition-duration: .2s;
   }
 `;
 
 export const Editar = styled.button`
-  background: #FF9533;
+  background: #FFFFFF;
   border-radius: 14px;
   width: 82px;
   height: 20px;
   font-size: 14px;
-  color: #FFFFFF;
+  color: rgba(40, 9, 72, 0.35);
+  border: 1px solid #ccc;
+  font-weight: 600;
   margin-right: 8px;
   
-  &:hover{
+  &:hover {
+    background-color: rgba(204, 204, 204, 0.2); 
+    color: rgba(40, 9, 72, 0.5);
+    border: solid 1px rgba(40, 9, 72, 0.5);   
     transform: scale(1.1);
     transition-duration: .2s;
   }
@@ -61,7 +66,7 @@ export const Cadastrar = styled.button`
   font-weight: 600;
   color: #FFFFFF;
 
-  :hover{
+  :hover {
     background-color: rgba(105, 68, 229, 1);
   }
 `;
