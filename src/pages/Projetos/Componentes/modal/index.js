@@ -102,7 +102,7 @@ export default function PostProjetos (Props) {
     // const [error, setError] = useState('')
     
     const handleClickCad = () => {
-        if(nomeProjeto !== '' || EquipesProjeto !== ''){
+        if(nomeProjeto !== '' && EquipesProjeto !== ''){
             setTimeout(() => setOpenAlert(true), 150)
         }
         // if (!nomeProjeto) {
@@ -111,8 +111,8 @@ export default function PostProjetos (Props) {
         // }
     }
 
-    function cadastrar() {
-        
+    function cadastrar(e) {
+        e.preventDefault()
         api.post('/projetos', {
             pr_nome: nomeProjeto,
             pr_descricao: descricaoProjeto,
@@ -204,7 +204,7 @@ export default function PostProjetos (Props) {
                             <Cancelar onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar onClick={()=> {cadastrar(); handleClickCad()}} type='submit'>
+                            <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
                                 Cadastrar
                             </Cadastrar >
                         </Box>

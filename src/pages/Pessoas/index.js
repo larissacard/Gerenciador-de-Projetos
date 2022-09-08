@@ -47,8 +47,8 @@ function Pessoas() {
   const changeFiltro = async (e) => {
     const { name, checked } = e.target;
     const newFilter = {
-        ...filtros,
-        [name]: checked,
+      ...filtros,
+      [name]: checked,
     }
     setFiltros(newFilter)
   }

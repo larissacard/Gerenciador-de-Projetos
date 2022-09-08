@@ -114,7 +114,7 @@ function Projetos () {
             <h2>Todos os Projetos</h2>
             <ContMais>
 
-              <Dropdown style={{fontSize: "6px"}}>
+              <Dropdown style={{fontSize: "6px", width: '25%', marginLeft: '8px'}}>
                 <Dropdown.Toggle style={{background: "transparent", color: "#333", border: "0"}}>
                   Filtros
                 </Dropdown.Toggle>
@@ -145,7 +145,7 @@ function Projetos () {
               </Dropdown>
               
               <Search>
-                <input type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
+                <input data-cy="Search-Projetos"type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
                 <SearchIcon/>
               </Search>
             </ContMais>
@@ -157,7 +157,7 @@ function Projetos () {
                 foundProjetos.map((projeto) => (
                 <CardProjeto key={projeto.pr_id}>
                   <p> {projeto.pr_nome} </p>
-                  <a href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
+                  <a data-cy='Detalhes' href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
                 </CardProjeto> 
                 ))
                 ) :

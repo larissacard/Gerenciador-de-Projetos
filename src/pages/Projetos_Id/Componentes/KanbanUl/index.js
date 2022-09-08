@@ -29,7 +29,7 @@ function KanbanUl(Props) {
   })
 
   return (
-    <Container ref={dropRef}>
+    <Container data-cy="dropzone" ref={dropRef}>
       <Top>
         <h2>{Props.titulo}</h2>
         
@@ -39,7 +39,7 @@ function KanbanUl(Props) {
       </Top>
       <ContTarefas>
         {Props.elements.map((e, index) =>
-            <KanbanLi key={index} index={index} dados={e} update={Props.func}/>
+          <KanbanLi data-cy="Tarefas" key={index} index={index} dados={e} update={Props.func}/>
         )}
       </ContTarefas>
     </Container>

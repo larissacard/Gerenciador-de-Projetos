@@ -75,21 +75,21 @@ function Detalhes(Props) {
                 {/* Lista de Tarefas que estão com status "Concluido"*/}
                 <Lista titulo="Tarefas Em Testes" func={getDetalhes} status="Em Testes">
                   {detalhes.tarefas.Testes.map((e) =>
-                    <CardTarefasDaPessoa key={e.tr_id}  dados={e}/>
+                    <CardTarefasDaPessoa key={e.tr_id} dados={e}/>
                   )}
                 </Lista>
 
                 {/* Lista de Tarefas que estão com status "Concluido"*/}
                 <Lista titulo="Tarefas Concluidas" func={getDetalhes} status="Concluido">
                   {detalhes.tarefas.Concluidas.map((e) =>
-                    <CardTarefasDaPessoa key={e.tr_id}  dados={e}/>
+                    <CardTarefasDaPessoa key={e.tr_id} dados={e}/>
                   )}
                 </Lista>
               </div>
             </Tarefas>
             
             {/* Lista de Projetos que a pessoa está*/}
-            <Lista titulo="Projetos" >
+            <Lista titulo="Projetos">
               {detalhes.projetos.map((e) =>
                 <CardProjetosDaPessoa key={e.pr_id} titulo={e.pr_nome}/>
                 )}

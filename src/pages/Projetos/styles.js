@@ -129,7 +129,7 @@ export const CabecalhoProjetos = styled.div`
     }
 
     @media (max-width: 767px) {
-        h2{
+        h2 {
             font-weight: 600;
             font-size: 15px;
             line-height: 20px;
@@ -153,7 +153,7 @@ export const Search = styled.div`
     align-items: center;
     padding-left: 10px;
     padding-right: 5px;
-    
+ 
     > input {
         z-index: 2;
         outline: none;
@@ -182,8 +182,8 @@ export const SearchIcon = styled(Lupa)`
 
 export const ContTabela = styled.div`
     width: 100%;
-    margin-top: 5   px;
-    overflow-y: hidden;
+    margin-top: 5px;
+    overflow-y: auto;
 
     a {
         color: white;
@@ -193,8 +193,6 @@ export const ContTabela = styled.div`
         font-weight: 600;
         line-height: 1.7rem;
     }
-
-    overflow-y: scroll;
     
     ul::-webkit-scrollbar-thumb{
         background: #764BA2;
@@ -214,7 +212,6 @@ export const ContTabela = styled.div`
         overflow-y: scroll;
         overflow-x: hidden;
         transition-duration: .2s;
-
         
         @media (min-height: 750px) {
             height: 240px;
@@ -284,6 +281,8 @@ export const CardProjeto = styled.li`
     
     p {
         display: flex;
-        padding: 16.5px 0px 0px 0px;
+        padding: 18px 0px 0px 0px;
+        font-weight: 500;
+        font-size: 15px;
     }
 `; 
