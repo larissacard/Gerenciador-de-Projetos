@@ -77,7 +77,7 @@ export default function Index() {
                                 <span>{dados.dados.pr_status}</span>
                             </Main>
                             <Buttons>
-                                <Edit dados={dados} update={getDados}/>
+                                <Edit data-cy="Editar" dados={dados} update={getDados}/>
                                 <AlertDeleteDialog path = {`/projetos/${dados.dados.pr_id}`}
                                 pathFinal="/projetos"
                                 alert="Projeto apagado com Sucesso!"

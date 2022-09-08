@@ -145,7 +145,7 @@ function Projetos () {
               </Dropdown>
               
               <Search>
-                <input type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
+                <input data-cy="Search-Projetos"type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
                 <SearchIcon/>
               </Search>
             </ContMais>
@@ -157,7 +157,7 @@ function Projetos () {
                 foundProjetos.map((projeto) => (
                 <CardProjeto key={projeto.pr_id}>
                   <p> {projeto.pr_nome} </p>
-                  <a href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
+                  <a data-cy='Detalhes' href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
                 </CardProjeto> 
                 ))
                 ) :

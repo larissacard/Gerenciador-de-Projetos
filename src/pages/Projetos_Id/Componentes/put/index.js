@@ -151,6 +151,7 @@ function Edit(Props) {
                 <form onSubmit={handleClose}>
                     <Stack spacing={2.5}>
                         <CssTextField
+                            data-cy="edita-nome"
                             autoComplete='off'
                             required
                             onChange={(e) => setNomeEditProjeto(e.target.value)}
@@ -162,10 +163,11 @@ function Edit(Props) {
                             value={nomeEditProjeto}
                             inputProps={{
                                 maxLength: 50,
-                              }}
+                            }}
                         />
 
                         <CssTextField
+                            data-cy="edita-descricao"
                             autoComplete='off'
                             onChange={(e) => setDescricaoEditProjeto(e.target.value)}
                             fullWidth
