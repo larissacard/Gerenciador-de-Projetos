@@ -109,9 +109,10 @@ function Reminders() {
           />
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DateTimePicker
-              
+                
               renderInput={(props) => (
                 <TextField
+                  data-cy="DateTimeInput"
                   size="small"
                   {...props}
                   sx={{

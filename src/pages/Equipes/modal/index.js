@@ -165,6 +165,7 @@ function PostEquipes(Props) {
 
                     <Stack spacing={2.5}>
                         <CssTextField
+                            data-cy="nome"
                             autoComplete='off'
                             required
                             onChange={(e) => setNomeEquipe(e.target.value)}
@@ -186,7 +187,7 @@ function PostEquipes(Props) {
                             <Cancelar onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
+                            <Cadastrar  data-cy="cadastrar" onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
                                 Cadastrar
                             </Cadastrar >
                         </Box>
@@ -194,7 +195,7 @@ function PostEquipes(Props) {
                 </form>
             </Drawer>
             <div>
-                <ButtonDrawer onClick={handleOpen}>
+                <ButtonDrawer id='addEquipe' onClick={handleOpen}>
                     <img src='assets/Group.svg' alt="group icon"/>
                     <Name>Adicionar Equipe</Name>
                 </ButtonDrawer>

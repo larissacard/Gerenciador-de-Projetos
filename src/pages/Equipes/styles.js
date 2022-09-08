@@ -7,6 +7,7 @@ export const ContainerUnico = styled.div`
     background-color: white;
     border-radius: 20px;
     overflow: hidden;
+
     padding: 0 25px;
 
     @media (max-width:480px) {
@@ -32,7 +33,7 @@ export const CardAdicionar = styled.button`
 `;
 
 export const AllCards = styled.div`
-    height: 40rem;
+    height: 44rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 21px;
@@ -53,10 +54,15 @@ export const AllCards = styled.div`
         border-radius: 10px;
     }
 
+    @media (max-width: 1280px) {
+        height: 30rem;
+    }
+
     @media (max-width: 767px) {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 10px;
+        height: 100%;
     }
 
 `;

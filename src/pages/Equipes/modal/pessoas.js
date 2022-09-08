@@ -45,6 +45,7 @@ export default function PessoasEquipe(Props) {
       <FormControl fullWidth>
         <InputLabel>Selecione as Pessoas</InputLabel>
         <Select
+          data-cy="pessoas"
           multiple
           value={pessoaNome}
           onChange={(e) => {(Props.childToParent(e.target.value)); handleChange(e)}}
