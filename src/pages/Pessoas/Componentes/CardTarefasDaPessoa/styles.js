@@ -11,7 +11,7 @@ export const Container = styled.li`
   width: 100%;
   height: 95px;
 
-  padding: 5px 15px 10px;
+  padding: 16px 10px 0px 10px;
   cursor: grab;
 
   &+li {
@@ -24,14 +24,13 @@ export const Container = styled.li`
     background: transparent;
 
     * {
-        opacity: 0;
+      opacity: 0;
     }
   `}
 
   @media (max-width: 480px) {
     height: fit-content;
     width: 100%;
-
   }
 `;
 

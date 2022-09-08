@@ -114,7 +114,7 @@ function Projetos () {
             <h2>Todos os Projetos</h2>
             <ContMais>
 
-              <Dropdown style={{fontSize: "6px"}}>
+              <Dropdown style={{fontSize: "6px", width: '25%', marginLeft: '8px'}}>
                 <Dropdown.Toggle style={{background: "transparent", color: "#333", border: "0"}}>
                   Filtros
                 </Dropdown.Toggle>

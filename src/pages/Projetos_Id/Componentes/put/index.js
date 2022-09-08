@@ -116,6 +116,7 @@ function Edit(Props) {
         })
         .catch(e => { 
             console.log(e)
+            setMensagem(e.response.data)
         })
     }
 

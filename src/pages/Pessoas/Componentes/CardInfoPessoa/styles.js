@@ -61,7 +61,8 @@ export const DadosTarefas = styled.ul`
   height: 135px;
   background: #F5F5F7;
   border-radius: 17px;
-  padding-top: 15px;
+  padding-top: 30px;
+  padding-bottom: 10px;
   padding-left: 0;
   margin: 0;
 
