@@ -19,7 +19,7 @@ export function Grafico(Props) {
 
   const getRelatorio = async () => {
     api
-      .get(`relatorios/pessoas/${Props.dados.dados.id}`)
+      .get(`relatorios/pessoas/${Props.dados.id}`)
       .then(response => {
         setRelatorio(response.data.data)
       })

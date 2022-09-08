@@ -17,12 +17,12 @@ import { Grafico } from "../grafico";
 
 function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()
-
+  
   const getDetalhes = async () => {
     api
       .get(`/pessoas/${Props.dados.id}`)
       .then(response => {
-        setDetalhes(response.data);
+        setDetalhes(response.data.data);
       })
       .catch((err) => {
         if (err.response.status == 401) {
@@ -32,10 +32,11 @@ function Detalhes(Props) {
       });
   };
 
-  if ((!detalhes || Props.id !== detalhes.id) && Props.id) {
+  if ((!detalhes || Props.dados.id !== detalhes.id) && Props.dados.id) {
     getDetalhes()
   }
-
+  
+  console.log(detalhes)
   return (
     <>
       <Container>
@@ -81,13 +82,13 @@ function Detalhes(Props) {
                     <CardTarefasDaPessoa key={e.id} dados={e}/>
                   )}
                 </Lista>
-              </div>
+              </div>  
             </Tarefas>
             
             {/* Lista de Projetos que a pessoa está*/}
             <Lista titulo="Projetos">
-              {detalhes.projetos.map((e) =>
-                <CardProjetosDaPessoa key={e.pr_id} titulo={e.pr_nome}/>
+              {detalhes.equipes.map(eq => eq.projetos).map((e) =>
+                <CardProjetosDaPessoa key={e.id} titulo={e.nome}/>
                 )}
             </Lista>
           </Body>

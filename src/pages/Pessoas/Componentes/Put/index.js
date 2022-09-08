@@ -108,36 +108,19 @@ function EditarPessoa(Props) {
         setEstado()
     };
     
-    // function adicionaZero(numero){
-    //     if (numero <= 9) 
-    //         return "0" + numero;
-    //     else
-    //         return numero; 
-    // }
-
-    // let dataAtual = new Date(Props.dados.dados.pe_data_nasc); 
-    // let dataAtualFormatada = (adicionaZero(dataAtual.getDate().toString()) + "/" + (adicionaZero(dataAtual.getMonth()+1).toString()) + "/" + dataAtual.getFullYear());
-    // console.log(dataAtualFormatada);
-    
-    // let data = Date.parse(datanascEdit)
-    // let data_formatada = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear()
-    // console.log(data_formatada)
-    
-    const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.dados.cargo)
-    const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.dados.nome)
-    const [datanascEdit, setDatanascEdit] = useState(Props.dados.dados.pe_data_nasc)
-    const [salarioEdit, setEditSalario] = useState(Props.dados.dados.pe_salario)
+    const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.cargo)
+    const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.nome)
+    const [datanascEdit, setDatanascEdit] = useState(Props.dados.nascimento)
+    const [salarioEdit, setEditSalario] = useState(Props.dados.salario)
     // const [imagemEdit, setEditImagem] = useState(Props.dados.dados.foto)
     
     const handleClickCad = () => {
-        if(nomeEditPessoa !== ''){
-            setTimeout(() => setOpenAlert(true), 150)
-        }
+        if(nomeEditPessoa !== '') setTimeout(() => setOpenAlert(true), 150)
     }
     
     function update(e) {
         e.preventDefault();
-        api.put(`/pessoas/${Props.dados.dados.id}`, {
+        api.put(`/pessoas/${Props.dados.id}`, {
             cargo :cargoEditEscolhido,
             nome :nomeEditPessoa,
             pe_data_nasc :datanascEdit,

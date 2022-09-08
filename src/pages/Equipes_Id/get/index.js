@@ -100,7 +100,7 @@ function GetEquipe() {
         <>
           <ColunaUm>
             <div className='d-flex mt-2 ml-4' >
-              <Imagem><img src={equipe.eq_foto} alt="equipe" /></Imagem>
+              <Imagem><img src={equipe.fotoPadrao.link} alt="equipe" /></Imagem>
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
                 <Title>{equipe.nome}</Title>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
