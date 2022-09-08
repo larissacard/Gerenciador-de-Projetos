@@ -32,7 +32,7 @@ function RANKING() {
   useEffect(() => {
     api.get('/relatorios' + path)
       .then((res) => {
-        setGraf(res.data)
+        setGraf(res.data.data)
       }).catch(e => {
         console.log("error", e)
       })
@@ -44,7 +44,7 @@ function RANKING() {
     useEffect(() => {
       graf.forEach((element) => {
         dataum.push([`${element.count}`])
-        label.push([`${element.pe_nome}`])
+        label.push([`${element.nome}`])
       })
       setDados(
         {

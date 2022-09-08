@@ -114,8 +114,8 @@ export default function PostProjetos (Props) {
     function cadastrar(e) {
         e.preventDefault()
         api.post('/projetos', {
-            pr_nome: nomeProjeto,
-            pr_descricao: descricaoProjeto,
+            nome: nomeProjeto,
+            descricao: descricaoProjeto,
             equipes: equipeEscolhida
         })
         .then(res=>{
@@ -127,7 +127,7 @@ export default function PostProjetos (Props) {
             Props.update()
         })
         .catch(e => { 
-            setMensagem(e.response.data);
+            setMensagem(e.response.data.data);
             setOpenDrawer(true);
             setEstado('error'); 
         })

@@ -12,14 +12,14 @@ function Cards(Props) {
     api
       .get("/tarefas")
       .then((response) => {
-        setInitialTarefas(response.data.dados);
-        setTarefas(response.data.dados);
+        setInitialTarefas(response.data.data.dados);
+        setTarefas(response.data.data.dados);
       })
       .catch((err) => {
         if (err.response.status == 401) {
           alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
-        } else alert(err.message);
+        } else console.log(err.message);
       });
   }, []);
 
@@ -29,7 +29,7 @@ function Cards(Props) {
       return;
     }
     const filterTarefas = tarefas.filter((tarefas) =>
-      tarefas.tr_nome.toUpperCase().includes(Props.search.toUpperCase())
+      tarefas.nome.toUpperCase().includes(Props.search.toUpperCase())
     );
     setTarefas(filterTarefas);
   };
@@ -43,7 +43,7 @@ function Cards(Props) {
   return (
     <ul style={{ overflowY: "scroll" }}>
       {tarefas.map((t) => (
-        <CardTarefa key={t.tr_id} dados={t} />
+        <CardTarefa key={t.id} dados={t} />
       ))}
     </ul>
   );

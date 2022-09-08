@@ -19,13 +19,13 @@ export function Grafico() {
       api
         .get('/relatorios/projetos')
         .then(response => {
-          setData2(response.data)
+          setData2(response.data.data)
         })
         .catch((err) => {
           if (err.response.status == 401) {
             alert("Faça o Login para visualizar a página");
             window.location.href = "/login";
-          } else alert(err.message);
+          } else console.log(err.message);
         });
   }, []);
 

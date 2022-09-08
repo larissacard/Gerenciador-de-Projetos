@@ -45,7 +45,7 @@ export default function TeamProfile(Props) {
         const getFotos = async () => {
             try {
                 const response = await api.get('/equipes/fotos')
-                setFotos(response.data)
+                setFotos(response.data.data)
             } catch (err) {
                 console.log(err);
             }

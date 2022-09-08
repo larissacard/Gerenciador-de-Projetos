@@ -12,7 +12,7 @@ function Data() {
       api
         .get('/equipes/'+id)
         .then(res => {
-          setEquipes(res.data)
+          setEquipes(res.data.data)
         })
         .catch((err) => {
           console.error("ops! ocorreu um erro : " + err);

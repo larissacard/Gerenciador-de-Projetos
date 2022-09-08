@@ -19,7 +19,7 @@ class ExibirEquipes extends Component {
   async componentDidMount() {
     const response = await api.get('/equipes');
 
-    this.setState({ equipes: response.data })
+    this.setState({ equipes: response.data.data })
   }
 
 
@@ -33,13 +33,13 @@ class ExibirEquipes extends Component {
         <CardAdicionar><PostEquipes /></CardAdicionar>
 
           {equipes.map(equipes => (
-            <Card key={equipes.eq_id}>
+            <Card key={equipes.id}>
               <div>
-                <Name>{equipes.eq_nome}</Name>
+                <Name>{equipes.nome}</Name>
                 <p style={{ width: "96.5%" }}>{equipes.eq_descricao}</p>
               </div>
               <FooterCard>
-                <a href={"equipes/" + equipes.eq_id}>Inspecionar Equipes</a>
+                <a href={"equipes/" + equipes.id}>Inspecionar Equipes</a>
               </FooterCard>
             </Card>
           ))}

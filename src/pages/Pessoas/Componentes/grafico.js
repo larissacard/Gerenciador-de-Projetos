@@ -19,15 +19,15 @@ export function Grafico(Props) {
 
   const getRelatorio = async () => {
     api
-      .get(`relatorios/pessoas/${Props.dados.dados.pe_id}`)
+      .get(`relatorios/pessoas/${Props.dados.dados.id}`)
       .then(response => {
-        setRelatorio(response.data)
+        setRelatorio(response.data.data)
       })
       .catch((err) => {
         if (err.response.status == 401) {
           alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
-        } else alert(err.message);
+        } else console.log(err.message);
       });
   }
 

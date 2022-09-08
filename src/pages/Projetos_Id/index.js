@@ -43,14 +43,12 @@ export default function Index() {
     const getDados = async () => {
         api
             .get(path)
-            .then(response => {
-                setDados(response.data);
-            })
+            .then(response => { setDados(response.data.data); })
             .catch((err) => {
                 if (err.response.status === 401) {
                   alert("Faça o Login para visualizar a página");
                   window.location.href = "/login";
-                } else alert(err.message);
+                } else console.log(err.message);
             });
     };
 
@@ -72,13 +70,13 @@ export default function Index() {
                     <ContDados>
                         <Top>
                             <Main>
-                                <Titulo>{dados.dados.pr_nome}</Titulo>
-                                <p>(#{dados.dados.pr_id})</p>
-                                <span>{dados.dados.pr_status}</span>
+                                <Titulo>{dados.nome}</Titulo>
+                                <p>(#{dados.id})</p>
+                                <span>{dados.status}</span>
                             </Main>
                             <Buttons>
                                 <Edit dados={dados} update={getDados}/>
-                                <AlertDeleteDialog path = {`/projetos/${dados.dados.pr_id}`}
+                                <AlertDeleteDialog path = {`/projetos/${dados.id}`}
                                 pathFinal="/projetos"
                                 alert="Projeto apagado com Sucesso!"
                                 titulo='Excluir Projeto Permanentemente?'
@@ -88,7 +86,7 @@ export default function Index() {
                         <Detalhamento>
                             {dados.equipes.forEach((e, index) => {
                                 qtd_pessoas += e.pessoas.length
-                                string_equipes += `${e.eq_nome} (#${e.eq_id})`
+                                string_equipes += `${e.nome} (#${e.id})`
                                 if (index !== dados.equipes.length - 1) {
                                     string_equipes += ', '
                                 }
@@ -96,10 +94,10 @@ export default function Index() {
 
                             <CardDetalhesList
                                 keys={[
-                                'Data de Criação', 'Data de Finalização', 'Equipes'
-                            ]} values={[dados.dados.pr_data_criacao.substring(0,10), dados.dados.pr_data_finalizacao, string_equipes]} />
+                                'Data de Criação', 'Ultima Atualização', 'Equipes'
+                            ]} values={[dados.createdAt.substring(0,10), dados.updatedAt, string_equipes]} />
 
-                            <CardDetalhesList keys={['Descrição']} values={[dados.dados.pr_descricao]} />
+                            <CardDetalhesList keys={['Descrição']} values={[dados.descricao]} />
 
                             <CardDetalhesList keys={[
                                 'Total de Tarefas', 'Total de Pessoas'
@@ -107,8 +105,9 @@ export default function Index() {
                                     dados.tarefas.EmDesenvolvimento.length + dados.tarefas.Concluidas.length + dados.tarefas.NaoIniciadas.length + dados.tarefas.Testes.length, qtd_pessoas
                                 ]} />
                         </Detalhamento>
+                        
                         <Trelo>
-                            <KanbanUl func={getDados} index={1} status='Não Iniciado' titulo='To Do' elements={dados.tarefas.NaoIniciadas} dados={dados}/>
+                            <KanbanUl func={getDados} index={1} status='Não Iniciada' titulo='To Do' elements={dados.tarefas.NaoIniciadas} dados={dados}/>
                             <KanbanUl func={getDados} index={2} status='Em Desenvolvimento' titulo='In Progress' elements={dados.tarefas.EmDesenvolvimento} />
                             <KanbanUl func={getDados} index={3} status='Em Testes' titulo='Test' elements={dados.tarefas.Testes} />
                             <KanbanUl func={getDados} index={4} status='Concluido' titulo='Done' elements={dados.tarefas.Concluidas} />

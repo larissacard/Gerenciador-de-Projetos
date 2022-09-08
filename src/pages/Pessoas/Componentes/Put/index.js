@@ -73,8 +73,8 @@ function EditarPessoa(Props) {
     useEffect(() => {
         const getCargos = async () => {
             try {
-                const response = await api.get('/cargos');
-                setCargos(response.data);
+                const response = await api.get('/pessoas/cargos');
+                setCargos(response.data.data);
             } catch (error) {
                 console.log(error);
             }
@@ -123,8 +123,8 @@ function EditarPessoa(Props) {
     // let data_formatada = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear()
     // console.log(data_formatada)
     
-    const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.dados.pe_cargo)
-    const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.dados.pe_nome)
+    const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.dados.cargo)
+    const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.dados.nome)
     const [datanascEdit, setDatanascEdit] = useState(Props.dados.dados.pe_data_nasc)
     const [salarioEdit, setEditSalario] = useState(Props.dados.dados.pe_salario)
     // const [imagemEdit, setEditImagem] = useState(Props.dados.dados.foto)
@@ -137,9 +137,9 @@ function EditarPessoa(Props) {
     
     function update(e) {
         e.preventDefault();
-        api.put(`/pessoas/${Props.dados.dados.pe_id}`, {
-            pe_cargo :cargoEditEscolhido,
-            pe_nome :nomeEditPessoa,
+        api.put(`/pessoas/${Props.dados.dados.id}`, {
+            cargo :cargoEditEscolhido,
+            nome :nomeEditPessoa,
             pe_data_nasc :datanascEdit,
             pe_salario :salarioEdit
         })
@@ -150,7 +150,7 @@ function EditarPessoa(Props) {
             Props.update()
         })
         .catch(e => { 
-            setMensagem(e.response.data);
+            setMensagem(e.response.data.data);
             setOpenDrawer(true);
             setEstado('error');     
         })  

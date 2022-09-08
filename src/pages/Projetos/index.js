@@ -37,14 +37,14 @@ function Projetos () {
     api
       .get('/projetos')
       .then(response => {
-        setProjetos(response.data);
-        setFoundProjetos(response.data);
+        setProjetos(response.data.data);
+        setFoundProjetos(response.data.data);
       })
       .catch((err) => {
         if (err.response.status === 401) {
           alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
-        } else alert(err.message);
+        } else console.log(err.message);
       });
   };
   
@@ -53,7 +53,7 @@ function Projetos () {
     if (e) keyword = e.target.value;
     if (keyword !== '') {
       const results = projetos.filter((projeto) => {
-        return projeto.pr_nome.toLowerCase().includes(keyword.toLowerCase());
+        return projeto.nome.toLowerCase().includes(keyword.toLowerCase());
       });
       setFoundProjetos(results);
     } else {
@@ -66,13 +66,13 @@ function Projetos () {
     filt.forEach(f => {
       switch (f[0]) {
         case "NaoIniciados": setFoundProjetos(valorAntigo =>
-          valorAntigo.filter(pr => pr.pr_status !== "Não Iniciado"));
+          valorAntigo.filter(pr => pr.status !== "Não Iniciado"));
           break;
         case "EmAndamento": setFoundProjetos(valorAntigo => 
-          valorAntigo.filter(pr => pr.pr_status !== "Em Andamento"));
+          valorAntigo.filter(pr => pr.status !== "Em Andamento"));
           break;
         case "Concluidos": setFoundProjetos(valorAntigo => 
-          valorAntigo.filter(pr => pr.pr_status !== "Concluido"));
+          valorAntigo.filter(pr => pr.status !== "Concluido"));
           break;
         default: break;
       }
@@ -155,9 +155,9 @@ function Projetos () {
             <ul> 
               {foundProjetos && foundProjetos.length > 0 ? (
                 foundProjetos.map((projeto) => (
-                <CardProjeto key={projeto.pr_id}>
-                  <p> {projeto.pr_nome} </p>
-                  <a href={'projetos/' + projeto.pr_id}>{'Detalhes >'}</a>
+                <CardProjeto key={projeto.id}>
+                  <p> {projeto.nome} </p>
+                  <a href={'projetos/' + projeto.id}>{'Detalhes >'}</a>
                 </CardProjeto> 
                 ))
                 ) :

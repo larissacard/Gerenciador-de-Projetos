@@ -56,18 +56,18 @@ function GetEquipe() {
   useEffect(() => {
     api.get(path)
       .then((response) => {
-        setEquipe(response.data)
+        setEquipe(response.data.data)
       })
       .catch(err => {
         if (err.response.status === 401) window.location.href = '/login'
-        else alert(err.message)
+        else console.log(err.message)
       })
   }, [])
 
   function updateScreen() {
     api.get(path)
       .then((response) => {
-        setEquipe(response.data)
+        setEquipe(response.data.data)
       })
       .catch((e) => {
         console.log(e)
@@ -75,7 +75,7 @@ function GetEquipe() {
   }
 
   const TotalJob = (props) => {
-    return equipe.pessoas.filter(cargo => cargo.pe_cargo === `${props.funcao}`).length
+    return equipe.pessoas.filter(cargo => cargo.cargo === `${props.funcao}`).length
   }
 
   function Calculo(status) {
@@ -102,7 +102,7 @@ function GetEquipe() {
             <div className='d-flex mt-2 ml-4' >
               <Imagem><img src={equipe.eq_foto} alt="equipe" /></Imagem>
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
-                <Title>{equipe.eq_nome}</Title>
+                <Title>{equipe.nome}</Title>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
                  
                     <PutEquipes dados={equipe} update={updateScreen} />
@@ -121,12 +121,12 @@ function GetEquipe() {
             <SubTitle>Todos os membros</SubTitle>
             <SmallCont>
                 {equipe.pessoas.map((e) =>
-                  <Person key={e.pe_id}>
+                  <Person key={e.id}>
                     <Ellipse>
-                      <Icon src={e.pe_foto} />
+                      <Icon src={e.foto} />
                     </Ellipse>
-                    <Name>{e.pe_nome}</Name>
-                    <Job>{e.pe_cargo}</Job>
+                    <Name>{e.nome}</Name>
+                    <Job>{e.cargo}</Job>
 
                     <TotalTask>{e.tarefas.qtd} tasks</TotalTask>
                   </Person>)}
@@ -223,7 +223,7 @@ function GetEquipe() {
           <div className='d-flex mt-2 ml-4' >
               <Imagem><img src={equipe?.eq_foto} alt="equipe" /></Imagem>
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
-                <Title>{equipe?.eq_nome}</Title>
+                <Title>{equipe?.nome}</Title>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
                   <PutEquipes dados={equipe} update={updateScreen} />
                   <AlertDeleteDialog

@@ -13,7 +13,7 @@ export default function EquipesProjetoEdit(Props) {
     const getEquipes = async () => {
       try {
           const response = await api.get('/equipes');
-          setEquipes(response.data);
+          setEquipes(response.data.data);
       } catch (error) {
           console.log(error);
       }
@@ -31,9 +31,9 @@ export default function EquipesProjetoEdit(Props) {
       value={value}
       multiple
       options={equipes}
-      getOptionLabel={(equipe) => equipe.eq_nome}
+      getOptionLabel={(equipe) => equipe.nome}
       filterSelectedOptions
-      isOptionEqualToValue={(option, value) => option.eq_id === value.eq_id}
+      isOptionEqualToValue={(option, value) => option.id === value.id}
       renderInput={(params) => (
         <TextField
           {...params}

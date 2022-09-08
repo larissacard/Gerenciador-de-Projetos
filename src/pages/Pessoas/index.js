@@ -24,14 +24,14 @@ function Pessoas() {
 
   const getCargos = () => {
     api
-      .get('/cargos')
+      .get('/pessoas/cargos')
       .then((response) => {
-        setCargos(response.data)
+        setCargos(response.data.data)
         let objFilter = {}
-        response.data.forEach(c => objFilter[c.cargo] = true)
+        response.data.data.forEach(c => objFilter[c.cargo] = true)
         setFiltros(objFilter)
       })
-      .catch((error) => alert(error))
+      .catch((error) => console.log(error))
   }
 
   if (!cargos) getCargos()

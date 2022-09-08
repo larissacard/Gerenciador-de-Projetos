@@ -99,7 +99,7 @@ function PutEquipes(Props) {
     }
 
     const path = window.location.pathname;
-    const [nomeEditEquipe, setNomeEditEquipe] = useState(Props.dados.eq_nome)
+    const [nomeEditEquipe, setNomeEditEquipe] = useState(Props.dados.nome)
 
     const handleClickEdit = () => {
         if(nomeEditEquipe !== ''){
@@ -111,7 +111,7 @@ function PutEquipes(Props) {
         e.preventDefault();
         api.put(path,{
             eq_foto: fotoEscolhida,
-            eq_nome: nomeEditEquipe,
+            nome: nomeEditEquipe,
             pessoas: pessoaEscolhida
         })
         .then(res=>{

@@ -13,7 +13,7 @@ export default function PessoasEquipe(Props) {
     const getPessoas = async () => {
       try {
         const response = await api.get('/pessoas');
-        setPessoas(response.data);
+        setPessoas(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -31,9 +31,9 @@ export default function PessoasEquipe(Props) {
       value={value}
       multiple
       options={pessoas}
-      getOptionLabel={(pessoas) => pessoas.pe_nome}
+      getOptionLabel={(pessoas) => pessoas.nome}
       filterSelectedOptions
-      isOptionEqualToValue={(option, value) => option.pe_id === value.pe_id}
+      isOptionEqualToValue={(option, value) => option.id === value.id}
       renderInput={(params) => (
         <TextField
           {...params}

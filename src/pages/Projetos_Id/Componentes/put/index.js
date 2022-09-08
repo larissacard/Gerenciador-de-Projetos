@@ -93,8 +93,8 @@ function Edit(Props) {
     }
     
     const projetoPath = window.location.pathname;
-    const [nomeEditProjeto, setNomeEditProjeto] = useState(Props.dados.dados.pr_nome)
-    const [descricaoEditProjeto, setDescricaoEditProjeto] = useState(Props.dados.dados.pr_descricao)
+    const [nomeEditProjeto, setNomeEditProjeto] = useState(Props.dados.nome)
+    const [descricaoEditProjeto, setDescricaoEditProjeto] = useState(Props.dados.descricao)
     
     const handleClickEdit = () => {
         if(nomeEditProjeto !== ''){
@@ -105,8 +105,8 @@ function Edit(Props) {
     function update(e){
         e.preventDefault();
         api.put(projetoPath, {
-            pr_nome: nomeEditProjeto,
-            pr_descricao: descricaoEditProjeto,
+            nome: nomeEditProjeto,
+            descricao: descricaoEditProjeto,
             equipes: equipeEditEscolhida
         })
         .then(res=>{

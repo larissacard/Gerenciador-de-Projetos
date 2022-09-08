@@ -26,9 +26,9 @@ export default function PessoasTarefa(Props) {
       }}
       multiple
       options={pessoas}
-      getOptionLabel={(pessoa) => pessoa.pe_nome}
+      getOptionLabel={(pessoa) => pessoa.nome}
       filterSelectedOptions
-      isOptionEqualToValue={(option, value) => option.pe_id === value.pe_id}
+      isOptionEqualToValue={(option, value) => option.id === value.id}
       value={nomePessoa}
       renderInput={(params) => (
         <TextField

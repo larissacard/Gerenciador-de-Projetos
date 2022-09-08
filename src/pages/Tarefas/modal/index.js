@@ -28,19 +28,19 @@ function PostTarefas() {
 
     const url= "https://api-brisa-nodejs-postgresql.herokuapp.com/tarefas"
     const [data, setData]= useState({
-        tr_nome: "",
+        nome: "",
         tr_descricao: ""
     })
 
     function cadastrar(e){
         e.preventDefault();
         api.post(url,{
-            tr_nome: data.tr_nome,
-            tr_descricao: data.tr_descricao,
-            tr_prioridade: prioridade
+            nome: data.nome,
+            descricao: data.tr_descricao,
+            prioridade: prioridade
         })
         .then(res=>{
-            if (res.data === 'Esse tarefa já foi inserido!') {
+            if (res.data.data === 'Esse tarefa já foi inserido!') {
                 alert('Esse tarefa já foi inserido!')
             }
             else {

@@ -42,7 +42,7 @@ function Register() {
 
   function Cadastrar (e) {
     e.preventDefault()
-    api.post('/cadastro', {
+    api.post('/auth/cadastro', {
       nome: nome,
       email: email,
       senha: senha,

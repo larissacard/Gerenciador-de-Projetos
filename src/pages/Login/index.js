@@ -40,7 +40,7 @@ function Login() {
 
   const login = async (e) => {
     e.preventDefault()
-    await api.post('/login', {
+    await api.post('auth/login', {
       email: email,
       senha: senha
     })
