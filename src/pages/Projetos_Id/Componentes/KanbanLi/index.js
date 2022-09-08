@@ -389,7 +389,7 @@ function KanbanLi(Props) {
                 display: 'flex',
                 alignItems: 'center'
               }}>
-                <StatusTarefa>{Props.dados.tr_status}</StatusTarefa>
+                <StatusTarefa>{Props.dados.status}</StatusTarefa>
                 <div>
                   <Button
                     id='fade-button'
