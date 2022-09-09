@@ -9,7 +9,7 @@ export const Container = styled.li`
   justify-content: space-between;
 
   width: 100%;
-  height: 95px;
+  min-height: 95px;
 
   padding: 16px 10px 0px 10px;
   cursor: grab;
