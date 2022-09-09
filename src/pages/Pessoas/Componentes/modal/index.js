@@ -6,6 +6,7 @@ import MuiAlert from '@mui/material/Alert';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { BsPlusLg } from "react-icons/bs";
 
 import { 
     Button, 
@@ -288,12 +289,19 @@ function PostPessoas(Props) {
                             placeholder='Selecione o Cargo'
                             defaultValue=''
                         >
-                            {cargos.map((cargos) =>
-                                <>
-                                    <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem>
-                                    <MenuItem disabled><input type='text'></input><button type='button'>teste</button></MenuItem>
-                                </>
-                            )}
+                            {cargos.map((cargos) => <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem> )}
+
+                            <div style={{ display: 'flex', padding: '0px 16px', gap: '6px'}}>
+                                <TextField 
+                                    size='small'
+                                    sx={{
+                                        width: '260px',
+                                        '& legend': { display: 'none' },
+                                        '& fieldset': { top: 0 },
+                                    }}
+                                />
+                                <button type='button' style={{ width: '180px', padding: '6px 10px', background: 'none' }}><BsPlusLg size={14}/> Adicionar Cargo</button>
+                            </div>
                         </CssTextField>
 
                         <Box sx={{ display: 'flex', justifyContent: 'end', gap: '10px' }}>
