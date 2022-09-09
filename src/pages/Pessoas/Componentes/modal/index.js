@@ -73,8 +73,8 @@ function PostPessoas(Props) {
     useEffect(() => {
         const getCargos = async () => {
             try {
-                const response = await api.get('/cargos');
-                setCargos(response.data);
+                const response = await api.get('/pessoas/cargos');
+                setCargos(response.data.data);
             } catch (error) {
                 console.log(error);
             }
@@ -128,10 +128,10 @@ function PostPessoas(Props) {
         e.preventDefault();
         const Form = new FormData();
         Form.append('foto', imagem)
-        Form.append('pe_nome', nomePessoa)
-        Form.append('pe_data_nasc', datanasc)
-        Form.append('pe_cargo', cargoEscolhido)
-        Form.append('pe_salario', salario)
+        Form.append('nome', nomePessoa)
+        Form.append('nascimento', datanasc)
+        Form.append('cargo', cargoEscolhido)
+        Form.append('salario', salario)
 
         api.post('/pessoas', Form, config)
         .then(res => {

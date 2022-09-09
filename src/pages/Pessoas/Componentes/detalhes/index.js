@@ -17,12 +17,12 @@ import { Grafico } from "../grafico";
 
 function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()
-
+  
   const getDetalhes = async () => {
     api
       .get(`/pessoas/${Props.dados.id}`)
       .then(response => {
-        setDetalhes(response.data);
+        setDetalhes(response.data.data);
       })
       .catch((err) => {
         if (err.response.status == 401) {
@@ -32,19 +32,20 @@ function Detalhes(Props) {
       });
   };
 
-  if ((!detalhes || Props.dados.id !== detalhes.dados.pe_id) && Props.dados.id) {
+  if ((!detalhes || Props.dados.id !== detalhes.id) && Props.dados.id) {
     getDetalhes()
   }
-
+  
+  console.log(detalhes)
   return (
     <>
       <Container>
-        {Props.dados.nome === "Ninguem selecionado" ?
+        {Props.nome === "Ninguem selecionado" ?
 
         // Quando não tem pessoas para serem exibidas
         <>
           <img src="./assets/ninguem.svg" style={{height: '21rem', width: '18rem', display: 'flex', alignSelf: 'center'}}/>
-          <TitleNoResults>Ninguém selecionado :(</TitleNoResults>
+          <TitleNoResults>Ninguém selecionado</TitleNoResults>
         </>
 
         // Quando tem uma pessoa selecionada
@@ -56,42 +57,38 @@ function Detalhes(Props) {
             <Tarefas>
 
               <div>
-                {/* Lista de Tarefas que estão com status "Não Iniciado"*/}
                 <Lista titulo="Tarefas Não Iniciadas" func={getDetalhes} status="Não Iniciado">
                   {detalhes.tarefas.NaoIniciadas.map((e) =>
-                    <CardTarefasDaPessoa key={e.tr_id}  dados={e}/>
+                    <CardTarefasDaPessoa key={e.id}  dados={e}/>
                   )}
                 </Lista>
 
-                {/* Lista de Tarefas que estão com status "Em Andamento"*/}
                 <Lista titulo="Tarefas em Andamento" func={getDetalhes} status="Em Desenvolvimento">
                   {detalhes.tarefas.EmDesenvolvimento.map((e) =>
-                    <CardTarefasDaPessoa key={e.tr_id} dados={e}/>
+                    <CardTarefasDaPessoa key={e.id} dados={e}/>
                   )}
                 </Lista>
               </div>
 
               <div>
-                {/* Lista de Tarefas que estão com status "Concluido"*/}
                 <Lista titulo="Tarefas Em Testes" func={getDetalhes} status="Em Testes">
                   {detalhes.tarefas.Testes.map((e) =>
-                    <CardTarefasDaPessoa key={e.tr_id} dados={e}/>
+                    <CardTarefasDaPessoa key={e.id} dados={e}/>
                   )}
                 </Lista>
 
-                {/* Lista de Tarefas que estão com status "Concluido"*/}
                 <Lista titulo="Tarefas Concluidas" func={getDetalhes} status="Concluido">
                   {detalhes.tarefas.Concluidas.map((e) =>
-                    <CardTarefasDaPessoa key={e.tr_id} dados={e}/>
+                    <CardTarefasDaPessoa key={e.id} dados={e}/>
                   )}
                 </Lista>
-              </div>
+              </div>  
             </Tarefas>
             
             {/* Lista de Projetos que a pessoa está*/}
             <Lista titulo="Projetos">
-              {detalhes.projetos.map((e) =>
-                <CardProjetosDaPessoa key={e.pr_id} titulo={e.pr_nome}/>
+              {detalhes.equipes.map(eq => eq.projetos).map((e) =>
+                <CardProjetosDaPessoa key={e.id} titulo={e.nome}/>
                 )}
             </Lista>
           </Body>

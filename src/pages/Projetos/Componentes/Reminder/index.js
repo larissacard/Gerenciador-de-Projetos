@@ -40,13 +40,12 @@ function Reminders() {
     api
       .get("/lembretes")
       .then((response) => {
-        setLembretes(response.data);
+        setLembretes(response.data.data);
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
-        } else alert(err.message);
+        } else console.log(err.message);
       });
   }, []);
 
@@ -54,7 +53,7 @@ function Reminders() {
     api
       .get("/lembretes")
       .then((response) => {
-        setLembretes(response.data);
+        setLembretes(response.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -66,8 +65,8 @@ function Reminders() {
     if (data && descricao) {
       api
         .post("/lembretes", {
-          le_descricao: descricao,
-          le_data_lembrete: data.toISOString(),
+          descricao: descricao,
+          data: data.toISOString(),
         })
         .then((res) => {
           setDescricao("");
@@ -80,9 +79,9 @@ function Reminders() {
     }
   }
 
-  function deleteReminder(le_id) {
+  function deleteReminder(id) {
     api
-      .delete(`/lembretes/${le_id}`)
+      .delete(`/lembretes/${id}`)
       .then((res) => {
         update();
         console.log(res.response);
@@ -174,9 +173,9 @@ function Reminders() {
       <Container>
         <Lembretes>
           {lembretes.map((le) => (
-            <Nota key={le.le_id}>
+            <Nota key={le.id}>
               <Organize>
-                <Delete onClick={() => deleteReminder(le.le_id)} />
+                <Delete onClick={() => deleteReminder(le.id)} />
               </Organize>
 
               <OrganizeReminder>
@@ -192,7 +191,7 @@ function Reminders() {
                 <div>
                   <Datetime>
                     <img src="assets/calendar.svg" alt="calendar icon"/>
-                    {moment(le.le_data_lembrete).format("MMM Do YY")}
+                    {moment(le.data).format("MMM Do YY")}
                   </Datetime>
                   <div style={{marginLeft: '15px'}}>
                     <em>{moment(new Date(le.le_data_lembrete)).fromNow()}</em>

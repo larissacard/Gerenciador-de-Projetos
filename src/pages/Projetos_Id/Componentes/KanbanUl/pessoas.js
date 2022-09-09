@@ -7,28 +7,27 @@ import {
 
 export default function PessoasTarefa(Props) {
   const [pessoas, setPessoas] = useState ()
-  const [nomePessoa, setNomePessoa] = useState(pessoas);
+  const [nomePessoa, setNomePessoa] = useState();
 
   if (!pessoas) {
     let pessoasList = []
-    Object.values(Props.dados.equipes).forEach(eq => {
-      Object.values(eq)[2].forEach(pe => pessoasList.push(pe))
-    })
+    Props.dados.equipes
+                  .map(eqs => eqs.pessoas)
+                  .forEach(e => e.forEach((p) => pessoasList.push(p)))
     setPessoas(pessoasList)
 
     if (pessoasList.length === 0) alert("Xiii, num tem ninguem pra fazer essa tarefa aí")
   }
 
   return (
+    pessoas &&
     <Autocomplete
-      onChange={(event, newValue) => {
-        setNomePessoa(newValue); (Props.childToParent(newValue))
-      }}
+      onChange={(event, newValue) => { setNomePessoa(newValue); console.log(newValue); (Props.childToParent(newValue)) }}
       multiple
       options={pessoas}
-      getOptionLabel={(pessoa) => pessoa.pe_nome}
+      getOptionLabel={(pessoa) => pessoa.nome}
       filterSelectedOptions
-      isOptionEqualToValue={(option, value) => option.pe_id === value.pe_id}
+      isOptionEqualToValue={(option, value) => option.id === value.id}
       value={nomePessoa}
       renderInput={(params) => (
         <TextField

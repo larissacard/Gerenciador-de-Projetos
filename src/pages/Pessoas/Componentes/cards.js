@@ -19,14 +19,14 @@ function Cards(Props) {
       api
         .get('/pessoas')
         .then((response) => {
-          setInitialPessoas(response.data);
-          setPessoas(response.data);
+          setInitialPessoas(response.data.data);
+          setPessoas(response.data.data);
         })
         .catch((err) => {
           if (err.response.status === 401) {
             alert('Faça o Login para visualizar a página');
             window.location.href = '/login';
-          } else alert(err.message);
+          } else console.log(err.message);
         });
     };
     getPessoas();
@@ -39,7 +39,7 @@ function Cards(Props) {
     if (Props.search) keyword = Props.search;
     if (keyword !== '') {
       const results = initialPessoas.filter((pessoa) => {
-        return pessoa.pe_nome.toUpperCase().includes(keyword.toUpperCase());
+        return pessoa.nome.toUpperCase().includes(keyword.toUpperCase());
       });
       setPessoas(results);
     } else {
@@ -48,7 +48,7 @@ function Cards(Props) {
     // setNome(keyword);
     const filt = Object.entries(Props.filtros).filter(f => !f[1])
     filt.forEach(f => {
-      setPessoas(valorAntigo => valorAntigo.filter(p => p.pe_cargo !== f[0]))
+      setPessoas(valorAntigo => valorAntigo.filter(p => p.cargo !== f[0]))
     })
   }
 
@@ -71,11 +71,11 @@ function Cards(Props) {
       {pessoas.length > 0 ?
         pessoas.map((p) => (
           <CardPessoa
-          key={p.pe_id}
-          id={p.pe_id}
-          nome={p.pe_nome}
-          profissao={p.pe_cargo}
-          foto={p.pe_foto}
+          key={p.id}
+          id={p.id}
+          nome={p.nome}
+          profissao={p.cargo}
+          foto={p.foto}
           childToParent={childToParent}
           pessoaSelecionada={pessoaSelecionada}
           />

@@ -14,14 +14,14 @@ import EditarPessoa from '../Put';
 function CardPessoa(Props) {
   return (
     <Container>
-        <FotoPerfil src={Props.dados.dados.pe_foto}/>
+        <FotoPerfil src={Props.dados.foto}/>
         <InfoPessoa>
-            <h2>{Props.dados.dados.pe_nome}</h2>
-            <p>{Props.dados.dados.pe_cargo}</p>
+            <h2 title={Props.dados.nome}>{Props.dados.nome}</h2>
+            <p title={Props.dados.cargo}>{Props.dados.cargo}</p>
             <AllButtons>
               <EditarPessoa dados={Props.dados}/>
               <AlertDeleteDialog 
-                path = {`/pessoas/${Props.dados.dados.pe_id}`}
+                path = {`/pessoas/${Props.dados.id}`}
                 pathFinal = {`/pessoas`}
                 alert= 'Pessoa apagada com Sucesso!'
                 titulo= 'Excluir Pessoa Permanentemente?'

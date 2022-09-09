@@ -111,23 +111,23 @@ function KanbanLi(Props) {
   // -=-=-=-=-=-=-=-=-=-=- Constante que Permite o Drag -=-=-=-=-=-=-=-=-=-=-
   const [{ isDragging }, dragRef] = useDrag({
     type: 'CARD',
-    item: { 'id': Props.dados.tr_id, 'status': Props.dados.tr_status },
+    item: { 'id': Props.dados.id, 'status': Props.dados.status },
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
   })
 
   // -=-=-=-=-=-=-=-=-=-=- Recebe os Objetos de Tarefas -=-=-=-=-=-=-=-=-=-=-
-  const [descricao, setDescricao] = useState(Props.dados.tr_descricao)
-  const [titulo, setTitulo] = useState(Props.dados.tr_nome)
-  const [prioridade, setPrioridade] = useState(Props.dados.tr_prioridade)
+  const [descricao, setDescricao] = useState(Props.dados.descricao)
+  const [titulo, setTitulo] = useState(Props.dados.nome)
+  const [prioridade, setPrioridade] = useState(Props.dados.prioridade)
   const [tarefas, setTarefas] = useState()
 
   // -=-=-=-=-=-=-=-=-=-=- Get em Tarefas -=-=-=-=-=-=-=-=-=-=-
   const getTarefas = async () => {
-    api.get(`/tarefas/${Props.dados.tr_id}`)
+    api.get(`/tarefas/${Props.dados.id}`)
       .then(response => {
-        setTarefas(response.data);
+        setTarefas(response.data.data);
       })
       .catch((err) => {
         console.log(err)
@@ -183,7 +183,7 @@ function KanbanLi(Props) {
     function PostSubtarefa(e) {
       e.preventDefault()
       api
-      .post(`/subtarefas/${Props.dados.tr_id}`, {
+      .post(`/subtarefas/${Props.dados.id}`, {
         nome: subtarefa,
         prioridade: prioridadeSubtarefa,
       })
@@ -209,17 +209,17 @@ function KanbanLi(Props) {
   };
   
   const handleClose = () => {
-    if (titulo != Props.dados.tr_nome || descricao != Props.dados.tr_descricao || prioridade != Props.dados.tr_prioridade) {
+    if (titulo != Props.dados.nome || descricao != Props.dados.descricao || prioridade != Props.dados.prioridade) {
       api
-      .put(`/tarefas/${Props.dados.tr_id}`, {
-          tr_nome: titulo,
-          tr_descricao: descricao,
-          tr_prioridade: prioridade
+      .put(`/tarefas/${Props.dados.id}`, {
+          nome: titulo,
+          descricao: descricao,
+          prioridade: prioridade
         })
         .then(res => {
-          Props.dados.tr_nome = titulo
-          Props.dados.tr_descricao = descricao
-          Props.dados.tr_prioridade = prioridade
+          Props.dados.nome = titulo
+          Props.dados.descricao = descricao
+          Props.dados.prioridade = prioridade
           Props.update();
         })
       }
@@ -292,7 +292,7 @@ function KanbanLi(Props) {
       
       function ConcluirSubtarefas (marcar) {    
         api
-        .put(`/tarefas/${Props.dados.tr_id}/check/${marcar}`)
+        .put(`/tarefas/${Props.dados.id}/check/${marcar}`)
         .then(() => {
           getTarefas()
         })
@@ -329,7 +329,7 @@ function KanbanLi(Props) {
     <>
       <Container ref={dragRef} isDragging={isDragging} onClick={handleClickOpen}>
         <Top>
-          <h3 title={Props.dados.tr_nome}>{Props.dados.tr_nome}</h3>
+          <h3 title={Props.dados.nome}>{Props.dados.nome}</h3>
         </Top>
 
         {/* -=-=-=-=-=-=-=-=-=-=- Mostra as Prioridades na Lista de cada Tarefa -=-=-=-=-=-=-=-=-=-=- */}
@@ -337,15 +337,15 @@ function KanbanLi(Props) {
           {/* -=-=-=-=-=-=-=-=-=-=- Prioridade na tela de projetos/tarefas -=-=-=-=-=-=-=-=-=-=- */}
           <Prioridade>
             <span style={{
-              backgroundColor: Props.dados.tr_prioridade === 1 ? '#67CB65' :
-                               Props.dados.tr_prioridade === 2 ? '#FF9533' :
-                               Props.dados.tr_prioridade === 3 ? '#E74444' : 'gray'
+              backgroundColor: Props.dados.prioridade === 1 ? '#67CB65' :
+                               Props.dados.prioridade === 2 ? '#FF9533' :
+                               Props.dados.prioridade === 3 ? '#E74444' : 'gray'
             }}>
               {
-                Props.dados.tr_prioridade === 1 ? 'Baixa' :
-                Props.dados.tr_prioridade === 2 ? 'Média' :
-                Props.dados.tr_prioridade === 3 ? 'Alta' :
-                Props.dados.tr_prioridade
+                Props.dados.prioridade === 1 ? 'Baixa' :
+                Props.dados.prioridade === 2 ? 'Média' :
+                Props.dados.prioridade === 3 ? 'Alta' :
+                Props.dados.prioridade
               }
             </span>
           </Prioridade>
@@ -376,7 +376,7 @@ function KanbanLi(Props) {
               color: '#280948',
             }}>
               <Input type='text' value={titulo} onChange={e => setTitulo(e.target.value)} />
-              <p style={{fontSize: '12px'}} title='Identificador da Tarefa'>{`(#${Props.dados.tr_id})`}</p>
+              <p style={{fontSize: '12px'}} title='Identificador da Tarefa'>{`(#${Props.dados.id})`}</p>
               {/* <ButtonCancel onClick={handleClose}/> */}
             </DialogTitle>
             <Divider
@@ -389,7 +389,7 @@ function KanbanLi(Props) {
                 display: 'flex',
                 alignItems: 'center'
               }}>
-                <StatusTarefa>{Props.dados.tr_status}</StatusTarefa>
+                <StatusTarefa>{Props.dados.status}</StatusTarefa>
                 <div>
                   <Button
                     id='fade-button'

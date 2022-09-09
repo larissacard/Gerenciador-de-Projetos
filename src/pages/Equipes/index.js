@@ -37,15 +37,15 @@ function Equipes() {
         api
             .get('/equipes')
             .then(response => {
-                setEquipes(response.data);
-                setFoundEquipes(response.data);
+                setEquipes(response.data.data);
+                setFoundEquipes(response.data.data);
             })
             .catch(err => {
                 if(err.response.status === 401) {
                     alert('Faça o Login para visualizar a página')
                     window.location.href = '/login'
                 }
-                else alert(err.message)
+                else console.log(err.message)
             })
     };
 
@@ -54,7 +54,7 @@ function Equipes() {
         if (e) keyword = e.target.value;
         if (keyword !== '') {
             const results = equipes.filter((equipes) => {
-                return equipes.eq_nome.toLowerCase().includes(keyword.toLowerCase());
+                return equipes.nome.toLowerCase().includes(keyword.toLowerCase());
             });
             setFoundEquipes(results);
         } else {
@@ -66,28 +66,28 @@ function Equipes() {
             case 1:
                 // Ordem Alfabética (A-Z)
                 setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
-                    return a.eq_nome.toLowerCase() < b.eq_nome.toLowerCase() ? -1 : a.eq_nome.toLowerCase() > b.eq_nome.toLowerCase() ? 1 : 0;
+                    return a.nome.toLowerCase() < b.nome.toLowerCase() ? -1 : a.nome.toLowerCase() > b.nome.toLowerCase() ? 1 : 0;
                 }))
                 break;
             
             case 2:
                 // Ordem Alfabética (Z-A)
                 setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
-                    return a.eq_nome.toLowerCase() > b.eq_nome.toLowerCase() ? -1 : a.eq_nome.toLowerCase() < b.eq_nome.toLowerCase() ? 1 : 0;
+                    return a.nome.toLowerCase() > b.nome.toLowerCase() ? -1 : a.nome.toLowerCase() < b.nome.toLowerCase() ? 1 : 0;
                 }))
                 break;
                 
                 case 3:
                     // Mais Recentes
                     setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
-                        return a.eq_id > b.eq_id ? -1 : a.eq_id < b.eq_id ? 1 : 0;
+                        return a.id > b.id ? -1 : a.id < b.id ? 1 : 0;
                     }))
                     break;
                     
                 case 4:
                     // Mais Antigos
                     setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
-                        return a.eq_id < b.eq_id ? -1 : a.eq_id > b.eq_id ? 1 : 0;
+                        return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
                     }))
                     break;
             default:
@@ -103,7 +103,8 @@ function Equipes() {
     if (!filtros && foundEquipes){
         setFiltros(1)
         filter(null, 1)
-    } 
+    }
+
     return (
         <Container>
             <ContainerUnico>
@@ -153,13 +154,13 @@ function Equipes() {
                     <PostEquipes update={getEquipes}/>
                     {foundEquipes && foundEquipes.length > 0 ? (
                         foundEquipes.map((equipes) => (
-                            <Card key={equipes.eq_id} href={'equipes/' + equipes.eq_id}>
+                            <Card key={equipes.id} href={'equipes/' + equipes.id}>
                                 <Retangulo/>
     
                                 <Elipse>
-                                    <SmallElipse src={equipes.eq_foto}/>
+                                    {equipes.fotoPadrao && <SmallElipse src={equipes.fotoPadrao.link}/>}
                                 </Elipse>
-                                <Name>{equipes.eq_nome}</Name>
+                                <Name>{equipes.nome}</Name>
                                 <TeamLength>Quantidade de integrantes: {equipes.pessoas.length}</TeamLength>
                             </Card>
                         ))

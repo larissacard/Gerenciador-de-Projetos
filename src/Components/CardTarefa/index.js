@@ -13,11 +13,11 @@ import {
 
 function CardTarefa(Props) {
   return (
-    <Container href={`tarefas/${Props.dados.tr_id}`}>
+    <Container href={`tarefas/${Props.dados.id}`}>
         <Top>
             <TopLeft>
-              <Titulo>{Props.dados.tr_nome}</Titulo>
-              <Descricao>{Props.dados.pr_nome}</Descricao>
+              <Titulo>{Props.dados.nome}</Titulo>
+              <Descricao>{Props.dados.nome}</Descricao>
             </TopLeft>
 
               <Prioridade title="Prioridade" style={{ backgroundColor: Props.dados.tr_prioridade === 1 ? "#67CB65" :
@@ -34,7 +34,7 @@ function CardTarefa(Props) {
         <Body>
           {Props.dados.pessoas.map((p, index) =>
             <div style={{background: "#c5a6e4", borderRadius: "50%"}}>
-              <Avatar style={{ background: `#${Math.floor(Math.random()*16777215).toString(16)}57` }} key={index} title={p.pe_nome}>{p.pe_nome[0]}</Avatar>
+              <Avatar style={{ background: `#${Math.floor(Math.random()*16777215).toString(16)}57` }} key={index} title={p.nome}>{p.nome[0]}</Avatar>
             </div>
           )}
         </Body>

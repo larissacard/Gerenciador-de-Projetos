@@ -118,10 +118,10 @@ export default function TarefasProjeto(Props) {
 
     function cadastrar(){
         api.post('/tarefas', {
-            tr_nome: nomeTarefa,
-            tr_descricao: descricaoTarefa,
-            tr_prioridade: prioridade, 
-            pr_id: path.substring(10,), 
+            nome: nomeTarefa,
+            descricao: descricaoTarefa,
+            prioridade: prioridade, 
+            projetoId: path.substring(10,), 
             pessoas: pessoaEscolhida
         })
         .then(res=>{
@@ -132,7 +132,7 @@ export default function TarefasProjeto(Props) {
          
         })
         .catch (e => {
-            setMensagem(e.response.data);
+            setMensagem(e.response.data.data);
             setOpenDrawer(true);
             setEstado('error'); 
         })
