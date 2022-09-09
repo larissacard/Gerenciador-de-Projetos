@@ -57,7 +57,7 @@ function Detalhes(Props) {
             <Tarefas>
 
               <div>
-                <Lista titulo="Tarefas Não Iniciadas" func={getDetalhes} status="Não Iniciado">
+                <Lista titulo="Tarefas Não Iniciadas" func={getDetalhes} status="Não Iniciada">
                   {detalhes.tarefas.NaoIniciadas.map((e) =>
                     <CardTarefasDaPessoa key={e.id}  dados={e}/>
                   )}
@@ -87,8 +87,8 @@ function Detalhes(Props) {
             
             {/* Lista de Projetos que a pessoa está*/}
             <Lista titulo="Projetos">
-              {detalhes.equipes.map(eq => eq.projetos).map((e) =>
-                <CardProjetosDaPessoa key={e.id} titulo={e.nome}/>
+              {detalhes.equipes.map(eq => eq.projetos).map((e, index) =>
+                <CardProjetosDaPessoa key={index} titulo={e}/>
                 )}
             </Lista>
           </Body>
