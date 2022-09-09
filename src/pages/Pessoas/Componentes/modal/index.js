@@ -289,7 +289,10 @@ function PostPessoas(Props) {
                             defaultValue=''
                         >
                             {cargos.map((cargos) =>
-                                <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem>
+                                <>
+                                    <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem>
+                                    <MenuItem disabled><input type='text'></input><button type='button'>teste</button></MenuItem>
+                                </>
                             )}
                         </CssTextField>
 
