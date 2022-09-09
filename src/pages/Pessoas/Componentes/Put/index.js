@@ -173,6 +173,7 @@ function EditarPessoa(Props) {
                 <form onSubmit={handleClose}>
                     <Stack spacing={2.5}>
                         <CssTextField
+                            data-cy="edita-nome-pessoa"
                             autoComplete='off'
                             required
                             onChange={(e) => setNomeEditPessoa(e.target.value)}
@@ -184,10 +185,11 @@ function EditarPessoa(Props) {
                             value={nomeEditPessoa}
                             inputProps={{
                                 maxLength: 50,
-                              }}
+                            }}
                         />
 
                         <CssTextField
+                            data-cy="edita-salario-pessoa"
                             autoComplete='off'
                             required
                             onChange={(e) => setEditSalario(e.target.value)}
@@ -199,7 +201,7 @@ function EditarPessoa(Props) {
                             value={salarioEdit}
                             InputProps={{
                                 startAdornment: (
-                                    <InputAdornment position='start' >
+                                    <InputAdornment position='start' style={{marginTop: '8.5px'}}>
                                         <Salario className='teste12'>R$</Salario>  
                                     </InputAdornment>
                                 ),
@@ -210,6 +212,7 @@ function EditarPessoa(Props) {
                         />
 
                         <CssTextField
+                            data-cy="edita-datanasc-pessoa"
                             autoComplete='off'
                             required
                             onChange={(e) => setDatanascEdit(e.target.value)}
@@ -225,6 +228,7 @@ function EditarPessoa(Props) {
                         />
                         
                         <CssTextField
+                            data-cy="edita-cargo-pessoa"
                             select
                             required
                             fullWidth

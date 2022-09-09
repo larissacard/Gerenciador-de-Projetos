@@ -36,7 +36,6 @@ function Detalhes(Props) {
     getDetalhes()
   }
   
-  console.log(detalhes)
   return (
     <>
       <Container>

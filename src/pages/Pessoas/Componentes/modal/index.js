@@ -3,6 +3,9 @@ import api from '../../../../api';
 
 import { styled } from '@mui/material/styles';
 import MuiAlert from '@mui/material/Alert';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import { 
     Button, 
@@ -64,6 +67,29 @@ const CssTextField = styled(TextField)({
             color: '#280948',
             transition: '0.5s',
         },
+    },
+})
+
+const DateTextField = styled(TextField)({
+    '& .MuiOutlinedInput-root': {
+        color: "#764BA2",
+        '& fieldset': {
+            border: '2px solid #764BA2',
+            transition: '0.5s',
+        },
+        '&:hover fieldset': {
+            border: '2px solid #6956E5',
+            transition: '0.5s',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: '#280948',
+            transition: '0.5s',
+        },
+        'input': {
+            '&::placeholder': {
+                color: '#764BA2',
+            }
+        }
     },
 })
 
@@ -206,30 +232,34 @@ function PostPessoas(Props) {
                             placeholder='Digite o Salário da Pessoa'
                             InputProps={{
                                 startAdornment: (
-                                    <InputAdornment position='start' >
+                                    <InputAdornment position='start' style={{marginTop: '8.5px'}}>
                                         <Salario>R$</Salario>  
                                     </InputAdornment>
                                 ),
                             }}
                             inputProps={{
                                 maxLength: 5,
-                              }}
+                            }}
                         />
 
-                        <CssTextField
-                            data-cy="datanasc"
-                            autoComplete='off'
-                            required
-                            onChange={(e) => setDatanasc(e.target.value)}
-                            fullWidth
-                            size='small'
-                            id='outlined-required'
-                            label='Data de Nascimento'
-                            type='date'
-                            InputLabelProps={{
-                                shrink: true
-                              }}
-                        />
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DatePicker
+                                fullWidth
+                                required
+                                disableFuture={true}
+                                inputFormat="dd/MM/yyyy"
+                                label="Data de Nascimento"
+                                openTo="year"
+                                views={['year', 'month', 'day']}
+                                value={datanasc}
+                                onChange={(newValue) => {
+                                    setDatanasc(newValue);
+                                }}
+                                // onChange={(e) => setDatanasc(e.target.value)}
+                                renderInput={(params) => <CssTextField size='small' {...params}
+                                />}
+                            />
+                        </LocalizationProvider>
 
                         <CssTextField
                             data-cy="img"

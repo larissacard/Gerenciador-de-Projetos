@@ -52,6 +52,7 @@ export const Top = styled.div`
 
 export const Prioridade = styled.div`
   border-radius: 14px;
+  margin-top: -8px;
   height: 20px;
   padding: 0px 10px;
   font-size: 14px;

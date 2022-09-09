@@ -9,7 +9,7 @@ import {
 function SearchBar(Props) {
   return (
     <Container>
-      <SearchInput placeholder={Props.placeholder} onChange={(e) => Props.handleChange(e.target.value)}/>
+      <SearchInput data-cy="SearchBar-Pessoas" placeholder={Props.placeholder} onChange={(e) => Props.handleChange(e.target.value)}/>
       <SearchIcon/>
     </Container>
   );
