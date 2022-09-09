@@ -92,7 +92,7 @@ function Reminders() {
   }
 
   return (
-    <div>
+    <>
       <Form onSubmit={(e) => cadastrar(e)}>
         <Stack spacing={1.5}>
           <CssTextField
@@ -202,7 +202,7 @@ function Reminders() {
           ))}
         </Lembretes>
       </Container>
-    </div>
+    </>
   );
 }
 export default Reminders;

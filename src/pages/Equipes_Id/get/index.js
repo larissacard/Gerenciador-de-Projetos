@@ -191,25 +191,22 @@ function GetEquipe() {
               <OrganizeTasks>
                 <CardTask>
                   <h5>Tarefas Não Iniciadas</h5>
-                  <h6>{equipe.tarefas.NaoIniciadas}</h6>
-                  <p>Tasks</p>
-                  <div>
+                  <h6>{equipe.tarefas.NaoIniciadas} <span>Tasks</span></h6>
+                  <div style={{marginLeft:"-10px"}}>
                     <Progress.Line percent={Calculo("Não Iniciado")} strokeColor="#667EEA" trailColor="white" />
                   </div>
                 </CardTask>
                 <CardTask>
                   <h5>Tarefas em Desenvolvimento</h5>
-                  <h6>{equipe.tarefas.EmAndamento}</h6>
-                  <p>Tasks</p>
-                  <div>
+                  <h6>{equipe.tarefas.EmAndamento} <span>Tasks</span></h6>
+                  <div style={{marginLeft:"-10px"}}>
                     <Progress.Line percent={Calculo("Em Andamento")} strokeColor="#764BA2" trailColor="white" />
                   </div>
                 </CardTask>
                 <CardTask>
                   <h5>Tarefas em Teste</h5>
-                  <h6>{equipe.tarefas.EmTestes}</h6>
-                  <p>Tasks</p>
-                  <div>
+                  <h6>{equipe.tarefas.EmTestes} <span>Tasks</span></h6>
+                  <div style={{marginLeft:"-10px"}}>
                     <Progress.Line percent={Calculo("Em Teste")} strokeColor="#E391EA" trailColor="white" />
                   </div>
                 </CardTask>

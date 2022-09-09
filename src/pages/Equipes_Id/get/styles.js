@@ -7,6 +7,8 @@ export const ColunaUm = styled.div`
     padding: 0 10px;
     border-radius: 20px;
 
+    overflow: hidden;
+
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -28,6 +30,8 @@ export const ColunaDois = styled.div`
     margin: 24px 8px;
 
     padding-left: 17px;
+
+    overflow: hidden;
   
     display: flex;
     flex-direction: column;
@@ -97,7 +101,7 @@ export const SubTitle = styled.div`
 `;
 
 export const SmallCont = styled.div`
-    height: 20rem;
+    height: 37%;
     margin-bottom: 15px;
     
 
@@ -341,7 +345,7 @@ export const BigTaskCard = styled.div`
     
     padding-top: 19px;
     padding-left: 22px;
-    margin-top: 35px;
+    margin-top: 25px;
 
     display: flex;
     flex-direction: column;
@@ -405,12 +409,12 @@ export const SmallIcon = styled.div`
 
 export const CardTask = styled.div`
     width: 90%;
-    height: 7.75rem;
+    height: 34%;
 
     background: rgba(150, 178, 253, 0.3);
     border-radius: 10px;
 
-    padding-top: 15px;
+    padding-top: 10px;
     padding-left: 15px;
     margin-bottom: 10px;
 
@@ -432,9 +436,9 @@ export const CardTask = styled.div`
         color: var(--roxo);
     }
 
-    p{
+    span{
         font-weight: 400;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 20px;
 
         color: rgba(118, 75, 162, 0.5);

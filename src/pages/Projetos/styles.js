@@ -8,6 +8,7 @@ export const ColunaUm = styled.div`
     margin: 24px 0px;
     padding: 0 10px;
     border-radius: 20px;
+    overflow: hidden;
 
     background-color: white;
     display: flex;
@@ -46,6 +47,8 @@ export const ColunaDois = styled.div`
     margin: 24px 10px;
     background-color: #fff;
     border-radius: 20px;
+
+    overflow: hidden;
     
     display: flex;
     flex-direction: column;
@@ -213,8 +216,8 @@ export const ContTabela = styled.div`
         overflow-x: hidden;
         transition-duration: .2s;
         
-        @media (min-height: 750px) {
-            height: 240px;
+        @media (max-height: 750px) {
+            height: 200px;
         }
 
         @media (min-height: 850px) {
@@ -226,7 +229,7 @@ export const ContTabela = styled.div`
         }
 
         @media (min-height: 1280px) {
-            height: 380px;
+            height: 285px;
         }
 
         @media (max-width: 480px) {

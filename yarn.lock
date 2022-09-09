@@ -4554,12 +4554,17 @@
     "lighthouse" "^8.5.1"
     "pa11y" "^6.0.1"
 
+"cypress-file-upload@^5.0.8":
+  "integrity" "sha512-+8VzNabRk3zG6x8f8BWArF/xA/W0VK4IZNx3MV0jFWrJS/qKn8eHfa5nU73P9fOQAgwHFJx7zjg4lwOnljMO8g=="
+  "resolved" "https://registry.npmjs.org/cypress-file-upload/-/cypress-file-upload-5.0.8.tgz"
+  "version" "5.0.8"
+
 "cypress-helper@^3.1.1":
   "integrity" "sha512-sboLzb9dnOhebnxN+iT/pEtfV6p1L634vB6DH/e2fun+ejo+QQ/y//AJJULO7G8d+9viCPV/4sGBsMH7Ni4CBA=="
   "resolved" "https://registry.npmjs.org/cypress-helper/-/cypress-helper-3.1.1.tgz"
   "version" "3.1.1"
 
-"cypress@^10.7.0", "cypress@^2.1.0 || ^3.1.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0", "cypress@^8.3.0":
+"cypress@^10.7.0", "cypress@^2.1.0 || ^3.1.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0", "cypress@^8.3.0", "cypress@>3.0.0":
   "integrity" "sha512-gTFvjrUoBnqPPOu9Vl5SBHuFlzx/Wxg/ZXIz2H4lzoOLFelKeF7mbwYUOzgzgF0oieU2WhJAestQdkgwJMMTvQ=="
   "resolved" "https://registry.npmjs.org/cypress/-/cypress-10.7.0.tgz"
   "version" "10.7.0"

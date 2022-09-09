@@ -54,6 +54,10 @@ export const AllCards = styled.div`
         border-radius: 10px;
     }
 
+    @media (max-height: 780px) {
+        height: 30rem;
+    }
+
     @media (max-width: 1280px) {
         height: 30rem;
     }

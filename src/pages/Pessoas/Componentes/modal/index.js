@@ -180,6 +180,7 @@ function PostPessoas(Props) {
                 <form onSubmit={handleClose}>
                     <Stack spacing={2.5}>
                         <CssTextField
+                            data-cy="nome"
                             autoComplete='off'
                             required
                             onChange={(e) => setNomePessoa(e.target.value)}
@@ -194,6 +195,7 @@ function PostPessoas(Props) {
                         />
 
                         <CssTextField
+                            data-cy="salario"
                             autoComplete='off'
                             required
                             onChange={(e) => setSalario(e.target.value)}
@@ -215,6 +217,7 @@ function PostPessoas(Props) {
                         />
 
                         <CssTextField
+                            data-cy="datanasc"
                             autoComplete='off'
                             required
                             onChange={(e) => setDatanasc(e.target.value)}
@@ -229,6 +232,7 @@ function PostPessoas(Props) {
                         />
 
                         <CssTextField
+                            data-cy="img"
                             autoComplete='off'
                             required
                             onChange={(e) => setImagem(e.target.files[0])}
@@ -244,6 +248,7 @@ function PostPessoas(Props) {
                         />
 
                         <CssTextField
+                            data-cy="cargos"
                             select
                             required
                             fullWidth
@@ -271,7 +276,7 @@ function PostPessoas(Props) {
             </Drawer>
 
             <div>
-                <Button onClick={handleOpen}><img src='assets/btn_create.svg' alt='create icon' /></Button>
+                <Button data-cy="adicionar pessoa" onClick={handleOpen}><img src='assets/btn_create.svg' alt='create icon' /></Button>
             </div>
         </>
     );

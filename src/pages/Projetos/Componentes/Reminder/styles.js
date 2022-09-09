@@ -79,7 +79,7 @@ export const Descricao = styled.div`
 `;
 
 export const Container = styled.div`
-    height: 300px;
+    height: 50%;
     margin-top: 12px;
 
     overflow-y: auto;
@@ -96,17 +96,19 @@ export const Container = styled.div`
         width: 5px;
         border-radius: 10px;
     }
-
-    @media (max-width: 900px) {
-        height: 260px;
+    @media (max-height: 800px) {
+        height: 18%;
+    }
+    @media (max-width: 1280px) {
+        height: 40%;
     }
     @media (max-width: 767px) {
-        height: 214px;
+        height: 35%;
     }
     @media (max-width: 480px) {
-        height: 200px;
+        height: 40%;
         margin-top: 10px;
-    }
+    } 
 `;
 
 export const Lembretes = styled.div`   
