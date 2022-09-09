@@ -128,7 +128,7 @@ function GetEquipe() {
                     <Name>{e.nome}</Name>
                     <Job>{e.cargo}</Job>
 
-                    <TotalTask>{e.tarefas.qtd} tasks</TotalTask>
+                    <TotalTask>{e.tarefas.length} tasks</TotalTask>
                   </Person>)}
             </SmallCont>
 
