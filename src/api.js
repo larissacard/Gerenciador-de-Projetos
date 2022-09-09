@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://api-brisa-nodejs-postgresql.herokuapp.com/',
+  baseURL: 'https://api-brisa-nodejs-postgresql.herokuapp.com',
 });
 
 const token = localStorage.getItem('token')
