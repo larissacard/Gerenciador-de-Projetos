@@ -176,6 +176,7 @@ function PostEquipes(Props) {
 
           <Stack spacing={2.5}>
             <CssTextField
+              data-cy="nome"
               autoComplete="off"
               required
               onChange={(e) => setNomeEquipe(e.target.value)}
@@ -194,6 +195,7 @@ function PostEquipes(Props) {
             <FormControl fullWidth>
               <InputLabel>Selecione as Pessoas</InputLabel>
               <Select
+                data-cy="pessoas"
                 multiple
                 value={pessoasEscolhidas}
                 onChange={(e) => { setPessoasEscolhidas(e.target.value) }}
@@ -212,6 +214,7 @@ function PostEquipes(Props) {
             <Box sx={{ display: "flex", justifyContent: "end", gap: "10px" }}>
               <Cancelar onClick={() => setOpenDrawer(false)}>Cancelar</Cancelar>
               <Cadastrar
+                data-cy="cadastrar"
                 onClick={(e) => {
                   cadastrar(e);
                   handleClickCad();

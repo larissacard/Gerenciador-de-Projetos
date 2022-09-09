@@ -96,12 +96,6 @@ export const Container = styled.div`
         width: 5px;
         border-radius: 10px;
     }
-    @media (max-height: 800px) {
-        height: 18%;
-    }
-    @media (max-width: 1280px) {
-        height: 40%;
-    }
     @media (max-width: 767px) {
         height: 35%;
     }

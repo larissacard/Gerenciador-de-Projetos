@@ -48,7 +48,7 @@ export const ColunaDois = styled.div`
     background-color: #fff;
     border-radius: 20px;
 
-    overflow: hidden;
+    overflow: scroll;
     
     display: flex;
     flex-direction: column;
@@ -186,7 +186,7 @@ export const SearchIcon = styled(Lupa)`
 export const ContTabela = styled.div`
     width: 100%;
     margin-top: 5px;
-    overflow-y: auto;
+    overflow-y: scroll;
 
     a {
         color: white;

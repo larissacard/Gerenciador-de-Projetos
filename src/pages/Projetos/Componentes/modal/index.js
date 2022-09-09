@@ -184,7 +184,7 @@ export default function PostProjetos (Props) {
                         {/* <span style={{color: 'black'}}>{error}</span> */}
 
                         <CssTextField
-                            data-cy="descricao"
+                            data-cy="Descricao"
                             autoComplete='off'
                             onChange={(e) => setDescricaoProjeto(e.target.value)}
                             fullWidth
