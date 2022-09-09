@@ -63,7 +63,7 @@ export default function TeamProfile(Props) {
             }
             <div>
 
-                <Open className="d-flex" variant="outlined" onClick={handleClickOpen}>
+                <Open data-cy="icon" className="d-flex" variant="outlined" onClick={handleClickOpen}>
                     <Text>Escolher Icon</Text>
                 </Open>
 
@@ -78,10 +78,12 @@ export default function TeamProfile(Props) {
                     <DialogContent>
                     </DialogContent>
 
-                    <Catalogo>
+                    <Catalogo >
+                        
                             {fotos.map(i => (
                                 <div key={i.id}>
                                     <Pic 
+                                    data-cy="catalogo" 
                                     onClick={(e) => {
                                         Props.childToParent(i.id)
                                         setFotoEscolhida(i)

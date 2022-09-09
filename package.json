@@ -77,6 +77,7 @@
     ]
   },
   "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.1",
     "css-loader": "^6.7.1",
     "cypress": "^10.7.0"
   }

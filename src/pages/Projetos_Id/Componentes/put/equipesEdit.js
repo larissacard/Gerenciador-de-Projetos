@@ -15,7 +15,7 @@ export default function EquipesProjetoEdit(Props) {
           const response = await api.get('/equipes');
           setEquipes(response.data.data);
       } catch (error) {
-          console.log(error);
+        console.log(error);
       }
     };
     getEquipes();
@@ -28,6 +28,7 @@ export default function EquipesProjetoEdit(Props) {
       onChange={(event, newValue) => {
         setValue(newValue); (Props.childToParent(newValue))
       }}
+      data-cy="edita-equipes"
       value={value}
       multiple
       options={equipes}

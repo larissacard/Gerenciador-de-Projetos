@@ -145,7 +145,7 @@ function Projetos () {
               </Dropdown>
               
               <Search>
-                <input type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
+                <input data-cy="Search-Projetos"type='search' placeholder='Pesquise...' onChange={filter} value={name}></input>
                 <SearchIcon/>
               </Search>
             </ContMais>

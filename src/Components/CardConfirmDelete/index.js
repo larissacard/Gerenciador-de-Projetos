@@ -92,7 +92,7 @@ export default function AlertDeleteDialog(Props) {
                     </DialogContent>
                     <DialogActions sx={{marginRight: '8px', marginBottom: '4px'}}>
                         <Cancelar onClick={handleClose}> Cancelar </Cancelar>
-                        <DeletarPermanente onClick={() => {handleClose(); deletarObjeto()}}>Excluir</DeletarPermanente>
+                        <DeletarPermanente data-cy="Deletar-Permantemente" onClick={() => {handleClose(); deletarObjeto()}}>Excluir</DeletarPermanente>
                     </DialogActions>
                 </Dialog>
             </div>
