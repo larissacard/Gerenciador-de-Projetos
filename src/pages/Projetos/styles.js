@@ -212,7 +212,7 @@ export const ContTabela = styled.div`
     ul {
         list-style-type: none;
         padding: 0px 10px;
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
         transition-duration: .2s;
         
