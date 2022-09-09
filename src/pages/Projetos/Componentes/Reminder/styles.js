@@ -79,7 +79,7 @@ export const Descricao = styled.div`
 `;
 
 export const Container = styled.div`
-    height: 50%;
+    max-height: 53%;
     margin-top: 12px;
 
     overflow-y: auto;
@@ -95,6 +95,9 @@ export const Container = styled.div`
         background-color: #F5F5F7;
         width: 5px;
         border-radius: 10px;
+    }
+    @media (min-height: 800px) {
+        height: 43%;
     }
     @media (max-width: 767px) {
         height: 35%;
