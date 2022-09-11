@@ -10,6 +10,10 @@ export const Top = styled.div`
     display: flex;
     align-items: center;
     margin-top: 20px;
+
+    @media (max-width: 1600px) {
+        margin-top: -20px;
+    }
 `;
 
 export const Title = styled.h3`

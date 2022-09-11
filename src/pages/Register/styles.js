@@ -31,6 +31,11 @@ export const Content = styled.div`
     max-height: 70%;
   }
 
+  @media (max-width: 1600px) {
+    max-width: 85vw;
+    max-height: 85vh;
+  }
+
   @media (max-width: 480px) {
     display: flex;
     flex-direction: column;
@@ -124,6 +129,11 @@ export const Imagem = styled.div`
 
   @media (max-width: 1280px) {
     display: none;
+  }
+
+  @media (max-width: 1600px) {
+    max-height: 85vh;
+    margin-right: -3px;
   }
 
   @media (max-width: 480px) {

@@ -46,6 +46,10 @@ export const ColunaDois = styled.div`
         border-radius: 0px;
         padding-top: 20px;
     }
+
+    @media (max-width: 1600px) {
+        max-height: 85vh;
+    }
 `;
 
 export const Title = styled.div`
@@ -56,9 +60,6 @@ export const Title = styled.div`
     color: var(--roxo);
 
     margin-top: 16px;
-    
-
-
 `;
 
 // export const Editar = styled.button`
@@ -98,6 +99,9 @@ export const SubTitle = styled.div`
     margin-top: 18px;
     margin-bottom: 15px;
 
+    @media (max-width: 1600px) {
+        margin-top: 0px;
+    }
 `;
 
 export const SmallCont = styled.div`
@@ -376,6 +380,14 @@ export const BigTaskCard = styled.div`
         display: flex;
         align-self: center;
     }
+
+    @media (max-width: 1600px) {
+        margin-top: -2px;
+        max-height: 35vh;
+        p {
+            margin-top: 16px;
+        }
+    }
 `;
 
 export const SmallInfo = styled.div`
@@ -420,7 +432,7 @@ export const CardTask = styled.div`
 
     box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
 
-    h5{
+    h5 {
         font-weight: 500;
         font-size: 13px;
         line-height: 20px;
@@ -428,7 +440,7 @@ export const CardTask = styled.div`
         color: var(--roxo);
     }
 
-    h6{
+    h6 {
         font-weight: 500;
         font-size: 20px;
         line-height: 30px;
@@ -436,7 +448,7 @@ export const CardTask = styled.div`
         color: var(--roxo);
     }
 
-    span{
+    span {
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
@@ -450,6 +462,15 @@ export const CardTask = styled.div`
         
         width: 85%;
         height: fit-content;
+    }
+
+    @media (max-width: 1600px) {
+        max-height: 12.5vh;
+
+        div {
+            margin-top: 0px;
+            height: 14px;   
+        }
     }
 
 `;

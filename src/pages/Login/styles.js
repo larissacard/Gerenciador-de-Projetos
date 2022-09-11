@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100%;
   background-color: white;
   padding: 20px;
-  box-shadow: 4px 4px 4px rgba(0,0,0,.2);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
 
   display: flex;
   flex-direction: column;
@@ -41,6 +41,11 @@ export const Content = styled.div`
   @media (max-width: 1280px) {
     max-width: 70%;
     max-height: 70%;
+  }
+
+  @media (max-width: 1600px) {
+    max-width: 85vw;
+    max-height: 85vh;
   }
 
   @media (max-width: 480px) {
@@ -136,6 +141,12 @@ export const Imagem = styled.div`
 
   @media (max-width: 1280px) {
     display: none;
+    height: 600px;
+  }
+
+  @media (max-width: 1600px) {
+    max-height: 85vh;
+    margin-right: -3px;
   }
 
   @media (max-width: 480px) {

@@ -55,6 +55,11 @@ export const ColunaDois = styled.div`
 
     position: relative;
 
+    @media (max-width: 1600px) {
+        overflow: hidden;
+        max-height: 85vh; 
+    }
+
     @media (max-width: 480px) {
         width: 100%;
         
@@ -186,7 +191,7 @@ export const SearchIcon = styled(Lupa)`
 export const ContTabela = styled.div`
     width: 100%;
     margin-top: 5px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     a {
         color: white;
