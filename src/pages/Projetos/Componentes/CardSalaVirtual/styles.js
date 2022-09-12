@@ -9,10 +9,14 @@ export const Container = styled.div`
 export const Top = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 80px;
+    margin-top: -15px;
 
     @media (max-width: 1600px) {
         margin-top: -20px;
+    }
+
+    @media (min-height: 900) {
+        
     }
 `;
 

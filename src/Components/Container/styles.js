@@ -20,16 +20,10 @@ export const Cont = styled.div`
         
         border-radius: 0;
         margin: 0;
-        
-        overflow: hidden;
+
+        overflow-x: hidden;
 
         overflow-y: scroll;
-            ::-webkit-scrollbar-thumb{
-            display: none;
-        }
         
-        ::-webkit-scrollbar{
-            display:none;
-        }
     }
 `;
