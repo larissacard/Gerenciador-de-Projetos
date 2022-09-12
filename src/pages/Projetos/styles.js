@@ -48,7 +48,7 @@ export const ColunaDois = styled.div`
     background-color: #fff;
     border-radius: 20px;
 
-    overflow: scroll;
+    overflow: hidden;
     
     display: flex;
     flex-direction: column;

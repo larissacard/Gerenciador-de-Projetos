@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Top = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 80px;
 
     @media (max-width: 1600px) {
         margin-top: -20px;
@@ -32,7 +32,6 @@ export const ContBox = styled.div`
     div + div {
         margin-top: 5px;
     }
-
 `;
 
 export const Box = styled.div`
