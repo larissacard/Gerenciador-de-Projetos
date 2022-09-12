@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import api from "../../../api";
+
 import TeamProfile from "../team profile/profile";
 import { styled } from "@mui/material/styles";
 import MuiAlert from "@mui/material/Alert";
+
 import {
-    Checkbox,
-    Select,
-    FormControl,
-    MenuItem,
-    InputLabel,
-    OutlinedInput,
-    Drawer,
-    Box,
-    Typography,
-    TextField,
-    Snackbar,
-    Stack,
+  Drawer,
+  Box,
+  Typography,
+  TextField,
+  Snackbar,
+  Stack,
 } from "@mui/material";
 
 import {
@@ -26,6 +22,7 @@ import {
   Name,
 } from "./styles";
 
+import PessoasEquipe from "./pessoas";
 
 const CssTextField = styled(TextField)({
   "&:hover .MuiInputLabel-outlined": {
@@ -67,22 +64,17 @@ const CssTextField = styled(TextField)({
   },
 });
 
-const ITEM_HEIGHT = 50;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-    },
-  },
-};
-
 function PostEquipes(Props) {
-  const [pessoasEscolhidas, setPessoasEscolhidas] = useState([]);
+  const [pessoasEscolhidas, setPessoasEscolhidas] = useState();
+  const childToParent = (childdata) => {
+    setPessoasEscolhidas(childdata);
+  }
+
   const [fotoEscolhida, setFotoEscolhida] = useState();
   const childToParentPhoto = (childdata) => {
     setFotoEscolhida(childdata);
   };
+
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const handleOpen = () => { setOpenDrawer(true); };
@@ -191,25 +183,7 @@ function PostEquipes(Props) {
               }}
             />
 
-            {pessoas &&
-            <FormControl fullWidth>
-              <InputLabel>Selecione as Pessoas</InputLabel>
-              <Select
-                data-cy="pessoas"
-                multiple
-                value={pessoasEscolhidas}
-                onChange={(e) => { setPessoasEscolhidas(e.target.value) }}
-                input={<OutlinedInput label="Selecione as Pessoas" />}
-                renderValue={(selected) => selected.join(", ")}
-                MenuProps={MenuProps}>
-
-                {pessoas.map((p) => (
-                  <MenuItem key={p.id} value={p}>
-                    <Checkbox checked={pessoasEscolhidas.map(p => p.id).indexOf(p.id) > -1} /> {p.nome}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>}
+            <PessoasEquipe childToParent={childToParent}/>
 
             <Box sx={{ display: "flex", justifyContent: "end", gap: "10px" }}>
               <Cancelar onClick={() => setOpenDrawer(false)}>Cancelar</Cancelar>

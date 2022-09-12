@@ -12,8 +12,8 @@ export default function EquipesProjetoEdit(Props) {
   useEffect(() => {
     const getEquipes = async () => {
       try {
-          const response = await api.get('/equipes');
-          setEquipes(response.data.data);
+        const response = await api.get('/equipes');
+        setEquipes(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -53,35 +53,35 @@ export default function EquipesProjetoEdit(Props) {
               svg: {color: '#764BA2'},
 
               '&:hover' :{
-                  color: '#6956E5',
-                  transition: '0.5s',
-                  svg: {color: '#6956E5'},
+                color: '#6956E5',
+                transition: '0.5s',
+                svg: {color: '#6956E5'},
               },
               '&.Mui-focused': {
-                  borderColor: '#764BA2',
-                  color: '#280948',
-                  transition: '0.5s',
-                  svg: {color: '#280948'},
+                borderColor: '#764BA2',
+                color: '#280948',
+                transition: '0.5s',
+                svg: {color: '#280948'},
               },
               '& fieldset': {
-                  border: '2px solid #764BA2',
-                  transition: '0.5s',
+                border: '2px solid #764BA2',
+                transition: '0.5s',
               },
               '&:hover fieldset': {
-                  border: '2px solid #6956E5',
-                  transition: '0.5s',
+                border: '2px solid #6956E5',
+                transition: '0.5s',
               },
               '&.Mui-focused fieldset': {
-                  borderColor: '#280948',
-                  transition: '0.5s',
+                borderColor: '#280948',
+                transition: '0.5s',
               },
             },
             '.MuiInputLabel-outlined': {
               color: '#764BA2',
               transition: '0.5s',
               '&.Mui-focused': {
-                  color: '#280948',
-                  transition: '0.5s',
+                color: '#280948',
+                transition: '0.5s',
               },
             },    
           }}
