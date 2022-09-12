@@ -59,7 +59,9 @@ export const AllCards = styled.div`
     }
 
     @media (max-width: 1280px) {
-        height: 30rem;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        height: 40rem;
     }
 
     @media (max-width: 767px) {

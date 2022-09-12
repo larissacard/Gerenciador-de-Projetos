@@ -160,6 +160,10 @@ const iconCSS = css`
             position: relative;
             margin-left: 30px;
 
+            > span {
+                display: hidden;
+            }
+
             
         }
 
