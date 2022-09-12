@@ -100,7 +100,10 @@ function GetEquipe() {
         <>
           <ColunaUm>
             <div className='d-flex mt-2 ml-4' >
-              <Imagem><img src={equipe.fotoPadrao.link} alt="equipe" /></Imagem>
+              {equipe.fotoPadrao 
+              ? <Imagem><img src={equipe.fotoPadrao.link} alt="equipe" /></Imagem>
+              : <Imagem><img src="http://appsisecommerces3.s3.amazonaws.com/clientes/cliente3260/layout/1/img/user-placeholder.jpg?t=1500658590" alt="equipe" /></Imagem>
+              }
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
                 <Title>{equipe.nome}</Title>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
