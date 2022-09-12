@@ -185,7 +185,7 @@ function Reminders() {
                     Lembretes
                   </Name>
                   <Descricao>
-                    {le.le_descricao}
+                    {le.descricao}
                   </Descricao>
                 </div>
                 <div>
@@ -194,7 +194,7 @@ function Reminders() {
                     {moment(le.data).format("MMM Do YY")}
                   </Datetime>
                   <div style={{marginLeft: '15px'}}>
-                    <em>{moment(new Date(le.le_data_lembrete)).fromNow()}</em>
+                    <em>{moment(new Date(le.data)).fromNow()}</em>
                   </div>
                 </div>
               </OrganizeReminder>
