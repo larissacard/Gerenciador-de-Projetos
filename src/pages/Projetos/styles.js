@@ -11,6 +11,7 @@ export const ColunaUm = styled.div`
     overflow: hidden;
 
     background-color: white;
+
     display: flex;
     flex-direction: column;
 
@@ -45,15 +46,13 @@ export const ColunaDois = styled.div`
     width: 33%;
     height: calc(100% - 48px);
     margin: 24px 10px;
+    padding: 15px 20px;
     background-color: #fff;
     border-radius: 20px;
 
-    overflow: hidden;
     
     display: flex;
     flex-direction: column;
-
-    position: relative;
 
     @media (max-width: 1600px) {
         overflow: hidden;
@@ -62,20 +61,11 @@ export const ColunaDois = styled.div`
 
     @media (max-width: 480px) {
         width: 100%;
-        
+
         margin: 0;
 
         border-radius: 0;
     }
-`;
-
-export const CardCalendar = styled.div`
-    width: 100%;
-    height: auto;
-    padding: 15px 20px;
-    border-radius: 20px;
-
-    background-color: white;
 `;
 
 export const Agenda = styled.div`
@@ -242,6 +232,7 @@ export const ContTabela = styled.div`
                 font-size: 14px;
             }  
             height: 270px;
+            margin-top: 10px;
         }
     }
     

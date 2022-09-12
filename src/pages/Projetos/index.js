@@ -11,7 +11,6 @@ import {
   TopGrafico,
   ContTabela,
   ColunaDois,
-  CardCalendar,
   ContProjetos,
   CabecalhoProjetos,
   Search,
@@ -169,7 +168,6 @@ function Projetos () {
       </ColunaUm>
 
       <ColunaDois>
-        <CardCalendar>
           <CardCriar
             titulo='Criar Projeto'
             descricao='Criar um novo projeto'
@@ -177,7 +175,6 @@ function Projetos () {
           />
            <Reminders/>
            <SalaVirtual/>
-        </CardCalendar>
       </ColunaDois>
     </Container>
   );

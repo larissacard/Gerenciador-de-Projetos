@@ -87,7 +87,7 @@ export const NavMenu = styled.div`
         text-decoration: none;
     }
     
-    @media (max-width: 767px) {
+    @media (max-width: 480px) {
         display: flex;
         flex-direction: row;
         align-items: center;
