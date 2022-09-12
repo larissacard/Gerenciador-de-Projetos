@@ -121,10 +121,10 @@ function EditarPessoa(Props) {
     function update(e) {
         e.preventDefault();
         api.put(`/pessoas/${Props.dados.id}`, {
-            cargo :cargoEditEscolhido,
-            nome :nomeEditPessoa,
-            pe_data_nasc :datanascEdit,
-            pe_salario :salarioEdit
+            cargo: cargoEditEscolhido,
+            nome: nomeEditPessoa,
+            pe_data_nasc: datanascEdit,
+            pe_salario: salarioEdit
         })
         .then(res => {
             setMensagem('Pessoa Editada com Sucesso!')

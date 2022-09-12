@@ -124,8 +124,9 @@ function PostEquipes(Props) {
 
   const [pessoas, setPessoas] = useState()
   const getPessoas = () => api.get("/pessoas").then((res) => setPessoas(res.data.data))
+  
   if (!pessoas) getPessoas()
-  console.log(pessoasEscolhidas)
+
   return (
     <>
       <Snackbar

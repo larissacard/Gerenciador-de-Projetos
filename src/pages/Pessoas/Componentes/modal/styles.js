@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const ButtonPost = styled.button`
   display: flex;
   width: 3.25rem;
   height: 3.25rem;
@@ -64,15 +64,39 @@ export const ButtonCancel = styled.div`
   }
 `;
 
+export const ButtonCargo = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 40px;
+  background: none;
+  font-size: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px; 
+  background: #FFFFFF;
+  color: rgba(40, 9, 72, 0.35);
+  
+  p {
+    margin-top: 18px;
+  }
+
+  &:hover {
+    background-color: rgba(204, 204, 204, 0.2); 
+    color: rgba(40, 9, 72, 0.5);
+    border: 1px solid rgba(40, 9, 72, 0.5);   
+  }
+`;
+
 export const Salario = styled.h6`
-    color: #764BA2; 
-    font-weight: 400;
-    
-    &:hover {
-      color: #6956E5;
-    } 
-    
-    &:focus {
-      color: var(--roxo);
-    }
+  color: #764BA2; 
+  font-weight: 400;
+  
+  &:hover {
+    color: #6956E5;
+  } 
+  
+  &:focus {
+    color: var(--roxo);
+  }
 `;
