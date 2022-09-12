@@ -13,6 +13,7 @@ import CardInfoPessoa from "../CardInfoPessoa";
 import CardProjetosDaPessoa from "../CardProjetosDaPessoa";
 import CardTarefasDaPessoa from "../CardTarefasDaPessoa";
 import Lista from "../Lista";
+import ListaMaior from "../ListaMaior";
 import { Grafico } from "../grafico";
 
 function Detalhes(Props) {
@@ -85,11 +86,11 @@ function Detalhes(Props) {
             </Tarefas>
             
             {/* Lista de Projetos que a pessoa está*/}
-            <Lista titulo="Projetos">
-              {detalhes.equipes.map(eq => eq.projetos).map((e, index) =>
-                <CardProjetosDaPessoa key={index} titulo={e}/>
+            <ListaMaior titulo="Projetos">
+              {detalhes.projetos.map((e, index) =>
+                <CardProjetosDaPessoa key={index} dados={e}/>
                 )}
-            </Lista>
+            </ListaMaior>
           </Body>
         </>
         }

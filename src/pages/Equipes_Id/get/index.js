@@ -102,7 +102,7 @@ function GetEquipe() {
             <div className='d-flex mt-2 ml-4' >
               {equipe.fotoPadrao 
               ? <Imagem><img src={equipe.fotoPadrao.link} alt="equipe" /></Imagem>
-              : <Imagem><img src="http://appsisecommerces3.s3.amazonaws.com/clientes/cliente3260/layout/1/img/user-placeholder.jpg?t=1500658590" alt="equipe" /></Imagem>
+              : <Imagem><img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" alt="equipe" /></Imagem>
               }
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
                 <Title>{equipe.nome}</Title>

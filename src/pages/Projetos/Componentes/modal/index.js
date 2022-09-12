@@ -111,23 +111,23 @@ export default function PostProjetos (Props) {
         // }
     }
 
-    function cadastrar(e) {
-        e.preventDefault()
+    function cadastrar() {
+        
         api.post('/projetos', {
             nome: nomeProjeto,
             descricao: descricaoProjeto,
             equipes: equipeEscolhida
         })
-        .then(res=>{
+        .then(res => {
             setNomeProjeto('')
             setDescricaoProjeto('')    
-            setMensagem('Projeto Cadastrado com Sucesso!')
+            setMensagem(res.data.message)
             setEstado('success');
             setOpenDrawer(false)
             Props.update()
         })
-        .catch(e => { 
-            setMensagem(e.response.data.data);
+        .catch(err => { 
+            setMensagem(err.response.data.message);
             setOpenDrawer(true);
             setEstado('error'); 
         })
@@ -204,7 +204,7 @@ export default function PostProjetos (Props) {
                             <Cancelar onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar onClick={(e)=> {cadastrar(e); handleClickCad()}} type='submit'>
+                            <Cadastrar onClick={(e)=> {cadastrar(); handleClickCad()}} type='submit'>
                                 Cadastrar
                             </Cadastrar >
                         </Box>

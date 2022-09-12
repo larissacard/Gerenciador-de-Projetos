@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import api from "../../../api";
+import React, { useEffect, useState } from 'react';
+import api from '../../../api';
 
 import { 
-  TextField,
+  TextField, 
   Autocomplete 
 } from '@mui/material';
 
@@ -10,36 +10,37 @@ export default function PessoasEquipe(Props) {
   const [pessoas, setPessoas] = useState ([])
 
   useEffect(() => {
-    const getPessoas = async () => {
+    const getEquipes = async () => {
       try {
-        const response = await api.get('/pessoas');
+        const response = await api.get('/equipes');
         setPessoas(response.data.data);
       } catch (error) {
         console.log(error);
       }
     };
-    getPessoas();
+    getEquipes();
   }, []);
 
-  const [value, setValue] = useState(Props.dados.pessoas);
+  const [nomePessoa, setNomePessoa] = useState(pessoas)
 
   return (
     <Autocomplete
       onChange={(event, newValue) => {
-        setValue(newValue); (Props.childToParent(newValue))
+        setNomePessoa(newValue); (Props.childToParent(newValue))
       }}
-      value={value}
+      data-cy="equipes"
+      value={nomePessoa}
       multiple
       options={pessoas}
-      getOptionLabel={(pessoas) => pessoas.nome}
+      getOptionLabel={(pessoa) => pessoa.nome}
       filterSelectedOptions
       isOptionEqualToValue={(option, value) => option.id === value.id}
       renderInput={(params) => (
         <TextField
           {...params}
           required
-          label='Pessoas'
-          placeholder='Selecione as Pessoas'
+          label='Equipes'
+          placeholder='Selecione as Equipes'
           size='small'
           sx={{
             '&:hover .MuiInputLabel-outlined': {
@@ -52,35 +53,35 @@ export default function PessoasEquipe(Props) {
               svg: {color: '#764BA2'},
 
               '&:hover' :{
-                  color: '#6956E5',
-                  transition: '0.5s',
-                  svg: {color: '#6956E5'},
+                color: '#6956E5',
+                transition: '0.5s',
+                svg: {color: '#6956E5'},
               },
               '&.Mui-focused': {
-                  borderColor: '#764BA2',
-                  color: '#280948',
-                  transition: '0.5s',
-                  svg: {color: '#280948'},
+                borderColor: '#764BA2',
+                color: '#280948',
+                transition: '0.5s',
+                svg: {color: '#280948'},
               },
               '& fieldset': {
-                  border: '2px solid #764BA2',
-                  transition: '0.5s',
+                border: '2px solid #764BA2',
+                transition: '0.5s',
               },
               '&:hover fieldset': {
-                  border: '2px solid #6956E5',
-                  transition: '0.5s',
+                border: '2px solid #6956E5',
+                transition: '0.5s',
               },
               '&.Mui-focused fieldset': {
-                  borderColor: '#280948',
-                  transition: '0.5s',
+                borderColor: '#280948',
+                transition: '0.5s',
               },
             },
             '.MuiInputLabel-outlined': {
               color: '#764BA2',
               transition: '0.5s',
               '&.Mui-focused': {
-                  color: '#280948',
-                  transition: '0.5s',
+                color: '#280948',
+                transition: '0.5s',
               },
             },    
           }}
