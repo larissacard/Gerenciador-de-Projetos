@@ -119,6 +119,7 @@ function PostPessoas(Props) {
     const [datanasc, setDatanasc] = useState()
     const [salario, setSalario] = useState()
     const [imagem, setImagem] = useState()
+    console.log(imagem)
 
     const handleClickCad = () => {
         if(nomePessoa !== ''){
