@@ -87,8 +87,8 @@ function Detalhes(Props) {
             
             {/* Lista de Projetos que a pessoa está*/}
             <ListaMaior titulo="Projetos">
-              {detalhes.equipes.map(eq => eq.projetos).map((e, index) =>
-                <CardProjetosDaPessoa key={index} titulo={e}/>
+              {detalhes.projetos.map((e, index) =>
+                <CardProjetosDaPessoa key={index} dados={e}/>
                 )}
             </ListaMaior>
           </Body>
