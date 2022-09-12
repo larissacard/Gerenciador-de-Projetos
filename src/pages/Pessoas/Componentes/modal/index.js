@@ -9,7 +9,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { BsPlusLg } from "react-icons/bs";
 
 import { 
-    Button, 
+    ButtonCargo,
+    ButtonPost, 
     ButtonCancel, 
     Cancelar, 
     Cadastrar, 
@@ -24,6 +25,7 @@ import {
     Snackbar, 
     Stack, 
     MenuItem, 
+    Autocomplete,
     InputAdornment 
 } from '@mui/material'
 
@@ -68,29 +70,6 @@ const CssTextField = styled(TextField)({
             color: '#280948',
             transition: '0.5s',
         },
-    },
-})
-
-const DateTextField = styled(TextField)({
-    '& .MuiOutlinedInput-root': {
-        color: "#764BA2",
-        '& fieldset': {
-            border: '2px solid #764BA2',
-            transition: '0.5s',
-        },
-        '&:hover fieldset': {
-            border: '2px solid #6956E5',
-            transition: '0.5s',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: '#280948',
-            transition: '0.5s',
-        },
-        'input': {
-            '&::placeholder': {
-                color: '#764BA2',
-            }
-        }
     },
 })
 
@@ -236,7 +215,7 @@ function PostPessoas(Props) {
                                     <InputAdornment position='start' style={{marginTop: '8.5px'}}>
                                         <Salario>R$</Salario>  
                                     </InputAdornment>
-                                ),
+                                )
                             }}
                             inputProps={{
                                 maxLength: 5,
@@ -256,7 +235,6 @@ function PostPessoas(Props) {
                                 onChange={(newValue) => {
                                     setDatanasc(newValue);
                                 }}
-                                // onChange={(e) => setDatanasc(e.target.value)}
                                 renderInput={(params) => <CssTextField size='small' {...params}
                                 />}
                             />
@@ -278,31 +256,16 @@ function PostPessoas(Props) {
                             }}
                         />
 
-                        <CssTextField
-                            data-cy="cargos"
-                            select
-                            required
-                            fullWidth
-                            label='Cargo'
+                        <Autocomplete
+                            id="free-solo-demo"
                             size='small'
-                            onChange={(e) => setCargoEscolhido(e.target.value)}
-                            placeholder='Selecione o Cargo'
-                            defaultValue=''
-                        >
-                            {cargos.map((cargos) => <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem> )}
-
-                            <div style={{ display: 'flex', padding: '0px 16px', gap: '6px'}}>
-                                <TextField 
-                                    size='small'
-                                    sx={{
-                                        width: '260px',
-                                        '& legend': { display: 'none' },
-                                        '& fieldset': { top: 0 },
-                                    }}
-                                />
-                                <button type='button' style={{ width: '180px', padding: '6px 10px', background: 'none' }}><BsPlusLg size={14}/> Adicionar Cargo</button>
-                            </div>
-                        </CssTextField>
+                            freeSolo
+                            options={cargos.map((option) => option.cargo)}
+                            renderInput={(params) => <CssTextField
+                                                    // required
+                                                    onChange={(e) => setCargoEscolhido(e.target.value)}
+                                                    {...params} label="Cargo" />}
+                        />
 
                         <Box sx={{ display: 'flex', justifyContent: 'end', gap: '10px' }}>
                             <Cancelar onClick={() => setOpenDrawer(false)}>
@@ -317,7 +280,7 @@ function PostPessoas(Props) {
             </Drawer>
 
             <div>
-                <Button data-cy="adicionar pessoa" onClick={handleOpen}><img src='assets/btn_create.svg' alt='create icon' /></Button>
+                <ButtonPost data-cy="adicionar pessoa" onClick={handleOpen}><img src='assets/btn_create.svg' alt='create icon' /></ButtonPost>
             </div>
         </>
     );
