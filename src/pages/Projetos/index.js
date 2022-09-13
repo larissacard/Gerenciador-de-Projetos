@@ -29,9 +29,10 @@ import SearchEmptyState from '../../Components/EmptyState';
 
 function Projetos () {
   const [updateScreen, setUpdate] = useState(true)
-  const [projetos, setProjetos] = useState([])
+  const [projetos, setProjetos] = useState()
   const [name, setName] = useState('');
   const [foundProjetos, setFoundProjetos] = useState();
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   const getProjetos = async () => {
     api
@@ -43,14 +44,8 @@ function Projetos () {
       .catch((err) => {
         if (err.response.status === 401) {
           // alert("Faça o Login para visualizar a página");
-            return (
-              <ContainerAlert>
-                <img src='../../../public/assets/permissao_acesso.svg'/>
-                <h4 style={{color: 'black'}}>Você não tem permissão para acessar isso!</h4>
-                {/* {setTimeout(() => window.location.href = "/login", 10000)} */}
-              </ContainerAlert>
-            )
-        
+          setIsAlertVisible(true)
+          setTimeout(() => window.location.href = "/login", 2000)
         } else console.log(err.message);
       });
   };
@@ -108,6 +103,7 @@ function Projetos () {
   }
 
   return (
+    <> { projetos ?
     <Container>
       <ColunaUm>
         <TopGrafico>
@@ -162,14 +158,14 @@ function Projetos () {
             <ul> 
               {foundProjetos && foundProjetos.length > 0 ? (
                 foundProjetos.map((projeto) => (
-                <CardProjeto key={projeto.id}>
+                  <CardProjeto key={projeto.id}>
                   <p> {projeto.nome} </p>
                   <a href={'projetos/' + projeto.id}>{'Detalhes >'}</a>
                 </CardProjeto> 
                 ))
                 ) :
-                  <SearchEmptyState titulo='Projeto não Encontrado! ;-; '/>
-                }
+                <SearchEmptyState titulo='Projeto não Encontrado! ;-; '/>
+              }
             </ul>
           </ContTabela>
         </ContProjetos>
@@ -185,6 +181,13 @@ function Projetos () {
            <SalaVirtual/>
       </ColunaDois>
     </Container>
+    : isAlertVisible && 
+      <ContainerAlert style={{display: isAlertVisible ? "block" : "none"}}>
+        <img src='../../../public/assets/permissao_acesso.svg'/>
+        <h4 style={{color: 'black'}}>Você não tem permissão para acessar isso!</h4>
+      </ContainerAlert>
+    }
+    </>
   );
 }
 
