@@ -62,7 +62,7 @@ function GetEquipe() {
         if (err.response.status === 401) window.location.href = '/login'
         else console.log(err.message)
       })
-  }, [])
+  })
 
   function updateScreen() {
     api.get(path)

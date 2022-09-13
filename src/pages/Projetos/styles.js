@@ -1,31 +1,6 @@
 import styled from 'styled-components';
 
-import permissao_svg from './assets/permissao_acesso.svg'
-
 import { Lupa } from '../../styles/Icons';
-
-export const ContainerAlert = styled.div`
-    background-color: #F1F1F1;
-    width: 100vw;
-    height: 100vh;
-
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-
-    > h5 {
-        color: #280948;
-    }
-
-    div { 
-        margin-top: 50px;
-        background-image: url(${permissao_svg});
-        width: 712px;
-        height: 570px;  
-    }
-`;
-
-
 
 export const ColunaUm = styled.div`
     width: 46%;

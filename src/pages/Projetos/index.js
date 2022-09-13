@@ -6,7 +6,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 
 import {
-  ContainerAlert,
   ColunaUm,
   ContGrafico,
   TopGrafico,
@@ -26,6 +25,7 @@ import SalaVirtual from './Componentes/CardSalaVirtual';
 import PostProjetos from './Componentes/modal';
 import Reminders from './Componentes/Reminder';
 import SearchEmptyState from '../../Components/EmptyState';
+import NaoAutorizado from '../../Components/NaoAutorizado';
 
 function Projetos () {
   const [updateScreen, setUpdate] = useState(true)
@@ -180,13 +180,7 @@ function Projetos () {
            <SalaVirtual/>
       </ColunaDois>
     </Container>
-    : isAlertVisible && 
-      <ContainerAlert style={{display: isAlertVisible ? "block" : "none"}}>
-        <div/>
-        <h5>Você não tem permissão para acessar isso!</h5>
-        <h5>Faça Login para visualizar a página.</h5>
-      </ContainerAlert>
-    }
+    : isAlertVisible && <NaoAutorizado />}
     </>
   );
 }

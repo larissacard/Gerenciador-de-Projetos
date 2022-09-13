@@ -10,6 +10,7 @@ import TarefasId from './pages/Tarefas_Id'
 import Pessoas from './pages/Pessoas'
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound"
 
 function Rout() {
     return (
@@ -25,6 +26,7 @@ function Rout() {
                 <Route exact path="/tarefas/:id" element={<TarefasId/>} />
                 <Route exact path="/registro" element={<Register/>} />
                 <Route exact path="/login" element={<Login/>} />
+                <Route path="/:rota" element={<NotFound/>}/>
             </Routes>
         </BrowserRouter>
     )

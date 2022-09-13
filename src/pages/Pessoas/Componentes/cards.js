@@ -8,25 +8,26 @@ import SearchEmptyState from '../../../Components/EmptyState';
 function Cards(Props) {
   const [pessoaSelecionada, setPessoaSelecionada] = useState(0);
   const [search, setSearch] = useState(Props.search);
+  const [pessoasFiltradas, setPessoasFiltradas] = useState(Props.pessoas)
   const [filtros, setFiltros] = useState(Props.filtros)
 
   // Filtrando as pessoas de acordo com a barra de pesquisa
   const filter = () => {
-    Props.setPessoas(Props.pessoas);
+    setPessoasFiltradas(Props.pessoas);
     let keyword = ''
     if (Props.search) keyword = Props.search;
     if (keyword !== '') {
       const results = Props.pessoas.filter((pessoa) => {
         return pessoa.nome.toUpperCase().includes(keyword.toUpperCase());
       });
-      Props.setPessoas(results);
+      setPessoasFiltradas(results);
     } else {
-      Props.setPessoas(Props.pessoas);
+      setPessoasFiltradas(Props.pessoas);
     }
     // setNome(keyword);
     const filt = Object.entries(Props.filtros).filter(f => !f[1])
     filt.forEach(f => {
-      Props.setPessoas(valorAntigo => valorAntigo.filter(p => p.cargo !== f[0]))
+      setPessoasFiltradas(valorAntigo => valorAntigo.filter(p => p.cargo !== f[0]))
     })
   }
 
@@ -46,8 +47,8 @@ function Cards(Props) {
 
   return (
     <Organizer style={{ overflowY: 'scroll' }}>
-      {Props.pessoas.length > 0 ?
-        Props.pessoas.map((p) => (
+      {pessoasFiltradas.length > 0 ?
+        pessoasFiltradas.map((p) => (
           <CardPessoa
           key={p.id}
           id={p.id}
