@@ -13,14 +13,17 @@ export const ContainerUnico = styled.div`
     @media (max-width:480px) {
         display: flex;
         flex-direction: column;
+        align-self: center;
 
-        width: 100%;
+        width: 100vw;
         height: 100%;
 
         margin: 0;
         padding: 0 17px;
+        
 
         border-radius: 0;
+        
     }
 `;
 
