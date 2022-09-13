@@ -119,11 +119,12 @@ function PostPessoas(Props) {
     const [datanasc, setDatanasc] = useState()
     const [salario, setSalario] = useState()
     const [imagem, setImagem] = useState()
-    console.log(imagem)
 
     const handleClickCad = () => {
         if(nomePessoa !== ''){
-            setTimeout(() => setOpenAlert(true), 150)
+            setTimeout(() => setOpenAlert(true), 150);
+            setOpenDrawer(false);
+            
         }
     }
 
@@ -144,11 +145,10 @@ function PostPessoas(Props) {
         .then(res => {
             setMensagem('Pessoa Cadastrada com Sucesso!')
             setEstado('success');
-            setOpenDrawer(false)
             Props.update()
         })
         .catch(e => { 
-            setOpenDrawer(true);
+            // setOpenDrawer(true);
             setEstado('error');     
         })  
     }
@@ -272,7 +272,7 @@ function PostPessoas(Props) {
                             <Cancelar onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar onClick={(e) => {cadastrar(e); handleClickCad()}} type='submit'>
+                            <Cadastrar type='submit' onClick={(e) => {cadastrar(e); handleClickCad()}} >
                                 Cadastrar
                             </Cadastrar >
                         </Box>
