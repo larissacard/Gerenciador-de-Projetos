@@ -71,6 +71,13 @@ export const Trelo = styled.div`
     height: calc(100% - 240px);
     margin-top: 10px;
 
+    @media (max-width: 1280px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        padding-left: 20px;
+    }
+
     @media (max-width: 480px) {
         overflow-x: scroll;
         overflow-y: hidden;
@@ -96,7 +103,7 @@ export const Main = styled.div`
         border-radius: 15px;
     }
 
-    >p {
+    > p {
         color: #280948;
         margin-left: 5px;
         margin-top: 10px;

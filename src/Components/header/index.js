@@ -13,7 +13,6 @@ import {
     ImgEquipes,
     ImgPessoas,
     Logout,
-    HeaderTwo
 } from './styles';
 
 

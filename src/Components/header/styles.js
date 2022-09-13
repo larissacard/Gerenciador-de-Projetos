@@ -32,7 +32,7 @@ export const Container = styled.div`
     
     @media (max-width: 480px) {
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: row;
 
         width: 100%;
         height: 50px;
@@ -40,23 +40,10 @@ export const Container = styled.div`
         border-radius: 0;
 
         margin: 0;
+        padding-right: 20px;
 
         align-items: center;
     }
-`;
-
-export const HeaderTwo = styled.div`
-    background-color: var(--roxo);
-    width: 100%;
-    height: 40px;
-    display: none;
-    
-    /* @media (max-width: 480px) {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 50px;
-    } */
 `;
 
 export const ContLogo = styled.div`
@@ -166,6 +153,7 @@ const iconCSS = css`
 
             
         }
+
 
         :hover {
             transform: scale(1.05);

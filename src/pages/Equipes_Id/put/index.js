@@ -110,7 +110,7 @@ function PutEquipes(Props) {
     function update(e){
         e.preventDefault();
         api.put(path,{
-            eq_foto: fotoEscolhida,
+            foto: fotoEscolhida,
             nome: nomeEditEquipe,
             pessoas: pessoaEscolhida
         })
