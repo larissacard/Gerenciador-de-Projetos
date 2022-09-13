@@ -43,7 +43,6 @@ function Projetos () {
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          // alert("Faça o Login para visualizar a página");
           setIsAlertVisible(true)
           setTimeout(() => window.location.href = "/login", 2000)
         } else console.log(err.message);
@@ -183,8 +182,9 @@ function Projetos () {
     </Container>
     : isAlertVisible && 
       <ContainerAlert style={{display: isAlertVisible ? "block" : "none"}}>
-        <img src='../../../public/assets/permissao_acesso.svg'/>
-        <h4 style={{color: 'black'}}>Você não tem permissão para acessar isso!</h4>
+        <div/>
+        <h5>Você não tem permissão para acessar isso!</h5>
+        <h5>Faça Login para visualizar a página.</h5>
       </ContainerAlert>
     }
     </>
