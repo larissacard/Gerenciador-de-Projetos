@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import api from '../../../api';
+import React, { useState } from 'react';
 
 import { Organizer } from '../styles';
 
