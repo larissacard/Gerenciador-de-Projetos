@@ -181,8 +181,7 @@ export default function PostProjetos (Props) {
                                 maxLength: 50,
                             }}
                         />
-                        {/* <span style={{color: 'black'}}>{error}</span> */}
-
+                        
                         <CssTextField
                             data-cy="Descricao"
                             autoComplete='off'
@@ -204,7 +203,7 @@ export default function PostProjetos (Props) {
                             <Cancelar onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar onClick={(e)=> {cadastrar(); handleClickCad()}} type='submit'>
+                            <Cadastrar type='submit' onClick={(e)=> {cadastrar(); handleClickCad()}}>
                                 Cadastrar
                             </Cadastrar >
                         </Box>

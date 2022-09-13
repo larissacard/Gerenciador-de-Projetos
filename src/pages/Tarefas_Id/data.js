@@ -16,7 +16,7 @@ class ExibirDetalhesTarefas extends Component {
       })
       .catch((err) => {
         if (err.response.status == 401) {
-          alert("Faça o Login para visualizar a página");
+          // alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
         } else console.log(err.message);
       });

@@ -6,6 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 
 import {
+  ContainerAlert,
   ColunaUm,
   ContGrafico,
   TopGrafico,
@@ -41,8 +42,15 @@ function Projetos () {
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          alert("Faça o Login para visualizar a página");
-          window.location.href = "/login";
+          // alert("Faça o Login para visualizar a página");
+            return (
+              <ContainerAlert>
+                <img src='../../../public/assets/permissao_acesso.svg'/>
+                <h4 style={{color: 'black'}}>Você não tem permissão para acessar isso!</h4>
+                {/* {setTimeout(() => window.location.href = "/login", 10000)} */}
+              </ContainerAlert>
+            )
+        
         } else console.log(err.message);
       });
   };

@@ -2,6 +2,13 @@ import styled from 'styled-components';
 
 import { Lupa } from '../../styles/Icons';
 
+export const ContainerAlert = styled.div`
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+
+`;
+
 export const ColunaUm = styled.div`
     width: 46%;
     height: calc(100% - 48px);
@@ -22,7 +29,6 @@ export const ColunaUm = styled.div`
 
         border-radius: 0;
     }
-    
 `;
 
 export const ContGrafico = styled.div`

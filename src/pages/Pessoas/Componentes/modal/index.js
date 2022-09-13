@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../../api';
 
-import { styled } from '@mui/material/styles';
 import MuiAlert from '@mui/material/Alert';
+import { styled } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { BsPlusLg } from "react-icons/bs";
 
 import { 
-    ButtonCargo,
     ButtonPost, 
     ButtonCancel, 
     Cancelar, 
@@ -24,7 +22,6 @@ import {
     TextField, 
     Snackbar, 
     Stack, 
-    MenuItem, 
     Autocomplete,
     InputAdornment 
 } from '@mui/material'
@@ -95,6 +92,9 @@ function PostPessoas(Props) {
     }
     const handleClose = () => {
         setOpenDrawer(false);
+        setNomePessoa('')
+        setDatanasc('')
+        setSalario('')
     }
 
     var [mensagem, setMensagem] = useState('')
@@ -119,7 +119,6 @@ function PostPessoas(Props) {
     const [datanasc, setDatanasc] = useState()
     const [salario, setSalario] = useState()
     const [imagem, setImagem] = useState()
-    console.log(imagem)
 
     const handleClickCad = () => {
         if(nomePessoa !== ''){
@@ -142,13 +141,17 @@ function PostPessoas(Props) {
 
         api.post('/pessoas', Form, config)
         .then(res => {
+            setNomePessoa('')
+            setDatanasc('')
+            setSalario('')
             setMensagem('Pessoa Cadastrada com Sucesso!')
             setEstado('success');
             setOpenDrawer(false)
             Props.update()
         })
-        .catch(e => { 
+        .catch(err => { 
             setOpenDrawer(true);
+            setMensagem(err.response.data.message)
             setEstado('error');     
         })  
     }
@@ -261,6 +264,7 @@ function PostPessoas(Props) {
                             id="free-solo-demo"
                             size='small'
                             freeSolo
+                            onChange={(e, newValue) => setCargoEscolhido(newValue)}
                             options={cargos.map((option) => option.cargo)}
                             renderInput={(params) => <CssTextField
                                                     // required

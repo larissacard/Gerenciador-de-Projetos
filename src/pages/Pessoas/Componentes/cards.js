@@ -7,48 +7,27 @@ import CardPessoa from './CardPessoa';
 import SearchEmptyState from '../../../Components/EmptyState';
 
 function Cards(Props) {
-  const [initialPessoas, setInitialPessoas] = useState([]);
-  const [pessoas, setPessoas] = useState([]);
   const [pessoaSelecionada, setPessoaSelecionada] = useState(0);
   const [search, setSearch] = useState(Props.search);
   const [filtros, setFiltros] = useState(Props.filtros)
 
-  // buscando todas as pessoas na API
-  useEffect(() => {
-    const getPessoas = async () => {
-      api
-        .get('/pessoas')
-        .then((response) => {
-          setInitialPessoas(response.data.data);
-          setPessoas(response.data.data);
-        })
-        .catch((err) => {
-          if (err.response.status === 401) {
-            alert('Faça o Login para visualizar a página');
-            window.location.href = '/login';
-          } else console.log(err.message);
-        });
-    };
-    getPessoas();
-  }, []);
-
   // Filtrando as pessoas de acordo com a barra de pesquisa
   const filter = () => {
-    setPessoas(initialPessoas);
+    Props.setPessoas(Props.pessoas);
     let keyword = ''
     if (Props.search) keyword = Props.search;
     if (keyword !== '') {
-      const results = initialPessoas.filter((pessoa) => {
+      const results = Props.pessoas.filter((pessoa) => {
         return pessoa.nome.toUpperCase().includes(keyword.toUpperCase());
       });
-      setPessoas(results);
+      Props.setPessoas(results);
     } else {
-      setPessoas(initialPessoas);
+      Props.setPessoas(Props.pessoas);
     }
     // setNome(keyword);
     const filt = Object.entries(Props.filtros).filter(f => !f[1])
     filt.forEach(f => {
-      setPessoas(valorAntigo => valorAntigo.filter(p => p.cargo !== f[0]))
+      Props.setPessoas(valorAntigo => valorAntigo.filter(p => p.cargo !== f[0]))
     })
   }
 
@@ -68,8 +47,8 @@ function Cards(Props) {
 
   return (
     <Organizer style={{ overflowY: 'scroll' }}>
-      {pessoas.length > 0 ?
-        pessoas.map((p) => (
+      {Props.pessoas.length > 0 ?
+        Props.pessoas.map((p) => (
           <CardPessoa
           key={p.id}
           id={p.id}

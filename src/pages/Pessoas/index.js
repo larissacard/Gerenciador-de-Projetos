@@ -21,6 +21,7 @@ function Pessoas() {
   const [search, setSearch] = useState('')
   const [cargos, setCargos] = useState()
   const [filtros, setFiltros] = useState()
+  const [pessoas, setPessoas] = useState()
 
   const getCargos = () => {
     api
@@ -33,8 +34,15 @@ function Pessoas() {
       })
       .catch((error) => console.log(error))
   }
-
   if (!cargos) getCargos()
+
+  const getPessoas = () => {
+    api
+      .get("/pessoas")
+      .then(response => setPessoas(response.data.data))
+      .catch(err => console.log(err))
+  }
+  if (!pessoas) getPessoas()
 
   const childToParent = (childdata) => {
     setData(childdata);
@@ -54,10 +62,11 @@ function Pessoas() {
   }
 
   return (
+    pessoas &&
     <Container>
       <Detalhes dados={data}/>
       <ColunaDois>
-        <CardCriar titulo='Adicionar Pessoa' descricao='Cadastre uma nova pessoa' button={<PostPessoas/>}/>
+        <CardCriar titulo='Adicionar Pessoa' descricao='Cadastre uma nova pessoa' button={<PostPessoas update={getPessoas}/>}/>
         <ContFiltros>
           <SearchBar placeholder='Pesquise Aqui...' handleChange={handleChange}/>
           { cargos &&
@@ -81,7 +90,7 @@ function Pessoas() {
           </Dropdown>
           }
         </ContFiltros>
-        <Cards childToParent={childToParent} search={search} filtros={filtros}/>
+        <Cards childToParent={childToParent} search={search} filtros={filtros} pessoas={pessoas} setPessoas={getPessoas}/>
       </ColunaDois>
     </Container>
   );

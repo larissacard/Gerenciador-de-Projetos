@@ -3,6 +3,10 @@ import api from '../../../../api';
 
 import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import moment from "moment";
 
 import { 
     ButtonCancel, 
@@ -19,7 +23,7 @@ import {
     TextField, 
     Snackbar, 
     Stack, 
-    MenuItem,
+    Autocomplete,
     InputAdornment 
 } from '@mui/material'
 
@@ -110,9 +114,9 @@ function EditarPessoa(Props) {
     
     const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.cargo)
     const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.nome)
-    const [datanascEdit, setDatanascEdit] = useState(Props.dados.nascimento)
+    const [datanascEdit, setDatanascEdit] = useState(moment(Props.dados.nascimento).utc().format('YYYY-MM-DD'))
     const [salarioEdit, setEditSalario] = useState(Props.dados.salario)
-    // const [imagemEdit, setEditImagem] = useState(Props.dados.dados.foto)
+    // const [imagemEdit, setEditImagem] = useState(Props.dados.foto)
     
     const handleClickCad = () => {
         if(nomeEditPessoa !== '') setTimeout(() => setOpenAlert(true), 150)
@@ -211,38 +215,39 @@ function EditarPessoa(Props) {
                               }}
                         />
 
-                        <CssTextField
-                            data-cy="edita-datanasc-pessoa"
-                            autoComplete='off'
-                            required
-                            onChange={(e) => setDatanascEdit(e.target.value)}
-                            fullWidth
-                            size='small'
-                            id='outlined-required'
-                            label='Data de Nascimento'
-                            type='date'
-                            value={datanascEdit}
-                            InputLabelProps={{
-                                shrink: true
-                              }}
-                        />
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DatePicker
+                                data-cy="edita-datanasc-pessoa"
+                                autoComplete='off'
+                                fullWidth
+                                required
+                                disableFuture={true}
+                                inputFormat="dd/MM/yyyy"
+                                label="Data de Nascimento"
+                                openTo="year"
+                                views={['year', 'month', 'day']}
+                                value={datanascEdit}
+                                onChange={(newValue) => {
+                                    setDatanascEdit(newValue);
+                                }}
+                                renderInput={(params) => <CssTextField size='small' {...params}
+                                />}
+                            />
+                        </LocalizationProvider>
                         
-                        <CssTextField
+                        <Autocomplete
                             data-cy="edita-cargo-pessoa"
-                            select
-                            required
-                            fullWidth
-                            label='Cargo'
+                            id="free-solo-demo"
                             size='small'
-                            onChange={(e) => setCargoEditEscolhido(e.target.value)}
-                            placeholder='Selecione o Cargo'
-                            defaultValue=''
+                            freeSolo
+                            onChange={(e, newValue) => setCargoEditEscolhido(newValue)}
                             value={cargoEditEscolhido}
-                        >
-                            {cargos.map((cargos) =>
-                                <MenuItem value={cargos.cargo} key={cargos.cargo}>{cargos.cargo}</MenuItem>
-                            )}
-                        </CssTextField>
+                            options={cargos.map((option) => option.cargo)}
+                            renderInput={(params) => <CssTextField
+                                                    // required
+                                                    onChange={(e) => setCargoEditEscolhido(e.target.value)}
+                                                    {...params} label="Cargo" />}
+                        />
 
                         <Box sx={{ display: 'flex', justifyContent: 'end', gap: '10px' }}>
                             <Cancelar onClick={() => setOpenDrawer(false)}>
