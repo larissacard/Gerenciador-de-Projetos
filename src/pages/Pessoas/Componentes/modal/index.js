@@ -122,7 +122,9 @@ function PostPessoas(Props) {
 
     const handleClickCad = () => {
         if(nomePessoa !== ''){
-            setTimeout(() => setOpenAlert(true), 150)
+            setTimeout(() => setOpenAlert(true), 150);
+            setOpenDrawer(false);
+            
         }
     }
 
@@ -146,11 +148,11 @@ function PostPessoas(Props) {
             setSalario('')
             setMensagem('Pessoa Cadastrada com Sucesso!')
             setEstado('success');
-            setOpenDrawer(false)
             Props.update()
         })
+
         .catch(err => { 
-            setOpenDrawer(true);
+            // setOpenDrawer(true);
             setMensagem(err.response.data.message)
             setEstado('error');     
         })  
@@ -276,7 +278,7 @@ function PostPessoas(Props) {
                             <Cancelar onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar onClick={(e) => {cadastrar(e); handleClickCad()}} type='submit'>
+                            <Cadastrar type='submit' onClick={(e) => {cadastrar(e); handleClickCad()}} >
                                 Cadastrar
                             </Cadastrar >
                         </Box>
