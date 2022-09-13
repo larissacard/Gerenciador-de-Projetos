@@ -21,9 +21,7 @@ export const ContainerUnico = styled.div`
         margin: 0;
         padding: 0 17px;
         
-
         border-radius: 0;
-        
     }
 `;
 

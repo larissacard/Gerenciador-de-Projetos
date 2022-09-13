@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../api";
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import { Catalogo, Close, Container, Icon, Open, Pic, Text } from "./styles";
+
+import { 
+    Dialog, 
+    DialogActions, 
+    DialogContent, 
+    DialogTitle 
+} from '@mui/material';
+
+import { 
+    Catalogo, 
+    Close, 
+    Container, 
+    Icon, 
+    Open,
+    Pic, 
+    Text 
+} from "./styles";
 
 const style = {
     position: 'absolute',
