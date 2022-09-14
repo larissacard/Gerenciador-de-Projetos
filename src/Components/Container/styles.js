@@ -17,6 +17,8 @@ export const Cont = styled.div`
 
         width: 100vw;
         height: 100%;
+        overflow: scroll;
+        margin: 0;
         
         border-radius: 0;
     }
