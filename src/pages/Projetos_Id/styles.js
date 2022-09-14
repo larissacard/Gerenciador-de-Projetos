@@ -37,6 +37,10 @@ export const Buttons = styled.div`
             margin-left: 5px;
         }
     }
+
+    @media (max-width: 1280px) {
+        padding-right: 15px;
+    }
 `;
 
 export const Top = styled.div`

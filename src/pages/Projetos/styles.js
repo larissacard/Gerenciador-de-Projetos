@@ -10,13 +10,14 @@ export const ColunaUm = styled.div`
     border-radius: 20px;
     overflow: hidden;
 
-    background-color: white;
+    background-color: black;
 
     display: flex;
     flex-direction: column;
 
     @media (max-width: 480px) {
         width: 100%;
+        overflow: visible;
 
         margin: 0;
 
@@ -46,9 +47,8 @@ export const ColunaDois = styled.div`
     height: calc(100% - 48px);
     margin: 24px 10px;
     padding: 15px 20px;
-    background-color: #fff;
+    background-color: red;
     border-radius: 20px;
-
     
     display: flex;
     flex-direction: column;
@@ -60,6 +60,8 @@ export const ColunaDois = styled.div`
 
     @media (max-width: 480px) {
         width: 100%;
+        
+        overflow: scroll;
 
         margin: 0;
 
@@ -232,6 +234,7 @@ export const ContTabela = styled.div`
             }  
             height: 270px;
             margin-top: 10px;
+           
         }
     }
     
@@ -244,6 +247,10 @@ export const ContTabela = styled.div`
             font-size: 10px;
             line-height: 15px;
         }
+    }
+
+    @media (max-width: 480px) {
+        margin-bottom: 10px;
     }
 `;
 
