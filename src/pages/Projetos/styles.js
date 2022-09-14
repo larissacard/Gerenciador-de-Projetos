@@ -15,6 +15,11 @@ export const ColunaUm = styled.div`
     display: flex;
     flex-direction: column;
 
+    @media (max-width: 1600px) {
+        overflow: hidden;
+        max-height: 85vh;
+    }
+
     @media (max-width: 480px) {
         width: 100%;
         overflow: visible;
