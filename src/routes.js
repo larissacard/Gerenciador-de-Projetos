@@ -8,15 +8,16 @@ import EquipesId from './pages/Equipes_Id'
 import Tarefas from './pages/Tarefas'
 import TarefasId from './pages/Tarefas_Id'
 import Pessoas from './pages/Pessoas'
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import NotFound from "./pages/NotFound"
+import Register from './pages/Register';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound'
 
 function Rout() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path="/" element={<Projetos/>} />
+                <Route exact path="/login" element={<Login/>} />
+                <Route exact path="/" element={<Projetos />} />
                 <Route exact path="/projetos" element={<Projetos/>} />
                 <Route exact path="/projetos/:id" element={<ProjetosId/>} />
                 <Route exact path="/equipes" element={<Equipes/>} />
@@ -25,8 +26,7 @@ function Rout() {
                 <Route exact path="/tarefas" element={<Tarefas/>} />
                 <Route exact path="/tarefas/:id" element={<TarefasId/>} />
                 <Route exact path="/registro" element={<Register/>} />
-                <Route exact path="/login" element={<Login/>} />
-                <Route path="/:rota" element={<NotFound/>}/>
+                <Route path="/:rota" element={<NotFound />}/>
             </Routes>
         </BrowserRouter>
     )

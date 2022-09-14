@@ -164,7 +164,7 @@ export default function PostProjetos (Props) {
                     <ButtonCancel onClick={handleClose}/>
                 </Box>
 
-                <form onSubmit={handleClose}>
+                <form onSubmit={() => {cadastrar(); handleClose()}}>
                     <Stack spacing={2.5}>
                         <CssTextField
                             data-cy="nome"
@@ -203,7 +203,7 @@ export default function PostProjetos (Props) {
                             <Cancelar onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar type='submit' onClick={(e)=> {cadastrar(); handleClickCad()}}>
+                            <Cadastrar type='submit' onClick={() => handleClickCad()}>
                                 Cadastrar
                             </Cadastrar >
                         </Box>
