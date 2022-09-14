@@ -46,7 +46,7 @@ function Cards(Props) {
   };
 
   return (
-    <Organizer style={{ overflowY: 'scroll' }}>
+    <Organizer style={{ overflowY: 'auto' }}>
       {pessoasFiltradas.length > 0 ?
         pessoasFiltradas.map((p) => (
           <CardPessoa

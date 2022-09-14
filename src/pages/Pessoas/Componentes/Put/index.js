@@ -134,7 +134,6 @@ function EditarPessoa(Props) {
             setMensagem('Pessoa Editada com Sucesso!')
             setEstado('success');
             setOpenDrawer(false)
-            Props.update()
         })
         .catch(e => { 
             setMensagem(e.response.data.data);
