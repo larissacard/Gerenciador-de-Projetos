@@ -1,10 +1,18 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { 
+  Container,
+  Image
+} from './styles';
 
 function NotFound() {
   return (
-    <h1>Rota "{window.location.pathname}" não encotrada!</h1>
+    <Container> 
+      <Image />
+      <h5>Página "{window.location.pathname}" indisponível. Lamentamos o transtorno.</h5>
+      <h5>Tente pesquisar algo diferente.</h5>
+    </Container>
+
   );
 }
 

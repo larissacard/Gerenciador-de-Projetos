@@ -17,21 +17,19 @@ export const Container = styled.div`
         color: #280948;
     }
 
-    div { 
-        margin-top: 50px;
-        background-image: url(${permissao_svg});
-        width: 712px;
-        height: 570px;  
-    }
+    `;
+export const Image = styled.div`
+    margin-top: 50px;
+    background-image: url(${permissao_svg});
+    width: 712px;
+    height: 570px;  
 
     @media (max-width: 480px) {
-        div {
-            margin-top: 100px;
-            margin-bottom: 20px;
-            background-image: url(${permissao_mobile_svg});
-            width: 380px;
-            height: 286px;
-            word-wrap: normal;
-        }
+        margin-top: 100px;
+        margin-bottom: 20px;
+        background-image: url(${permissao_mobile_svg});
+        width: 380px;
+        height: 286px;
+        word-wrap: normal;
     }
 `;

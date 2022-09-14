@@ -17,6 +17,7 @@ function Rout() {
         <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={<Login/>} />
+                <Route exath path="/login" element={<Login />} />
                 <Route exact path="/projetos" element={<Projetos/>} />
                 <Route exact path="/projetos/:id" element={<ProjetosId/>} />
                 <Route exact path="/equipes" element={<Equipes/>} />
