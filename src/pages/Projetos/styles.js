@@ -10,13 +10,14 @@ export const ColunaUm = styled.div`
     border-radius: 20px;
     overflow: hidden;
 
-    background-color: black;
+    background-color: white;
 
     display: flex;
     flex-direction: column;
 
     @media (max-width: 480px) {
         width: 100%;
+
         overflow: visible;
 
         margin: 0;
@@ -47,22 +48,19 @@ export const ColunaDois = styled.div`
     height: calc(100% - 48px);
     margin: 24px 10px;
     padding: 15px 20px;
-    background-color: red;
+    background-color: white;
     border-radius: 20px;
     
     display: flex;
     flex-direction: column;
 
     @media (max-width: 1600px) {
-        overflow: hidden;
+
         max-height: 85vh; 
     }
 
     @media (max-width: 480px) {
         width: 100%;
-        
-        overflow: scroll;
-
         margin: 0;
 
         border-radius: 0;
