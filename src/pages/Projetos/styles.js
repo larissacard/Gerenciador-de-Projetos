@@ -55,7 +55,6 @@ export const ColunaDois = styled.div`
 
     @media (max-width: 480px) {
         width: 100%;
-
         margin: 0;
 
         border-radius: 0;
@@ -243,7 +242,7 @@ export const ContTabela = styled.div`
     }
 
     @media (max-width: 480px) {
-        margin-bottom: 10px;
+        overflow: hidden;
     }
 `;
 
