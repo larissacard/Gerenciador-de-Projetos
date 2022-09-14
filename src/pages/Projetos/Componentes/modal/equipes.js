@@ -37,10 +37,10 @@ export default function EquipesProjeto(Props) {
       isOptionEqualToValue={(option, value) => option.id === value.id}
       renderInput={(params) => (
         <TextField
-          {...params}
-          required
-          label='Equipes'
-          placeholder='Selecione as Equipes'
+        {...params}
+        label='Equipes'
+        placeholder='Selecione as Equipes'
+          required={nomeEquipe.length > 0 ? false : true}
           size='small'
           sx={{
             '&:hover .MuiInputLabel-outlined': {

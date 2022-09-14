@@ -50,7 +50,7 @@ function Login() {
         setEstado('success')
         localStorage.setItem('token', JSON.stringify(res.data.token))
         api.defaults.headers.Authorization = `Bearer ${res.data.token}`
-        setTimeout(() => window.location.href = '/', 500)
+        setTimeout(() => window.location.href = '/projetos', 500)
       }
     })
     .catch(error => {

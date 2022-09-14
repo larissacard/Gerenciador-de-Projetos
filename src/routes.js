@@ -16,8 +16,7 @@ function Rout() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path="/login" element={<Login/>} />
-                <Route exact path="/" element={<Projetos />} />
+                <Route exact path="/" element={<Login/>} />
                 <Route exact path="/projetos" element={<Projetos/>} />
                 <Route exact path="/projetos/:id" element={<ProjetosId/>} />
                 <Route exact path="/equipes" element={<Equipes/>} />

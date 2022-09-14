@@ -111,8 +111,8 @@ export default function PostProjetos (Props) {
         // }
     }
 
-    function cadastrar() {
-        
+    function cadastrar(e) {
+        e.preventDefault()
         api.post('/projetos', {
             nome: nomeProjeto,
             descricao: descricaoProjeto,
@@ -164,7 +164,7 @@ export default function PostProjetos (Props) {
                     <ButtonCancel onClick={handleClose}/>
                 </Box>
 
-                <form onSubmit={() => {cadastrar(); handleClose()}}>
+                <form onSubmit={(e) => cadastrar(e)}>
                     <Stack spacing={2.5}>
                         <CssTextField
                             data-cy="nome"
@@ -200,10 +200,10 @@ export default function PostProjetos (Props) {
                         <EquipesProjeto dados={Props.dados} childToParent={childToParent}/>
 
                         <Box sx={{display: 'flex', justifyContent: 'end', gap: '10px'}}>
-                            <Cancelar onClick={() => setOpenDrawer(false)}>
+                            <Cancelar type="button" onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar type='submit' onClick={() => handleClickCad()}>
+                            <Cadastrar type='submit'>
                                 Cadastrar
                             </Cadastrar >
                         </Box>
