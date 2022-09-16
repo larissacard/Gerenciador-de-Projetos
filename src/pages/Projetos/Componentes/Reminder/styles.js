@@ -38,7 +38,8 @@ export const Save = styled.button`
     
     text-align: center;
     
-    border-radius: 20px ;
+    border-radius: 20px;
+    border: none;
 
     :hover{
         background-color: white;
