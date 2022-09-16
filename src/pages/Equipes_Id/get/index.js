@@ -35,14 +35,7 @@ import {
 
 import PutEquipes from '../put';
 import RANKING from '../grafico';
-
-// import { render } from '@testing-library/react';
-// import { Equipes } from '../../../styles/Icons';
-// import { Deletar } from '../../Projetos_Id/styles';
-// import { useNavigate } from 'react-router-dom'
-// import { Ranking } from '../grafico';
-// import App from '../grafico';
-// import { Cont } from '../../../components/Container/styles';
+import NaoAutorizado from '../../../Components/NaoAutorizado';
 
 const style = {
   width: 125,
@@ -52,20 +45,25 @@ const style = {
 function GetEquipe() {
   const [equipe, setEquipe] = useState()
   const path = window.location.pathname;
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   useEffect(() => {
-    api.get(path)
+    api
+      .get(path)
       .then((response) => {
         setEquipe(response.data.data)
       })
-      .catch(err => {
-        if (err.response.status === 401) window.location.href = '/login'
-        else console.log(err.message)
-      })
-  }, [])
+      .catch((err) => {
+        if (err.response.status === 401) {
+          setIsAlertVisible(true)
+          setTimeout(() => window.location.href = "/login", 2000)
+        } else console.log(err.message);
+      });
+  })
 
   function updateScreen() {
-    api.get(path)
+    api
+      .get(path)
       .then((response) => {
         setEquipe(response.data.data)
       })
@@ -93,22 +91,26 @@ function GetEquipe() {
     else return <p>Sem Informações</p>
   }
 
-
   return (
     <>
+      { equipe ?
+      <>
       {equipe?.pessoas.length > 0 ?
         <>
           <ColunaUm>
             <div className='d-flex mt-2 ml-4' >
               {equipe.fotoPadrao 
-              ? <Imagem><img src={equipe.fotoPadrao.link} alt="equipe" /></Imagem>
-              : <Imagem><img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" alt="equipe" /></Imagem>
+              ? <Imagem>
+                  <img src={equipe.fotoPadrao.link} alt="equipe" />
+                </Imagem>
+              : <Imagem>
+                  <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" alt="equipe" />
+                </Imagem>
               }
               <div style={{ marginLeft: '20px', maxWidth: '350px', overflow: 'hidden' }}>
                 <Title>{equipe.nome}</Title>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-                 
-                    <PutEquipes dados={equipe} update={updateScreen} />
+                  <PutEquipes dados={equipe} update={updateScreen} />
                   
                   <AlertDeleteDialog
                     pathFinal='/equipes'
@@ -246,6 +248,8 @@ function GetEquipe() {
           
         </TeamInfo>
       }
+      </>
+      : isAlertVisible && <NaoAutorizado />}
     </>
   )
 }

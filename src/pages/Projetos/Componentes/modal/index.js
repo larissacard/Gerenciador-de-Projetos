@@ -99,16 +99,11 @@ export default function PostProjetos (Props) {
 
     const [nomeProjeto, setNomeProjeto] = useState('')
     const [descricaoProjeto, setDescricaoProjeto] = useState('')
-    // const [error, setError] = useState('')
     
     const handleClickCad = () => {
         if(nomeProjeto !== '' && EquipesProjeto !== ''){
             setTimeout(() => setOpenAlert(true), 150)
         }
-        // if (!nomeProjeto) {
-        //     setError('Digite um nome primeiro...');
-        //     return;
-        // }
     }
 
     function cadastrar(e) {
@@ -203,7 +198,7 @@ export default function PostProjetos (Props) {
                             <Cancelar type="button" onClick={() => setOpenDrawer(false)}>
                                 Cancelar
                             </Cancelar>
-                            <Cadastrar type='submit'>
+                            <Cadastrar type='submit' onCLick={handleClickCad}>
                                 Cadastrar
                             </Cadastrar >
                         </Box>

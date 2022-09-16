@@ -5,6 +5,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDrag } from 'react-dnd'
 import { Progress } from 'rsuite';
+import "rsuite/dist/rsuite.min.css";
 
 import { 
   BsFlagFill, 
@@ -198,7 +199,7 @@ function KanbanLi(Props) {
       e.preventDefault()
       api
       .post(`/subtarefas/${Props.dados.id}`, {
-        nome: subtarefa,
+        nome: subtarefa,border: 'none',
         prioridade: prioridadeSubtarefa,
       })
       .then(res => {
@@ -537,14 +538,14 @@ function KanbanLi(Props) {
                       />
 
                       <button
-                        style={{ background: 'transparent' }}
+                        style={{ background: 'transparent', border: 'none'}}
                         type='button'
                         onClick={() => {
                           setInputDisabled(tarefa.id);
                           setEditSubtarefaNome(tarefa.nome)
                         }}
                       >
-                        <EditIcon style={{ fontSize: '18px' }} />
+                        <EditIcon style={{ fontSize: '18px'}} />
                       </button>
 
                       <div>
@@ -556,6 +557,7 @@ function KanbanLi(Props) {
                           aria-expanded={openMenuEditSubtarefa ? 'true' : undefined}
                           style={{
                             background: 'transparent',
+                            border: 'none',
                           }}>
                             {
                               anchorElEditSubtarefaId === tarefa.id ?
@@ -602,7 +604,7 @@ function KanbanLi(Props) {
                       </div>
 
                       <button
-                        style={{ background: 'transparent' }}
+                        style={{ background: 'transparent', border: 'none' }}
                       >
                         <DeleteIcon style={{ fontSize: '18px' }} onClick={(e) => deletarSubtarefa(e, tarefa.id)}/>
                       </button>
@@ -682,7 +684,8 @@ function KanbanLi(Props) {
                           justifyContent: 'center',
                           marginRight: '4px',
                           background: 'transparent',
-                          display: visible
+                          display: visible,
+                          border: 'none',
                         }}>
                         <PrioridadeTarefa title={`Prioridade Subtarefa ${prioridadeSubtarefa === 1 ? 'Baixa' :
                                                                          prioridadeSubtarefa === 2 ? 'Media' :
@@ -692,7 +695,7 @@ function KanbanLi(Props) {
                             prioridadeSubtarefa === 1 ? <BsFlagFill size={14} style={{ color: '#67CB65' }} /> :
                             prioridadeSubtarefa === 2 ? <BsFlagFill size={14} style={{ color: '#FF9533' }} /> :
                             prioridadeSubtarefa === 3 ? <BsFlagFill size={14} style={{ color: '#E74444' }} /> :
-                            <BsFlag size={14} style={{ color: 'rgba(40, 9, 72, 0.5)', display: visible, marginLeft: '6px'}} />
+                            <BsFlag size={14} style={{ color: 'rgba(40, 9, 72, 0.5)', display: visible, marginLeft: '6px', border: 'none'}} />
                           }
                         </PrioridadeTarefa>
                       </button>
