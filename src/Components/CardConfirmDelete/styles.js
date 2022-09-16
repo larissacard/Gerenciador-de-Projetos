@@ -37,6 +37,7 @@ export const Deletar = styled.button`
     font-size: 14px;
     font-weight: 600;
     color: #FFFFFF;
+    border: none;
     
     &:hover {  
         transform: scale(1.1);

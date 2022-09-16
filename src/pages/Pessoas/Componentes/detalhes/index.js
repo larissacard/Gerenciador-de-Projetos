@@ -15,9 +15,11 @@ import CardTarefasDaPessoa from "../CardTarefasDaPessoa";
 import Lista from "../Lista";
 import ListaMaior from "../ListaMaior";
 import { Grafico } from "../grafico";
+import NaoAutorizado from "../../../../Components/NaoAutorizado";
 
 function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
   
   const getDetalhes = async () => {
     api
@@ -27,9 +29,9 @@ function Detalhes(Props) {
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          // alert("Faça o Login para visualizar a página");
-          window.location.href = "/login";
-        } else alert(err.message);
+          setIsAlertVisible(true)
+          setTimeout(() => window.location.href = "/login", 2000)
+        } else console.log(err.message);
       });
   };
 
@@ -39,6 +41,7 @@ function Detalhes(Props) {
   
   return (
     <>
+    { detalhes ?
       <Container>
         {Props.nome === "Ninguem selecionado" ?
 
@@ -95,6 +98,7 @@ function Detalhes(Props) {
         </>
         }
       </Container>
+      : isAlertVisible && <NaoAutorizado />}
     </>
   );
 }

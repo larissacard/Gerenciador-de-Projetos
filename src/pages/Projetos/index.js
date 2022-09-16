@@ -50,7 +50,7 @@ function Projetos () {
   };
   
   const filter = (e, filtrosAtualizados) => {
-    let keyword = ""
+    let keyword = ''
     if (e) keyword = e.target.value;
     if (keyword !== '') {
       const results = projetos.filter((projeto) => {
@@ -102,7 +102,8 @@ function Projetos () {
   }
 
   return (
-    <> { projetos ?
+    <> 
+    { projetos ?
     <Container>
       <ColunaUm>
         <TopGrafico>
@@ -171,13 +172,13 @@ function Projetos () {
       </ColunaUm>
 
       <ColunaDois>
-          <CardCriar
-            titulo='Criar Projeto'
-            descricao='Criar um novo projeto'
-            button={<PostProjetos update={getProjetos}/>}
-          />
-           <Reminders/>
-           <SalaVirtual/>
+        <CardCriar
+          titulo='Criar Projeto'
+          descricao='Criar um novo projeto'
+          button={<PostProjetos update={getProjetos}/>}
+        />
+          <Reminders/>
+          <SalaVirtual/>
       </ColunaDois>
     </Container>
     : isAlertVisible && <NaoAutorizado />}

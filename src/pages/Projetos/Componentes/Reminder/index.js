@@ -27,6 +27,8 @@ import {
   OrganizeReminder,
 } from "./styles";
 
+import NaoAutorizado from "../../../../Components/NaoAutorizado";
+
 function Reminders() {
   const [data, setData] = useState(new Date().toISOString());
   const handleChange = (newValue) => {
@@ -35,6 +37,7 @@ function Reminders() {
 
   const [descricao, setDescricao] = useState("");
   const [lembretes, setLembretes] = useState([]);
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   useEffect(() => {
     api
@@ -44,7 +47,8 @@ function Reminders() {
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          // window.location.href = "/login";
+          setIsAlertVisible(true)
+          setTimeout(() => window.location.href = "/login", 2000)
         } else console.log(err.message);
       });
   }, []);
@@ -108,7 +112,6 @@ function Reminders() {
           />
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DateTimePicker
-                
               renderInput={(props) => (
                 <TextField
                   data-cy="DateTimeInput"
@@ -170,6 +173,8 @@ function Reminders() {
           <Save>Salvar</Save>
         </Stack>
       </Form>
+
+      { lembretes ? 
       <Container>
         <Lembretes>
           {lembretes.map((le) => (
@@ -188,6 +193,7 @@ function Reminders() {
                     {le.descricao}
                   </Descricao>
                 </div>
+
                 <div>
                   <Datetime>
                     <img src="assets/calendar.svg" alt="calendar icon"/>
@@ -202,7 +208,9 @@ function Reminders() {
           ))}
         </Lembretes>
       </Container>
+      : isAlertVisible && <NaoAutorizado />}
     </>
   );
 }
+
 export default Reminders;

@@ -182,6 +182,7 @@ export const Save = styled.input`
     line-height: 20px;
     border-radius: 20px ;
     text-align: center;
+    border: none;
 
     :hover{
         background-color: white;

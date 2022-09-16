@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import api from '../../../api';
 
 import { Chart } from 'react-google-charts';
+import NaoAutorizado from '../../../Components/NaoAutorizado';
 
 // dados
 let data = []
@@ -15,18 +16,20 @@ const options = {
 
 export function Grafico() {
   const [data2, setData2] = useState([]);
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
+
   useEffect(() => {
-      api
-        .get('/relatorios/projetos')
-        .then(response => {
-          setData2(response.data.data)
-        })
-        .catch((err) => {
-          if (err.response.status === 401) {
-            // alert("Faça o Login para visualizar a página");
-            // window.location.href = "/login";
-          } else console.log(err.message);
-        });
+    api
+      .get('/relatorios/projetos')
+      .then(response => {
+        setData2(response.data.data)
+      })
+      .catch((err) => {
+        if (err.response.status === 401) {
+          setIsAlertVisible(true)
+          setTimeout(() => window.location.href = "/login", 2000)
+        } else console.log(err.message);
+      });
   }, []);
 
   data = [
@@ -37,19 +40,23 @@ export function Grafico() {
   })
 
   return (
-    <Chart
+    <>
+    { data2 ? 
+      <Chart
+      chartType='LineChart'
+      width='110%'
+      height='110%'
+      data={data}
+      options={options}
       style={{
         position: 'relative',
         overflow: 'hidden',
         marginLeft: '-5%',
         marginTop: '-2%',
       }}
-      chartType='LineChart'
-      width='110%'
-      height='110%'
-      data={data}
-      options={options}
-    />
+      />
+      : isAlertVisible && <NaoAutorizado />}
+  </>
   );
 }
 
