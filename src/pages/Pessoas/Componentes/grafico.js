@@ -24,14 +24,14 @@ export function Grafico(Props) {
         setRelatorio(response.data.data)
       })
       .catch((err) => {
-        if (err.response.status == 401) {
+        if (err.response.status === 401) {
           // alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
         } else console.log(err.message);
       });
   }
 
-  if (dados != Props.dados) {
+  if (dados !== Props.dados) {
     setDados(Props.dados)
     getRelatorio()
   }

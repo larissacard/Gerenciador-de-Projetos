@@ -26,7 +26,7 @@ function Detalhes(Props) {
         setDetalhes(response.data.data);
       })
       .catch((err) => {
-        if (err.response.status == 401) {
+        if (err.response.status === 401) {
           // alert("Faça o Login para visualizar a página");
           window.location.href = "/login";
         } else alert(err.message);
@@ -44,7 +44,7 @@ function Detalhes(Props) {
 
         // Quando não tem pessoas para serem exibidas
         <>
-          <img src="./assets/ninguem.svg" style={{height: '21rem', width: '18rem', display: 'flex', alignSelf: 'center'}}/>
+          <img src="./assets/ninguem.svg" alt="" style={{height: '21rem', width: '18rem', display: 'flex', alignSelf: 'center'}}/>
           <TitleNoResults>Ninguém selecionado</TitleNoResults>
         </>
 

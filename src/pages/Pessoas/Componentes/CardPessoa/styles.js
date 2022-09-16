@@ -11,6 +11,8 @@ export const Container = styled.button`
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 20px;
+
+  border: none;
   
   cursor: pointer;
   z-index: 1;
