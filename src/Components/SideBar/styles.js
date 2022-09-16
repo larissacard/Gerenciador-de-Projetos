@@ -51,6 +51,7 @@ export const ContLogo = styled.div`
     height: 30%;
     display: flex;
     justify-content: center;
+    padding-top: 100px;
 
     @media (max-width: 480px) {
         display:none;

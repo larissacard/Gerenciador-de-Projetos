@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Cont } from './styles';
 
-import Header from '../header';
+import SideBar from '../SideBar';
 
 function Container({children}) {
   return (
     <Cont>
-        <Header/>
+        <SideBar />
         {children}
     </Cont>
   );

@@ -16,7 +16,7 @@ import {
 } from './styles';
 
 
-function Header() {
+function SideBar() {
 
     // Pegando a rota que está sendo usada para saber qual botão
     // ficará com o status de ativo
@@ -51,24 +51,19 @@ function Header() {
                         <span className={url.substring(0,8) === '/pessoas' ? 'active' : ""}>Pessoas</span>
                     </MenuButton> 
                 </a>
-
-                {/* <a href="/tarefas">
-                    <MenuButton>
-                        <ImgTarefas className={url.substring(0,8) === '/tarefas' ? 'active' : ""}/>
-                        <span className={url.substring(0,8) === '/tarefas' ? 'active' : ""}>Tarefas</span>
-                    </MenuButton> 
-                </a> */}
             </NavMenu>
+
             <Logout data-cy="sair" onClick={() => {
                 localStorage.setItem('token', null)
                 window.location.href = '/login'
             }}>
                 < HiOutlineLogout size={28} color={'rgba(255, 255, 255, 0.6)'}/> <span>Sair</span>   
             </Logout>
+            
         </Container>
 
         </>
     );
 }
 
-export default Header;
+export default SideBar;
