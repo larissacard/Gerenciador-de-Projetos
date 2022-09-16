@@ -86,16 +86,16 @@ export default function TarefasProjeto(Props) {
         setNomeTarefa('')
         setDescricaoTarefa('')
     }
-
+    
     var [mensagem, setMensagem] = useState('')
     const [estado, setEstado] = useState();
-
+    
     const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} severity={props.severity} variant='filled' {...props} />;
     });
-
+    
     const [openAlert, setOpenAlert] = useState(false);
-
+    
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -103,16 +103,19 @@ export default function TarefasProjeto(Props) {
         setOpenAlert(false);
         setEstado()
     };
-
+    
     const [nomeTarefa, setNomeTarefa] = useState('')
     const [descricaoTarefa, setDescricaoTarefa] = useState('')
     const [prioridade, setPrioridade] = useState([]);
-
+    
     const handleChange = (e) => {
         setPrioridade(e.target.value);
     };
-
+    
     const handleClick = () => {
+        if (pessoaEscolhida === '') {
+            setOpenDrawer(false)
+        }
         if (nomeTarefa !== '') {
             setTimeout(() => setOpenAlert(true), 150)
         }
@@ -133,7 +136,6 @@ export default function TarefasProjeto(Props) {
                 setEstado('success');
                 setOpenDrawer(false)
                 Props.func()
-
             })
             .catch(e => {
                 setMensagem(e.response.data.data);
