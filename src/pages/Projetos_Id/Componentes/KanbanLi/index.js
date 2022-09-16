@@ -26,7 +26,8 @@ import {
   SpanCheckbox, 
   LabelCheckbox, 
   Save, 
-  ProgressBar 
+  ProgressBar, 
+  ButtonDelete
 } from './styles';
 
 import { 
@@ -135,6 +136,18 @@ function KanbanLi(Props) {
       });
   };
 
+  function deletarTarefa(id){
+    api
+      .delete(`/tarefas/${Props.dados.id}`)
+      .then((response) => {
+        console.log('apagou');
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+  }
+
+  const [visibleDelete, setVisibleDelete] = useState('none');
   // -=-=-=-=-=-=-=-=-=-=- Mudar Status da Checkbox -=-=-=-=-=-=-=-=-=-=-
   const [selected, setSelected] = useState()
   const [checkedAll, setCheckedAll] = useState(false)
@@ -331,6 +344,7 @@ function KanbanLi(Props) {
       <Container ref={dragRef} isDragging={isDragging} onClick={handleClickOpen}>
         <Top>
           <h3 title={Props.dados.nome}>{Props.dados.nome}</h3>
+          <ButtonDelete onClick={() => deletarTarefa(Props.dados.id)} ><DeleteIcon style={{fill: '#280948', width: '25px', height: '25px'}}/></ButtonDelete>
         </Top>
 
         {/* -=-=-=-=-=-=-=-=-=-=- Mostra as Prioridades na Lista de cada Tarefa -=-=-=-=-=-=-=-=-=-=- */}

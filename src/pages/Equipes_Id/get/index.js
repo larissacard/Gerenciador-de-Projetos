@@ -62,7 +62,8 @@ function GetEquipe() {
   })
 
   function updateScreen() {
-    api.get(path)
+    api
+      .get(path)
       .then((response) => {
         setEquipe(response.data.data)
       })
