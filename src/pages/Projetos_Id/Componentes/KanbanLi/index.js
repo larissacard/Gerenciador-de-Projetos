@@ -140,11 +140,12 @@ function KanbanLi(Props) {
       .delete(`/tarefas/${Props.dados.id}`)
       .then((response) => {
         console.log('apagou');
+        Props.update()
       })
       .catch((e) => {
         console.log(e);
       })
-  }
+    }
 
   const [visibleDelete, setVisibleDelete] = useState('none');
   // -=-=-=-=-=-=-=-=-=-=- Mudar Status da Checkbox -=-=-=-=-=-=-=-=-=-=-
@@ -219,6 +220,10 @@ function KanbanLi(Props) {
   const handleClickOpen = async () => {
     getTarefas()
     setOpen(true);
+  };
+
+  const handleClickClose= async () => {
+    setOpen(false);
   };
   
   const handleClose = () => {
@@ -343,7 +348,9 @@ function KanbanLi(Props) {
       <Container ref={dragRef} isDragging={isDragging} onClick={handleClickOpen}>
         <Top>
           <h3 title={Props.dados.nome}>{Props.dados.nome}</h3>
-          <ButtonDelete onClick={() => deletarTarefa(Props.dados.id)} ><DeleteIcon style={{fill: '#280948', width: '25px', height: '25px'}}/></ButtonDelete>
+          <ButtonDelete onClick={() => {deletarTarefa(Props.dados.id); handleClickClose()}} >
+            <DeleteIcon style={{fill: '#280948', width: '25px', height: '25px'}}/>
+          </ButtonDelete>
         </Top>
 
         {/* -=-=-=-=-=-=-=-=-=-=- Mostra as Prioridades na Lista de cada Tarefa -=-=-=-=-=-=-=-=-=-=- */}
