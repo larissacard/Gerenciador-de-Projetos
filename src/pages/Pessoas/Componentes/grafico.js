@@ -3,6 +3,8 @@ import api from "../../../api";
 
 import { Chart } from "react-google-charts";
 
+import NaoAutorizado from "../../../Components/NaoAutorizado";
+
 var data = [];
 
 export const options = {
@@ -16,6 +18,7 @@ export const options = {
 export function Grafico(Props) {
   const [relatorio, setRelatorio] = useState([])
   const [dados, setDados] = useState(Props.dados)
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   const getRelatorio = async () => {
     api
@@ -24,9 +27,9 @@ export function Grafico(Props) {
         setRelatorio(response.data.data)
       })
       .catch((err) => {
-        if (err.response.status == 401) {
-          // alert("Faça o Login para visualizar a página");
-          window.location.href = "/login";
+        if (err.response.status === 401) {
+          setIsAlertVisible(true)
+          setTimeout(() => window.location.href = "/login", 2000)
         } else console.log(err.message);
       });
   }
@@ -45,6 +48,8 @@ export function Grafico(Props) {
   });
 
   return (
+    <>
+    {relatorio ? 
     <Chart
       chartType="AreaChart"
       width="100%"
@@ -52,5 +57,7 @@ export function Grafico(Props) {
       data={data}
       options={options}
       />
+    : isAlertVisible && <NaoAutorizado /> }
+    </>
   );
 }

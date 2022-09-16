@@ -27,6 +27,8 @@ import {
   OrganizeReminder,
 } from "./styles";
 
+import NaoAutorizado from "../../../../Components/NaoAutorizado";
+
 function Reminders() {
   const [data, setData] = useState(new Date().toISOString());
   const handleChange = (newValue) => {
@@ -35,6 +37,7 @@ function Reminders() {
 
   const [descricao, setDescricao] = useState("");
   const [lembretes, setLembretes] = useState([]);
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   useEffect(() => {
     api
@@ -44,7 +47,8 @@ function Reminders() {
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          // window.location.href = "/login";
+          setIsAlertVisible(true)
+          setTimeout(() => window.location.href = "/login", 2000)
         } else console.log(err.message);
       });
   }, []);
@@ -93,6 +97,8 @@ function Reminders() {
 
   return (
     <>
+      { lembretes ?
+      <>
       <Form onSubmit={(e) => cadastrar(e)}>
         <Stack spacing={1.5}>
           <CssTextField
@@ -104,104 +110,103 @@ function Reminders() {
             value={descricao}
             size="small"
             onChange={(e) => setDescricao(e.target.value)}
-            sx={{ marginTop: "12px" }}
-          />
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DateTimePicker
-                
-              renderInput={(props) => (
-                <TextField
-                  data-cy="DateTimeInput"
-                  size="small"
-                  {...props}
-                  sx={{
-                    "&:hover .MuiInputLabel-outlined": {
-                      color: "#6956E5",
-                      transition: "0.5s",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      color: "#764BA2",
-                      transition: "0.5s",
-                      svg: { color: "#764BA2" },
+            sx={{ marginTop: "12px" }} />
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DateTimePicker
 
-                      "&:hover": {
+                renderInput={(props) => (
+                  <TextField
+                    data-cy="DateTimeInput"
+                    size="small"
+                    {...props}
+                    sx={{
+                      "&:hover .MuiInputLabel-outlined": {
                         color: "#6956E5",
                         transition: "0.5s",
-                        svg: { color: "#6956E5" },
                       },
-                      "&.Mui-focused": {
-                        borderColor: "#764BA2",
-                        color: "#280948",
+                      "& .MuiOutlinedInput-root": {
+                        color: "#764BA2",
                         transition: "0.5s",
-                        svg: { color: "#280948" },
-                      },
-                      "& fieldset": {
-                        borderRadius: 20,
-                        border: "2px solid #764BA2",
-                        transition: "0.5s",
-                      },
-                      "&:hover fieldset": {
-                        border: "2px solid #6956E5",
-                        transition: "0.5s",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#280948",
-                        transition: "0.5s",
-                      },
-                    },
-                    ".MuiInputLabel-outlined": {
-                      color: "#764BA2",
-                      transition: "0.5s",
-                      "&.Mui-focused": {
-                        color: "#280948",
-                        transition: "0.5s",
-                      },
-                    },
-                  }}
-                />
-              )}
-              fullWidth
-              value={data}
-              label="Data"
-              onChange={handleChange}
-            />
-          </LocalizationProvider>
+                        svg: { color: "#764BA2" },
 
-          <Save>Salvar</Save>
-        </Stack>
-      </Form>
-      <Container>
-        <Lembretes>
-          {lembretes.map((le) => (
-            <Nota key={le.id}>
-              <Organize>
-                <Delete onClick={() => deleteReminder(le.id)} />
-              </Organize>
+                        "&:hover": {
+                          color: "#6956E5",
+                          transition: "0.5s",
+                          svg: { color: "#6956E5" },
+                        },
+                        "&.Mui-focused": {
+                          borderColor: "#764BA2",
+                          color: "#280948",
+                          transition: "0.5s",
+                          svg: { color: "#280948" },
+                        },
+                        "& fieldset": {
+                          borderRadius: 20,
+                          border: "2px solid #764BA2",
+                          transition: "0.5s",
+                        },
+                        "&:hover fieldset": {
+                          border: "2px solid #6956E5",
+                          transition: "0.5s",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "#280948",
+                          transition: "0.5s",
+                        },
+                      },
+                      ".MuiInputLabel-outlined": {
+                        color: "#764BA2",
+                        transition: "0.5s",
+                        "&.Mui-focused": {
+                          color: "#280948",
+                          transition: "0.5s",
+                        },
+                      },
+                    }} />
+                )}
+                fullWidth
+                value={data}
+                label="Data"
+                onChange={handleChange} />
+            </LocalizationProvider>
 
-              <OrganizeReminder>
-                <div>
-                  <Name>
-                    <img src="assets/pin.svg" alt="pin icon"/>
-                    Lembretes
-                  </Name>
-                  <Descricao>
-                    {le.descricao}
-                  </Descricao>
-                </div>
-                <div>
-                  <Datetime>
-                    <img src="assets/calendar.svg" alt="calendar icon"/>
-                    {moment(le.data).format("MMM Do YY")}
-                  </Datetime>
-                  <div style={{marginLeft: '15px'}}>
-                    <em>{moment(new Date(le.data)).fromNow()}</em>
-                  </div>
-                </div>
-              </OrganizeReminder>
-            </Nota>
-          ))}
-        </Lembretes>
-      </Container>
+            <Save>Salvar</Save>
+          </Stack>
+        </Form>
+        <Container>
+            <Lembretes>
+              {lembretes.map((le) => (
+                <Nota key={le.id}>
+                  <Organize>
+                    <Delete onClick={() => deleteReminder(le.id)} />
+                  </Organize>
+
+                  <OrganizeReminder>
+                    <div>
+                      <Name>
+                        <img src="assets/pin.svg" alt="pin icon" />
+                        Lembretes
+                      </Name>
+                      <Descricao>
+                        {le.descricao}
+                      </Descricao>
+                    </div>
+                    <div>
+                      <Datetime>
+                        <img src="assets/calendar.svg" alt="calendar icon" />
+                        {moment(le.data).format("MMM Do YY")}
+                      </Datetime>
+                      <div style={{ marginLeft: '15px' }}>
+                        <em>{moment(new Date(le.data)).fromNow()}</em>
+                      </div>
+                    </div>
+                  </OrganizeReminder>
+                </Nota>
+              ))}
+            </Lembretes>
+        </Container>
+        </>
+      : isAlertVisible && <NaoAutorizado /> }
     </>
   );
 }

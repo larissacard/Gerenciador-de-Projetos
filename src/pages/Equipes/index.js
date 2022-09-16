@@ -25,13 +25,15 @@ import {
 
 import PostEquipes from './modal'
 import SearchEmptyState from '../../Components/EmptyState';
+import NaoAutorizado from '../../Components/NaoAutorizado';
 
 function Equipes() {
     const [updateScreen, setUpdate] = useState(true);
-    const [equipes, setEquipes] = useState([]);
+    const [equipes, setEquipes] = useState();
     const [nome, setNome] = useState('');
     const [foundEquipes, setFoundEquipes] = useState();
     const [filtros, setFiltros] = useState()
+    const [isAlertVisible, setIsAlertVisible] = useState(false)
 
     const getEquipes = async () => {
         api
@@ -40,12 +42,11 @@ function Equipes() {
                 setEquipes(response.data.data);
                 setFoundEquipes(response.data.data);
             })
-            .catch(err => {
+            .catch((err) => {
                 if(err.response.status === 401) {
-                    // alert('Faça o Login para visualizar a página')   
-                    window.location.href = '/login'
-                }
-                else console.log(err.message)
+                    setIsAlertVisible(true)
+                    setTimeout(() => window.location.href = "/login", 2000)
+                } else console.log(err.message)
             })
     };
 
@@ -106,6 +107,8 @@ function Equipes() {
     }
 
     return (
+        <>
+        { equipes ?
         <Container>
             <ContainerUnico>
                 <div className='d-flex justify-content-between mt-4'>
@@ -173,6 +176,8 @@ function Equipes() {
                 <Footer/>
             </ContainerUnico>
         </Container>
+        : isAlertVisible && <NaoAutorizado />}
+        </>
     );
 }
 

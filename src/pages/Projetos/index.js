@@ -50,7 +50,7 @@ function Projetos () {
   };
   
   const filter = (e, filtrosAtualizados) => {
-    let keyword = ""
+    let keyword = ''
     if (e) keyword = e.target.value;
     if (keyword !== '') {
       const results = projetos.filter((projeto) => {
@@ -102,7 +102,8 @@ function Projetos () {
   }
 
   return (
-    <> { projetos ?
+    <> 
+    { projetos ?
     <Container>
       <ColunaUm>
         <TopGrafico>
@@ -180,7 +181,7 @@ function Projetos () {
            <SalaVirtual/>
       </ColunaDois>
     </Container>
-    : isAlertVisible && <NaoAutorizado />}
+    : isAlertVisible && <NaoAutorizado /> }
     </>
   );
 }
