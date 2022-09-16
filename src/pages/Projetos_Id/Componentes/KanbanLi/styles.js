@@ -89,7 +89,9 @@ export const ButtonCancel = styled.div`
 export const ButtonDelete = styled.button`
     display: flex;
     align-items: center;
+
     background: transparent;
+    border: none;
     width: 25px;
     height: 25px;
     opacity: 0.7;
