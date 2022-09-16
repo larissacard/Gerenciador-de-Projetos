@@ -35,7 +35,14 @@ import {
 
 import PutEquipes from '../put';
 import RANKING from '../grafico';
-import NaoAutorizado from '../../../Components/NaoAutorizado';
+
+// import { render } from '@testing-library/react';
+// import { Equipes } from '../../../styles/Icons';
+// import { Deletar } from '../../Projetos_Id/styles';
+// import { useNavigate } from 'react-router-dom'
+// import { Ranking } from '../grafico';
+// import App from '../grafico';
+// import { Cont } from '../../../components/Container/styles';
 
 const style = {
   width: 125,
@@ -45,19 +52,16 @@ const style = {
 function GetEquipe() {
   const [equipe, setEquipe] = useState()
   const path = window.location.pathname;
-  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   useEffect(() => {
     api.get(path)
       .then((response) => {
         setEquipe(response.data.data)
       })
-      .catch((err) => {
-        if (err.response.status === 401) {
-          setIsAlertVisible(true)
-          setTimeout(() => window.location.href = "/login", 2000)
-        } else console.log(err.message);
-      });
+      .catch(err => {
+        if (err.response.status === 401) window.location.href = '/login'
+        else console.log(err.message)
+      })
   })
 
   function updateScreen() {
@@ -91,8 +95,6 @@ function GetEquipe() {
 
 
   return (
-    <>
-      { equipe?
     <>
       {equipe?.pessoas.length > 0 ?
         <>
@@ -241,11 +243,10 @@ function GetEquipe() {
                 <NoResults />
                 <TitleNoResults>Não há membros nessa equipe</TitleNoResults>
             </EmptyState>
+          
         </TeamInfo>
       }
-      </>
-      : isAlertVisible && <NaoAutorizado />} 
-      </>
+    </>
   )
 }
 

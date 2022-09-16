@@ -19,7 +19,6 @@ import AlertDeleteDialog from '../../Components/CardConfirmDelete';
 import CardDetalhesList from '../../Components/CardDetalhesList';
 import KanbanUl from './Componentes/KanbanUl';
 import Edit from './Componentes/put';
-import NaoAutorizado from '../../Components/NaoAutorizado';
 
 export default function Index() {
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -38,7 +37,6 @@ export default function Index() {
     const path = window.location.pathname;
     const [dados, setDados] = useState()
     const [updateScreen, setUpdateScreen] = useState(true)
-    const [isAlertVisible, setIsAlertVisible] = useState(false)
     let string_equipes = ''
     let qtd_pessoas = 0
 
@@ -48,8 +46,8 @@ export default function Index() {
             .then(response => { setDados(response.data.data); })
             .catch((err) => {
                 if (err.response.status === 401) {
-                  setIsAlertVisible(true)
-                  setTimeout(() => window.location.href = "/login", 2000)
+                //   alert("Faça o Login para visualizar a página");
+                  window.location.href = "/login";
                 } else console.log(err.message);
             });
     };
@@ -67,7 +65,6 @@ export default function Index() {
                 </Alert>
             </Snackbar>
             
-            { dados ? 
             <Container>
                 {dados ?
                     <ContDados>
@@ -121,7 +118,6 @@ export default function Index() {
                     </>
                 }
             </Container>
-            : isAlertVisible && <NaoAutorizado /> }
         </>    
     )
 }
