@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 49%;
-  height: 260px;
+  height: auto;
+  max-height: 260px;
   background-color: #f5f5f7;
   border-radius: 20px;
   padding: 15px;
@@ -16,7 +17,6 @@ export const Container = styled.div`
 
   @media (max-width: 480px) {
     margin-top: 10px;
-    
     width: 100%;
   }
 `;

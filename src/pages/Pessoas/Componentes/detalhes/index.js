@@ -38,7 +38,7 @@ function Detalhes(Props) {
   if ((!detalhes || Props.dados.id !== detalhes.id) && Props.dados.id) {
     getDetalhes()
   }
-  
+    
   return (
     <>
     { detalhes ?
