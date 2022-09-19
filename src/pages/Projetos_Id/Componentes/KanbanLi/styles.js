@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import cancel from '../../../../assets/cancel.svg'
+
 export const Container = styled.li`
     background: rgba(150, 178, 253, 0.3);
     border: 2px solid rgba(150, 178, 253, 0);
@@ -77,7 +79,7 @@ export const Prioridade = styled.div`
 export const ButtonCancel = styled.div`
     width: 15px;
     height: 15px;
-    background-image: url('assets/cancel.svg');
+    background-image: url(${cancel});
     cursor: pointer;
     transition: transform .3s ease-in-out;
     

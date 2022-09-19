@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import erro404 from './assets/erro404.svg'
-import mobileerro404 from './assets/erro404_mobile.svg'
+import erro404 from '../../assets/erro404.svg'
+import mobileerro404 from '../../assets/erro404_mobile.svg'
 
 export const Container = styled.div`
     width: 100vw;

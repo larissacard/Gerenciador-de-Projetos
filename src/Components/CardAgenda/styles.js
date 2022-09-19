@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import background from '../../assets/create_background2.svg'
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@ export const Container = styled.div`
   margin-top: 6px;
   margin-bottom: 6px;
 
-  background-image: url("/assets/create_background2.svg");
+  background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
   

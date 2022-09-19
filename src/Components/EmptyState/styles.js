@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import searchImg from './assets/searchbar_emptystate.svg'
+import searchImg from '../../assets/searchbar_emptystate.svg'
 
 export const Search = styled.div `
     display: flex;

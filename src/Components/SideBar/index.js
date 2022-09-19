@@ -57,7 +57,7 @@ function SideBar() {
                 localStorage.setItem('token', null)
                 window.location.href = '/login'
             }}>
-                < HiOutlineLogout size={28} color={'rgba(255, 255, 255, 0.6)'}/> <span>Sair</span>   
+                < HiOutlineLogout size={28} color={'rgba(255, 255, 255, 0.6)'}/><span>Sair</span>   
             </Logout>
             
         </Container>

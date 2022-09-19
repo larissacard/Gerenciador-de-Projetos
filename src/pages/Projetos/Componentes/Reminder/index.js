@@ -5,6 +5,8 @@ import { Form } from "react-bootstrap";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import calendar from '../../../../assets/calendar.svg'
+import pin from '../../../../assets/pin.svg'
 import moment from "moment";
 import "moment/locale/pt-br";
 
@@ -186,7 +188,7 @@ function Reminders() {
               <OrganizeReminder>
                 <div>
                   <Name>
-                    <img src="assets/pin.svg" alt="pin icon"/>
+                    <img src={pin} alt="pin icon"/>
                     Lembretes
                   </Name>
                   <Descricao>
@@ -196,7 +198,7 @@ function Reminders() {
 
                 <div>
                   <Datetime>
-                    <img src="assets/calendar.svg" alt="calendar icon"/>
+                    <img src={calendar} alt="calendar icon"/>
                     {moment(le.data).format("MMM Do YY")}
                   </Datetime>
                   <div style={{marginLeft: '15px'}}>

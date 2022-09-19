@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import api from '../../../../api';
 
 import MuiAlert from '@mui/material/Alert';
+import create from '../../../../assets/btn_create.svg'
 
 import { 
     ButtonDrawer, 
@@ -206,7 +207,7 @@ export default function PostProjetos (Props) {
                 </form>
             </Drawer>
             <div>
-                <ButtonDrawer data-cy="openDrawer" onClick={handleOpen}><img src='assets/btn_create.svg' alt="create"/></ButtonDrawer>
+                <ButtonDrawer data-cy="openDrawer" onClick={handleOpen}><img src={create} alt="create"/></ButtonDrawer>
             </div>
         </>
     )

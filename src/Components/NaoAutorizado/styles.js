@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import permissao_svg from './assets/permissao_acesso.svg'
-import permissao_mobile_svg from './assets/permissao_acesso_mobile.svg'
+import permissao_svg from '../../assets/permissao_acesso.svg'
+import permissao_mobile_svg from '../../assets/permissao_acesso_mobile.svg'
 
 export const Container = styled.div`
     background-color: #F1F1F1;

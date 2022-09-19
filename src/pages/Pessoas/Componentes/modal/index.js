@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import create from '../../../../assets/btn_create.svg'
 
 import { 
     ButtonPost, 
@@ -287,7 +288,7 @@ function PostPessoas(Props) {
             </Drawer>
 
             <div>
-                <ButtonPost data-cy="adicionar pessoa" onClick={handleOpen}><img src='assets/btn_create.svg' alt='create icon' /></ButtonPost>
+                <ButtonPost data-cy="adicionar pessoa" onClick={handleOpen}><img src={create} alt='create icon' /></ButtonPost>
             </div>
         </>
     );

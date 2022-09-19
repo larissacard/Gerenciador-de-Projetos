@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import cancel from '../../../assets/cancel.svg'
+
 export const Button = styled.button`
   display: flex;
   width: 3.25rem;
@@ -75,7 +77,7 @@ export const Cadastrar = styled.button`
 export const ButtonCancel = styled.div`
   width: 15px;
   height: 15px;
-  background-image: url('../assets/cancel.svg');
+  background-image: url(${cancel});
   cursor: pointer;
   transition: transform .3s ease-in-out;
  

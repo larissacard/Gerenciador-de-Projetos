@@ -3,6 +3,10 @@ import api from '../../../api';
 
 import { Progress } from 'rsuite';
 import AlertDeleteDialog from '../../../Components/CardConfirmDelete';
+import check from '../../../assets/check.svg'
+import cod from '../../../assets/cod.svg'
+import pincel from '../../../assets/pincel.svg'
+import sqa from '../../../assets/sqa.svg'
 
 import { 
   Title, 
@@ -141,7 +145,7 @@ function GetEquipe() {
             <OrganizeTeam>
               <Card>
                 <CardIcon>
-                  <img src="../../../assets/cod.svg" alt="cod"/>
+                  <img src={cod} alt="cod"/>
                 </CardIcon>
                 <Pontos>
                   <h4>
@@ -152,7 +156,7 @@ function GetEquipe() {
               </Card>
               <Card>
                 <CardIcon style={{ backgroundColor: "#667EEA" }}>
-                  <img src='../../../assets/pincel.svg' alt="pincel icon"/>
+                  <img src={pincel} alt="pincel icon"/>
                 </CardIcon>
                 <Pontos>
                   <h4><TotalJob funcao={'FrontEnd Junior'} /></h4>
@@ -162,7 +166,7 @@ function GetEquipe() {
 
               <Card>
                 <CardIcon style={{ backgroundColor: "#E391EA" }}>
-                  <img src='../../../assets/sqa.svg' alt="sqa icon"/>
+                  <img src={sqa} alt="sqa icon"/>
                 </CardIcon>
                 <Pontos>
                   <h4>
@@ -187,7 +191,7 @@ function GetEquipe() {
                 </div>
                 <SmallInfo>
                   <SmallIcon>
-                    <img src='../../../assets/check.svg' alt="check icon"/>
+                    <img src={check} alt="check icon"/>
                   </SmallIcon>
                   <p>Total Tasks Concluidas: {equipe.tarefas.Concluidas}</p>
                 </SmallInfo>

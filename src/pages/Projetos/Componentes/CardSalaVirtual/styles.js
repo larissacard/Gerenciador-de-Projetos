@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import discord from '../../../../assets/discord.svg'
+import gather from '../../../../assets/gather.svg'
+
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -24,8 +27,8 @@ export const Title = styled.h3`
     color: var(--roxo);
     font-weight: 600;
     font-size: 18px;
-    line-height: 27px;
     margin-left: 0.5rem;
+    margin-top: 8px;
 `;
 
 export const ContBox = styled.div`
@@ -68,4 +71,12 @@ export const Box = styled.div`
         font-size: 18px;
         line-height: 27px;
     }
+`;
+
+export const Discord = styled.div`
+    background-image: url(${discord});
+`;
+
+export const Gather = styled.div`
+    background-image: url(${gather});
 `;

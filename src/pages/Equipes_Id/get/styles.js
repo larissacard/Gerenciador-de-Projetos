@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import semMembros from '../../../assets/semmembros.svg'
+
 export const ColunaUm = styled.div`
     width: 37%;
     height: calc(100% - 48px);
@@ -61,20 +63,6 @@ export const Title = styled.div`
 
     margin-top: 16px;
 `;
-
-// export const Editar = styled.button`
-//     width: 82px;
-//     height: 20px;
-
-//     color: white;
-
-//     text-align: center;
-
-//     margin-right: 5px;
-
-//     background-color: #FF9533;
-//     border-radius: 14px;
-// `;
 
 export const Delete = styled.button`
     width: 82px;
@@ -204,7 +192,7 @@ export const TotalTask = styled.div`
 `;
 
 export const NoResults = styled.div`
-    background-image: url("../../../../assets/semmembros.svg");
+    background-image: url(${semMembros});
     width: 22rem;
     height: 20rem;
     background-size: cover;

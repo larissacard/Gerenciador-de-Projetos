@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import create_background from '../../assets/create_background.svg'
+
 export const Container = styled.div`
   width: 100%;
   height: 96px;
@@ -11,7 +13,7 @@ export const Container = styled.div`
 
   border-radius: 20px;
 
-  background-image: url(/assets/create_background.svg);
+  background-image: url(${create_background});
   background-repeat: no-repeat;
   background-size: cover;
   transition-duration: .3s;

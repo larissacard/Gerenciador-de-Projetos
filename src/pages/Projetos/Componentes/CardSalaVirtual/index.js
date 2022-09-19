@@ -3,27 +3,30 @@ import {
     Top, 
     Box, 
     Title, 
-     
+    Discord,
+    Gather
 } from "./styles";
+
+import house from '../../../../assets/house.svg'
 
 function SalaVirtual() {
     return (
         <>
             <Top>
-                <img  src="assets/house.svg"></img>
+                <img src={house} />
                 <Title>Salas Virtuais</Title>
             </Top>
 
             <ContBox>
                 <Box style={{backgroundColor: `#5765f2`}}>
-                    <div style={{backgroundImage: `url("assets/discord.svg")`}}>
+                    <Discord>
                         <a data-cy="discord" href="https://discord.com/" rel="noopener" target={"_blank"}>Ir</a>
-                    </div>
+                    </Discord>
                 </Box>
                 <Box style={{backgroundImage: `linear-gradient(to right, #9086cb, #7576d0)`}}>
-                    <div style={{backgroundImage: `url("assets/gather.svg")`}}>
+                    <Gather>
                         <a  data-cy="gather" href="https://www.gather.town/" rel="noopener" target={"_blank"}>Ir</a>
-                    </div>
+                    </Gather>
                 </Box>
             </ContBox>
         </>

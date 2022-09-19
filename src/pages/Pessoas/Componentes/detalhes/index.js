@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import api from "../../../../api";
 
 import { TitleNoResults } from "../../../Equipes_Id/get/styles";
+import ninguem from '../../../../assets/ninguem.svg'
 
 import { 
   Container, 
@@ -47,7 +48,7 @@ function Detalhes(Props) {
 
         // Quando não tem pessoas para serem exibidas
         <>
-          <img src="./assets/ninguem.svg" alt="" style={{height: '21rem', width: '18rem', display: 'flex', alignSelf: 'center'}}/>
+          <img src={ninguem} alt="" style={{height: '21rem', width: '18rem', display: 'flex', alignSelf: 'center'}}/>
           <TitleNoResults>Ninguém selecionado</TitleNoResults>
         </>
 

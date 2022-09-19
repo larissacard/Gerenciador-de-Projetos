@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import register from '../../assets/register.svg'
+
 export const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -124,7 +126,7 @@ export const Imagem = styled.div`
   height: 859px;
   border-radius: 20px;
 
-  background-image: url('../../assets/register.svg');
+  background-image: url(${register});
   background-position: center;
 
   @media (max-width: 1280px) {

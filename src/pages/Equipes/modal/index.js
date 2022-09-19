@@ -4,6 +4,7 @@ import api from "../../../api";
 import TeamProfile from "../team profile/profile";
 import { styled } from "@mui/material/styles";
 import MuiAlert from "@mui/material/Alert";
+import group from '../../../assets/Group.svg'
 
 import {
   Drawer,
@@ -204,7 +205,7 @@ function PostEquipes(Props) {
       </Drawer>
       <div>
         <ButtonDrawer onClick={handleOpen}>
-          <img src="assets/Group.svg" alt="group icon" />
+          <img src={group} alt="group icon" />
           <Name>Adicionar Equipe</Name>
         </ButtonDrawer>
       </div>

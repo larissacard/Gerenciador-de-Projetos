@@ -2,6 +2,9 @@ import styled from "styled-components"
 
 import { TextField } from '@mui/material';
 
+import fundo from '../../../../assets/fundo.svg'
+import deletar from '../../../../assets/deletar.svg'
+
 export const Nota = styled.div`
     background: rgba(226, 228, 233, 0.1);
 
@@ -14,7 +17,7 @@ export const Nota = styled.div`
 
     position: relative;
 
-    background-image: url("assets/fundo.svg");
+    background-image: url(${fundo});
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -155,7 +158,7 @@ export const Delete = styled.div`
 
     width: 20px;
     height: 20px;
-    background-image: url('assets/deletar.svg');
+    background-image: url(${deletar});
 
     cursor: pointer;
 

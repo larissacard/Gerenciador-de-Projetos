@@ -1,5 +1,7 @@
 import React from "react";
 
+import voltar from '../../assets/voltar.svg'
+
 import Data from "./Titulo";
 
 function Menu1() {
@@ -7,7 +9,7 @@ function Menu1() {
         <div style={{padding:"20px"}}>
             <div className="cont_tituloprojeto align-items-start">
                 <a href="/equipes" className="btn_primary" style={{width:"108px"}}>
-                    <img src="../assets/voltar.svg" width="20px"></img>
+                    <img src={voltar} width="20px"></img>
                     <p>Voltar</p>
                 </a>
 
