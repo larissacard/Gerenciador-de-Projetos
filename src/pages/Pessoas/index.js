@@ -4,6 +4,7 @@ import api from '../../api';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import Container from '../../Components/Container';
+import NaoAutorizado from '../../Components/NaoAutorizado';
 
 import { 
   ColunaDois, 
@@ -22,6 +23,7 @@ function Pessoas() {
   const [cargos, setCargos] = useState()
   const [filtros, setFiltros] = useState()
   const [pessoas, setPessoas] = useState()
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   const getCargos = () => {
     api
@@ -40,7 +42,10 @@ function Pessoas() {
     api
       .get("/pessoas")
       .then(response => setPessoas(response.data.data))
-      .catch(err => console.log(err))
+      .catch(err => { 
+        setIsAlertVisible(true)
+        console.log(err);
+      })
   }
   if (!pessoas) getPessoas()
 
@@ -62,7 +67,8 @@ function Pessoas() {
   }
 
   return (
-    pessoas &&
+    isAlertVisible ? <NaoAutorizado />
+    : pessoas &&
     <Container>
       <Detalhes dados={data}/>
       <ColunaDois>

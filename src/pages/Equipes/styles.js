@@ -97,7 +97,7 @@ export const Card = styled.a`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
     position: relative;
 
     text-decoration: none;
