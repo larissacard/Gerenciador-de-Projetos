@@ -164,7 +164,7 @@ function Projetos () {
                 </CardProjeto> 
                 ))
                 ) :
-                <SearchEmptyState titulo='Projeto não Encontrado! ;-; '/>
+                <SearchEmptyState titulo='Projeto não Encontrado!'/>
               }
             </ul>
           </ContTabela>

@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import api from '../../api';
 
 import Container from '../../Components/Container';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
+import MyLoader from './myloader';
 
-import { 
-    Search, 
-    SearchIcon 
+import {
+    Search,
+    SearchIcon
 } from '../Projetos/styles';
 
-import { 
-    AllCards, 
-    Card, 
-    Name, 
-    Title, 
-    Retangulo, 
-    TeamLength, 
-    Elipse, 
-    SmallElipse, 
+import {
+    AllCards,
+    Card,
+    Name,
+    Title,
+    Retangulo,
+    TeamLength,
+    Elipse,
+    SmallElipse,
     ContainerUnico,
     Footer
 } from './styles';
@@ -44,8 +45,8 @@ function Equipes() {
             })
             .catch((err) => {
                 if (err.response.status === 401) {
-                  setIsAlertVisible(true)
-                  setTimeout(() => window.location.href = "/login", 2000)
+                    setIsAlertVisible(true)
+                    setTimeout(() => window.location.href = "/login", 2000)
                 } else console.log(err.message);
             });
     };
@@ -66,31 +67,31 @@ function Equipes() {
         switch (filt) {
             case 1:
                 // Ordem Alfabética (A-Z)
-                setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
+                setFoundEquipes(valorAntigo => valorAntigo.sort((a, b) => {
                     return a.nome.toLowerCase() < b.nome.toLowerCase() ? -1 : a.nome.toLowerCase() > b.nome.toLowerCase() ? 1 : 0;
                 }))
                 break;
-            
+
             case 2:
                 // Ordem Alfabética (Z-A)
-                setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
+                setFoundEquipes(valorAntigo => valorAntigo.sort((a, b) => {
                     return a.nome.toLowerCase() > b.nome.toLowerCase() ? -1 : a.nome.toLowerCase() < b.nome.toLowerCase() ? 1 : 0;
                 }))
                 break;
-                
-                case 3:
-                    // Mais Recentes
-                    setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
-                        return a.id > b.id ? -1 : a.id < b.id ? 1 : 0;
-                    }))
-                    break;
-                    
-                case 4:
-                    // Mais Antigos
-                    setFoundEquipes(valorAntigo => valorAntigo.sort((a,b) => {
-                        return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
-                    }))
-                    break;
+
+            case 3:
+                // Mais Recentes
+                setFoundEquipes(valorAntigo => valorAntigo.sort((a, b) => {
+                    return a.id > b.id ? -1 : a.id < b.id ? 1 : 0;
+                }))
+                break;
+
+            case 4:
+                // Mais Antigos
+                setFoundEquipes(valorAntigo => valorAntigo.sort((a, b) => {
+                    return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+                }))
+                break;
             default:
                 break;
         }
@@ -100,83 +101,108 @@ function Equipes() {
         getEquipes()
         setUpdate(false)
     }
-    
-    if (!filtros && foundEquipes){
+
+    if (!filtros && foundEquipes) {
         setFiltros(1)
         filter(null, 1)
     }
 
+    const [loader, setLoader] = useState(true);
+
+    useEffect(() => {
+        const t = setTimeout(() => {
+            setLoader(false);
+        }, 2300);
+
+        return () => {
+            clearTimeout(t);
+        }
+    }, []);
+
     return (
         <>
-        { equipes ? 
-        <Container>
-            <ContainerUnico>
-                <div className='d-flex justify-content-between mt-4'>
-                    <Title>Equipes</Title>
+            {equipes ?
+                <Container>
+                    <ContainerUnico>
+                        <div className='d-flex justify-content-between mt-4'>
+                            <Title>Equipes</Title>
 
-                    <div className='d-flex'>
-                        <Dropdown>
-                            <Dropdown.Toggle style={{background: 'transparent', color: '#333', border: '0'}}>
-                            Filtros
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu style={{padding: '10px', fontSize: '14px'}}>
-                            <Dropdown.Header>Ordenar por:</Dropdown.Header>
-                            <Form.Check
-                                label='Ordem Alfabética (A-Z)'
-                                type='radio'
-                                checked={1 === filtros} 
-                                onChange={() => {setFiltros(1); filter(null, 1)}}
-                            />
-                            <Form.Check
-                                label='Ordem Alfabética (Z-A)'
-                                type='radio'
-                                checked={2 === filtros}
-                                onChange={() => {setFiltros(2); filter(null, 2)}}
-                            />
-                            <Form.Check
-                                label='Mais Recentes'
-                                type='radio'
-                                checked={3 === filtros}
-                                onChange={() => {setFiltros(3); filter(null, 3)}}
-                            />
-                            <Form.Check
-                                label='Mais Antigas'
-                                type='radio'
-                                checked={4 === filtros}
-                                onChange={() => {setFiltros(4); filter(null, 4)}}
-                            />
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        <Search>
-                            <input type='search' placeholder='Pesquise...' onChange={filter} value={nome}></input>
-                            <SearchIcon/>
-                        </Search>
-                    </div>
-                </div>
-                <AllCards>
-                    <PostEquipes update={getEquipes}/>
-                    {foundEquipes && foundEquipes.length > 0 ? (
-                        foundEquipes.map((equipes) => (
-                            <Card key={equipes.id} href={'equipes/' + equipes.id}>
-                                <Retangulo/>
-    
-                                <Elipse>
-                                    {equipes.fotoPadrao
-                                    ? <SmallElipse src={equipes.fotoPadrao.link}/>
-                                    : <SmallElipse src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0="/>}
-                                </Elipse>
-                                <Name>{equipes.nome}</Name>
-                                <TeamLength>Quantidade de integrantes: {equipes.pessoas.length}</TeamLength>
-                            </Card>
-                        ))
-                    ) : 
-                        <SearchEmptyState titulo='Equipe não Encontrada! ;-;'/>
-                    }
-                </AllCards>
-                <Footer/>
-            </ContainerUnico>
-        </Container>
-        : isAlertVisible && <NaoAutorizado />}
+                            <div className='d-flex'>
+                                <Dropdown>
+                                    <Dropdown.Toggle style={{ background: 'transparent', color: '#333', border: '0' }}>
+                                        Filtros
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu style={{ padding: '10px', fontSize: '14px' }}>
+                                        <Dropdown.Header>Ordenar por:</Dropdown.Header>
+                                        <Form.Check
+                                            label='Ordem Alfabética (A-Z)'
+                                            type='radio'
+                                            checked={1 === filtros}
+                                            onChange={() => { setFiltros(1); filter(null, 1) }}
+                                        />
+                                        <Form.Check
+                                            label='Ordem Alfabética (Z-A)'
+                                            type='radio'
+                                            checked={2 === filtros}
+                                            onChange={() => { setFiltros(2); filter(null, 2) }}
+                                        />
+                                        <Form.Check
+                                            label='Mais Recentes'
+                                            type='radio'
+                                            checked={3 === filtros}
+                                            onChange={() => { setFiltros(3); filter(null, 3) }}
+                                        />
+                                        <Form.Check
+                                            label='Mais Antigas'
+                                            type='radio'
+                                            checked={4 === filtros}
+                                            onChange={() => { setFiltros(4); filter(null, 4) }}
+                                        />
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                                <Search>
+                                    <input type='search' placeholder='Pesquise...' onChange={filter} value={nome}></input>
+                                    <SearchIcon />
+                                </Search>
+                            </div>
+                        </div>
+                        <AllCards>
+                            <PostEquipes update={getEquipes} />
+                            {foundEquipes && foundEquipes.length > 0 ? (
+                                foundEquipes.map((equipes) => (
+                                    <Card key={equipes.id} href={'equipes/' + equipes.id}>
+                                        {loader ?
+                                            (
+                                                <>
+                                                    <MyLoader />
+                                                </>
+                                            ) :
+                                            (
+                                                <>
+                                                    <Retangulo />
+
+                                                    <Elipse>
+                                                        {equipes.fotoPadrao
+                                                            ? <SmallElipse src={equipes.fotoPadrao.link} />
+                                                            : <SmallElipse src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" />}
+                                                    </Elipse>
+                                                    <Name>{equipes.nome}</Name>
+                                                    <TeamLength>Quantidade de integrantes: {equipes.pessoas.length}</TeamLength>
+
+                                                </>
+                                            )}
+
+
+                                    </Card>
+                                ))
+                            ) :
+                                <SearchEmptyState titulo='Equipe não Encontrada!' />
+                            }
+                        </AllCards>
+                        <Footer />
+                    </ContainerUnico>
+                </Container>
+                : isAlertVisible && <NaoAutorizado />}
         </>
     );
 }

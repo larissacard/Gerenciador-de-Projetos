@@ -120,6 +120,12 @@ export const Name = styled.div`
     line-height: 30px; 
     color: var(--roxo);
     text-align: center;
+    width: 220px;
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    z-index: 2;
 `;
 
 export const FooterCard = styled.div`
