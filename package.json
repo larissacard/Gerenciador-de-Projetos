@@ -46,6 +46,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
+    "react-spinners": "^0.13.4",
     "reactstrap": "^9.1.1",
     "redux": "^4.2.0",
     "rsuite": "^5.16.0",

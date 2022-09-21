@@ -12,7 +12,7 @@ export default function PessoasEquipe(Props) {
   useEffect(() => {
     const getEquipes = async () => {
       try {
-        const response = await api.get('/equipes');
+        const response = await api.get('/pessoas');
         setPessoas(response.data.data);
       } catch (error) {
         console.log(error);
