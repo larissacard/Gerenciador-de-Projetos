@@ -7,6 +7,8 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import create from '../../../../assets/btn_create.svg'
+import { NumericFormat } from 'react-number-format';
+import PropTypes from 'prop-types';
 
 import { 
     ButtonPost, 
@@ -26,6 +28,7 @@ import {
     Autocomplete,
     InputAdornment 
 } from '@mui/material'
+import { Padding } from '@mui/icons-material';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -70,6 +73,34 @@ const CssTextField = styled(TextField)({
         },
     },
 })
+
+const NumericFormatCustom = React.forwardRef(function NumberFormatCustom(props, ref) {
+    const { onChange, ...other } = props;
+  
+    return (
+      <NumericFormat
+        {...other}
+        getInputRef={ref}
+        onValueChange={(values) => {
+          onChange({
+            target: {
+              name: props.name,
+              value: values.value,
+            },
+          });
+        }}
+        thousandSeparator
+        valueIsNumericString
+        prefix="R$"
+      />
+    );
+  });
+  
+NumericFormatCustom.propTypes = {
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+};
+  
 
 function PostPessoas(Props) {
     const [cargos, setCargos] = useState([])
@@ -121,11 +152,21 @@ function PostPessoas(Props) {
     const [salario, setSalario] = useState()
     const [imagem, setImagem] = useState()
 
+    const [values, setValues] = useState({
+        numberformat: '',
+      });
+
+    const handleChange = (event) => {
+        setValues({
+          ...values,
+          [event.target.name]: event.target.value,
+        });
+    };
+
     const handleClickCad = () => {
         if(nomePessoa !== ''){
             setTimeout(() => setOpenAlert(true), 150);
-            setOpenDrawer(false);
-            
+            setOpenDrawer(false);    
         }
     }
 
@@ -140,7 +181,7 @@ function PostPessoas(Props) {
         Form.append('nome', nomePessoa)
         Form.append('nascimento', datanasc)
         Form.append('cargo', cargoEscolhido)
-        Form.append('salario', salario)
+        Form.append('salario', salario.replace(",", "").replace(".", ""))
 
         api.post('/pessoas', Form, config)
         .then(res => {
@@ -213,6 +254,7 @@ function PostPessoas(Props) {
                             required
                             onChange={(e) => setSalario(e.target.value)}
                             fullWidth
+                            type="text"
                             size='small'
                             id='outlined-required'
                             label='Salário'
@@ -225,8 +267,25 @@ function PostPessoas(Props) {
                                 )
                             }}
                             inputProps={{
-                                maxLength: 5,
+                                maxLength: 10,
                             }}
+                        />
+
+                        <CssTextField
+                            label="Salário"
+                            required
+                            size='small'                           
+                            autoComplete='off'
+                            placeholder='Digite o Salário da Pessoa'
+                            value={values.numberformat}
+                            onChange={(e) => setSalario(e.target.value)}
+                            name="numberformat"
+                            id="formatted-numberformat-input"
+                            InputProps={{
+                                inputComponent: NumericFormatCustom,
+                                maxLength: 10,
+                            }}
+                            aria-haspopup='true'
                         />
 
                         <LocalizationProvider dateAdapter={AdapterDateFns}>

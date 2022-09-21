@@ -574,7 +574,9 @@ function KanbanLi(Props) {
                                 }
                                 {/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- Criar as funçoes para receber o editar + rota put -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */}
                                 </PrioridadeTarefa>
-                              </> : <>
+                              </> 
+                              : 
+                              <>
                               {
                                 tarefa.prioridade === 1 ? <BsFlagFill style={{ color: '#67CB65', fontSize: '16px' }} /> :
                                 tarefa.prioridade === 2 ? <BsFlagFill style={{ color: '#FF9533', fontSize: '16px' }} /> :
@@ -614,7 +616,8 @@ function KanbanLi(Props) {
                         type='submit'
                         onClick={(e) => updateSubtarefa(e, tarefa.id)}
                         style={{ display: (tarefa.nome !== editSubtarefaNome && inputDisabled === tarefa.id) ? 'block' : 'none' }}
-                      >Salvar
+                      >
+                        Salvar
                       </button>
                     </LabelCheckbox>
                   </FormDiv>
