@@ -63,7 +63,7 @@ export default function Index() {
 
     return (
         <>
-            <Snackbar open={openAlert} autoHideDuration={1500} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left',}}>
+            <Snackbar open={openAlert} autoHideDuration={1500} onClose={handleCloseAlert} anchorOrigin={{vertical: 'top', horizontal: 'left' }}>
                 <Alert onClose={handleCloseAlert} severity='warning'>
                     Projeto apagado com sucesso!
                 </Alert>
@@ -112,7 +112,7 @@ export default function Index() {
                         </Detalhamento>
                         
                         <Trelo>
-                            <KanbanUl func={getDados} index={1} status='Não Iniciada' titulo='To Do' elements={dados.tarefas.NaoIniciadas} dados={dados}/>
+                            <KanbanUl func={getDados} index={1} status='Não Iniciada' titulo='To Do' elements={dados.tarefas.NaoIniciadas} dados={dados} />
                             <KanbanUl func={getDados} index={2} status='Em Desenvolvimento' titulo='In Progress' elements={dados.tarefas.EmDesenvolvimento} />
                             <KanbanUl func={getDados} index={3} status='Em Testes' titulo='Test' elements={dados.tarefas.Testes} />
                             <KanbanUl func={getDados} index={4} status='Concluido' titulo='Done' elements={dados.tarefas.Concluidas} />

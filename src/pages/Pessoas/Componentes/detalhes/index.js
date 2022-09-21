@@ -7,7 +7,8 @@ import ninguem from '../../../../assets/ninguem.svg'
 import { 
   Container, 
   Body, 
-  Tarefas 
+  Tarefas,
+  EmptyState
 } from "./styles";
 
 import CardInfoPessoa from "../CardInfoPessoa";
@@ -16,7 +17,6 @@ import CardTarefasDaPessoa from "../CardTarefasDaPessoa";
 import Lista from "../Lista";
 import ListaMaior from "../ListaMaior";
 import { Grafico } from "../grafico";
-import NaoAutorizado from "../../../../Components/NaoAutorizado";
 
 function Detalhes(Props) {
   const [detalhes, setDetalhes] = useState()
@@ -40,13 +40,13 @@ function Detalhes(Props) {
     
   return (
       <Container>
-        {Props.nome === "Ninguem selecionado" ?
+        {Props.dados.nome === "Ninguem selecionado" ?
 
         // Quando não tem pessoas para serem exibidas
-        <>
+        <EmptyState>
           <img src={ninguem} alt="" style={{height: '21rem', width: '18rem', display: 'flex', alignSelf: 'center'}}/>
-          <TitleNoResults>Ninguém selecionado</TitleNoResults>
-        </>
+          <TitleNoResults> Ninguém selecionado </TitleNoResults>
+        </EmptyState>
 
         // Quando tem uma pessoa selecionada
         :detalhes &&

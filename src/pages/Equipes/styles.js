@@ -41,7 +41,7 @@ export const AllCards = styled.div`
 
     overflow-y: auto;
 
-    padding: 10px 20px 40px 10px;
+    padding: 1.5px 20px 1.5px 10px;
 
     ::-webkit-scrollbar-thumb{
         background: #764BA2;
@@ -71,7 +71,6 @@ export const AllCards = styled.div`
         grid-gap: 10px;
         height: 100%;
     }
-
 `;
 
 export const Title = styled.div`
@@ -141,7 +140,7 @@ export const FooterCard = styled.div`
         text-align: center;
         font-weight: 400;
 
-        a{
+        a {
             color: white;
         }
     }

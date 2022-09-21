@@ -26,6 +26,12 @@ export const Container = styled.div`
   }
 `;
 
+export const EmptyState = styled.div`
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Body = styled.div`
   overflow-x: hidden;
   overflow-y: auto;

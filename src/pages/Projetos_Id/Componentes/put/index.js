@@ -97,12 +97,12 @@ function Edit(Props) {
     const [descricaoEditProjeto, setDescricaoEditProjeto] = useState(Props.dados.descricao)
     
     const handleClickEdit = () => {
-        if(nomeEditProjeto !== ''){
+        if (nomeEditProjeto !== '') {
             setTimeout(() => setOpenAlert(true), 150)
         }
     }
     
-    function update(e){
+    function update(e) {
         e.preventDefault();
         api.put(projetoPath, {
             nome: nomeEditProjeto,

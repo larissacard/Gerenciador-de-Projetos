@@ -6,6 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useDrag } from 'react-dnd'
 import { Progress } from 'rsuite';
 import "rsuite/dist/rsuite.min.css";
+import moment from "moment";
 
 import { 
   BsFlagFill, 
@@ -27,7 +28,9 @@ import {
   LabelCheckbox, 
   Save, 
   ProgressBar, 
-  ButtonDelete
+  ButtonDelete,
+  ButtonCancel,
+  DateContent
 } from './styles';
 
 import { 
@@ -345,8 +348,6 @@ function KanbanLi(Props) {
       setCheckedAll(false)
     } 
 
-    
-
     // const list = [...selected];
     // const index = list.indexOf(value);
     // index === -1 ? list.push(value) : list.splice(index, 1);
@@ -407,15 +408,22 @@ function KanbanLi(Props) {
               color: '#280948',
             }}>
               <Input type='text' value={titulo} onChange={e => setTitulo(e.target.value)} />
-              <p style={{fontSize: '12px'}} title='Identificador da Tarefa'>{`(#${Props.dados.id})`}</p>
-              {/* <ButtonCancel onClick={handleClose}/> */}
+              {/* <p style={{fontSize: '12px'}} title='Identificador da Tarefa'>{`(#${Props.dados.id})`}</p> */}
+              <ButtonCancel onClick={handleClose}/>
             </DialogTitle>
+
             <Divider
               color='#764BA2'
               sx={{ height: '1px' }}
             />
+
             <DialogContent style={{ marginTop: '-6px', overflowX: 'hidden' }}>
               {/* -=-=-=-=-=-=-=-=-=-=- Status da Tarefa e Prioridade -=-=-=-=-=-=-=-=-=-=- */}
+              <DateContent>
+                <p>Data de criação: {moment(Props.dados.createdAt).format('L')} </p>
+                <p>Última atualização: {moment(Props.dados.updatedAt).format('L')} </p>
+              </DateContent>
+
               <div style={{
                 display: 'flex',
                 alignItems: 'center'

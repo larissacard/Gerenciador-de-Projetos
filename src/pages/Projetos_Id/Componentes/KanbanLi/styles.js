@@ -77,6 +77,7 @@ export const Prioridade = styled.div`
 `;
 
 export const ButtonCancel = styled.div`
+    margin-top: 6px;
     width: 15px;
     height: 15px;
     background-image: url(${cancel});
@@ -212,4 +213,9 @@ export const ProgressBar = styled.div`
     width: 580px;
     margin-left: -10px;
     margin-top: 8px;
+`;
+
+export const DateContent = styled.div`
+    margin-bottom: 10px;
+    color: #280948;
 `;
