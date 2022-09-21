@@ -63,7 +63,7 @@ function GetEquipe() {
           setTimeout(() => window.location.href = "/login", 2000)
         } else console.log(err.message);
       });
-  })
+  }, [])
 
   function updateScreen() {
     api
