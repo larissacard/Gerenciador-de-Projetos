@@ -111,7 +111,8 @@ function EditarPessoa(Props) {
         setOpenAlert(false);
         setEstado()
     };
-    
+
+    const [idEscolhido, setIdEscolhido] = useState(Props.dados.id)
     const [cargoEditEscolhido, setCargoEditEscolhido] = useState(Props.dados.cargo)
     const [nomeEditPessoa, setNomeEditPessoa] = useState(Props.dados.nome)
     const [datanascEdit, setDatanascEdit] = useState(moment(Props.dados.nascimento).utc().format('YYYY-MM-DD'))
@@ -140,6 +141,15 @@ function EditarPessoa(Props) {
             setOpenDrawer(true);
             setEstado('error');     
         })  
+    }
+
+    // Atualizando os dados quando outro edit é aberto
+    if (idEscolhido !== Props.dados.id) {
+        setIdEscolhido(Props.dados.id)
+        setCargoEditEscolhido(Props.dados.cargo)
+        setNomeEditPessoa(Props.dados.nome)
+        setDatanascEdit(moment(Props.dados.nascimento).utc().format('YYYY-MM-DD'))
+        setEditSalario(Props.dados.salario)
     }
 
     return (
