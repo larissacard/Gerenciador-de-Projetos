@@ -161,3 +161,7 @@ body {
         width: 300px!important;
     } 
 }
+
+.datepicker {
+    border: '2px solid #764BA2',
+}

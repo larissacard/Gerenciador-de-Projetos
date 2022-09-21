@@ -148,7 +148,7 @@ function KanbanLi(Props) {
       })
     }
 
-  const [visibleDelete, setVisibleDelete] = useState('none');
+  // const [visibleDelete, setVisibleDelete] = useState('none');
   // -=-=-=-=-=-=-=-=-=-=- Mudar Status da Checkbox -=-=-=-=-=-=-=-=-=-=-
   const [selected, setSelected] = useState()
   const [checkedAll, setCheckedAll] = useState(false)
@@ -164,7 +164,7 @@ function KanbanLi(Props) {
     let newStatus = e.target.checked ? 1 : 0
     
     if (selected.length === 1 && newStatus === 0) setCheckedAll(false)
-    else if (selected.length == tarefas.subTarefas.length - 1 && newStatus === 1) setCheckedAll(true)
+    else if (selected.length === tarefas.subTarefas.length - 1 && newStatus === 1) setCheckedAll(true)
     else setCheckedAll(false)
 
     if (e.target.checked) {
@@ -228,7 +228,7 @@ function KanbanLi(Props) {
   };
   
   const handleClose = () => {
-    if (titulo != Props.dados.nome || descricao != Props.dados.descricao || prioridade != Props.dados.prioridade) {
+    if (titulo !== Props.dados.nome || descricao !== Props.dados.descricao || prioridade !== Props.dados.prioridade) {
       api
       .put(`/tarefas/${Props.dados.id}`, {
           nome: titulo,
@@ -682,7 +682,7 @@ function KanbanLi(Props) {
                           borderRadius: '50%',
                           width: '26px',
                           height: '26px',
-                          display: 'flex',
+                          // display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           marginRight: '4px',

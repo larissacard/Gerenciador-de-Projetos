@@ -65,16 +65,3 @@ export const ButtonCancel = styled.div`
     transform: rotate(360deg);
   }
 `;
-
-export const Salario = styled.h6`
-  color: #764BA2; 
-  font-weight: 400;
-  
-  &:hover {
-    color: #6956E5;
-  } 
-  
-  &:focus {
-    color: var(--roxo);
-  }
-`;

@@ -9,13 +9,13 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import create from '../../../../assets/btn_create.svg'
 import { NumericFormat } from 'react-number-format';
 import PropTypes from 'prop-types';
+import { makeStyles } from "@material-ui/core";
 
 import { 
     ButtonPost, 
     ButtonCancel, 
     Cancelar, 
     Cadastrar, 
-    Salario 
 } from './styles'
 
 import { 
@@ -25,10 +25,8 @@ import {
     TextField, 
     Snackbar, 
     Stack, 
-    Autocomplete,
-    InputAdornment 
+    Autocomplete, 
 } from '@mui/material'
-import { Padding } from '@mui/icons-material';
 
 const CssTextField = styled(TextField)({
     '&:hover .MuiInputLabel-outlined': {
@@ -148,20 +146,13 @@ function PostPessoas(Props) {
 
     const [cargoEscolhido, setCargoEscolhido] = useState()
     const [nomePessoa, setNomePessoa] = useState()
-    const [datanasc, setDatanasc] = useState()
+    const [datanasc, setDatanasc] = useState('')
     const [salario, setSalario] = useState()
     const [imagem, setImagem] = useState()
 
     const [values, setValues] = useState({
         numberformat: '',
-      });
-
-    const handleChange = (event) => {
-        setValues({
-          ...values,
-          [event.target.name]: event.target.value,
-        });
-    };
+    });
 
     const handleClickCad = () => {
         if(nomePessoa !== ''){
@@ -249,29 +240,6 @@ function PostPessoas(Props) {
                         />
 
                         <CssTextField
-                            data-cy="salario"
-                            autoComplete='off'
-                            required
-                            onChange={(e) => setSalario(e.target.value)}
-                            fullWidth
-                            type="text"
-                            size='small'
-                            id='outlined-required'
-                            label='Salário'
-                            placeholder='Digite o Salário da Pessoa'
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position='start' style={{marginTop: '8.5px'}}>
-                                        <Salario>R$</Salario>  
-                                    </InputAdornment>
-                                )
-                            }}
-                            inputProps={{
-                                maxLength: 10,
-                            }}
-                        />
-
-                        <CssTextField
                             label="Salário"
                             required
                             size='small'                           
@@ -281,6 +249,7 @@ function PostPessoas(Props) {
                             onChange={(e) => setSalario(e.target.value)}
                             name="numberformat"
                             id="formatted-numberformat-input"
+                            InputLabelProps={{ shrink: true }}
                             InputProps={{
                                 inputComponent: NumericFormatCustom,
                                 maxLength: 10,
@@ -290,18 +259,23 @@ function PostPessoas(Props) {
 
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
-                                fullWidth
-                                required
+                                fullWidth                                
                                 disableFuture={true}
                                 inputFormat="dd/MM/yyyy"
                                 label="Data de Nascimento"
+                                autoFocus={true}
                                 openTo="year"
                                 views={['year', 'month', 'day']}
                                 value={datanasc}
                                 onChange={(newValue) => {
                                     setDatanasc(newValue);
                                 }}
-                                renderInput={(params) => <CssTextField size='small' {...params}
+                                renderInput={(params) => 
+                                    <CssTextField 
+                                        size='small' 
+                                        focused
+                                        autoComplete='off'
+                                        {...params}
                                 />}
                             />
                         </LocalizationProvider>
