@@ -32,6 +32,7 @@
     "react-bootstrap": "^2.4.0",
     "react-calendar": "^3.7.0",
     "react-chartjs-2": "^4.3.1",
+    "react-content-loader": "^6.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",

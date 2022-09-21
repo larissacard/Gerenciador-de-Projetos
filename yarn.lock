@@ -9823,6 +9823,11 @@
   "resolved" "https://registry.npmjs.org/react-chartjs-2/-/react-chartjs-2-4.3.1.tgz"
   "version" "4.3.1"
 
+"react-content-loader@^6.2.0":
+  "integrity" "sha512-r1dI6S+uHNLW68qraLE2njJYOuy6976PpCExuCZUcABWbfnF3FMcmuESRI8L4Bj45wnZ7n8g71hkPLzbma7/Cw=="
+  "resolved" "https://registry.npmjs.org/react-content-loader/-/react-content-loader-6.2.0.tgz"
+  "version" "6.2.0"
+
 "react-dev-utils@^12.0.1":
   "integrity" "sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-12.0.1.tgz"
