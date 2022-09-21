@@ -120,10 +120,19 @@ function KanbanLi(Props) {
   })
 
   // -=-=-=-=-=-=-=-=-=-=- Recebe os Objetos de Tarefas -=-=-=-=-=-=-=-=-=-=-
+  const [idEscolhido, setIdEscolhido] = useState(Props.dados.id)
   const [descricao, setDescricao] = useState(Props.dados.descricao)
   const [titulo, setTitulo] = useState(Props.dados.nome)
   const [prioridade, setPrioridade] = useState(Props.dados.prioridade)
   const [tarefas, setTarefas] = useState()
+
+  if (Props.dados.id !== idEscolhido) {
+    setIdEscolhido(Props.dados.id)
+    setDescricao(Props.dados.descricao)
+    setTitulo(Props.dados.nome)
+    setPrioridade(Props.dados.prioridade)
+    setTarefas()
+  }
 
   // -=-=-=-=-=-=-=-=-=-=- Get em Tarefas -=-=-=-=-=-=-=-=-=-=-
   const getTarefas = async () => {
